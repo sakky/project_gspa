@@ -1,0 +1,59 @@
+/****************index.html***************************/
+#page1 #content {
+	padding:30px 0 26px;
+}
+#page1 .col-1 {
+	width:240px;
+	margin-right:40px;
+}
+#page1 .col-2 {
+	width:309px;
+	margin-right:40px;
+}
+#page1 .col-3 {
+	width:320px;
+}
+/****************services.html/about***************************/
+#page2 .col-1 {
+	width:300px;
+	margin-right:20px;
+	/*background:#CC6666;*/
+}
+#page2 .col-2 {
+	width:300px;
+	/*background-color:#3366CC;*/
+}
+#page2 .col-3 {
+	width:460px;
+	margin-right:20px;
+	/*background-color:#00FFFF;*/
+}
+#page2 .col-4 {
+	width:460px;
+	/*background-color:#FFFF66;*/
+}
+/****************gallery.html***************************/
+#page3 .col-1 {
+	width:275px;
+	margin-right:60px;
+}
+#page3 .col-2 {
+	width:275px;
+}
+/****************contacts.html***************************/
+#page5 .col-1 {
+	width:275px;
+	margin-right:60px;
+}
+#page5 .col-2 {
+	width:605px;
+}
+
+/****************page.html***************************/
+#page6 .col-1 {
+	width:275px;
+	margin-right:40px;
+}
+#page6 .col-2 {
+	width:610px;
+}

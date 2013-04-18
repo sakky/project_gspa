@@ -1,0 +1,1 @@
+<?php echo $this->renderPartial('_form', array('model'=>$model,'password_not_match'=>$password_not_match,'password_confirm'=>$password_confirm,'option_levels'=>$option_levels,)); ?>

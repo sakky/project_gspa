@@ -1,0 +1,15 @@
+.banner {
+	behavior: url("../js/PIE.htc");
+}
+.img-border, .button {
+	behavior: url("../js/PIE.htc");
+	position:relative;
+}
+h1.logo span{
+margin-top:50px;
+}
+h1 strong {
+
+	margin-top:-60px;
+
+}

@@ -1,0 +1,15 @@
+.pagenav li {
+	display: inline-block;
+}
+.pagenav li.selected > a {
+	background: #8a5119!important;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.ellipsis.multiline {
+	white-space: normal;
+}
