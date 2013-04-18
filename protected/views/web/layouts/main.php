@@ -68,11 +68,13 @@ $(function () {
   </div>
 </header>
 
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+<div>
+<?php if(isset($this->breadcrumbs)):?>
+        <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                'links'=>$this->breadcrumbs,
+        )); ?><!-- breadcrumbs -->
+<?php endif?>
+</div>
 
 <!--==============================content================================-->
 <?php echo $content;?>
