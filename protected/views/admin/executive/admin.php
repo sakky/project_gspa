@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Executive', 'url'=>array('index')),
 	array('label'=>'เพิ่มข้อมูลผู้บริหาร', 'url'=>array('create')),
+	array('label'=>'เรียงลำดับข้อมูลผู้บริหาร', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
