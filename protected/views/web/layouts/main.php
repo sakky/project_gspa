@@ -34,7 +34,7 @@ $(function () {
 <header>
   <div class="main">
     <div class="wrapper">
-      <h1 class="logo"><a href="index.html" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>Graduate School of Public Administration</strong> </h1>
+      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>Graduate School of Public Administration</strong> </h1>
       <nav>
         <ul class="menu">
           <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">Home</a></li>
