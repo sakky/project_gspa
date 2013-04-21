@@ -53,6 +53,7 @@ class Executive extends CActiveRecord
 			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, position_en, position_th', 'length', 'max'=>255),
 			array('sex', 'length', 'max'=>1),
+                        array('detail_en, detail_th', 'safe'),
                         array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -84,6 +85,8 @@ class Executive extends CActiveRecord
 			'sex' => 'เพศ',
 			'position_en' => 'ตำแหน่ง (ภาษาอังกฤษ)',
 			'position_th' => 'ตำแหน่ง (ภาษาไทย)',
+                        'detail_en' => 'รายละเอียด (ภาษาอังกฤษ)',
+			'detail_th' => 'รายละเอียด (ภาษาไทย)',
 			'image' => 'รูปประจำตัว',
 			'sort_order' => 'การเรียงลำดับ',
 			'status' => 'สถานะ',
@@ -109,6 +112,8 @@ class Executive extends CActiveRecord
 		$criteria->compare('sex',$this->sex);
 		$criteria->compare('position_en',$this->position_en,true);
 		$criteria->compare('position_th',$this->position_th,true);
+                $criteria->compare('detail_en',$this->detail_en,true);
+		$criteria->compare('detail_th',$this->detail_th,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('sort_order',$this->sort_order);
 		$criteria->compare('status',$this->status);
@@ -117,6 +122,7 @@ class Executive extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
 		));
 	}
 }
