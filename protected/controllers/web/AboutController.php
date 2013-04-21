@@ -10,21 +10,48 @@ class AboutController extends Controller
 	}
         public function actionBoard()
 	{
-                
-                $model = $this->getAllBoard();
-		$this->render('board',array(
-			'model'=>$model));
+                if(isset($_GET['id'])){
+                    $model =$this->loadBoardModel($_GET['id']);
+                    $this->render('board_detail',array(
+                            'model'=>$model));
+                }else{
+                    $model = $this->getAllBoard();
+                    $this->render('board',array(
+                            'model'=>$model));
+                }
 	}
+        
         public function actionExecutive()
 	{
-                
-                $model = $this->getAllExeutive();
-		$this->render('executive',array(
-			'model'=>$model));
+                if(isset($_GET['id'])){
+                     $model =$this->loadExecutiveModel($_GET['id']);
+                     $this->render('executive_detail',array(
+                            'model'=>$model));
+                }else{
+                    $model = $this->getAllExeutive();
+                    $this->render('executive',array(
+                            'model'=>$model));
+                }
 	}
         public function loadModel($id)
 	{
 		$model=Page::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+        
+        public function loadBoardModel($id)
+	{
+		$model=Board::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+     
+        public function loadExecutiveModel($id)
+	{
+		$model=Executive::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
