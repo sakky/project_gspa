@@ -127,8 +127,9 @@ class SiteController extends Controller
                 }else{
                 $criteria = new CDbCriteria();
 		$criteria->select = '*';
-		$criteria->condition = 'program_type=:program_type';
+		$criteria->condition = 'program_type=:program_type';                
 		$criteria->params=array(':program_type'=>'Master');
+                $criteria->order = 'sort_order';
 		
 		$master = Program::model()->findAll($criteria);
                 
@@ -136,6 +137,7 @@ class SiteController extends Controller
 		$criteria2->select = '*';
 		$criteria2->condition = 'program_type=:program_type';
 		$criteria2->params=array(':program_type'=>'Doctor');
+                $criteria2->order = 'sort_order';
 		
 		$doctor = Program::model()->findAll($criteria2);
                 
