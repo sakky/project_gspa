@@ -8,8 +8,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	//array('label'=>'List Program', 'url'=>array('index')),
+	
 	array('label'=>'เพิ่มข้อมูลหลักสูตร', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับหลักสูตร', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
