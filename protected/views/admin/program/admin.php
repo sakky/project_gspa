@@ -48,16 +48,16 @@ $('.search-form form').submit(function(){
                  array(
 			'name'=>'program_type',                 
 			'value'=> '($data->program_type==\'Master\')? \'หลักสูตร ป.โท\' : \'หลักสูตร ป.เอก\'',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 90px;'),
+			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
 		),
                 array(
 			'name'=>'name_th',                        
                         'header'=>'ชื่อหลักสูตร',
 		),
-                 array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
+//                 array(
+//			'name'=>'sort_order', 
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//		),
                 array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
