@@ -38,7 +38,7 @@ $(function () {
           <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">Home</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">About Us</a>
           </li>
-          <li><a href="gallery.html" title="ประมวลภาพกิจกรรม">Gallery</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">Gallery</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >News</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >Contacts Us</a></li>
         </ul>
