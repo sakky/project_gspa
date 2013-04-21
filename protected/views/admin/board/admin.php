@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Board', 'url'=>array('index')),
         array('label'=>'เพิ่มข้อมูลคณะกรรมการ', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับข้อมูลคณะกรรมการ', 'url'=>array('order')),
+        array('label'=>'เรียงลำดับคณะกรรมการ', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
