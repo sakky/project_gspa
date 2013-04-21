@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Executive', 'url'=>array('create')),
-	array('label'=>'Manage Executive', 'url'=>array('admin')),
+	//array('label'=>'List Executive', 'url'=>array('index')),
+	array('label'=>'จัดการข้อมูลผู้บริหาร', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Executives</h1>
+<h1>เรียงลำดับการแสดงผลข้อมูลผู้บริหาร</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 
@@ -21,6 +21,12 @@ $this->menu=array(
 
 /*]]>*/
 </style>
+<script>
+        var baseUrl = "<?php echo Yii::app()->createUrl('executive'); ?>"
+</script>
+<div class="form">
+<p class="note"><span class="required">*</span> หมายเหตุ : คลิกค้างที่รายชื่อและลากเพื่อย้ายตำแหน่ง</p>
+<div style="cursor: move">
 <?php
     // Organize the dataProvider data into a Zii-friendly array
     $items = CHtml::listData($dataProvider->getData(), 'exec_id', 'name_th');
@@ -30,11 +36,28 @@ $this->menu=array(
         'items' => $items,
     ));
     // Add a Submit button to send data to the controller
-    echo CHtml::ajaxButton('Submit Changes', '', array(
+?>
+</div><br/>
+<div class="row buttons">
+<?php    echo CHtml::ajaxButton('บันทึกการเปลี่ยนแปลง', '', array(
         'type' => 'POST',
+        'htmlOptions' => array('style'=>'cursor: pointer'),
         'data' => array(
             // Turn the Javascript array into a PHP-friendly string
             'Order' => 'js:$("ul#orderList").sortable("toArray").toString()',
-        )
+        ),
+        'success'=>'function(){
+            alert("บันทึกข้อมูลเรียบร้อยแล้ว");           
+            var win=window.open(baseUrl,"_self");
+                    with(win.document)
+                    {
+                        close();
+                    }
+            }
+        ',
     ));
+
+
 ?>
+</div>
+</div>
