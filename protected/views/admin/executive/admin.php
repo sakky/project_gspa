@@ -65,12 +65,12 @@ $('.search-form form').submit(function(){
                 array(
 			'name'=>'position_th',                        
                         'header'=>'ตำแหน่ง',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),
+			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
 		),
-                array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
+//                array(
+//			'name'=>'sort_order', 
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//		),
 		array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
