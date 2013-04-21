@@ -45,6 +45,38 @@
 		<?php echo $form->textField($model,'position_th',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'position_th'); ?>
 	</div>
+        
+        <div class="row">            
+		<?php echo $form->labelEx($model,'detail_en'); ?>
+                <?php 
+                    $this->widget('application.extensions.cleditor.ECLEditor', array(
+                    'model'=>$model,
+                    'attribute'=>'detail_en', //Model attribute name. Nome do atributo do modelo.
+                    'options'=>array(
+                        'width'=>'600',
+                        'height'=>'250',
+                        'useCSS'=>true,
+                    ),
+                    'value'=>$model->detail_en, //If you want pass a value for the widget. I think you will. Se você precisar passar um valor para o gadget. Eu acho irá.
+                ));?>
+		<?php echo $form->error($model,'detail_en'); ?>
+	</div>
+        
+        <div class="row">           
+		<?php echo $form->labelEx($model,'detail_th'); ?>
+                <?php 
+                    $this->widget('application.extensions.cleditor.ECLEditor', array(
+                    'model'=>$model,
+                    'attribute'=>'detail_th', //Model attribute name. Nome do atributo do modelo.
+                    'options'=>array(
+                        'width'=>'600',
+                        'height'=>'250',
+                        'useCSS'=>true,
+                    ),
+                    'value'=>$model->detail_th, //If you want pass a value for the widget. I think you will. Se você precisar passar um valor para o gadget. Eu acho irá.
+                ));?>
+		<?php echo $form->error($model,'detail_th'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
