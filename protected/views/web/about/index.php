@@ -6,7 +6,11 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับเรา';
     
 }
+$this->breadcrumbs=array(
+        'About Us'=>array('&id=1'),
+        $model->name_th
 
+);
 
 ?>
 <div id="page6">
