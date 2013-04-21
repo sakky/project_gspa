@@ -3,7 +3,8 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Executives',
+	'ผู้บริหาร'=>array('index'),
+	'เรียงลำดับข้อมูล',
 );
 
 $this->menu=array(
