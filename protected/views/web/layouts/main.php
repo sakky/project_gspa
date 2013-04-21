@@ -62,17 +62,19 @@ $(function () {
     	   <a title="" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
            <a title="" href="&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
     </div>
+    <div class="clear"></div>
+    <div style="margin-top: 30px;padding-left: 20px;">
+    <?php if(isset($this->breadcrumbs)):?>
+            <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                    'links'=>$this->breadcrumbs,
+            )); ?><!-- breadcrumbs -->
+    <?php endif?>
+    </div>
     </div>
   </div>
 </header>
 
-<div>
-<?php if(isset($this->breadcrumbs)):?>
-        <?php $this->widget('zii.widgets.CBreadcrumbs', array(
-                'links'=>$this->breadcrumbs,
-        )); ?><!-- breadcrumbs -->
-<?php endif?>
-</div>
+
 
 <!--==============================content================================-->
 <?php echo $content;?>
