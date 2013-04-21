@@ -9,7 +9,8 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'List Board', 'url'=>array('index')),
-        array('label'=>'เพิ่มข้อมูลคณะกรรมการ', 'url'=>array('create'))
+        array('label'=>'เพิ่มข้อมูลคณะกรรมการ', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับข้อมูลคณะกรรมการ', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -67,12 +68,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                 array(
 			'name'=>'position_th',                        
                         'header'=>'ตำแหน่ง',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),
+			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
 		),
-                array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
+//                array(
+//			'name'=>'sort_order', 
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//		),
 		array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
