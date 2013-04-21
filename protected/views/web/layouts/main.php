@@ -8,9 +8,7 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/layout.css" type="text/css" media="screen">
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/NewsGoth_400.font.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/NewsGoth_700.font.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/Vegur_300.font.js" type="text/javascript"></script>
+
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/FF-cash.js" type="text/javascript"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms-0.3.js" type="text/javascript"></script>
@@ -122,11 +120,9 @@ $(function () {
         </ul>
       </article>
     </div>
-    <div class="aligncenter">Copyright &copy; <a class="color-1" href="#">Domain Name</a> All Rights Reserved<br>
-      Design by <a target="_blank" href="http://www.templatemonster.com/" class="color-1">TemplateMonster.com</a> </div>
+    <div class="aligncenter">Copyright &copy; <a class="color-1" href="#">Domain Name</a> All Rights Reserved </div>
   </div>
 </footer>
-<script type="text/javascript">Cufon.now();</script>
 <script type="text/javascript">
 $(window).load(function () {
     $('.slider')._TMS({
