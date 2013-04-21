@@ -7,7 +7,8 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     
 }
 $this->breadcrumbs=array(
-	'Contact',
+        'About Us'=>array('&id=1'),
+	'Executive'=>array('executive'),
 );
 
 
@@ -28,7 +29,8 @@ $this->breadcrumbs=array(
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/executives/<?php echo $board->image;?>"/></figure>
             <div class="extra-wrap" style="padding-top: 20px">
               <h6><?php echo $board->name_th;?></h6>
-              <p>ตำแหน่ง : <?php echo $board->position_th;?>
+              <p>ตำแหน่ง : <?php echo $board->position_th;?></p>
+              <p class="small"><a href="<?php echo Yii::app()->createUrl('about/executive', array('id'=>$board->exec_id)); ?>">ดูข้อมูลเพิ่มเติม</a></p>
              </div>
           </div>
           <?php }?>

@@ -6,7 +6,10 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     $this->pageTitle=Yii::app()->name . ' - คณะกรรมการประจำวิทยาลัย';
     
 }
-
+$this->breadcrumbs=array(
+        'About Us'=>array('&id=1'),
+        'Board'=>array('board'),
+);
 
 ?>
 <div id="page6">
@@ -25,7 +28,8 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/boards/<?php echo $board->image;?>"/></figure>
             <div class="extra-wrap" style="padding-top: 20px">
               <h6><?php echo $board->name_th;?></h6>
-              <p>ตำแหน่ง : <?php echo $board->position_th;?>
+              <p>ตำแหน่ง : <?php echo $board->position_th;?></p>
+              <p class="small"><a href="<?php echo Yii::app()->createUrl('about/board', array('id'=>$board->board_id)); ?>">ดูข้อมูลเพิ่มเติม</a></p>
              </div>
           </div>
           <?php }?>
