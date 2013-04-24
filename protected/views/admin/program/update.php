@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Program <?php echo $model->program_id; ?></h1>
+<h1>แก้ไขหลักสูตร #<?php echo $model->program_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
