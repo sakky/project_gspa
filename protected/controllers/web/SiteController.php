@@ -51,19 +51,24 @@ class SiteController extends Controller
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news = News::model()->findAll($news_criteria);
                 
+                $vdo_criteria = new CDbCriteria();
+                $vdo_criteria->condition = "page_id = 3 AND status = 1";
+                $vdo = Page::model()->find($vdo_criteria);
+                
                 $total_menu = count($menu_list);
                 
 //                 echo "<br> ===> ";
-//                         echo "<pre>";
-//                         print_r($model);
-//                         echo "</pre>";
-//                         //exit;
+//                 echo "<pre>";
+//                 print_r($vdo);
+//                 echo "</pre>";
+//                 exit;
                         
                 $this->render('index',array(
                                 'model'=>$model,
                                 'news'=>$news,
                                 'menu_list'=>$menu_list,
                                 'total_menu'=>$total_menu,
+                                'vdo'=>$vdo,
                         ));
 	}
 
