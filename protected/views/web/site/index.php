@@ -60,9 +60,7 @@ $this->pageTitle=Yii::app()->name;
       <article class="col-3">
         <div class="indent-top">
         <h3>Media</h3>
-        <script type="text/javascript">
-AC_AX_RunContent( 'width','310','src','http://www.youtube.com/v/sME2Vshjnow?version=3&hl=th_TH','type','application/x-shockwave-flash','allowscriptaccess','always','allowfullscreen','true','movie','http://www.youtube.com/v/sME2Vshjnow?version=3&hl=th_TH' ); //end AC code
-</script><noscript><object width="310"><param name="movie" value="http://www.youtube.com/v/sME2Vshjnow?version=3&amp;hl=th_TH"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/sME2Vshjnow?version=3&amp;hl=th_TH" type="application/x-shockwave-flash" width="310" allowscriptaccess="always" allowfullscreen="true"></embed></object></noscript><br>
+        <?php echo $vdo->desc_th;?>
         <div class="clear"></div>
           <ul class="list-2">
             <li> <a class="item" href="#">Our Vision</a> <span>Business.Co is one of free web templates created by TemplateMonster.com team. </span> </li>           
