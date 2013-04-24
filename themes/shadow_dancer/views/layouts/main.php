@@ -79,7 +79,7 @@
                                 array('label'=>'Links ที่เกี่ยวข้อง', 'url'=>array('/link')),
 			)),
                         
-                        array('label'=>'ภาพกิจกรรม'),
+                        array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
 			array('label'=>'ข่าวสาร', 'items'=> 
 				array(
 					//array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
@@ -93,7 +93,7 @@
                         array('label'=>'อื่นๆ', 'items'=> 
 				array(				
                                         array('label'=>'Slide Show', 'url'=>array('/slide')),
-                                        array('label'=>'VDO', 'url'=>array('/vdo')),
+                                        array('label'=>'VDO', 'url'=>array('/page/edit?id=3')),
 				),
 			),
                         array('label'=>'ผู้ใช้งาน','url'=>array('/user')),
