@@ -14,85 +14,22 @@ $this->breadcrumbs=array(
 <div id="page3">
   <div class="main">
     <div class="indent-left">
-      <h3>Gallery</h3>
+      <h3>ประมวลภาพกิจกรรม</h3>
       <div class="wrapper margin-bot">
+        <?php foreach ($gallery as $row){?>  
         <article class="col-1">
           <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img1.jpg" alt="" /></a></figure>
+            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('gallery', array('id'=>$row->gallery_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/gallery/<?php echo $row->image;?>" alt="" /></a></figure>
             <div class="clear"></div>
           </div>
-          <h6>HandyMan</h6>
-          <p class="p2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-1">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img2.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Good Cook</h6>
-          <p class="p2">Doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-2">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img3.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Photographer’s Portfolio</h6>
-          <p class="p2">Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          <a class="button" href="#">Read More</a> </article>
+          <h6><?php echo $row->name_th;?></h6>
+          <p class="p2"><?php echo $row->desc_th;?></p>
+          <a class="button" href="<?php echo Yii::app()->createUrl('gallery', array('id'=>$row->gallery_id)); ?>">ดูเพิ่มเติม</a> </article>
+        <?php }?>
+        
+        
       </div>
-      <div class="wrapper margin-bot">
-        <article class="col-1">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img4.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Hatha Yoga</h6>
-          <p class="p2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-1">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img5.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Night Club</h6>
-          <p class="p2">Doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-2">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img6.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Spa Salon</h6>
-          <p class="p2">Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          <a class="button" href="#">Read More</a> </article>
-      </div>
-      <div class="wrapper">
-        <article class="col-1">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img7.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Interior Design</h6>
-          <p class="p2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-1">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img8.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Hope Center</h6>
-          <p class="p2">Doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-          <a class="button" href="#">Read More</a> </article>
-        <article class="col-2">
-          <div class="prev-indent-bot">
-            <figure class="img-border"><a href="#"><img src="images/front/page3-img9.jpg" alt="" /></a></figure>
-            <div class="clear"></div>
-          </div>
-          <h6>Progress Business Company</h6>
-          <p class="p2">Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          <a class="button" href="#">Read More</a> </article>
-      </div>
+
     </div>
   </div>
 </div>
