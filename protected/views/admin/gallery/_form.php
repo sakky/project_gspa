@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->labelEx($model,'image'); ?><br/>
                 <?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/gallery/' . $model->image, '', array('style'=>'width: 120px')); ?><br />
 		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'image'); ?>
