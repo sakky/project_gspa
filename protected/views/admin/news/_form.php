@@ -47,7 +47,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_en'); ?>
+		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
                 <?php $crate_date = $day.'/'.$month.'/'.$year;
                       $this->widget('application.extensions.cleditor.ECLEditor', array(
                                         'model'=>$model,
@@ -63,7 +63,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_th'); ?>
+		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
                 <?php $this->widget('application.extensions.cleditor.ECLEditor', array(
                                     'model'=>$model,
                                     'attribute'=>'desc_th', 
@@ -78,7 +78,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->labelEx($model,'image'); ?><br/>
 		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 120px')); ?><br />
 		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'image'); ?>
