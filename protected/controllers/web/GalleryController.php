@@ -4,7 +4,13 @@ class GalleryController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+                $criteria = new CDbCriteria();
+                $criteria->condition = "status = 1";
+                $criteria->order = "sort_order asc,gallery_id asc";
+                $model = Gallery::model()->findAll($criteria);
+
+		$this->render('index',array('gallery'=>$model));
+
 	}
 
 	// Uncomment the following methods and override them if needed
