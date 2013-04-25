@@ -6,7 +6,7 @@
         'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 	<div class="row">
-                <label>ข้อมูลหน้าภาษาอังกฤษ</label>
+                <label>ข้อมูลหน้าภาษาอังกฤษ</label><br/>
                 <?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
@@ -22,7 +22,7 @@
 	</div>
         <br/><br/>
 	<div class="row">
-                <label>ข้อมูลหน้าภาษาไทย</label>
+                <label>ข้อมูลหน้าภาษาไทย</label><br/>
                 <?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
@@ -39,14 +39,14 @@
         <?php if($model->page_id ==14 || $model->page_id ==15){?>
         <br/>
         <div class="row">
-                <label>อัพโหลดใบสมัคร หน้าภาษาอังกฤษ (ไฟล์ pdf เท่านั้น)</label>
+                <label>อัพโหลดใบสมัคร ภาษาอังกฤษ (ไฟล์ pdf เท่านั้น)</label><br/><br/>
                 <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/pages/pdf/'.$model->pdf_en);} }?><br />
 		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_en'); ?>
 	</div>
 
 	<div class="row">
-                <label>อัพโหลดใบสมัคร หน้าภาษาไทย (ไฟล์ pdf เท่านั้น)</label>
+                <label>อัพโหลดใบสมัคร ภาษาไทย (ไฟล์ pdf เท่านั้น)</label><br/><br/>
 		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/pages/pdf/'.$model->pdf_th);} }?><br />
 		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_th'); ?>

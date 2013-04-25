@@ -42,7 +42,7 @@
 
 	<div class="row">
             
-		<?php echo $form->labelEx($model,'desc_en'); ?>
+		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
                 <?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
@@ -58,7 +58,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_th'); ?>
+		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
                 <?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
