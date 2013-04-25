@@ -46,23 +46,23 @@ $('.search-form form').submit(function(){
 		),
                 array(
 			'name'=>'image',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
+			'htmlOptions'=>array('style'=>'text-align: center;width: 120px;'),
                         'type'=>'html',
-                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/gallery/".$data->image, "รูปปกอัลบั้ม",array(\'width\'=>120))',
+                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/gallery/".$data->image, "รูปปกอัลบั้ม",array(\'width\'=>140))',
                         'htmlOptions'=>array('width'=>'100px'),
                 ),
                 array(
 			'name'=>'name_th',                        
                         'header'=>'ชื่ออัลบั้ม',
 		),       
-                array(
-			'name'=>'sort_order',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
+//                array(
+//			'name'=>'sort_order',
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//		),
             	array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+			'htmlOptions'=>array('style'=>'text-align: center;width: 60px;'),
 		),
 		/*
 		'sort_order',
