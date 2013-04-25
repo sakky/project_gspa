@@ -34,7 +34,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_en'); ?>
+		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
                 <?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
@@ -50,7 +50,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_th'); ?>
+		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
 		<?php 
                     $this->widget('application.extensions.cleditor.ECLEditor', array(
                     'model'=>$model,
@@ -66,14 +66,14 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pdf_en'); ?>
+		<?php echo $form->labelEx($model,'pdf_en'); ?><br/>
                 <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('view', '../../uploads/programs/'.$model->pdf_en);} }?><br />
 		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_en'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pdf_th'); ?>
+		<?php echo $form->labelEx($model,'pdf_th'); ?><br/>
 		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('view', '../../uploads/programs/'.$model->pdf_th);} }?><br />
 		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_th'); ?>
