@@ -86,6 +86,8 @@ div.form label
 	font-weight: bold;
 	font-size: 0.9em;
 	display: block;
+        float:left;
+        width:25%;
 }
 
 div.form .row
