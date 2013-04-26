@@ -91,6 +91,7 @@
                       $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'model' => $model,
                         'attribute' => 'create_date',
+                        'language'=>'th',
 
                         'options'=>array(
                                     'showAnim'=>'fold',
