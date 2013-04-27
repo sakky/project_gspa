@@ -38,10 +38,11 @@ body {
 }
 a {
 	color:#080808;
-	outline:none
+	outline:none;
+        text-decoration:none;
 }
 a:hover {
-	text-decoration:none
+	text-decoration:none;
 }
 .small{
     font-size: 12px;
@@ -585,7 +586,7 @@ h6 {
 	margin-bottom:4px;
 }
 .list-4 li a.item:hover {
-	text-decoration
+	/*text-decoration*/
 }
 
 .link:hover {
@@ -731,4 +732,13 @@ header .lang{
 float:right;
 margin-right:10px;
 margin-top:5px;
+}
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	/*padding: 5px 20px;*/
+}
+div.breadcrumbs a
+{
+        text-decoration: none;
 }

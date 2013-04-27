@@ -140,6 +140,10 @@ div.breadcrumbs
 	font-size: 0.9em;
 	padding: 5px 20px;
 }
+div.breadcrumbs a
+{
+        text-decoration: none;
+}
 
 div.breadcrumbs span
 {

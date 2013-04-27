@@ -245,6 +245,10 @@ div.breadcrumbs
 	padding: 15px 20px 15px 20px ;
 	border-bottom: 1px solid #CCCCCC;
 }
+div.breadcrumbs a
+{
+        text-decoration: none;
+}
 
 .breadcrumbs
 {
@@ -322,7 +326,7 @@ div.search-form
 .portlet-content li a
 {
 	color: #000!important;
-	text-decoration:underline!important;
+	/*text-decoration:underline!important;*/
 }
 
 .portlet table th {
