@@ -37,11 +37,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'type'); ?>
-		<?php echo $form->textField($model,'type',array('size'=>8,'maxlength'=>8)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'sort_order'); ?>
 		<?php echo $form->textField($model,'sort_order'); ?>
 	</div>
