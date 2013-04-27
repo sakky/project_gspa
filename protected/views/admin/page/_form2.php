@@ -71,7 +71,7 @@
         
 	<div class="row buttons" align="center">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
-                <input type="button" name="btn_back" id="btn_back" value="ยกเลิก"/>
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('site/index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
