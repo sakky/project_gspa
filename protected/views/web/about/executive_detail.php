@@ -28,7 +28,7 @@ $this->breadcrumbs=array(
           <div class="wrapper indent-bot">
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/executives/<?php echo $model->image;?>" width="100px"/></figure>
             <div class="extra-wrap">
-              <h4><?php echo $model->name_th;?></h4>
+              <h6><?php echo $model->name_th;?></h6>
               <p>ตำแหน่ง : <?php echo $model->position_th;?>
               <br/>ข้อมูลเพิ่มเติม : <br/><?php echo $model->detail_th;?></p>
             </div>
