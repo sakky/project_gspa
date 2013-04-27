@@ -176,6 +176,41 @@ class SlideController extends AdminController
 			'model'=>$model,
 		));
 	}
+        
+        public function actionOrder()
+        {
+            // Handle the POST request data submission
+            if (isset($_POST['Order']))
+            {
+                // Since we converted the Javascript array to a string,
+                // convert the string back to a PHP array
+                $models = explode(',', $_POST['Order']);
+
+                for ($i = 0; $i < sizeof($models); $i++)
+                {
+                    if ($model = Slide::model()->findbyPk($models[$i]))
+                    {
+                        $model->sort_order = $i;
+
+                        $model->save();
+                    }
+                }
+            }
+            // Handle the regular model order view
+            else
+            {
+                $dataProvider = new CActiveDataProvider('Slide', array(
+                    'pagination' => false,
+                    'criteria' => array(
+                        'order' => 'sort_order ASC, slide_id DESC',
+                    ),
+                ));
+
+                $this->render('order',array(
+                    'dataProvider' => $dataProvider,
+                ));
+            }
+        }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
