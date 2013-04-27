@@ -57,20 +57,9 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
-		<?php echo $form->error($model,'user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'time_stamp'); ?>
-		<?php echo $form->textField($model,'time_stamp'); ?>
-		<?php echo $form->error($model,'time_stamp'); ?>
-	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
