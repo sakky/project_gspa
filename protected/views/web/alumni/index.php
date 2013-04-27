@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
           <h3>รวมพลคนเก่ง GSPA</h3>
           <?php foreach ($model as $value){?>
           <div class="wrapper indent-bot">
-            <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/alumni/<?php echo $value->image;?>"/></figure>
+            <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/alumni/<?php echo $value->image;?>" width="100px"/></figure>
             <div class="extra-wrap">
               <h6><?php echo $value->name_th;?></h6>
               <p>สาขาวิชา : <?php echo $value->major_th;?><br/>
