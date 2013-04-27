@@ -37,7 +37,7 @@ $this->pageTitle=Yii::app()->name;
       </ul>
     </div>
     <div class="border-bot1 img-indent-bot">
-      <h2>Graduate School of Public Administration<strong>Burapha University</strong></h2>
+      <h2>&#126; วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา &#126;</h2>
     </div>
     <div class="wrapper">
       <article class="col-1">
@@ -48,9 +48,9 @@ $this->pageTitle=Yii::app()->name;
       <article class="col-2">
          <h3>ข่าวล่าสุด</h3>  
         <?php foreach ($news as $new){?>
-        <h4><?php echo $new->name_th;?></h4>
+        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></h4>
         <div class="p1">
-          <figure class="img-border"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" alt="" /></figure>
+          <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" /></a></figure>
           <div class="clear"></div>
         </div>
         <p class="img-indent-bot"><?php echo $new->title_th;?></p>
@@ -59,13 +59,15 @@ $this->pageTitle=Yii::app()->name;
       </article>
       <article class="col-3">
         <div class="indent-top">
-        <h3>Media</h3>
+        <h3>วีดีโอแนะนำวิทยาลัย</h3>
         <?php echo $vdo->desc_th;?>
         <div class="clear"></div>
+        <br/>
+        <h4>ประมวลภาพกิจกรรมล่าสุด</h4>
           <ul class="list-2">
             <li> <a class="item" href="#">Our Vision</a> <span>Business.Co is one of free web templates created by TemplateMonster.com team. </span> </li>           
             <li> <a class="item" href="#">Perfect Experience</a> <span>This template is optimized for 1280X1024 screen resolution.</span> </li>
-            <li class="last-item"> <a class="item" href="#">News &amp; Events</a> <span>It is also XHTML &amp; CSS valid. Quis nostrud exercitation ullamco laboris nisi ut.</span> <a class="button" href="#">Read More</a> </li>
+            <li class="last-item"> <a class="item" href="#">News &amp; Events</a> <span>It is also XHTML &amp; CSS valid. Quis nostrud exercitation ullamco laboris nisi ut.</span> <a class="button" href="#">ดูทั้งหมด</a> </li>
           </ul>
         </div>
       </article>
