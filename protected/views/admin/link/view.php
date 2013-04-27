@@ -26,7 +26,6 @@ $this->menu=array(
 		'name_th',
 		'link_en',
 		'link_th',
-		'type',
 		'sort_order',
 		'status',
 	),
