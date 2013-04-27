@@ -3,19 +3,18 @@
 /* @var $model Link */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	$model->link_id=>array('view','id'=>$model->link_id),
-	'Update',
+	'Link ที่เกี่ยวข้อง'=>array('index'),
+	'แก้ไขข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'Create Link', 'url'=>array('create')),
+	array('label'=>'เพิ่ม Link ที่เกี่ยวข้อง', 'url'=>array('create')),
 	//array('label'=>'View Link', 'url'=>array('view', 'id'=>$model->link_id)),
-	array('label'=>'Manage Link', 'url'=>array('admin')),
+	array('label'=>'จัดการ Link ที่เกี่ยวข้อง', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Link <?php echo $model->link_id; ?></h1>
+<h1>แก้ไขข้อมูล Link ที่เกี่ยวข้อง #<?php echo $model->link_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
