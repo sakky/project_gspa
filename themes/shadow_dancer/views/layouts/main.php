@@ -76,7 +76,7 @@
                         array('label'=>'เมนูด้านล่าง', 'items'=>array(
                                 array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
 				array('label'=>'หน่วยงานภายใน', 'url'=>array('/organization')),
-                                array('label'=>'Links ที่เกี่ยวข้อง', 'url'=>array('/link')),
+                                array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
 			)),
                         
                         array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
