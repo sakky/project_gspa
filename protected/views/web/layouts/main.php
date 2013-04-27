@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/reset.css" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/layout.css" type="text/css" media="screen">
+<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/fonts.css" type="text/css" charset="utf-8" />
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/FF-cash.js" type="text/javascript"></script>
@@ -32,15 +33,15 @@ $(function () {
 <header>
   <div class="main">
     <div class="wrapper">
-      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>Graduate School of Public Administration</strong> </h1>
+      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</strong> </h1>
       <nav>
         <ul class="menu">
-          <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">Home</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">About Us</a>
+          <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">เกี่ยวกับเรา</a>
           </li>
-          <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">Gallery</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >News</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >Contacts Us</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
         </ul>
 
       </nav>
@@ -59,8 +60,8 @@ $(function () {
       </form>
     </div>
     <div class="lang">
-    	   <a title="" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
-           <a title="" href="&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
+    	   <a title="ภาษาไทย" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
+           <a title="English" href="&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
     </div>
     <div class="clear"></div>
     <div style="margin-top: 30px;padding-left: 20px;">
