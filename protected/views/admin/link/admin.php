@@ -9,7 +9,8 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'เพิ่มข้อมูล Link ที่เกี่ยวข้อง', 'url'=>array('create')),
+	array('label'=>'เพิ่ม Link ที่เกี่ยวข้อง', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับ Link ที่เกี่ยวข้อง', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
