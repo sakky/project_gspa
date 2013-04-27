@@ -43,12 +43,12 @@ class Link extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, link_en, link_th, type, sort_order, status', 'required','message'=>'{attribute} ห้ามว่าง'),
-			array('name_en, name_th, link_en, link_th, sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
-			array('type', 'length', 'max'=>8),
+			array('name_en, name_th, link_en, link_th', 'required','message'=>'{attribute} ห้ามว่าง'),
+                    	array('name_en, name_th, link_en, link_th', 'length', 'max'=>255),
+			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('link_id, name_en, name_th, link_en, link_th, type, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
+			array('link_id, name_en, name_th, link_en, link_th, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,6 +60,7 @@ class Link extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 
@@ -69,14 +70,13 @@ class Link extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'link_id' => 'Link',
-			'name_en' => 'Name En',
-			'name_th' => 'Name Th',
-			'link_en' => 'Link En',
-			'link_th' => 'Link Th',
-			'type' => 'Type',
-			'sort_order' => 'Sort Order',
-			'status' => 'Status',
+			'link_id' => 'รหัส',
+			'name_en' => 'ชื่อลิงค์ (ภาษาอังกฤษ)',
+			'name_th' => 'ชื่อลิงค์ (ภาษาไทย)',
+			'link_en' => 'ลิงค์ (หน้าภาษาอังกฤษ)',
+			'link_th' => 'ลิงค์ (หน้าภาษาไทย)',
+			'sort_order' => 'การเรียงลำดับ',
+			'status' => 'สถานะ',
 			'user_id' => 'User',
 			'time_stamp' => 'Time Stamp',
 		);
@@ -98,7 +98,6 @@ class Link extends CActiveRecord
 		$criteria->compare('name_th',$this->name_th);
 		$criteria->compare('link_en',$this->link_en);
 		$criteria->compare('link_th',$this->link_th);
-		$criteria->compare('type',$this->type,true);
 		$criteria->compare('sort_order',$this->sort_order);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('user_id',$this->user_id);
@@ -106,6 +105,7 @@ class Link extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
 		));
 	}
 }
