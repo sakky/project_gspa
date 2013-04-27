@@ -49,6 +49,7 @@
                       $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                         'model' => $model,
                         'attribute' => 'last_update',
+                        'language' => 'th',
 
                         'options'=>array(
                                     'showAnim'=>'fold',
