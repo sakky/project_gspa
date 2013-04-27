@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
 
@@ -40,25 +40,20 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'type'); ?>
-                <?php echo $form->dropDownList($model, 'type', array('system'=>'Link ระบบต่างๆ','link'=>'Link อื่นๆ ที่เกี่ยวข้อง')); ?>
-		<?php echo $form->error($model,'type'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order'); ?>
+		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
 		<?php echo $form->error($model,'sort_order'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-                <?php echo $form->dropDownList($model, 'status', array('1'=>'Enabled','0'=>'Disabled')); ?>
+                <?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
