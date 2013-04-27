@@ -98,7 +98,8 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
