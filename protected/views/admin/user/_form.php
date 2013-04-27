@@ -47,12 +47,13 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($user,'status'); ?>
-		<?php echo $form->dropDownList($user, 'status', array('1'=>'Enabled','0'=>'Disabled')); ?>
+		<?php echo $form->dropDownList($user, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($user,'status'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($user->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($user->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
