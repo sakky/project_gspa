@@ -7,7 +7,7 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     
 }
 $this->breadcrumbs=array(
-        'About Us'=>array('&id=1'),
+        'เกี่ยวกับเรา'=>array('&id=1'),
         $model->name_th
 
 );

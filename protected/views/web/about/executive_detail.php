@@ -7,9 +7,9 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     
 }
 $this->breadcrumbs=array(
-        'About Us'=>array('&id=1'),
-	'Executive'=>array('executive'),
-        $model->position_en
+        'เกี่ยวกับเรา'=>array('&id=1'),
+	'ผู้บริหารวิทยาลัยการบริหารรัฐกิจ'=>array('executive'),
+        $model->name_th
 );
 
 

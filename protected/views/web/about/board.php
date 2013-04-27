@@ -7,8 +7,8 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     
 }
 $this->breadcrumbs=array(
-        'About Us'=>array('&id=1'),
-        'Board'=>array('board'),
+        'เกี่ยวกับเรา'=>array('&id=1'),
+        'คณะกรรมการประจำวิทยาลัย'=>array('board'),
 );
 
 ?>
