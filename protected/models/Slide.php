@@ -47,7 +47,7 @@ class Slide extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title_en, title_th, sort_order,status', 'required','message'=>'{attribute} ห้ามว่าง'),
+			array('title_en, title_th', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('title_en, title_th', 'length', 'max'=>100),
 			array('desc_en, desc_th, link_en, link_th, image', 'length', 'max'=>255),
@@ -75,16 +75,16 @@ class Slide extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'slide_id' => 'ID',
-			'title_en' => 'Title (English)',
-			'title_th' => 'Title (Thai)',
-			'desc_en' => 'Description (English)',
-			'desc_th' => 'Description (Thai)',
-			'link_en' => 'Link (English)',
-			'link_th' => 'Link (Thai)',
-			'image' => 'Image',
-			'sort_order' => 'Sort Order',
-			'status' => 'Status',
+			'slide_id' => 'รหัส',
+			'title_en' => 'ชื่อเรื่อง (ภาษาอังกฤษ)',
+			'title_th' => 'ชื่อเรื่อง (ภาษาไทย)',
+			'desc_en' => 'รายละเอียด (ภาษาอังกฤษ)',
+			'desc_th' => 'รายละเอียด (ภาษาไทย)',
+			'link_en' => 'Link (หน้าภาษาอังกฤษ)',
+			'link_th' => 'Link (หน้าภาษาไทย)',
+			'image' => 'รูปภาพ',
+			'sort_order' => 'การเรียงลำดับ',
+			'status' => 'สถานะ',
 			'user_id' => 'User',
 			'time_stamp' => 'Time Stamp',
 		);
