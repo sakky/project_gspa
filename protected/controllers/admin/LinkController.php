@@ -33,9 +33,10 @@ class LinkController extends AdminController
 
 		if(isset($_POST['Link']))
 		{
+                        $_POST['Link']['user_id'] = Yii::app()->user->id;
 			$model->attributes=$_POST['Link'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->link_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
@@ -57,9 +58,10 @@ class LinkController extends AdminController
 
 		if(isset($_POST['Link']))
 		{
+                        $_POST['Link']['user_id'] = Yii::app()->user->id;
 			$model->attributes=$_POST['Link'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->link_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
