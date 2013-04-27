@@ -197,7 +197,7 @@ h1 {
 h1.logo {
 	display:block;
 	/*width:266px;*/
-	width:380px;
+	width:350px;
 	height:110px;
 	font-size:40px;
 	font-weight:bold;
@@ -212,9 +212,10 @@ margin-left:20px;
 color:#FFE400;
 }
 h1 strong {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
 	display:inline-block;
-	font-size:13px;
-	line-height:2em;
+	font-size:22px;
+	line-height:1.5em;
 	color:#848484;
 	margin-top:-40px;
 	padding-left:110px;
@@ -240,9 +241,9 @@ margin-top:30px;
 }
 .menu li a {
 	display:inline-block;
-	font-size:19px;
-	font-weight:bold;
-	line-height:2em;
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
+        font-size:30px;
+	line-height:1em;
 	padding:5px 15px 6px 15px;
 	color:#fff;
 }
@@ -368,11 +369,12 @@ margin-top:30px;
 	background:url(../../images/front/pagin-4.png) 0 0 no-repeat
 }
 .banner {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
 	width:280px;
 	height:346px;
 	padding:65px 10px 20px;
 	color:#fff;
-	font-size:14px;
+	font-size:20px;
 	line-height:25px;
 	font-weight:normal;
 	text-align:center;
@@ -403,6 +405,7 @@ margin-top:30px;
 }
 .banner span {
 	display:block;
+        font-size:24px;
 	font-weight:bold;
 	text-transform:uppercase;
 	margin-bottom:25px;
@@ -412,8 +415,9 @@ margin-top:30px;
 	font-weight:normal;
 }
 .button2 {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
+        font-size:20px;
 	display:inline-block;
-	font-size:14px;
 	line-height:40px;
 	padding:0 25px;
 	color:#000;
@@ -421,7 +425,7 @@ margin-top:30px;
 }
 .button2:hover {
 	color:#fff;
-	background:#000
+	background:#666;
 }
 footer .button2:hover {
 	background:#666
@@ -433,6 +437,7 @@ footer .button2:hover {
 	background:url(../../images/front/content-bg.jpg) center -196px repeat-y #f4f5f7;
 }
 h2 {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
 	font-size:42px;
 	line-height:2em;
 	font-weight:300;
@@ -446,14 +451,26 @@ h2 strong {
 	margin-top:-43px
 }
 h3 {
-	font-size:23px;
-	line-height:2em;
-	font-weight:normal;
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
+	font-size:34px;
+	line-height:1.5em;
+	font-weight:300;
 	color:#080808;
+        margin-bottom:3px;
+}
+h4{
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
+        font-size:26px;
+        font-weight:bold;
+        line-height:1em;
+        margin-bottom:10px;
 }
 h6 {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
+        font-size:22px;
+        line-height:1em;
 	color:#000;
-	margin-bottom:5px
+	margin-bottom:3px;
 }
 .border-bot1 {
 	width:100%;
@@ -467,11 +484,12 @@ h6 {
 	border-bottom:1px solid #FFFFFF;
 }
 .button {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
 	display:inline-block;
 	padding:0 24px;
 	margin-left:2px;
 	margin-bottom:2px;
-	font-size:14px;
+	font-size:22px;
 	line-height:38px;
 	color:#000;
 	border:1px solid #fff;
@@ -504,9 +522,11 @@ h6 {
 	background:url(../../images/front/li_yellow.png) 0 5px no-repeat;
 }
 .list-2 li a.item {
+        font-family: 'Conv_THSarabun', Arial, sans-serif;
 	display:inline-block;
-	font-size:23px;
-	line-height:1.217em;
+	font-size:26px;
+        font-weight: bold;
+	line-height:0.8em;
 	color:#080808;
 	margin-bottom:4px;
 }
