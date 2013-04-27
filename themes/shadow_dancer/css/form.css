@@ -183,7 +183,7 @@ div.wide.form label
 	margin-right: 10px;
 	position: relative;
 	text-align: right;
-	width: 100px;
+	width: 150px;
 }
 
 div.wide.form .row
@@ -194,5 +194,5 @@ div.wide.form .row
 div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 {
 	clear: left;
-	padding-left: 110px;
+	padding-left: 160px;
 }
