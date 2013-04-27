@@ -26,9 +26,9 @@ $this->breadcrumbs=array(
           <h3>คณะกรรมการประจำวิทยาลัยการบริหารรัฐกิจ</h3>
          
           <div class="wrapper indent-bot">
-            <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/boards/<?php echo $model->image;?>"/></figure>
+            <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/boards/<?php echo $model->image;?>" width="100px"/></figure>
             <div class="extra-wrap">
-              <h6><?php echo $model->name_th;?></h6>
+              <h4><?php echo $model->name_th;?></h4>
               <p>ตำแหน่ง : <?php echo $model->position_th;?>
               <br/>ข้อมูลเพิ่มเติม : <br/><?php echo $model->detail_th;?></p>
              </div>
