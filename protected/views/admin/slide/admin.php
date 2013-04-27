@@ -43,7 +43,7 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
                 array(
 			'name'=>'slide_id',
-			'header'=>'ID',
+			'header'=>'รหัส',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
 		),
                 array(
@@ -55,10 +55,6 @@ $('.search-form form').submit(function(){
             	array(
 			'name'=>'title_th',                        
                         'header'=>'ชื่อเรื่อง',
-		),
-                array(
-			'name'=>'sort_order',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 60px;'),
 		),
 		array(
 			'name'=>'status',                 
