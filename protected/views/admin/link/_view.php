@@ -25,10 +25,6 @@
 	<?php echo CHtml::encode($data->link_th); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
-	<?php echo CHtml::encode($data->type); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sort_order')); ?>:</b>
 	<?php echo CHtml::encode($data->sort_order); ?>
 	<br />
