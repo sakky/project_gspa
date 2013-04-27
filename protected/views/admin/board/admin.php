@@ -54,7 +54,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'name'=>'image',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
                         'type'=>'html',
-                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/boards/".$data->image, "รูปคณะกรรมการ")',
+                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/boards/".$data->image, "รูปคณะกรรมการ",array(\'width\'=>120))',
                 ),
 		array(
 			'name'=>'name_th',                        
