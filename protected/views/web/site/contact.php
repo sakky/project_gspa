@@ -3,11 +3,11 @@
 <script type="text/javascript">
 $(document).ready(function () {
     $('#map_canvas').googleMaps({
-        latitude: 40.68221,
-        longitude: -73.971212,
+        latitude: 13.285964,
+        longitude: 100.924763,
         markers: {
-            latitude: 40.68221,
-            longitude: -73.971212
+            latitude: 13.285964,
+            longitude: 100.924763
         }
     });
 });
@@ -18,7 +18,7 @@ $(document).ready(function () {
     <div class="indent-left">
       <div class="wrapper">
         <article class="col-1">
-          <h3>Our Address</h3>
+          <h3>ที่ตั้งวิทยาลัย</h3>
           <div class="p1">
             <figure class="img-border">
               <div id="map_canvas"></div>
@@ -34,20 +34,20 @@ $(document).ready(function () {
           </dl>
         </article>
         <article class="col-2">
-          <h3>Get In Touch</h3>
+          <h3>ติดต่อเรา</h3>
           <form id="contact-form" action="#">
             <fieldset>
               <label>
-                <input type="text" value="Name" onBlur="if(this.value=='') this.value='Name'" onFocus="if(this.value =='Name' ) this.value=''" />
+                <input type="text" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />
               </label>
               <label>
-                <input type="text" value="Email" onBlur="if(this.value=='') this.value='Email'" onFocus="if(this.value =='Email' ) this.value=''" />
+                <input type="text" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />
               </label>
               <label>
-                <input type="text" value="Phone" onBlur="if(this.value=='') this.value='Phone'" onFocus="if(this.value =='Phone' ) this.value=''" />
+                <input type="text" value="เบอร์โทรศัพท์" onBlur="if(this.value=='') this.value='เบอร์โทรศัพท์'" onFocus="if(this.value =='เบอร์โทรศัพท์' ) this.value=''" />
               </label>
-              <textarea onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
-              <div class="buttons-wrapper"> <a class="button">Clear</a> <a class="button">Send</a> </div>
+              <textarea onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
+              <div class="buttons-wrapper"> <a class="button">ล้างข้อความ</a> <a class="button">ส่งข้อความ</a> </div>
             </fieldset>
           </form>
         </article>

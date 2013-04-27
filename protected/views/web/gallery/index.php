@@ -23,7 +23,7 @@ $this->breadcrumbs=array(
             <div class="clear"></div>
           </div>
           <h6><?php echo $row->name_th;?></h6>
-          <p class="p2"><?php echo $row->desc_th;?></p>
+          <p class="p2"><?php echo iconv_substr($row->desc_th, 0, 200, "UTF-8")."...";?></p>
           <a class="button" href="<?php echo Yii::app()->createUrl('gallery', array('id'=>$row->gallery_id)); ?>">ดูเพิ่มเติม</a> </article>
         <?php }?>
         
