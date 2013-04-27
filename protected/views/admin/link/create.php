@@ -3,16 +3,16 @@
 /* @var $model Link */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	'Create',
+	'Link ที่เกี่ยวข้อง'=>array('index'),
+	'เพิ่มข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'Manage Link', 'url'=>array('admin')),
+	array('label'=>'จัดการ Link ที่เกี่ยวข้อง', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Link</h1>
+<h1>เพิ่มข้อมูล Link ที่เกี่ยวข้อง</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
