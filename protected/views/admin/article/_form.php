@@ -106,7 +106,8 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>&nbsp;&nbsp;
+                <?php echo CHtml::Button('ยกเลิก', array('submit' => array('index'))); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
