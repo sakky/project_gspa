@@ -3,13 +3,13 @@
 /* @var $model Link */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	'Manage',
+	'Link ที่เกี่ยวข้อง'=>array('index'),
+	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'Create Link', 'url'=>array('create')),
+	array('label'=>'เพิ่มข้อมูล Link ที่เกี่ยวข้อง', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Links</h1>
+<h1>จัดการข้อมูล Link ที่เกี่ยวข้อง</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,11 +40,25 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'link_id',
-		'name_en',
-		'name_th',
-		'link_en',
-		'link_th',
+                array(
+			'name'=>'link_id',
+			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
+		),
+		array(
+			'name'=>'name_th',                        
+                        'header'=>'ชื่อ Link ที่เกี่ยวข้อง',
+                        'htmlOptions'=>array('style'=>'text-align: left;width: 200px;'),
+		),
+                array(
+			'name'=>'link_th',                        
+                        'header'=>'URL Link ที่เกี่ยวข้อง',
+		),
+                array(
+			'name'=>'status',                 
+			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
+			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+                        'filter'=>array('1'=>'แสดง','0'=>'ไม่แสดง'),
+		),
 		/*
 		'sort_order',
 		'status',
@@ -58,6 +67,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		*/
 		array(
 			'class'=>'CButtonColumn',
+                        'template'=>'{update}&nbsp;&nbsp;{delete}',
+                        'headerHtmlOptions'=>array('style'=>'width:40px;'),
+                        'htmlOptions' => array('style'=>'width:40px; text-align:center'),
 		),
 	),
 )); ?>
