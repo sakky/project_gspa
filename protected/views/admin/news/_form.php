@@ -78,8 +78,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'image'); ?><br/>
-		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 120px')); ?><br />
+		<?php echo $form->labelEx($model,'image'); ?><br/>                
+		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 290px')); ?><br />
+                <span class="required">รูปภาพขนาด กว้าง 290px ยาว 157px เท่านั้น</span><br/>
 		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'image'); ?>
 	</div>

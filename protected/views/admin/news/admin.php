@@ -49,6 +49,8 @@ $('.search-form form').submit(function(){
                         'type'=>'html',
                         'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/news/".$data->image, "รูปข่าว",array(\'width\'=>120))',
                         'htmlOptions'=>array('width'=>'100px'),
+                        'filter'=>FALSE,
+
                 ),                
 		array(
 			'name'=>'name_th',
@@ -60,16 +62,20 @@ $('.search-form form').submit(function(){
                         'header'=> 'ประเภทข่าว',
                         'value'=>'$data->newsType->name_th',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
+                        'filter'=>CHtml::listData(NewsType::model()->findAll('status=1'), 'news_type_id', 'name_th'),
+
 		),
                 array(
 			'name'=>'create_date',
                         'value'=> 'date(\'d/m/Y\',strtotime($data->create_date))',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 70px;'),
+                        'filter'=>FALSE,
 		),
                 array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+                        'filter'=>array('1'=>'แสดง','0'=>'ไม่แสดง'),
 		),
 		/*
                 'title_en',
