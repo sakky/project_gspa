@@ -85,12 +85,12 @@ $(function () {
     <div class="wrapper border-bot2 margin-bot">
       <article class="fcol-1">
         <div class="indent-left">
-          <h3 class="color-1">Contact Detail</h3>
-            <p class="p3">168 ถ.ลงหาดบางแสน ต.แสนสุข 
-            อ.เมือง จ.ชลบุรี 20131<br>
-            Tel. 038-393-260 (Auto 5 lines)<br>
-            Fax. 038-745-851-2 Ext. 120<br>
-            Email : infoxxx@xxx.com
+          <h3 class="color-1">ข้อมูลการติดต่อ</h3>
+            <p class="p3">
+                <?php 
+                        $contact_detail = Page::model()->find('page_id=7');
+                        echo $contact_detail->desc_th;
+                ?>
             </p>
              <h3 class="color-1">Social Link</h3>
              <ul class="list-services">
@@ -100,26 +100,25 @@ $(function () {
         </div>
       </article>
       <article class="fcol-2">
-         <h3 class="color-1">Organization</h3>
+         <h3 class="color-1">หน่วยงานที่เกี่ยวข้อง</h3>
           <ul class="list-3">
             <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
             <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
             <li><a href="#">พิพิธภัณฑ์วิทยาศาสตร์ทางทะเล</a></li>
             <li><a href="#">มหาวิทยาลัยบูรพา</a></li>
             <li><a href="#">งานประกันคุณภาพวิทยาลัยบริหารรัฐกิจ</a></li>
-			<li class="last-item"><a href="#">การจัดการความรู้วิทยาลัยบริหารรัฐกิจ</a></li>
-            
+            <li class="last-item"><a href="#">การจัดการความรู้วิทยาลัยบริหารรัฐกิจ</a></li>
           </ul>
       </article>
       <article class="fcol-3">
-        <h3 class="color-1">Links</h3>
+        <h3 class="color-1">ลิงค์ที่เกี่ยวข้อง</h3>
         <ul class="list-3">
-          <li><a href="#">E-Register</a> <span> - ระบบทะเบียนและสถิติ</span></li>
-          <li><a href="#">E-Learning</a> <span> - ระบบการเรียนรู้ออนไลน์</span></li>
-          <li><a href="#">E-Library GSPA</a> <span> - ห้องสมุดวิทยาลัยบริหารรัฐกิจ</span></li>
-          <li><a href="#">E-Form for Student</a> <span> - แบบฟอร์มสำหรับนิสิต</span></li>
-          <li><a href="#">E-News</a> <span> - ข่าวสารสำหรับนิสิต</span></li>
-          <li class="last-item"><a href="#">E-Document</a> <span> - ระบบสารบรรณอิเล็กทรอนิกส์</span></li>
+           <?php 
+              $links = Link::model()->findAll('status=1',array('order' => 'sort_order ASC'));
+              foreach ($links as $link){
+            ?>
+                <li><a href="#"><?php echo $link->name_th;?></a></li>
+           <?php }?>
         </ul>
       </article>
     </div>
