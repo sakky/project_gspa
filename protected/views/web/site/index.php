@@ -11,7 +11,7 @@ $this->pageTitle=Yii::app()->name;
       <div class="slider">
         <ul class="items">
           <?php foreach ($model as $value){?> 
-          <li> <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span><?php echo $value->title_en;?></span> <b class="margin-bot"><?php echo $value->desc_en;?></b> <a class="button2" href="#">Read More</a> </strong> </li>
+          <li> <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span><?php echo $value->title_en;?></span> <b class="margin-bot"><?php echo $value->desc_en;?></b> <a class="button2" href="<?php echo $value->link_th;?>">Read More</a> </strong> </li>
           <?php }?>
         </ul>
       </div>
