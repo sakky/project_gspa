@@ -52,7 +52,7 @@ $(function () {
         <li><a href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตรที่เปิดสอน">หลักสูตร</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>" title="ศิษย์เก่าดีเด่น" >ศิษย์เก่า</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
     </ul>
     </nav>
