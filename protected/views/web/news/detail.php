@@ -12,9 +12,9 @@ $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';;
         </div>
       </article>
       <article class="col-2">
-          <h3><?php echo $model->name_th;?></h3>
+          <h4><?php echo $model->name_th;?></h4>
           <div><?php echo $model->desc_th;?></div>
-          <div align="right"><a href="<?php echo Yii::app()->createUrl('news'); ?>">ย้อนกลับหน้าข่าวรวม</a></div>
+          <div align="right"><a href="<?php echo Yii::app()->createUrl('news'); ?>"><h6>ย้อนกลับหน้าข่าวรวม</h6></a></div>
       </article>
       
     </div>
