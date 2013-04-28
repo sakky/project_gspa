@@ -22,8 +22,7 @@ $this->breadcrumbs=array(
         </div>
       </article>
       <article class="col-2">
-          <h3>คณะกรรมการประจำวิทยาลัยการบริหารรัฐกิจ</h3>
-         
+          <h3>คณะกรรมการประจำวิทยาลัยการบริหารรัฐกิจ</h3>        
           <div class="wrapper indent-bot">
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/boards/<?php echo $model->image;?>" width="100px"/></figure>
             <div class="extra-wrap">
