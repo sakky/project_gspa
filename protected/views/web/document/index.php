@@ -11,7 +11,6 @@ $this->breadcrumbs=array(
 ?>
 
 <div id="page6">
-<section id="content" style="margin-top: -20px">
   <div class="main">
     <div class="wrapper">
       <article class="col-1">
@@ -44,5 +43,4 @@ $this->breadcrumbs=array(
       
     </div>
   </div>
-</section>
 </div>
