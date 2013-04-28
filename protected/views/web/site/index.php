@@ -45,7 +45,7 @@ $this->pageTitle=Yii::app()->name;
         <?php foreach ($news as $new){?>
         <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></h4>
         <div class="p1">
-          <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" width="209" /></a></figure>
+          <figure class="img-border" style="margin-right:10px;"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" width="209" /></a></figure>
           <p class="img-indent-bot"><?php echo $new->title_th;?></p>
         </div>
         
