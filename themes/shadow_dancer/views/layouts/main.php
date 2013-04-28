@@ -53,6 +53,7 @@
                                 array('label'=>'ผู้บริหารวิทยาลัย', 'url'=>array('/executive')),
                                 array('label'=>'โครงสร้างองค์กร', 'url'=>array('/page/edit?id=4')),
                                 array('label'=>'ความร่วมมือทางวิชาการ', 'url'=>array('/page/edit?id=5')),
+                                array('label'=>'ข้อมูลศิษย์เก่า', 'url'=>array('/alumni')),
                                 array('label'=>'แผนที่วิทยาลัย', 'url'=>array('/page/edit?id=6')),
                                 /*array('label'=>'Payments', 'items' => array(
 					array('label'=>'Bank Transfer', 'url'=>array('/payment', 'method'=>'bank_transfer')),
@@ -64,21 +65,18 @@
 			)),
 			array('label'=>'หลักสูตร', 'items'=>array(
                                 array('label'=>'หลักสูตรที่เปิดสอน', 'url'=>array('/program')),
-				array('label'=>'เอกสารประกอบการเรียน', 'url'=>array('/document')),
-                                array('label'=>'วิทยานิพนธ์ / ดุษฎีนิพนธ์', 'url'=>array('/page/edit?id=16')),
-                                array('label'=>'ปัญหาพิเศษ / งานนิพนธ์', 'url'=>array('/page/edit?id=17')),
                                 array('label'=>'สมัครเรียนปริญญาเอก', 'url'=>array('/page/edit?id=15')),
                                 array('label'=>'สมัครเรียนปริญญาโท', 'url'=>array('/page/edit?id=14')),
                             
                                 //array('label'=>'บทความ', 'url'=>array('/article')),
 			)),
-                        array('label'=>'เมนูอื่นๆ', 'items'=>array(
-                                array('label'=>'ข้อมูลศิษย์เก่า', 'url'=>array('/alumni')),
-                                array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
-				array('label'=>'หน่วยงานภายใน', 'url'=>array('/organization')),
-                                array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
-			)),
-                        
+                        array('label'=>'บริการนิสิต', 'items'=>array(
+				array('label'=>'เอกสารประกอบการเรียน', 'url'=>array('/document')),
+                                array('label'=>'วิทยานิพนธ์ / ดุษฎีนิพนธ์', 'url'=>array('/page/edit?id=16')),
+                                array('label'=>'ปัญหาพิเศษ / งานนิพนธ์', 'url'=>array('/page/edit?id=17')),
+                            
+                                //array('label'=>'บทความ', 'url'=>array('/article')),
+			)),                        
                         array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
 			array('label'=>'ข่าวสาร', 'items'=> 
 				array(
@@ -91,7 +89,10 @@
 				),
 			),
                         array('label'=>'อื่นๆ', 'items'=> 
-				array(				
+				array(	
+                                        array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
+                                        array('label'=>'หน่วยงานภายใน', 'url'=>array('/organization')),
+                                        array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
                                         array('label'=>'Slide Show', 'url'=>array('/slide')),
                                         array('label'=>'VDO', 'url'=>array('/page/edit?id=3')),
 				),
