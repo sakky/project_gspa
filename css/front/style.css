@@ -657,16 +657,17 @@ dl span {
 /****************************footer************************/
 footer {
 	width:100%;
-	padding:25px 0 46px;
+	padding:25px 0;
 }
 .list-services {
-	margin-top:-5px;
+        float:right;
 }
 .list-services li {
+        display:inline;
 	line-height:20px;
-	padding:10px 0;
+	padding:0 5px;
 	/*background:url(../../images/front/pic-2.gif) 0 bottom repeat-x;*/
-	border-bottom:1px dashed #FFFFFF;
+	/*border-bottom:1px dashed #FFFFFF;*/
 }
 
 .list-services li.last-item {
