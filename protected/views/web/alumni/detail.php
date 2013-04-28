@@ -1,12 +1,12 @@
 <?php
 /* @var $this SiteController */
-$this->pageTitle=Yii::app()->name. ' - รวมพลคนเก่ง GSPA';;
+$this->pageTitle=Yii::app()->name. ' - ศิษย์เก่าดีเด่น';;
 ?>
 <?php
 /* @var $this ProgramController */
 
 $this->breadcrumbs=array(
-        'รวมพลคนเก่ง GSPA'=>array('index'),
+        'ศิษย์เก่าดีเด่น'=>array('index'),
         $model->name_th,
 );
 ?>
@@ -19,7 +19,7 @@ $this->breadcrumbs=array(
         </div>
       </article>
       <article class="col-2">
-          <h3>รวมพลคนเก่ง GSPA</h3>
+          <h3>ศิษย์เก่าดีเด่น</h3>
           <div class="wrapper indent-bot">
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/alumni/<?php echo $model->image;?>" width="100px"/></figure>
             <div class="extra-wrap">

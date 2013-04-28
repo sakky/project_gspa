@@ -7,7 +7,7 @@ if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
     
 }
 $this->breadcrumbs=array(
-        'รวมพลคนเก่ง GSPA'
+        'ศิษย์เก่าดีเด่น'
 );
 
 ?>
@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
         </div>
       </article>
       <article class="col-2">
-          <h3>รวมพลคนเก่ง GSPA</h3>
+          <h3>ศิษย์เก่าดีเด่น</h3>
           <?php foreach ($model as $value){?>
           <div class="wrapper indent-bot">
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/alumni/<?php echo $value->image;?>" width="100px"/></figure>
