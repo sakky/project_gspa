@@ -8,7 +8,11 @@ $this->pageTitle=Yii::app()->name. ' - '.$model->name_th;
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">
-          <?php $this->renderPartial('/program/leftmenu');?>
+          <?php if($model->page_id == 16 ||$model->page_id == 17){
+              $this->renderPartial('/document/leftmenu');
+          }else{
+              $this->renderPartial('/program/leftmenu');
+          }?>
         </div>
       </article>
       <article class="col-2">
