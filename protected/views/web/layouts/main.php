@@ -33,44 +33,34 @@ $(function () {
 <header>
   <div class="main">
     <div class="wrapper">
-      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</strong> </h1>
-      <nav>
-        <ul class="menu">
-          <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">เกี่ยวกับเรา</a>
-          </li>
-          <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
-        </ul>
-
-      </nav>
-      <div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>
-       
-      <div id="search">
-           
-      <form action="#" method="post">
-     
-        <fieldset>
-          <legend>Site Search</legend>
-          <input type="text" placeholder="ค้นหาที่นี่" />
-          <input type="submit" name="go" id="go" value="GO" />
-          
-        </fieldset>
-      </form>
-    </div>
+      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</strong> </h1>    
+      <!--<div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>-->       
+       <div id="search">    
+        <form action="#" method="post">
+            <fieldset>
+            <legend>Site Search</legend>
+            <input type="text" placeholder="ค้นหาที่นี่" />
+            <input type="submit" name="go" id="go" value="GO" />
+            </fieldset>
+        </form>
+      </div>
+    <div class="clear"></div>
+    <nav>
+    <ul class="menu">
+        <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">เกี่ยวกับเรา</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตรที่เปิดสอน">หลักสูตร</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>" title="ศิษย์เก่าดีเด่น" >ศิษย์เก่า</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
+    </ul>
+    </nav>
     <div class="lang">
     	   <a title="ภาษาไทย" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
            <a title="English" href="&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
     </div>
     <div class="clear"></div>
-    <div style="margin-top: 30px;padding-left: 20px;">
-    <?php if(isset($this->breadcrumbs)):?>
-            <?php $this->widget('zii.widgets.CBreadcrumbs', array(
-                    'links'=>$this->breadcrumbs,
-            )); ?><!-- breadcrumbs -->
-    <?php endif?>
-    </div>
     </div>
   </div>
 </header>
