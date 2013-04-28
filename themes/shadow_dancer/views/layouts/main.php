@@ -32,7 +32,7 @@
 		<div class="topnav_text"><?php echo (!Yii::app()->user->isGuest)? CHtml::link('ออกจากระบบ ('.Yii::app()->user->name.')', array('site/logout')) :''; ?></div>
 	</div>
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo"><img src="<?php echo Yii::app()->baseUrl; ?>/images/front/buu_logo.png" width="80px"/><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 	
 	<?php if($this->showMenu) { $this->widget('application.extensions.mbmenu.MbMenu',array(
