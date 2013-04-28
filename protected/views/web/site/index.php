@@ -40,22 +40,20 @@ $this->pageTitle=Yii::app()->name;
       <h2>&#126; วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา &#126;</h2>
     </div>
     <div class="wrapper">
-      <article class="col-1">
-        <div class="indent-left">
-          <?php $this->renderPartial('leftmenu');?>
-        </div>
-      </article>
       <article class="col-2">
          <h3>ข่าวล่าสุด</h3>  
         <?php foreach ($news as $new){?>
         <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></h4>
         <div class="p1">
-          <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" /></a></figure>
-          <div class="clear"></div>
+          <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" width="209" /></a></figure>
+          <p class="img-indent-bot"><?php echo $new->title_th;?></p>
         </div>
-        <p class="img-indent-bot"><?php echo $new->title_th;?></p>
+        
+        <div class="clear"></div>
         <?php }?>
-        <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>">ข่าวทั้งหมด</a>
+        <div class="alignright">
+        <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>">ดูข่าวทั้งหมด</a>
+        </div>
       </article>
       <article class="col-3">
         <div class="indent-top">
