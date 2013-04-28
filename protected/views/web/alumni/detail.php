@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">
-          <?php $this->renderPartial('/site/leftmenu');?>
+          <?php $this->renderPartial('/about/about_menu');?>
         </div>
       </article>
       <article class="col-2">
