@@ -3,7 +3,6 @@
 $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';;
 ?>
 <div id="page6">
-<section id="content" style="margin-top: -20px">
   <div class="main">
     <div class="wrapper">
       <article class="col-1">
@@ -14,10 +13,9 @@ $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';;
       <article class="col-2">
           <h4><?php echo $model->name_th;?></h4>
           <div><?php echo $model->desc_th;?></div>
+          <br/>
           <div align="right"><a href="<?php echo Yii::app()->createUrl('news'); ?>"><h6>ย้อนกลับหน้าข่าวรวม</h6></a></div>
-      </article>
-      
+      </article>      
     </div>
   </div>
-</section>
 </div>

@@ -4,7 +4,6 @@
 $this->pageTitle=Yii::app()->name. ' - ข่าวประชาสัมพันธ์นิสิต';
 ?>
 <div id="page6">
-<section id="content" style="margin-top: -20px">
   <div class="main">
     <div class="wrapper">
       <article class="col-1">
@@ -33,5 +32,4 @@ $this->pageTitle=Yii::app()->name. ' - ข่าวประชาสัมพ�
       </article>     
     </div>
   </div>
-</section>
 </div>
