@@ -49,6 +49,8 @@ class SiteController extends Controller
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
+                $news_criteria->offset = 0;
+                $news_criteria->limit = 3; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $vdo_criteria = new CDbCriteria();
