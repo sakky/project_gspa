@@ -11,7 +11,6 @@ $this->breadcrumbs=array(
 );
 ?>
 <div id="page6">
-<section id="content" style="margin-top: -20px">
   <div class="main">
     <div class="wrapper">
       <article class="col-1">
@@ -19,7 +18,8 @@ $this->breadcrumbs=array(
           <?php $this->renderPartial('/site/leftmenu');?>
         </div>
       </article>
-      <article class="col-2">        
+      <article class="col-2">
+          <h3>รวมพลคนเก่ง GSPA</h3>
           <div class="wrapper indent-bot">
             <figure class="img-indent"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/alumni/<?php echo $model->image;?>" width="100px"/></figure>
             <div class="extra-wrap">
@@ -28,12 +28,9 @@ $this->breadcrumbs=array(
               ศูนย์การศึกษา : <?php echo $model->campus_th;?><br/>
               ตำแหน่ง : <?php echo $model->position_th;?><br/>
               ข้อมูลเพิ่มเติม : <br/><?php echo $model->desc_th;?></p>
-             </div>
-          </div>
-          
-        </article>
-      
+            </div>
+          </div>          
+      </article>      
     </div>
   </div>
-</section>
 </div>
