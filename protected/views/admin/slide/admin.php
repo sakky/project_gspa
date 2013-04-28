@@ -51,6 +51,7 @@ $('.search-form form').submit(function(){
 			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
                         'type'=>'html',
                         'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/slide/".$data->image, "รูป Slide",array(\'width\'=>120))',
+                        'filter'=>FALSE,
                 ),
             	array(
 			'name'=>'title_th',                        
