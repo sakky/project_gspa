@@ -18,7 +18,7 @@ $this->pageTitle=Yii::app()->name. ' - ข่าวรับสมัครง�
           <?php foreach ($news as $new){?>
           <div class="wrapper margin-bot">
           <div class="prev-indent-bot" style="float:left">
-            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" alt="" width="290px" height="157px" /></a></figure>
+            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" alt="" width="290px" /></a></figure>
             <div class="clear"></div>
           </div>
           <div style="float:left;width:300px;margin-left:10px;">
