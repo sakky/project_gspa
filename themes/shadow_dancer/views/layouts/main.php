@@ -62,18 +62,18 @@
 				array('label'=>'Credits', 'url'=>array('/credit/admin')),
 				array('label'=>'Coupons', 'url'=>array('/coupon')),*/
 			)),
-			array('label'=>'เมนูด้านซ้าย', 'items'=>array(
+			array('label'=>'หลักสูตร', 'items'=>array(
                                 array('label'=>'หลักสูตรที่เปิดสอน', 'url'=>array('/program')),
 				array('label'=>'เอกสารประกอบการเรียน', 'url'=>array('/document')),
                                 array('label'=>'วิทยานิพนธ์ / ดุษฎีนิพนธ์', 'url'=>array('/page/edit?id=16')),
                                 array('label'=>'ปัญหาพิเศษ / งานนิพนธ์', 'url'=>array('/page/edit?id=17')),
-                                array('label'=>'รวมพลคนเก่ง GSPA', 'url'=>array('/alumni')),
                                 array('label'=>'สมัครเรียนปริญญาเอก', 'url'=>array('/page/edit?id=15')),
                                 array('label'=>'สมัครเรียนปริญญาโท', 'url'=>array('/page/edit?id=14')),
                             
                                 //array('label'=>'บทความ', 'url'=>array('/article')),
 			)),
-                        array('label'=>'เมนูด้านล่าง', 'items'=>array(
+                        array('label'=>'เมนูอื่นๆ', 'items'=>array(
+                                array('label'=>'ข้อมูลศิษย์เก่า', 'url'=>array('/alumni')),
                                 array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
 				array('label'=>'หน่วยงานภายใน', 'url'=>array('/organization')),
                                 array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
