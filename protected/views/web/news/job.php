@@ -8,7 +8,7 @@ $this->pageTitle=Yii::app()->name. ' - ข่าวรับสมัครง�
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">
-          <?php $this->renderPartial('/site/leftmenu');?>
+          <?php $this->renderPartial('leftmenu');?>
         </div>
       </article>
       <article class="col-2">
