@@ -180,7 +180,7 @@ p {
 .buttons a:hover {
 	cursor:pointer
 }
-.menu li a, .list-1 li a, .list-2 li a.item, .list-services li a, .link, .button, .button2, h1 a {
+.menu ul li a, .list-1 li a, .list-2 li a.item, .list-services li a, .link, .button, .button2, h1 a {
 	text-decoration:none
 }
 /*********************************header*************************************/
@@ -229,19 +229,19 @@ height:80px;
 margin-top:50px;
 }
 /***** menu *****/
-.menu {
+.menu ul {
 	padding:0px 0 0 0;
 	float:left;
 }
-.menu li {
+.menu ul li {
 	float:left;
 	position:relative;
 	/*background:url(../../images/front/menu-spacer.gif) left top no-repeat;*/
 }
-.menu li:first-child {
+.menu ul li:first-child {
 	background:none
 }
-.menu li a {
+.menu ul li a {
 	display:inline-block;
         font-family: 'Conv_THSarabun', Arial, sans-serif;
         font-size:30px;
@@ -249,7 +249,8 @@ margin-top:50px;
 	padding:5px 15px 6px 15px;
 	color:#fff;
 }
-.menu li a.active, .menu > li > a:hover {
+/*.menu ul li a.active, .menu > ul > li > a:hover {*/
+.menu ul li a:hover, .menu ul li.active a {
 	/*color:#60b001;*/
 	color:#FFE400;
 }
