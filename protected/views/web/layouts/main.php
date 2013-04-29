@@ -46,7 +46,7 @@ $(function () {
       </div>
     <div class="clear"></div>
     <nav>
-    <ul class="menu">
+    <!--<ul class="menu">
         <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">เกี่ยวกับเรา</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตรที่เปิดสอน">หลักสูตร</a></li>
@@ -54,7 +54,44 @@ $(function () {
         <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a></li>
         <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
-    </ul>
+    </ul>-->
+    <div class="menu">
+		<?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'หน้าแรก', 'url'=>array('/site/index')),
+				array('label'=>'เกี่ยวกับเรา', 'url'=>array('/about', 'id'=>'1'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'about',
+                                                                        'about/board',
+                                                                        'about/executive',
+                                                                        'alumni',
+                                                                    ))), 
+				array('label'=>'หลักสูตร', 'url'=>array('/program/index'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'program',
+                                                                        'page',
+                                                                    ))), 
+				array('label'=>'ภาพกิจกรรม', 'url'=>array('/gallery/index')),
+				array('label'=>'ข่าวสาร', 'url'=>array('/news/index'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'news',
+                                                                        'news/news',
+                                                                        'news/student',
+                                                                        'news/job',
+                                                                    ))), 
+				array('label'=>'บริการนิสิต', 'url'=>array('/document/index'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'document',
+                                                                        'page',
+                                                                    ))), 
+				array('label'=>'ติดต่อเรา', 'url'=>array('/site/contact')),
+			),
+		)); ?>        
+    </div>
     </nav>
     <div class="lang">
     	   <a title="ภาษาไทย" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
