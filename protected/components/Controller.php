@@ -20,4 +20,28 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+        
+/**
+ * Checks if the current route matches with given routes
+ * @param array $routes
+ * @return bool
+ */        
+    public function isActive($routes = array())
+    {
+        $routeCurrent = '';
+        if ($this->module !== null) {
+            $routeCurrent .= sprintf('%s/', $this->module->id);
+        }
+        $routeCurrent .= sprintf('%s/%s', $this->id, $this->action->id);
+        foreach ($routes as $route) {
+            $pattern = sprintf('~%s~', preg_quote($route));
+            //print $pattern.'  ||  '. $routeCurrent;
+            //print '<br>';
+            if (preg_match($pattern, $routeCurrent)) {
+                return true;
+            }
+        }
+        return false;
+    }        
 }
