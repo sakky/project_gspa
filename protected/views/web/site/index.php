@@ -61,11 +61,15 @@ $this->pageTitle=Yii::app()->name;
         <?php echo $vdo->desc_th;?>
         <div class="clear"></div>
         <br/>
-        <h4>ประมวลภาพกิจกรรมล่าสุด</h4>
+        <h4>ประกาศ</h4>
           <ul class="list-2">
-            <li> <a class="item" href="#">Our Vision</a> <span>Business.Co is one of free web templates created by TemplateMonster.com team. </span> </li>           
-            <li> <a class="item" href="#">Perfect Experience</a> <span>This template is optimized for 1280X1024 screen resolution.</span> </li>
-            <li class="last-item"> <a class="item" href="#">News &amp; Events</a> <span>It is also XHTML &amp; CSS valid. Quis nostrud exercitation ullamco laboris nisi ut.</span> <a class="button" href="#">ดูทั้งหมด</a> </li>
+        <?php 
+            $count_news = -1;
+            foreach ($news as $key_new => $new){?>
+            <li <?php if ((++$count_news)==$key_new) echo 'class="last-item"';?>> <a class="item" href="#"><?php echo $new->name_th;?></a> 
+                <span><?php echo $new->title_th;?></span> 
+            </li>
+        <?php }?>
           </ul>
         </div>
       </article>
