@@ -27,6 +27,14 @@ class ProgramController extends Controller
                 $this->render('index',array('master'=>$master,'doctor'=>$doctor));
                 }
 	}
+        
+        public function actionAdmission()
+	{
+		
+                    $model=Page::model()->findByPk($_GET['id']);
+                    $this->render('admission',array('model'=>$model));
+               
+	}
 
 	// Uncomment the following methods and override them if needed
 	/*
