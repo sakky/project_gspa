@@ -28,13 +28,26 @@ $(function () {
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/Scripts/AC_ActiveX.js" type="text/javascript"></script>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
 </head>
-<body id="page1">
+<?php
+$curpage = Yii::app()->getController()->getAction()->controller->id;
+$curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
+
+//echo Yii::app()->controller->getId();
+//echo "<br/>";
+//echo Yii::app()->controller->getAction()->getId();
+//echo "<br/>";
+//echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
+?>
+
+<body <?php if($curpage=='site/index'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
 <!--==============================header=================================-->
+
 <header>
   <div class="main">
     <div class="wrapper">
-      <h1 class="logo"><a href="index.html" title="วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><img src="images/front/buu_logo.png" border="0" /></a><span>GSPA</span><strong>วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</strong> </h1>    
-      <!--<div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>-->       
+      <h1 class="logo_th">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1>
+      <!--<h1 class="logo_en">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1>  
+      <div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>-->       
        <div id="search">    
         <form action="#" method="post">
             <fieldset>
@@ -58,7 +71,7 @@ $(function () {
     <div class="menu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'หน้าแรก', 'url'=>array('/site/index')),
+				array('label'=>'หน้าแรก', 'url'=>array('/site')),
 				array('label'=>'เกี่ยวกับเรา', 'url'=>array('/about', 'id'=>'1'),
                                                            'active'=>$this->isActive(
                                                                    array(
@@ -67,13 +80,13 @@ $(function () {
                                                                         'about/executive',
                                                                         'alumni',
                                                                     ))), 
-				array('label'=>'หลักสูตร', 'url'=>array('/program/index'),
+				array('label'=>'หลักสูตร', 'url'=>array('/program'),
                                                            'active'=>$this->isActive(
                                                                    array(
                                                                         'program',
                                                                         'page',
                                                                     ))), 
-				array('label'=>'ภาพกิจกรรม', 'url'=>array('/gallery/index')),
+				array('label'=>'ภาพกิจกรรม', 'url'=>array('/gallery')),
 				array('label'=>'ข่าวสาร', 'url'=>array('/news/index'),
                                                            'active'=>$this->isActive(
                                                                    array(
@@ -82,7 +95,7 @@ $(function () {
                                                                         'news/student',
                                                                         'news/job',
                                                                     ))), 
-				array('label'=>'บริการนิสิต', 'url'=>array('/document/index'),
+				array('label'=>'บริการนิสิต', 'url'=>array('/document'),
                                                            'active'=>$this->isActive(
                                                                    array(
                                                                         'document',
@@ -94,8 +107,8 @@ $(function () {
     </div>
     </nav>
     <div class="lang">
-    	   <a title="ภาษาไทย" href="&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
-           <a title="English" href="&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
+    	   <a title="ภาษาไทย" href="<?php echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET); ?>&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
+           <a title="English" href="<?php echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET); ?>&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
     </div>
     <div class="clear"></div>
     </div>
