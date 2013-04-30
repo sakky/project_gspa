@@ -33,9 +33,6 @@
 	/*background-color:#FFFF66;*/
 }
 /****************gallery.html***************************/
-#page3 {
-        margin-top: -20px;
-}
 #page3 .col-1 {
 	width:275px;
 	margin-right:40px;
@@ -54,9 +51,6 @@
 }
 
 /****************page.html***************************/
-#page6{
-    margin-top: -10px;
-}
 #page6 .col-1 {
 	width:275px;
 	margin-right:40px;
