@@ -375,7 +375,7 @@ margin-top:50px;
 	height:346px;
 	padding:65px 10px 20px;
 	color:#fff;
-	font-size:20px;
+	font-size:13px;
 	line-height:25px;
 	font-weight:normal;
 	text-align:center;
@@ -400,13 +400,13 @@ margin-top:50px;
 }
 .banner strong {
 	display:block;
-	font-size:50px;
+	font-size:16px;
 	line-height:1.2em;
 	letter-spacing:-2px;
 }
 .banner span {
 	display:block;
-        font-size:24px;
+        font-size:14px;
 	font-weight:bold;
 	text-transform:uppercase;
 	margin-bottom:25px;
