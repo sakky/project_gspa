@@ -84,7 +84,7 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
                                                            'active'=>$this->isActive(
                                                                    array(
                                                                         'program',
-                                                                        'page',
+                                                                        'program/admission',
                                                                     ))), 
 				array('label'=>'ภาพกิจกรรม', 'url'=>array('/gallery')),
 				array('label'=>'ข่าวสาร', 'url'=>array('/news/index'),
