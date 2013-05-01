@@ -192,7 +192,7 @@ class PageController extends AdminController
                                     $saveName = $genName . '-' . rand(0,99);
                             }
 
-                            $model->pdf_th = $saveName . '.' . $file_en->getExtensionName();
+                            $model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
                     }
                     
                     $images = CUploadedFile::getInstance($model, 'images');
