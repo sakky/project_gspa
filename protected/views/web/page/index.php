@@ -2,20 +2,30 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name. ' - '.$model->name_th;
+$this->breadcrumbs=array(
+        'หลักสูตรที่เปิดสอน'=>array('program/index'),
+        $model->name_th
+
+);
 ?>
 <div id="page6">
   <div class="main">
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">
-          <?php if($model->page_id == 16 ||$model->page_id == 17){
+          <?php 
               $this->renderPartial('/document/leftmenu');
-          }else{
-              $this->renderPartial('/program/leftmenu');
-          }?>
+          ?>
         </div>
       </article>
       <article class="col-2">
+        <div style="margin-bottom: 10px;">
+            <?php if(isset($this->breadcrumbs)):?>
+                    <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'links'=>$this->breadcrumbs,
+                    )); ?><!-- breadcrumbs -->
+            <?php endif?>
+        </div>
           <h3><?php echo $model->name_th;?></h3>
           <div><?php echo $model->desc_th;?></div>
           <?php if($model->page_id == 14 ||$model->page_id == 15){?>
