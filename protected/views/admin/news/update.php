@@ -3,9 +3,8 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'News'=>array('index'),
-	$model->news_id=>array('view','id'=>$model->news_id),
-	'Update',
+	'ข่าวสาร'=>array('index'),
+	'แก้ไขข้อมูล',
 );
 
 $this->menu=array(
