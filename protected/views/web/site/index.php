@@ -45,7 +45,11 @@ $this->pageTitle=Yii::app()->name;
         <?php foreach ($news as $new){?>
         <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></h4>
         <div class="p1">
-          <figure class="img-border" style="margin-right:10px;"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" title="<?php echo $new->name_th;?>" alt="" border="0" width="209" /></a></figure>
+          <figure class="img-border" style="margin-right:10px;">
+              <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
+                  <img <?php if($new->image){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $new->name_th;?>" alt="" border="0" width="209" />
+              </a>
+          </figure>
           <p class="img-indent-bot"><?php echo $new->title_th;?></p>
         </div>
         
@@ -65,7 +69,7 @@ $this->pageTitle=Yii::app()->name;
           <ul class="list-2">
         <?php 
             $count_news = -1;
-            foreach ($news as $key_new => $new){?>
+            foreach ($news_ads as $key_new => $new){?>
             <li <?php if ((++$count_news)==$key_new) echo 'class="last-item"';?>> <a class="item" href="#"><?php echo $new->name_th;?></a> 
                 <span><?php echo $new->title_th;?></span> 
             </li>
