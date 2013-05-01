@@ -22,6 +22,13 @@ $this->breadcrumbs=array(
         </div>
       </article>
       <article class="col-2">
+       <div style="margin-bottom: 10px;">
+            <?php if(isset($this->breadcrumbs)):?>
+                    <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'links'=>$this->breadcrumbs,
+                    )); ?><!-- breadcrumbs -->
+            <?php endif?>
+        </div>
           <h3>แนะนำวิทยาลัย</h3>
           <h4><?php echo $model->name_th;?></h4>
           <div><?php echo $model->desc_th;?></div>
