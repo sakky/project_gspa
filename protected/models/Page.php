@@ -54,7 +54,7 @@ class Page extends CActiveRecord
 			array('name_en, name_th, pdf_en, pdf_th, images', 'length', 'max'=>255),
 			array('title_en, title_th, desc_en, desc_th, create_date', 'safe'),
                         array('images,thumbnail', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
-                        array('pdf_en,pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'File has to be smaller than 10MB','allowEmpty'=>true) ,
+                        array('pdf_en,pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'ไฟล์ควรมีขนาดเล็กกว่า 10 MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('page_id, page_type_id, name_en, name_th, title_en, title_th, desc_en, desc_th, pdf_en, pdf_th, images, create_date, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
