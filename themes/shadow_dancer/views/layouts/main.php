@@ -45,7 +45,7 @@
 //                                
 //                                
 //			)),
-                        array('label'=>'แนะนำวิทยาลัย', 'items'=>array(
+                        array('label'=>'เกี่ยวกับเรา', 'items'=>array(
                             //array('label'=>'Manage Pages', 'url'=>array('/page')),
 				array('label'=>'เกี่ยวกับวิทยาลัย', 'url'=>array('/page/edit?id=1')),
                                 array('label'=>'สัญลักษณ์ประจำวิทยาลัย', 'url'=>array('/page/edit?id=2')),
@@ -70,15 +70,8 @@
                             
                                 //array('label'=>'บทความ', 'url'=>array('/article')),
 			)),
-                        array('label'=>'บริการนิสิต', 'items'=>array(
-				array('label'=>'เอกสารประกอบการเรียน', 'url'=>array('/document')),
-                                array('label'=>'วิทยานิพนธ์ / ดุษฎีนิพนธ์', 'url'=>array('/page/edit?id=16')),
-                                array('label'=>'ปัญหาพิเศษ / งานนิพนธ์', 'url'=>array('/page/edit?id=17')),
-                            
-                                //array('label'=>'บทความ', 'url'=>array('/article')),
-			)),                        
                         array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
-			array('label'=>'ข่าวสาร', 'items'=> 
+                        array('label'=>'ข่าวสาร', 'items'=> 
 				array(
 					//array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
                                         array('label'=>'ข่าวทั้งหมด', 'url'=>array('/news')),
@@ -88,6 +81,15 @@
 //                                        array('label'=>'GSPA Newsletter ', 'url'=>array('/#')),
 				),
 			),
+                        array('label'=>'บริการนิสิต', 'items'=>array(
+				array('label'=>'เอกสารประกอบการเรียน', 'url'=>array('/document')),
+                                array('label'=>'วิทยานิพนธ์ / ดุษฎีนิพนธ์', 'url'=>array('/page/edit?id=16')),
+                                array('label'=>'ปัญหาพิเศษ / งานนิพนธ์', 'url'=>array('/page/edit?id=17')),
+                            
+                                //array('label'=>'บทความ', 'url'=>array('/article')),
+			)),                        
+                        
+			
                         array('label'=>'อื่นๆ', 'items'=> 
 				array(	
                                         array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
