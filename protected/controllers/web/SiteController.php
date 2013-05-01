@@ -42,12 +42,14 @@ class SiteController extends Controller
                 $model = Slide::model()->findAll($Criteria);
                 
                 $condition = new CDbCriteria();
-                $condition->condition = "status = 1";
-                $condition->order = "sort_order";
-                $menu_list = LeftMenu::model()->findAll($condition);
+                $condition->condition = "news_type_id =4 AND status = 1";
+                $condition->order = "create_date desc,news_id desc";
+                $condition->offset = 0;
+                $condition->limit = 5; 
+                $news_ads = News::model()->findAll($condition);
                 
                 $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "status = 1";
+                $news_criteria->condition = "news_type_id <>4 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
                 $news_criteria->limit = 5; 
@@ -57,7 +59,7 @@ class SiteController extends Controller
                 $vdo_criteria->condition = "page_id = 3 AND status = 1";
                 $vdo = Page::model()->find($vdo_criteria);
                 
-                $total_menu = count($menu_list);
+
                 
 //                 echo "<br> ===> ";
 //                 echo "<pre>";
@@ -69,7 +71,7 @@ class SiteController extends Controller
                                 'model'=>$model,
                                 'news'=>$news,
                                 'menu_list'=>$menu_list,
-                                'total_menu'=>$total_menu,
+                                'news_ads'=>$news_ads,
                                 'vdo'=>$vdo,
                         ));
 	}
