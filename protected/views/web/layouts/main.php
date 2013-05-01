@@ -31,17 +31,14 @@ $(function () {
 <?php
 $curpage = Yii::app()->getController()->getAction()->controller->id;
 $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
-
 //echo Yii::app()->controller->getId();
 //echo "<br/>";
 //echo Yii::app()->controller->getAction()->getId();
 //echo "<br/>";
 //echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
 ?>
-
 <body <?php if($curpage=='site/index'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
 <!--==============================header=================================-->
-
 <header>
   <div class="main">
     <div class="wrapper">
@@ -114,9 +111,6 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
     </div>
   </div>
 </header>
-
-
-
 <!--==============================content================================-->
 <?php echo $content;?>
 <!--==============================footer=================================-->
