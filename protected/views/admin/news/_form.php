@@ -76,6 +76,19 @@
                 ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
+         <div class="row">
+                <label>อัพโหลดไฟล์ pdf  (ภาษาอังกฤษ)</label><br/>
+                <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
+		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_en'); ?>
+	</div>
+
+	<div class="row">
+                <label>อัพโหลดไฟล์ pdf (ภาษาไทย)</label><br/>
+		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_th);} }?><br />
+		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_th'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
