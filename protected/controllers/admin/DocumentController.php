@@ -127,7 +127,7 @@ class DocumentController extends AdminController
                                         $saveName = $genName . '-' . rand(0,99);
                                 }
 
-                                $model->pdf_th = $saveName . '.' . $file_en->getExtensionName();
+                                $model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
                         }
 			if($model->save()){
                                 if($file_en) {
