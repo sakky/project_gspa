@@ -50,7 +50,7 @@ class NewsController extends Controller
                 
 	}
         
-         public function actionJob()
+        public function actionJob()
 	{
                 if(isset($_GET['id'])){
                     $model=News::model()->findByPk($_GET['id']);
@@ -62,6 +62,22 @@ class NewsController extends Controller
                 $news = News::model()->findAll($news_criteria);
                 
 		$this->render('job',array('news'=>$news));
+                }
+                
+	}
+        
+        public function actionAdvertise()
+	{
+                if(isset($_GET['id'])){
+                    $model=News::model()->findByPk($_GET['id']);
+                    $this->render('detail',array('model'=>$model));
+                }else{
+                $news_criteria = new CDbCriteria();
+                $news_criteria->condition = "status = 1 AND news_type_id = 4";
+                $news_criteria->order = "create_date desc,news_id desc";
+                $news = News::model()->findAll($news_criteria);
+                
+		$this->render('advertise',array('news'=>$news));
                 }
                 
 	}
