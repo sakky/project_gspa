@@ -3,7 +3,7 @@
 
 $this->pageTitle=Yii::app()->name. ' - '.$model->name_th;
 $this->breadcrumbs=array(
-        'หลักสูตรที่เปิดสอน'=>array('program/index'),
+        'บริการนิสิต'=>array('document/index'),
         $model->name_th
 
 );
