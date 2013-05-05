@@ -34,11 +34,15 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $h1_text = "Graduate School of Public Administration";
+    $css_class = "logo_en";
+    $search_text = "Search Here";
     $footer_text = "Graduate School of Public Administration, Burapha University<br/>
         168 Long-Hard Bangsaen Road, Saen Sook Sub-district, Mueang District, Chonburi 20131<br/>
         Tel. +66 (0) 38-393-260 (Auto 5 lines) Fax. +66 (0) 38-745-851-2 Ext. 120";
 }else{  
     $h1_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา";
+    $css_class = "logo_th";
+    $search_text = "ค้นหาที่นี่";
     $footer_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา<br/>
         168 ถ.ลงหาดบางแสน ต.แสนสุข อ.เมือง จ.ชลบุรี 20131<br/>
         โทร. 038-393-260 (อัตโนมัติ 5 คู่สาย) โทรสาร 038-745-851-2 ต่อ 120";
@@ -54,18 +58,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <header>
   <div class="main">
     <div class="wrapper">
-      <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
-      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="Graduate School of Public Administration"><h1 class="logo_en">Graduate School of Public Administration</h1></a>
-      <?php }else{?>
-      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="GSPA วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><h1 class="logo_th">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1></a>
-      <?php } ?>
-      <!--<h1 class="logo_en">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1>  
-      <div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>-->       
+      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
        <div id="search">    
         <form action="#" method="post">
             <fieldset>
             <legend>Site Search</legend>
-            <input type="text" placeholder="ค้นหาที่นี่" />
+            <input type="text" placeholder="<?php echo $search_text;?>..." />
             <input type="submit" name="go" id="go" value="GO" />
             </fieldset>
         </form>
