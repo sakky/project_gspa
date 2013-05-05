@@ -1,16 +1,23 @@
 <?php
-if((isset($_GET['lang']))&&($_GET['lang'] =='en')){
+$lang = Yii::app()->language; 
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle=Yii::app()->name . ' - About Us';
+    $this->breadcrumbs=array(
+        'About Us'=>array('&id=1'),
+        $model->name_en
+
+    );
  
 }else{
     $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับเรา';
-    
-}
-$this->breadcrumbs=array(
+    $this->breadcrumbs=array(
         'เกี่ยวกับเรา'=>array('&id=1'),
         $model->name_th
 
-);
+    );
+    
+}
+
 
 ?>
 <div id="page6">
