@@ -7,6 +7,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $model->name_en
 
     );
+    $name = $model->name_en;
+    $desc = $model->desc_en;
  
 }else{
     $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับเรา';
@@ -15,7 +17,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $model->name_th
 
     );
-    
+    $name = $model->name_th;
+    $desc = $model->desc_th;
 }
 
 
@@ -37,8 +40,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
         </div>
           <h3>แนะนำวิทยาลัย</h3>
-          <h4><?php echo $model->name_th;?></h4>
-          <div><?php echo $model->desc_th;?></div>
+          <h4><?php echo $name;?></h4>
+          <div><?php echo $desc;?></div>
         </article>
       
     </div>
