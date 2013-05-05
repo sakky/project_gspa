@@ -31,6 +31,18 @@ $(function () {
 <?php
 $curpage = Yii::app()->getController()->getAction()->controller->id;
 $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
+$lang = Yii::app()->language; 
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $h1_text = "Graduate School of Public Administration";
+    $footer_text = "Graduate School of Public Administration, Burapha University<br/>
+        168 Long-Hard Bangsaen Road, Saen Sook Sub-district, Mueang District, Chonburi 20131<br/>
+        Tel. +66 (0) 38-393-260 (Auto 5 lines) Fax. +66 (0) 38-745-851-2 Ext. 120";
+}else{  
+    $h1_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา";
+    $footer_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา<br/>
+        168 ถ.ลงหาดบางแสน ต.แสนสุข อ.เมือง จ.ชลบุรี 20131<br/>
+        โทร. 038-393-260 (อัตโนมัติ 5 คู่สาย) โทรสาร 038-745-851-2 ต่อ 120";
+}
 //echo Yii::app()->controller->getId();
 //echo "<br/>";
 //echo Yii::app()->controller->getAction()->getId();
@@ -42,7 +54,11 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
 <header>
   <div class="main">
     <div class="wrapper">
-      <h1 class="logo_th">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1>
+      <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
+      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="Graduate School of Public Administration"><h1 class="logo_en">Graduate School of Public Administration</h1></a>
+      <?php }else{?>
+      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="GSPA วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา"><h1 class="logo_th">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1></a>
+      <?php } ?>
       <!--<h1 class="logo_en">GSPA วิทยาลัยการบริหารรัฐกิจ ม.บูรพา</h1>  
       <div class="logo2"><img src="images/front/logo2.png" title="วิทยาลัยบริหารรัฐกิจ มหาวิทยาลัยบูรพา"/></div>-->       
        <div id="search">    
@@ -66,10 +82,47 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
         <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
     </ul>-->
     <div class="menu">
+    <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
+                <?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Home', 'url'=>array('/site')),
+				array('label'=>'About GSPA', 'url'=>array('/about', 'id'=>'1'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'about',
+                                                                        'about/board',
+                                                                        'about/executive',
+                                                                        'alumni',
+                                                                    ))), 
+				array('label'=>'Programs', 'url'=>array('/program'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'program',
+                                                                        'program/admission',
+                                                                    ))), 
+				array('label'=>'Activities', 'url'=>array('/gallery')),
+				array('label'=>'News', 'url'=>array('/news/index'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'news',
+                                                                        'news/news',
+                                                                        'news/student',
+                                                                        'news/job',
+                                                                    ))), 
+				array('label'=>'Service', 'url'=>array('/document'),
+                                                           'active'=>$this->isActive(
+                                                                   array(
+                                                                        'document',
+                                                                        'page',
+                                                                    ))), 
+				array('label'=>'Contact Us', 'url'=>array('/site/contact')),
+			),
+		)); ?> 
+    <?php }else{?>
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'หน้าแรก', 'url'=>array('/site')),
-				array('label'=>'เกี่ยวกับเรา', 'url'=>array('/about', 'id'=>'1'),
+				array('label'=>'เกี่ยวกับวิทยาลัย', 'url'=>array('/about', 'id'=>'1'),
                                                            'active'=>$this->isActive(
                                                                    array(
                                                                         'about',
@@ -100,12 +153,13 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
                                                                     ))), 
 				array('label'=>'ติดต่อเรา', 'url'=>array('/site/contact')),
 			),
-		)); ?>        
+		)); ?> 
+    <?php } ?>
     </div>
     </nav>
     <div class="lang">
-    	   <a title="ภาษาไทย" href="<?php echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET); ?>&lang=th"><img src="images/front/flag_th.png" alt="Thai" border="0" /></a>
-           <a title="English" href="<?php echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET); ?>&lang=en"><img src="images/front/flag_en.png" alt="English" border="0" /></a>
+    	   <a title="ภาษาไทย" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('th');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_th.png" alt="Thai" border="0" /></a>
+           <a title="English" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('en');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_en.png" alt="English" border="0" /></a>
     </div>
     <div class="clear"></div>
     </div>
@@ -120,9 +174,8 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
         <li><a href="#">Facebook</a></li>
         <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
     </ul>  
-    <div class="alignleft">วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา<br/>
-        168 ถ.ลงหาดบางแสน ต.แสนสุข อ.เมือง จ.ชลบุรี 20131<br/>
-        โทร. 038-393-260 (อัตโนมัติ 5 คู่สาย) โทรสาร 038-745-851-2 ต่อ 120
+    <div class="alignleft">
+        <?php echo $footer_text;?>
     </div>
   </div>
 </footer>
