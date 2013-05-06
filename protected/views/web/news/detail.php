@@ -2,7 +2,7 @@
 /* @var $this NewsController */
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle=Yii::app()->name. ' - News';
+    $this->pageTitle='Graduate School of Public Administration - News';
     $this->breadcrumbs=array(
             'News'=>array('index'),
             $model->name_en
