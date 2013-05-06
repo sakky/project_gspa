@@ -107,7 +107,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                                                                         'news/student',
                                                                         'news/job',
                                                                     ))), 
-				array('label'=>'Service', 'url'=>array('/document'),
+				array('label'=>'Student Services', 'url'=>array('/document'),
                                                            'active'=>$this->isActive(
                                                                    array(
                                                                         'document',
