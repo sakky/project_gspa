@@ -16,7 +16,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(5);
+                $pages->setPageSize(6);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -39,7 +39,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(5);
+                $pages->setPageSize(6);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -62,7 +62,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(5);
+                $pages->setPageSize(6);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -85,7 +85,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(5);
+                $pages->setPageSize(6);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -108,7 +108,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(5);
+                $pages->setPageSize(6);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
