@@ -693,3 +693,33 @@ div.breadcrumbs a
 {
         text-decoration: none;
 }
+.pagenav {
+  text-align: center;
+  font-size: 0.7em;
+  padding: 10px 0;
+
+}
+ul.pagenav  li{
+    display: inline-block;
+}
+ul.pagenav  li.first.hidden,
+ul.pagenav  li.previous.hidden,
+ul.pagenav  li.next.hidden,
+ul.pagenav  li.last.hidden
+{
+    display: none;
+}
+.pagenav a,
+.pagenav span {
+  color: #fff;
+  font-size: 1.3em;
+  text-decoration: none;
+  background: #A5D5E2;
+  padding: 5px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.pagenav a:hover {
+  background: #35AFCE;
+}
