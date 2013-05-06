@@ -3,7 +3,7 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - About Us';
     $this->breadcrumbs=array(
-        'About Us'=>array('&id=1'),
+        'About Us'=>array('index', 'id'=>'1'),
         $model->name_en
 
     );
@@ -14,7 +14,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับเรา';
     $this->breadcrumbs=array(
-        'เกี่ยวกับเรา'=>array('&id=1'),
+        'เกี่ยวกับเรา'=>array('index', 'id'=>'1'),
         $model->name_th
 
     );
