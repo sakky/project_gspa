@@ -2,7 +2,7 @@
 /* @var $this NewsController */
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle=Yii::app()->name. ' - Announce';
+    $this->pageTitle='Graduate School of Public Administration - Announce';
     $this->breadcrumbs=array(
             'News'=>array('index'),
             'Announce'
@@ -18,8 +18,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "ข่าวประกาศ";
     $readmore = "อ่านต่อ...";
 }
-
-$this->pageTitle=Yii::app()->name. ' - ข่าวประกาศ';
 ?>
 <div id="page6">
   <div class="main">
