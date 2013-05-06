@@ -37,7 +37,7 @@ body {
 	line-height:1.428em
 }
 a {
-	color:#080808;
+	color:#159FC1;
 	outline:none;
         text-decoration:none;
 }
@@ -400,14 +400,15 @@ h2 strong {
 	margin-top:-43px
 }
 h3 {
+        color:#2F7FAA;
         font-family:Tahoma, Arial, Helvetica, sans-serif;
 	font-size:16px;
 	line-height:1.5em;
 	font-weight:bold;
-	color:#080808;
         margin-bottom:3px;
 }
 h4{
+        color:#2F7FAA;
         font-family:Tahoma, Arial, Helvetica, sans-serif;
         font-size:16px;
         font-weight:normal;
@@ -418,8 +419,8 @@ h6 {
         font-family:Tahoma, Arial, Helvetica, sans-serif;
         font-size:14px;
         font-weight:normal;
-        line-height:1em;
-	color:#000;
+        line-height:1.5em;
+	color:#2F7FAA;
 	margin-bottom:3px;
 }
 .border-bot1 {
@@ -476,7 +477,7 @@ h6 {
 	display:inline-block;
 	font-size:16px;
         font-weight: normal;
-	color:#080808;
+	color:#159FC1;
 	margin-bottom:4px;
 }
 .list-2 li a.item:hover {
