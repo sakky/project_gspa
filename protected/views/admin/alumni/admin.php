@@ -67,6 +67,7 @@ $('.search-form form').submit(function(){
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+                        'filter'=>array('1'=>'แสดง','0'=>'ไม่แสดง'),
 		),
 		/*
 		'major_th',
