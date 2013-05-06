@@ -34,7 +34,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
-          <h3><?php echo $name;?></h3>          
+          <h3><?php echo $header;?></h3>          
           <?php foreach ($news as $new){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $name = $new->name_en;
