@@ -20,14 +20,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $desc = $model->desc_en;
  
 }else{
-    $this->pageTitle=Yii::app()->name . ' - ศิษย์เก่าดีเด่น';
+    $this->pageTitle=Yii::app()->name . ' - ทำเนียบศิษย์เก่า';
     $this->breadcrumbs=array(
         'เกี่ยวกับเรา'=>array('&id=1'),
-        'ศิษย์เก่าดีเด่น'=>array('/alumni'),
+        'ทำเนียบศิษย์เก่า'=>array('/alumni'),
          $model->name_en
 
     );
-    $header = "ศิษย์เก่าดีเด่น";
+    $header = "ทำเนียบศิษย์เก่า";
     $position_text = "ตำแหน่ง";
     $major_text = "สาขาวิชา";
     $campus_text = "ศูนย์การศึกษา";
