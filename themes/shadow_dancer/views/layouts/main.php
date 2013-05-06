@@ -40,10 +40,8 @@
 			array('label'=>'หน้าแรก', 'url'=>array('/site')),
 //			array('label'=>'จัดการหน้าเว็บ', 'items'=>array(
 //				array('label'=>'Manage Page Type', 'url'=>array('/pagetype')),
-//                                array('label'=>'Manage Left Menu', 'url'=>array('/leftmenu')),
-//                                array('label'=>'Manage Pages', 'url'=>array('/page')),
-//                                
-//                                
+//                              array('label'=>'Manage Left Menu', 'url'=>array('/leftmenu')),
+//                              array('label'=>'Manage Pages', 'url'=>array('/page')),                        
 //			)),
                         array('label'=>'เกี่ยวกับเรา', 'items'=>array(
                             //array('label'=>'Manage Pages', 'url'=>array('/page')),
@@ -52,7 +50,7 @@
                                 array('label'=>'คณะกรรมการประจำวิทยาลัย', 'url'=>array('/board')),
                                 array('label'=>'ผู้บริหารวิทยาลัย', 'url'=>array('/executive')),
                                 array('label'=>'โครงสร้างองค์กร', 'url'=>array('/page/edit?id=4')),
-                                array('label'=>'ความร่วมมือทางวิชาการ', 'url'=>array('/page/edit?id=5')),
+                                array('label'=>'ความร่วมมือทางวิชาการ', 'url'=>array('/cooperation')),
                                 array('label'=>'ข้อมูลศิษย์เก่า', 'url'=>array('/alumni')),
                                 array('label'=>'แผนที่วิทยาลัย', 'url'=>array('/page/edit?id=6')),
                                 /*array('label'=>'Payments', 'items' => array(
@@ -66,8 +64,7 @@
 			array('label'=>'หลักสูตร', 'items'=>array(
                                 array('label'=>'หลักสูตรที่เปิดสอน', 'url'=>array('/program')),
                                 array('label'=>'สมัครเรียนปริญญาเอก', 'url'=>array('/page/edit?id=15')),
-                                array('label'=>'สมัครเรียนปริญญาโท', 'url'=>array('/page/edit?id=14')),
-                            
+                                array('label'=>'สมัครเรียนปริญญาโท', 'url'=>array('/page/edit?id=14')),                            
                                 //array('label'=>'บทความ', 'url'=>array('/article')),
 			)),
                         array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
@@ -78,7 +75,7 @@
                                         //array('label'=>'จดหมายข่าว Online', 'url'=>array('/news')),
                                         //array('label'=>'ข่าวประชาสัมพันธ์นิสิต', 'url'=>array('/student')),
                                         //array('label'=>'ข่าวรับสมัครงาน', 'url'=>array('/jobs')),
-//                                        array('label'=>'GSPA Newsletter ', 'url'=>array('/#')),
+                                        //array('label'=>'GSPA Newsletter ', 'url'=>array('/#')),
 				),
 			),
                         array('label'=>'บริการนิสิต', 'items'=>array(
