@@ -29,15 +29,7 @@ class DocumentController extends Controller
                 $criteria->order = 'sort_order ASC ,last_update DESC';
 
 		
-		$model = Document::model()->findAll($criteria);
-
-                foreach($model as $key=>$value){
-                   //echo $this->thai_date(strtotime($value->last_update));
-                  $model[$key]->last_update = $this->thai_date(strtotime($value->last_update));      
-                }
-                
-
-                
+		$model = Document::model()->findAll($criteria);                              
                 $this->render('index',array('model'=>$model));
                 }
 	}
@@ -45,7 +37,6 @@ class DocumentController extends Controller
         public function thai_date($time){  
 
             $thai_date_return = date("j",$time)." ".$this->thai_month_arr[date("n",$time)]." ".(date("Y",$time)+543);  
-
             return $thai_date_return;  
         }  
 
