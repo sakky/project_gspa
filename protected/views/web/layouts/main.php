@@ -171,7 +171,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     <ul class="list-services">
         <li><a href="#">Facebook</a></li>
         <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
-    </ul>  
+        <div class="alignright">
+            Site Map | FAQ
+        </div>
+    </ul>
     <div class="alignleft">
         <?php echo $footer_text;?>
     </div>
