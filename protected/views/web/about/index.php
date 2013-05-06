@@ -7,6 +7,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $model->name_en
 
     );
+    $header = "Introduction GSPA";
     $name = $model->name_en;
     $desc = $model->desc_en;
  
@@ -17,6 +18,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $model->name_th
 
     );
+    $header = "แนะนำวิทยาลัย";
     $name = $model->name_th;
     $desc = $model->desc_th;
 }
@@ -39,7 +41,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
         </div>
-          <h3>แนะนำวิทยาลัย</h3>
+          <h3><?php echo $header;?></h3>
           <h4><?php echo $name;?></h4>
           <div><?php echo $desc;?></div>
         </article>
