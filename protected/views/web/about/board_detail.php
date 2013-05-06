@@ -1,7 +1,7 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle=Yii::app()->name . ' - Board';
+    $this->pageTitle='Graduate School of Public Administration - Board';
     $this->breadcrumbs=array(
             'About Us'=>array('&id=1'),
             'Board of directors'=>array('board'),
