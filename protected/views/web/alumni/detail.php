@@ -24,7 +24,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->breadcrumbs=array(
         'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
         'ทำเนียบศิษย์เก่า'=>array('/alumni'),
-         $model->name_en
+         $model->name_th
 
     );
     $header = "ทำเนียบศิษย์เก่า";
