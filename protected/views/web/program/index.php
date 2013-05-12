@@ -1,15 +1,30 @@
 <?php
-/* @var $this SiteController */
-$this->pageTitle=Yii::app()->name. ' - หลักสูตรที่เปิดสอน';
-?>
-<?php
-/* @var $this ProgramController */
+$lang = Yii::app()->language; 
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $this->pageTitle='Graduate School of Public Administration - Programs';
+    $this->breadcrumbs=array(
+        'About Us'=>array('about/index', 'id'=>'1'),
+        'Academic Cooperation'=>array('/cooperation'),
 
-$this->breadcrumbs=array(
-	'หลักสูตรที่เปิดสอน',
-);
-?>
+    );
+    $header = "Programs";
 
+
+
+ 
+}else{
+    $this->pageTitle=Yii::app()->name . ' - หลักสูตรที่เปิดสอน';
+    $this->breadcrumbs=array(
+        'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
+        'ความร่วมมือทางวิชาการ'=>array('/cooperation'),
+    );
+    $header = "หลักสูตรที่เปิดสอน";
+
+
+
+}
+
+?>
 <div id="page6">
   <div class="main">
     <div class="wrapper">
