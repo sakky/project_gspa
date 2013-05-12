@@ -70,89 +70,107 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       </div>
     <div class="clear"></div>
     <nav>
-    <!--<ul class="menu">
-        <li><a class="active" href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับเรา">เกี่ยวกับเรา</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตรที่เปิดสอน">หลักสูตร</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
-    </ul>-->
-    <div class="menu">
-    <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
-                <?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site')),
-				array('label'=>'About GSPA', 'url'=>array('/about', 'id'=>'1'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'about',
-                                                                        'about/board',
-                                                                        'about/executive',
-                                                                        'alumni',
-                                                                    ))), 
-				array('label'=>'Programs', 'url'=>array('/program'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'program',
-                                                                        'program/admission',
-                                                                    ))), 
-				array('label'=>'Activities', 'url'=>array('/gallery')),
-				array('label'=>'News', 'url'=>array('/news/index'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'news',
-                                                                        'news/news',
-                                                                        'news/student',
-                                                                        'news/job',
-                                                                    ))), 
-				array('label'=>'Student Services', 'url'=>array('/document'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'document',
-                                                                        'page',
-                                                                    ))), 
-				array('label'=>'Contact Us', 'url'=>array('/site/contact')),
-			),
-		)); ?> 
-    <?php }else{?>
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'หน้าแรก', 'url'=>array('/site')),
-				array('label'=>'เกี่ยวกับวิทยาลัย', 'url'=>array('/about', 'id'=>'1'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'about',
-                                                                        'about/board',
-                                                                        'about/executive',
-                                                                        'alumni',
-                                                                    ))), 
-				array('label'=>'หลักสูตร', 'url'=>array('/program'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'program',
-                                                                        'program/admission',
-                                                                    ))), 
-				array('label'=>'ภาพกิจกรรม', 'url'=>array('/gallery')),
-				array('label'=>'ข่าวสาร', 'url'=>array('/news/index'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'news',
-                                                                        'news/news',
-                                                                        'news/student',
-                                                                        'news/job',
-                                                                    ))), 
-				array('label'=>'บริการนิสิต', 'url'=>array('/document'),
-                                                           'active'=>$this->isActive(
-                                                                   array(
-                                                                        'document',
-                                                                        'page',
-                                                                    ))), 
-				array('label'=>'ติดต่อเรา', 'url'=>array('/site/contact')),
-			),
-		)); ?> 
-    <?php } ?>
+    <div class="menu">    
+        <ul>
+            <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
+                <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="Home">Home</a></li>
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
+                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">About GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board of Directors</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Organization Structure</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">Academic Cooperation</a></li>     
+                            <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">GSPA Alumni</a></li> 
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>           
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program'); ?>">Programs</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>15)); ?>">PHD Admissions</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">Master Admissions</a></li>           
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Activities">Activities</a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News" >News</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">Public Relations News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">Student News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">Employment News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">Announce</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Student Services" >Student Services</a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">Document</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">Thesis / Dissertation</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">Special problems / Thesis work</a></li>         
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="Organization" >Organization</a>
+                    <ul>
+                        <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
+                        <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
+                        <li><a href="#">พิพิธภัณฑ์วิทยาศาสตร์ทางทะเล</a></li>
+                        <li><a href="#">มหาวิทยาลัยบูรพา</a></li>
+                        <li><a href="#">งานประกันคุณภาพ</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>
+            <?php }else{?>
+                <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
+                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับวิทยาลัย</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">เกี่ยวกับวิทยาลัย</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">สัญลักษณ์ประจำวิทยาลัย</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการประจำวิทยาลัย</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ผู้บริหารวิทยาลัยการบริหารรัฐกิจ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">โครงสร้างองค์กร</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">ความร่วมมือทางวิชาการ</a></li>     
+                            <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">ทำเนียบศิษย์เก่า</a></li> 
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>           
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program'); ?>">หลักสูตรที่เปิดสอน</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>15)); ?>">สมัครเรียนปริญญาเอก</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">สมัครเรียนปริญญาโท</a></li>           
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Activities">กิจกรรม</a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">ข่าวประชาสัมพันธ์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">ข่าวประชาสัมพันธ์นิสิต</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">ข่าวรับสมัครงาน</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">ข่าวประกาศ</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">เอกสารประกอบการเรียน</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">วิทยานิพนธ์ / ดุษฎีนิพนธ์</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">ปัญหาพิเศษ / งานนิพนธ์</a></li>         
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="หน่วยงานภายใน" >หน่วยงาน</a>
+                    <ul>
+                        <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
+                        <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
+                        <li><a href="#">พิพิธภัณฑ์วิทยาศาสตร์ทางทะเล</a></li>
+                        <li><a href="#">มหาวิทยาลัยบูรพา</a></li>
+                        <li><a href="#">งานประกันคุณภาพ</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
+            
+            <?php }?>
+        </ul>
     </div>
     </nav>
     <div class="lang">
