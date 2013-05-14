@@ -59,7 +59,7 @@ class NewsController extends AdminController
                         $image = CUploadedFile::getInstance($model, 'image');
                         if($image) {
 
-				$genName = 'thumb_' . date('YmdHis');
+				$genName = 'img_' . date('YmdHis');
 				$saveName = $genName;
 				
 				while(file_exists($this->upload_path . $saveName . '.' . $image->getExtensionName())) {
@@ -68,6 +68,20 @@ class NewsController extends AdminController
 					
 				$model->image = $saveName . '.' . $image->getExtensionName();
 			}
+                        //upload thumbnail
+                        $thumbnail = CUploadedFile::getInstance($model, 'thumbnail');
+                        if($thumbnail) {
+
+				$genName = 'thumb_' . date('YmdHis');
+				$saveName = $genName;
+				
+				while(file_exists($this->upload_path . $saveName . '.' . $thumbnail->getExtensionName())) {
+					$saveName = $genName . '-' . rand(0,99);
+				}
+					
+				$model->thumbnail = $saveName . '.' . $thumbnail->getExtensionName();
+			}
+                        
                         //Upload pdf_file EN
                         $file_en = CUploadedFile::getInstance($model, 'pdf_en');	
 			if($file_en) {
@@ -98,6 +112,9 @@ class NewsController extends AdminController
 			if($model->save()){
                             if($image) {
                                     $image->saveAs($this->upload_path . $model->image);
+                            }
+                            if($thumbnail) {
+                                    $thumbnail->saveAs($this->upload_path . $model->thumbnail);
                             }
                             if($file_en) {
                                     $file_en->saveAs($this->upload_path_pdf . $model->pdf_en);
@@ -142,6 +159,7 @@ class NewsController extends AdminController
 		{
 			$_POST['News']['user_id'] = Yii::app()->user->id;
                         $record_image = $model->image;
+                        $record_thumb = $model->thumbnail;
                         $record_file_en = $model->pdf_en;
                         $record_file_th = $model->pdf_th;
                         list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
@@ -151,7 +169,7 @@ class NewsController extends AdminController
                         $model->attributes=$_POST['News'];
                         $image = CUploadedFile::getInstance($model, 'image');
                         if($image) {			
-                                $genName = 'thumb_' . date('YmdHis');
+                                $genName = 'img_' . date('YmdHis');
                                 $saveName = $genName;
 
                                 while(file_exists($this->upload_path . $saveName . '.' . $image->getExtensionName())) {
@@ -159,6 +177,17 @@ class NewsController extends AdminController
                                 }
 
                                 $model->image = $saveName . '.' . $image->getExtensionName();
+                        }
+                        $thumbnail = CUploadedFile::getInstance($model, 'thumbnail');
+                        if($thumbnail) {			
+                                $genName = 'thumb_' . date('YmdHis');
+                                $saveName = $genName;
+
+                                while(file_exists($this->upload_path . $saveName . '.' . $thumbnail->getExtensionName())) {
+                                        $saveName = $genName . '-' . rand(0,99);
+                                }
+
+                                $model->thumbnail = $saveName . '.' . $thumbnail->getExtensionName();
                         }
                         $file_en = CUploadedFile::getInstance($model, 'pdf_en');
                         if($file_en) {			
@@ -190,6 +219,13 @@ class NewsController extends AdminController
                                     }
 
                                     $image->saveAs($this->upload_path . $model->image);
+                            }
+                            if($thumbnail) {
+                                    if(file_exists($this->upload_path . $record_thumb)) {
+                                            @unlink($this->upload_path . $record_thumb);
+                                    }
+
+                                    $thumbnail->saveAs($this->upload_path . $model->thumbnail);
                             }
                             if($file_en) {
                                     if(file_exists($this->upload_path_pdf . $record_file_en)) {
