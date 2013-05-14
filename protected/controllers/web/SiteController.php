@@ -49,11 +49,18 @@ class SiteController extends Controller
                 $news_ads = News::model()->findAll($condition);
                 
                 $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "news_type_id <>4 AND status = 1";
+                $news_criteria->condition = "news_type_id =1 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 5; 
+                $news_criteria->limit = 6; 
                 $news = News::model()->findAll($news_criteria);
+                
+                $job_criteria = new CDbCriteria();
+                $job_criteria->condition = "news_type_id =3 AND status = 1";
+                $job_criteria->order = "create_date desc,news_id desc";
+                $job_criteria->offset = 0;
+                $job_criteria->limit = 5; 
+                $job_news = News::model()->findAll($job_criteria);
                 
                 $vdo_criteria = new CDbCriteria();
                 $vdo_criteria->condition = "page_id = 3 AND status = 1";
@@ -72,6 +79,7 @@ class SiteController extends Controller
                                 'news'=>$news,
                                 'menu_list'=>$menu_list,
                                 'news_ads'=>$news_ads,
+                                'job'=>$job_news,
                                 'vdo'=>$vdo,
                         ));
 	}
