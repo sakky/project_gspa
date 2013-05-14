@@ -52,11 +52,11 @@ class News extends CActiveRecord
 			array('news_type_id, show_homepage, show_new, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, image', 'length', 'max'=>255),
 			array('title_en, title_th, desc_en, desc_th, create_date', 'safe'),
-                        array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
+                        array('image, thumbnail', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
                         array('pdf_en,pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'ไฟล์ควรมีขนาดเล็กกว่า 10 MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('news_id, news_type_id, name_en, name_th, title_en, title_th, desc_en, desc_th, image, create_date, show_homepage, show_new, status, user_id, time_stamp', 'safe', 'on'=>'search'),
+			array('news_id, news_type_id, name_en, name_th, title_en, title_th, desc_en, desc_th, image, thumbnail, create_date, show_homepage, show_new, status, user_id, time_stamp', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,7 +88,8 @@ class News extends CActiveRecord
 			'desc_th' => 'รายละเอียด (ภาษาไทย)',
                     	'pdf_en' => 'ไฟล์ PDF (ภาษาอังกฤษ)',
 			'pdf_th' => 'ไฟล์ PDF (ภาษาไทย)',  
-			'image' => 'รูปภาพ Thumbnail',
+			'image' => 'รูปภาพประกอบ',
+                        'thumbnail' => 'รูปภาพ Thumbnail',
 			'create_date' => 'วันที่สร้าง',
 			'show_homepage' => 'แสดงในหน้าแรก',
 			'show_new' => 'แสดงไอคอน New',
@@ -120,6 +121,7 @@ class News extends CActiveRecord
                 $criteria->compare('pdf_en',$this->pdf_en,true);
 		$criteria->compare('pdf_th',$this->pdf_th,true);
 		$criteria->compare('image',$this->image,true);
+                $criteria->compare('thumbnail',$this->thumbnail,true);
 		$criteria->compare('create_date',$this->create_date,true);
 		$criteria->compare('show_homepage',$this->show_homepage);
 		$criteria->compare('show_new',$this->show_new);
