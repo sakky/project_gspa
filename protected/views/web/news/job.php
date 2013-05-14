@@ -46,7 +46,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           ?>
           <div class="wrapper margin-bot">
           <div class="prev-indent-bot" style="float:left">
-            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img <?php if($new->image){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>"<?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture2.png"<?php }?> alt="" width="290px" /></a></figure>
+            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>"<?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture2.png"<?php }?> alt="" width="290px" /></a></figure>
             <div class="clear"></div>
           </div>
           <div style="float:left;width:300px;margin-left:10px;">

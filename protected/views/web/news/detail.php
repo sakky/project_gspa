@@ -43,7 +43,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
           </div>
           <h4><?php echo $name;?></h4>
-          <div><?php echo $desc;?></div>
+          <div>
+              
+              <?php if($model->image){?>
+                    <img src="" align="center" /><br/>
+              <?php }?>             
+              <?php echo $desc; ?>
+          
+          </div>
           <?php if($pdf){?>
           <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/programs/<?php echo $pdf;?>"><?php echo $info_text;?></a></div>
           <?php }?>
