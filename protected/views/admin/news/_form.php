@@ -92,10 +92,18 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
-		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 290px')); ?><br />
-                <span class="required">รูปภาพขนาด กว้าง 290px ยาว 157px เท่านั้น</span><br/>
+		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 600px')); ?><br />
+                <span class="required">รูปภาพขนาดความกว้างไม่เกิน 600 px</span><br/>
 		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'image'); ?>
+	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'thumbnail'); ?><br/>                
+		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->thumbnail, '', array('style'=>'width: 290px')); ?><br />
+                <span class="required">รูปภาพขนาด กว้าง 290px ยาว 157px เท่านั้น</span><br/>
+		<?php echo $form->fileField($model,'thumbnail',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
 
 	<div class="row">
