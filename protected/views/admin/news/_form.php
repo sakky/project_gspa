@@ -48,32 +48,44 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
-                <?php $crate_date = $day.'/'.$month.'/'.$year;
-                      $this->widget('application.extensions.cleditor.ECLEditor', array(
-                                        'model'=>$model,
-                                        'attribute'=>'desc_en', 
-                                        'options'=>array(
-                                            'width'=>600,
-                                            'height'=>250,
-                                            'useCSS'=>true,
-                                        ),
-                                        'value'=>$model->desc_en,     ));
-                    ?>
+                <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_en',
+                        'config'=>array(
+                                'id'=>'xheditor_1',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
+                
 		<?php echo $form->error($model,'desc_en'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
-                <?php $this->widget('application.extensions.cleditor.ECLEditor', array(
-                                    'model'=>$model,
-                                    'attribute'=>'desc_th', 
-                                    'options'=>array(
-                                        'width'=>600,
-                                        'height'=>250,
-                                        'useCSS'=>true,
-                                    ),
-                                    'value'=>$model->desc_th,     ));
-                ?>
+                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_th',
+                        'config'=>array(
+                                'id'=>'xheditor_2',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
          <div class="row">
