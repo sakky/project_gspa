@@ -77,7 +77,6 @@ class SiteController extends Controller
                 $this->render('index',array(
                                 'model'=>$model,
                                 'news'=>$news,
-                                'menu_list'=>$menu_list,
                                 'news_ads'=>$news_ads,
                                 'job'=>$job_news,
                                 'vdo'=>$vdo,
