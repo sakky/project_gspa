@@ -17,6 +17,9 @@ return array(
 		'application.components.*',
                 'application.modules.*',
                 'application.extensions.*',
+            	'ext.helpers.XHtml',
+		'ext.modules.help.models.*',
+		'ext.modules.lookup.models.*',
 	),
 
 	'modules'=>array(
@@ -28,6 +31,16 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
                 'gig',
+                'help'=>array(
+			'class'=>'ext.modules.help.HelpModule',
+			'helpLayout'=>'application.views.layouts.leftbar',
+			'helpTable'=>'tbl_help',
+			'leftPortlets'=>array(
+				'ptl.ModuleMenu'=>array()
+			),
+			'editorCSS'=>'editor.css',
+			'editorUploadRoute'=>'/request/uploadFile',
+		),
 	),
 	
 	'behaviors'=>array(
@@ -65,6 +78,10 @@ return array(
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
+				),
+                                array(
+					'class'=>'CProfileLogRoute',
+					'report'=>'summary',
 				),
 				// uncomment the following to show log messages on web pages
 				/*
