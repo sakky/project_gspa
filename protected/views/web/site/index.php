@@ -3,14 +3,16 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle="Graduate School of Public Administration";
-    $col2_header = "Latest News";
+    $col2_header = "News & Events";
     $col3_header = "Media";
     $col3_2_header = "Announce";
+    $col3_3_header = "Job News";
 }else{
     $this->pageTitle=Yii::app()->name;
-    $col2_header = "ข่าวล่าสุด";
+    $col2_header = "ข่าวสารและกิจกรรม";  
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
     $col3_2_header = "ประกาศ";
+    $col3_3_header = "ข่าวรับสมัครงาน";
 }
 ?>
 
@@ -87,7 +89,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
-                  <img <?php if($new->image){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->image;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
+                  <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
               </a>
           </figure>
           <p class="img-indent-bot"><?php echo $news_title;?></p>
@@ -110,9 +112,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <?php 
             $count_news = -1;
             foreach ($news_ads as $key_new => $new){?>
-            <li <?php if ((++$count_news)==$key_new) echo 'class="last-item"';?>> <a class="item" href="#"><?php echo $new->name_th;?></a> 
-                <span><?php echo $new->title_th;?></span> 
-            </li>
+            <li><a href="#"><?php echo $new->name_th;?></a></li>
+        <?php }?>
+          </ul>
+        <h3><?php echo $col3_3_header;?></h3>
+          <ul class="list-2">
+        <?php 
+            foreach ($job as $key_new => $new){?>
+            <li><a href="#"><?php echo $new->name_th;?></a> </li>
         <?php }?>
           </ul>
         </div>
