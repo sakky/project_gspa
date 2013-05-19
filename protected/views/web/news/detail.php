@@ -7,8 +7,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             'News'=>array('index'),
             $model->name_en
     );
-    $info_text = "Read More";
-    $readmore = "Back to News All";
+    $info_text = "Download More Info.";
     $name = $model->name_en;
     $pdf = $model->pdf_en;
     $desc = $model->desc_en;
@@ -18,8 +17,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             'ข่าวสาร'=>array('index'),
             $model->name_th
     );
-    $info_text = "ดูรายละเอียด";
-    $readmore = "ย้อนกลับหน้าข่าวรวม";
+    $info_text = "ดาวน์โหลดรายละเอียด";
     $name = $model->name_en;
     $pdf = $model->pdf_en;
     $desc = $model->desc_th;
@@ -45,18 +43,20 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           <h4><?php echo $name;?></h4>
           <div>
               
-              <?php if($model->image){?>
-                    <img src="" align="center" /><br/>
+              <?php if($model->image && $model->news_type_id==1){?>
+              <div align="center">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $model->image;?>" align="center" />
+              </div><br/>
+              <div class="clear"></div>
               <?php }?>             
               <?php echo $desc; ?>
           
           </div>
           <?php if($pdf){?>
-          <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/programs/<?php echo $pdf;?>"><?php echo $info_text;?></a></div>
-          <?php }?>
           <br/>
-          <div align="right"><a href="<?php echo Yii::app()->createUrl('news'); ?>"><h6><?php echo $readmore;?></h6></a></div>
-      </article>      
+          <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/pdf/<?php echo $pdf;?>"><?php echo $info_text;?></a></div>
+          <?php }?>
+    </article>      
     </div>
   </div>
 </div>

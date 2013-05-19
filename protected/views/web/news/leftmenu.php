@@ -2,6 +2,7 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?> 
 <ul class="list-1">
+        <li><h6><a href="<?php echo Yii::app()->createUrl('news'); ?>">News & Events</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">Public Relations News</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">Student News</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">Employment News</a></h6></li>
@@ -9,6 +10,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 </ul>
 <?php }else{?>
 <ul class="list-1">
+        <li><h6><a href="<?php echo Yii::app()->createUrl('news'); ?>">ข่าวสารและกิจกรรม</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">ข่าวประชาสัมพันธ์</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">ข่าวประชาสัมพันธ์นิสิต</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">ข่าวรับสมัครงาน</a></h6></li>
