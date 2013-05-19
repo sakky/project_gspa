@@ -45,22 +45,29 @@ class SiteController extends Controller
                 $condition->condition = "news_type_id =4 AND status = 1";
                 $condition->order = "create_date desc,news_id desc";
                 $condition->offset = 0;
-                $condition->limit = 5; 
+                $condition->limit = 3; 
                 $news_ads = News::model()->findAll($condition);
                 
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "news_type_id =1 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 6; 
+                $news_criteria->limit = 10; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $job_criteria = new CDbCriteria();
                 $job_criteria->condition = "news_type_id =3 AND status = 1";
                 $job_criteria->order = "create_date desc,news_id desc";
                 $job_criteria->offset = 0;
-                $job_criteria->limit = 5; 
+                $job_criteria->limit = 3; 
                 $job_news = News::model()->findAll($job_criteria);
+                
+                $pr_criteria = new CDbCriteria();
+                $pr_criteria->condition = "news_type_id =5 AND status = 1";
+                $pr_criteria->order = "create_date desc,news_id desc";
+                $pr_criteria->offset = 0;
+                $pr_criteria->limit = 3; 
+                $pr_news = News::model()->findAll($pr_criteria);
                 
                 $vdo_criteria = new CDbCriteria();
                 $vdo_criteria->condition = "page_id = 3 AND status = 1";
@@ -79,6 +86,7 @@ class SiteController extends Controller
                                 'news'=>$news,
                                 'news_ads'=>$news_ads,
                                 'job'=>$job_news,
+                                'pr_news'=>$pr_news,
                                 'vdo'=>$vdo,
                         ));
 	}
