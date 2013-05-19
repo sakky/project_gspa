@@ -31,7 +31,10 @@ $(function () {
 <?php
 $curpage = Yii::app()->getController()->getAction()->controller->id;
 $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
-$lang = Yii::app()->language; 
+if(Yii::app()->language == 'en_us'){
+   Yii::app()->language = 'en' ;
+}
+$lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $h1_text = "Graduate School of Public Administration";
     $css_class = "logo_en";
