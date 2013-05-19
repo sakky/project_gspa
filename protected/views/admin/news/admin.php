@@ -43,15 +43,15 @@ $('.search-form form').submit(function(){
 			'name'=>'news_id',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
 		),
-                array(
-			'name'=>'thumbnail',
-                        'header'=> 'Thumbnail',
-                        'type'=>'html',
-                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/news/".$data->thumbnail, "รูปข่าว",array(\'width\'=>120))',
-                        'htmlOptions'=>array('width'=>'100px'),
-                        'filter'=>FALSE,
-
-                ),                
+//                array(
+//			'name'=>'thumbnail',
+//                        'header'=> 'Thumbnail',
+//                        'type'=>'html',
+//                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/news/".$data->thumbnail, "รูปข่าว",array(\'width\'=>120))',
+//                        'htmlOptions'=>array('width'=>'100px'),
+//                        'filter'=>FALSE,
+//
+//                ),                
 		array(
 			'name'=>'name_th',
                         'header'=> 'หัวข้อข่าว',
