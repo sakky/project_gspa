@@ -94,9 +94,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">Master Admissions</a></li>           
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Activities">Activities</a></li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News" >News</a>
+                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Gallery">Gallery</a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="#" title="News" >News</a>
                     <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">News & Events</a></li>  
                             <li><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">Public Relations News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">Student News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">Employment News</a></li>
@@ -142,9 +143,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">สมัครเรียนปริญญาโท</a></li>           
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Activities">กิจกรรม</a></li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a>
+                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="ประมวลภาพกิจกรรม">ภาพกิจกรรม</a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ข่าวสาร" >ข่าวสาร</a>
                     <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ข่าวสารและกิจกรรม</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">ข่าวประชาสัมพันธ์</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">ข่าวประชาสัมพันธ์นิสิต</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">ข่าวรับสมัครงาน</a></li>
@@ -158,7 +160,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">ปัญหาพิเศษ / งานนิพนธ์</a></li>         
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="หน่วยงานภายใน" >หน่วยงาน</a>
+                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="หน่วยงานภายใน" >หน่วยงานภายใน</a>
                     <ul>
                         <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
                         <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
