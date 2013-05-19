@@ -5,14 +5,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle="Graduate School of Public Administration";
     $col2_header = "News & Events";
     $col3_header = "Media";
-    $col3_2_header = "Announce";
+    $col3_2_header = "Public Relations News";
     $col3_3_header = "Job News";
+    $col3_4_header = "Announce";
 }else{
     $this->pageTitle=Yii::app()->name;
     $col2_header = "ข่าวสารและกิจกรรม";  
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
-    $col3_2_header = "ประกาศ";
+    $col3_2_header = "ข่าวประชาสัมพันธ์";
     $col3_3_header = "ข่าวรับสมัครงาน";
+    $col3_4_header = "ประกาศ";
 }
 ?>
 
@@ -107,21 +109,32 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <?php echo $vdo->desc_th;?>
         <div class="clear"></div>
         <br/>
+        <!-- ข่าวประชาสัมพันธ์ -->
         <h3><?php echo $col3_2_header;?></h3>
           <ul class="list-2">
-        <?php 
-            $count_news = -1;
-            foreach ($news_ads as $key_new => $new){?>
-            <li><a href="#"><?php echo $new->name_th;?></a></li>
-        <?php }?>
+            <?php 
+                foreach ($pr_news as $key_new => $new_pr){?>
+                <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new_pr->news_id)); ?>"><?php echo $new_pr->name_th;?></a> </li>
+            <?php }?>
           </ul>
+    
+        <!-- ข่าวรับสมัครงาน -->
         <h3><?php echo $col3_3_header;?></h3>
           <ul class="list-2">
-        <?php 
-            foreach ($job as $key_new => $new){?>
-            <li><a href="#"><?php echo $new->name_th;?></a> </li>
-        <?php }?>
+            <?php 
+                foreach ($job as $key_new => $new){?>
+                <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a> </li>
+            <?php }?>
           </ul>
+        <!-- ข่าวประกาศ -->
+        <h3><?php echo $col3_4_header;?></h3>
+          <ul class="list-2">
+            <?php 
+                $count_news = -1;
+                foreach ($news_ads as $key_new => $new){?>
+                <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></li>
+            <?php }?>
+          </ul>  
         </div>
       </article>
     </div>
