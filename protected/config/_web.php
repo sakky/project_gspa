@@ -4,6 +4,7 @@ return CMap::mergeArray(
     require(dirname(__FILE__).'/main.php'),
     array(
 		'name'=>'วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา',
+                'language' =>'th',
                 'homeUrl'=>array('/site'),
                     	'components'=>array(
 			#...
