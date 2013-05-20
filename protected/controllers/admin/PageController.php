@@ -18,12 +18,20 @@ class PageController extends AdminController
                 $this->upload_path_thumb = Yii::app()->basePath . '/../uploads/pages/thumbnail/';
                 $this->upload_path_pdf = Yii::app()->basePath . '/../uploads/pages/pdf/';
 	}
-        public function accessRules()
-	{
-		return array(
+        public function filters()
+        {
+            return array( 'accessControl' ); // perform access control for CRUD operations
+        }
 
-		);
-	}
+        public function accessRules()
+        {
+            return array(
+                array('allow', // allow authenticated users to access all actions
+                    'users'=>array('@'),
+                ),
+                array('deny'),
+            );
+        }
 
 	/**
 	 * Displays a particular model.
