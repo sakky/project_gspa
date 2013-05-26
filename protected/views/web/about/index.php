@@ -1,24 +1,22 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - About Us';
+    $this->pageTitle='Graduate School of Public Administration - About GSPA';
     $this->breadcrumbs=array(
         'About Us'=>array('index', 'id'=>'1'),
         $model->name_en
 
     );
-    $header = "Introduction GSPA";
     $name = $model->name_en;
     $desc = $model->desc_en;
  
 }else{
-    $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับเรา';
+    $this->pageTitle=Yii::app()->name . ' - เกี่ยวกับหน่วยงาน';
     $this->breadcrumbs=array(
-        'เกี่ยวกับเรา'=>array('index', 'id'=>'1'),
+        'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
         $model->name_th
 
     );
-    $header = "แนะนำวิทยาลัย";
     $name = $model->name_th;
     $desc = $model->desc_th;
 }
@@ -41,8 +39,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
         </div>
-          <h3><?php echo $header;?></h3>
-          <h4><?php echo $name;?></h4>
+          <h3><?php echo $name;?></h3>
           <div><?php echo $desc;?></div>
         </article>
       
