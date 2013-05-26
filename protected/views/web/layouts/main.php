@@ -80,14 +80,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
                     <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">About GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board of Directors</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li>   
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Organization Structure</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">Academic Cooperation</a></li>     
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Teachers</a></li>
+<!--                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">Academic Cooperation</a></li>     
                             <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">GSPA Alumni</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>           
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>           -->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
@@ -127,16 +129,18 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
                 <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
-                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับวิทยาลัย</a>
+                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
                     <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">เกี่ยวกับวิทยาลัย</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">สัญลักษณ์ประจำวิทยาลัย</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการประจำวิทยาลัย</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ผู้บริหารวิทยาลัยการบริหารรัฐกิจ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">โครงสร้างองค์กร</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">ความร่วมมือทางวิชาการ</a></li>     
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณาจารย์</a></li>
+<!--                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">ความร่วมมือทางวิชาการ</a></li>     
                             <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">ทำเนียบศิษย์เก่า</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>           
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>           -->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
