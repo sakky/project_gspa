@@ -3,17 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'คณะกรรมการประจำวิทยาลัย'=>array('index'),
+	'คณาจารย์'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Executive', 'url'=>array('index')),
-	array('label'=>'จัดการข้อมูลคณะกรรมการ', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูลคณาจารย์', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เรียงลำดับการแสดงผลข้อมูลคณะกรรมการ</h1>
+<h1>เรียงลำดับการแสดงผลข้อมูลคณาจารย์</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 
