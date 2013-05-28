@@ -27,7 +27,7 @@
 </head>
 
 <body>
-
+    
 <div class="container" id="page">
 	<div id="topnav">
 		<div class="topnav_text"><?php echo (!Yii::app()->user->isGuest)? CHtml::link('ออกจากระบบ ('.Yii::app()->user->name.')', array('site/logout')) :''; ?></div>
@@ -53,8 +53,8 @@
                                 array('label'=>'ทำเนียนผู้บริหาร', 'url'=>array('/executive')),
                                 //array('label'=>'โครงสร้างหน่วยงาน', 'url'=>array('/page/edit?id=4')),
                                 array('label'=>'โครงสร้างหน่วยงาน', 'items' => array(
-					array('label'=>'ประเภทโครงสร้างหน่วยงาน', 'url'=>array('/type')),
-					array('label'=>'โครงสร้างหน่วยงาน', 'url'=>array('/organization')),
+					array('label'=>'ประเภทโครงสร้างหน่วยงาน', 'url'=>array('/structureType')),
+					array('label'=>'โครงสร้างหน่วยงาน', 'url'=>array('/structure')),
                                 )),
                                 array('label'=>'คณาจารย์', 'url'=>array('/board')),
 //                                array('label'=>'ความร่วมมือทางวิชาการ', 'url'=>array('/cooperation')),
@@ -68,35 +68,46 @@
 				array('label'=>'Credits', 'url'=>array('/credit/admin')),
 				array('label'=>'Coupons', 'url'=>array('/coupon')),*/
 			)),
-                        array('label'=>'ประกาศ', 'items'=> 
+                        array('label'=>'ประกาศ/กิจกรรม', 'items'=> 
 				array(
-					
-                                        array('label'=>'สมัครเรียน', 'url'=>array('/student')),
-                                        array('label'=>'รับสมัครงาน', 'url'=>array('/jobs')),
 //                                        array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
 //                                        array('label'=>'ข่าวทั้งหมด', 'url'=>array('/news')),
                                         //array('label'=>'จดหมายข่าว Online', 'url'=>array('/news')),
+                                     array('label'=>'ประกาศ', 'items'=> 
+                                            array(
+
+                                                    array('label'=>'สมัครเรียน', 'url'=>array('/student')),
+                                                    array('label'=>'รับสมัครงาน', 'url'=>array('/jobs')),
+                                            ),
+                                     ),
+                                     array('label'=>'ประชาสัมพันธ์/กิจกรรม', 'items'=> 
+                                            array(
+
+                                                    array('label'=>'ภายใน', 'url'=>array('/student')),
+                                                    array('label'=>'จากสื่อ', 'url'=>array('/jobs')),
+                                            ),
+                                    ),
 				),
-			),
-                         array('label'=>'ประชาสัมพันธ์/กิจกรรม', 'items'=> 
-				array(
-					
-                                        array('label'=>'ภายใน', 'url'=>array('/student')),
-                                        array('label'=>'จากสื่อ', 'url'=>array('/jobs')),
-//                                        array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
-//                                        array('label'=>'ข่าวทั้งหมด', 'url'=>array('/news')),
-                                        //array('label'=>'จดหมายข่าว Online', 'url'=>array('/news')),
-				),
+                           
 			),
                         array('label'=>'สื่อเผยแพร่/ดาวน์โหลด', 'items'=> 
 				array(
 					
                                         array('label'=>'บทความ-งานวิจัย', 'url'=>array('/student')),
                                         array('label'=>'วารสารการเมืองและการบริหารรัฐกิจ', 'url'=>array('/newstype')),
-                                        array('label'=>'คู่มือ ปัญหาพิเศษ', 'url'=>array('/news')),
-                                        array('label'=>'คู่มือ วิทยานิพนธ์', 'url'=>array('/news')),
+                                        array('label'=>'คู่มือปัญหาพิเศษ', 'url'=>array('/news')),
+                                        array('label'=>'คู่มือวิทยานิพนธ์', 'url'=>array('/news')),
 				),
 			),
+                        array('label'=>'ความร่วมมือ', 'items'=> 
+				array(
+                                       array('label'=>'ในประเทศ', 'url'=>array('/inbound')),
+                                       array('label'=>'ต่างประเทศ', 'url'=>array('/outbound')),
+                                       array('label'=>'ประเภทความร่วมมือ', 'url'=>array('/cooperationType')),
+				),
+                           
+			),
+                        array('label'=>'หน่วยงานฯ','url'=>array('/organization')),
 //			array('label'=>'หลักสูตร', 'items'=>array(
 //                                array('label'=>'หลักสูตรที่เปิดสอน', 'url'=>array('/program')),
 //                                array('label'=>'สมัครเรียนปริญญาเอก', 'url'=>array('/page/edit?id=15')),
@@ -105,7 +116,7 @@
 //			)),
                     
                     
-                        array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
+                        //array('label'=>'ภาพกิจกรรม','url'=>array('/gallery')),
                         
                         array('label'=>'บริการนิสิต', 'items'=>array(
 				array('label'=>'ปริญญาโท', 'url'=>array('/document')),
@@ -129,16 +140,6 @@
 			),
                        // array('label'=>'ผู้ใช้งาน','url'=>array('/user')),
 			
-                        /*array('label'=>'Theme Pages','items'=>
-                                array(
-                                        array('label'=>'Graphs & Charts', 'url'=>array('/site/page', 'view'=>'graphs'),'itemOptions'=>array('class'=>'icon_chart')),
-                                        array('label'=>'Form Elements', 'url'=>array('/site/page', 'view'=>'forms')),
-                                        array('label'=>'Interface Elements', 'url'=>array('/site/page', 'view'=>'interface')),
-                                        array('label'=>'Error Pages', 'url'=>array('/site/page', 'view'=>'Demo 404 page')),
-                                        array('label'=>'Calendar', 'url'=>array('/site/page', 'view'=>'calendar')),
-                                        array('label'=>'Buttons & Icons', 'url'=>array('/site/page', 'view'=>'buttons_and_icons')),
-                                ),
-                         ),*/
                  ),
 	)); } ?>
 
