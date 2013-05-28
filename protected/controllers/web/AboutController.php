@@ -33,6 +33,14 @@ class AboutController extends Controller
                             'model'=>$model));
                 }
 	}
+        public function actionStructure()
+	{
+                
+                $model = $this->getAllStructureType();
+                $this->render('structure',array(
+                        'model'=>$model));
+
+	}
         public function loadModel($id)
 	{
 		$model=Page::model()->findByPk($id);
@@ -54,6 +62,28 @@ class AboutController extends Controller
 		$model=Executive::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+        public function getAllStructureType()
+	{
+		$Criteria = new CDbCriteria();
+                $Criteria->condition = 'status = 1';
+                $Criteria->order = 'sort_order';
+            
+                $model=StructureType::model()->findAll($Criteria);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');	
+		return $model;
+	}
+        public function getAllStructure()
+	{
+		$Criteria = new CDbCriteria();
+                $Criteria->condition = 'status = 1';
+                $Criteria->order = 'sort_order';
+            
+                $model=Structure::model()->findAll($Criteria);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');	
 		return $model;
 	}
         
