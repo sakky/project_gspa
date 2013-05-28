@@ -22,11 +22,6 @@ $this->menu=array(
 
 /*]]>*/
 </style>
-<!--<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-1.9.1.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/ui/jquery.ui.core.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/ui/jquery.ui.widget.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/ui/jquery.ui.mouse.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/ui/jquery.ui.sortable.js"></script>-->
 <script>
         var baseUrl = "<?php echo Yii::app()->createUrl('structureType'); ?>"
 </script>
