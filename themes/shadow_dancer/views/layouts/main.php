@@ -33,12 +33,12 @@
 		<div class="topnav_text"><?php echo (!Yii::app()->user->isGuest)? CHtml::link('ออกจากระบบ ('.Yii::app()->user->name.')', array('site/logout')) :''; ?></div>
 	</div>
 	<div id="header">
-		<div id="logo"><img src="<?php echo Yii::app()->baseUrl; ?>/images/front/buu_logo.png" width="80px"/><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo"><a href="<?php echo Yii::app()->createUrl('site'); ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/images/front/buu_logo.png" width="80px"/></a><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 	
 	<?php if($this->showMenu) { $this->widget('application.extensions.mbmenu.MbMenu',array(
 		'items'=>array(
-			array('label'=>'หน้าแรก', 'url'=>array('/site')),
+//			array('label'=>'หน้าแรก', 'url'=>array('/site')),
 //			array('label'=>'จัดการหน้าเว็บ', 'items'=>array(
 //				array('label'=>'Manage Page Type', 'url'=>array('/pagetype')),
 //                              array('label'=>'Manage Left Menu', 'url'=>array('/leftmenu')),
@@ -51,27 +51,20 @@
                                 array('label'=>'วิสัยทัศน์', 'url'=>array('/page/edit?id=4')),
                                 array('label'=>'พันธกิจ', 'url'=>array('/page/edit?id=5')),                               
                                 array('label'=>'ทำเนียนผู้บริหาร', 'url'=>array('/executive')),
-                                //array('label'=>'โครงสร้างหน่วยงาน', 'url'=>array('/page/edit?id=4')),
                                 array('label'=>'โครงสร้างหน่วยงาน', 'items' => array(
 					array('label'=>'ประเภทโครงสร้างหน่วยงาน', 'url'=>array('/structureType')),
-					array('label'=>'โครงสร้างหน่วยงาน', 'url'=>array('/structure')),
+					array('label'=>'รายชื่อบุคลากร', 'url'=>array('/structure')),
                                 )),
                                 array('label'=>'คณาจารย์', 'url'=>array('/board')),
 //                                array('label'=>'ความร่วมมือทางวิชาการ', 'url'=>array('/cooperation')),
 //                                array('label'=>'ข้อมูลศิษย์เก่า', 'url'=>array('/alumni')),
 //                                array('label'=>'แผนที่วิทยาลัย', 'url'=>array('/page/edit?id=6')),
-                                /*array('label'=>'Payments', 'items' => array(
-					array('label'=>'Bank Transfer', 'url'=>array('/payment', 'method'=>'bank_transfer')),
-					array('label'=>'Credit Card', 'url'=>array('/payment', 'method'=>'credit_card')),
-					array('label'=>'PAYSBUY', 'url'=>array('/payment', 'method'=>'paysbuy')),
-				)),
-				array('label'=>'Credits', 'url'=>array('/credit/admin')),
-				array('label'=>'Coupons', 'url'=>array('/coupon')),*/
+
 			)),
                         array('label'=>'ประกาศ/กิจกรรม', 'items'=> 
 				array(
-//                                        array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
-//                                        array('label'=>'ข่าวทั้งหมด', 'url'=>array('/news')),
+                                        array('label'=>'ประเภทข่าว', 'url'=>array('/newstype')),
+                                        array('label'=>'ข่าวทั้งหมด', 'url'=>array('/news')),
                                         //array('label'=>'จดหมายข่าว Online', 'url'=>array('/news')),
                                      array('label'=>'ประกาศ', 'items'=> 
                                             array(
@@ -83,14 +76,14 @@
                                      array('label'=>'ประชาสัมพันธ์/กิจกรรม', 'items'=> 
                                             array(
 
-                                                    array('label'=>'ภายใน', 'url'=>array('/student')),
-                                                    array('label'=>'จากสื่อ', 'url'=>array('/jobs')),
+                                                    array('label'=>'ภายใน', 'url'=>array('/news')),
+                                                    array('label'=>'จากสื่อ', 'url'=>array('/news')),
                                             ),
                                     ),
 				),
                            
 			),
-                        array('label'=>'สื่อเผยแพร่/ดาวน์โหลด', 'items'=> 
+                        array('label'=>'สื่อเผยแพร่', 'items'=> 
 				array(
 					
                                         array('label'=>'บทความ-งานวิจัย', 'url'=>array('/student')),
@@ -107,7 +100,12 @@
 				),
                            
 			),
-                        array('label'=>'หน่วยงานฯ','url'=>array('/organization')),
+			array('label'=>'คลังข้อมูลความรู้', 'items'=>array(
+                                array('label'=>'การจัดการความรู้', 'url'=>array('/program')),
+                                array('label'=>'หมวดความรู้', 'url'=>array('/program')),
+                                array('label'=>'สารคดี', 'url'=>array('/program')),                            
+                                //array('label'=>'บทความ', 'url'=>array('/article')),
+			)),
 //			array('label'=>'หลักสูตร', 'items'=>array(
 //                                array('label'=>'หลักสูตรที่เปิดสอน', 'url'=>array('/program')),
 //                                array('label'=>'สมัครเรียนปริญญาเอก', 'url'=>array('/page/edit?id=15')),
@@ -128,17 +126,24 @@
                                 //array('label'=>'บทความ', 'url'=>array('/article')),
 			)),                        
                         
-			
-                        array('label'=>'อื่นๆ', 'items'=> 
+		        array('label'=>'ทำเนียบนิสิต', 'items'=>array(
+				array('label'=>'ปริญญาโท', 'url'=>array('/alumni')),
+                                array('label'=>'ปริญญาเอก', 'url'=>array('/alumni')),
+			)), 
+                        array('label'=>'เมนูอื่นๆ', 'items'=> 
 				array(	
-                                        array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
-                                        array('label'=>'หน่วยงานภายใน', 'url'=>array('/organization')),
+                                        
+                                        array('label'=>'หน่วยงานภายใต้กำกับ', 'url'=>array('/organization')),
+                                        array('label'=>'รายงานผลการดำเนินงาน', 'url'=>array('/organization')),
+                                        array('label'=>'บริการ', 'url'=>array('/organization')),
                                         array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
+                                        array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),
+                                        array('label'=>'แผนที่วิทยาลัย', 'url'=>array('/page/edit?id=6')),
                                         array('label'=>'Slide Show', 'url'=>array('/slide')),
                                         array('label'=>'VDO', 'url'=>array('/page/edit?id=3')),
 				),
 			),
-                       // array('label'=>'ผู้ใช้งาน','url'=>array('/user')),
+                        array('label'=>'ผู้ใช้งาน','url'=>array('/user')),
 			
                  ),
 	)); } ?>
