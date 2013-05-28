@@ -12,7 +12,7 @@
 
 
 /************ 1ST LEVEL  ***************/
-#nav li { float:left; background-image:url(../images/el_bg2.png); margin:0; margin-left:0.1em;margin-right:0.1em;padding:3px 10px 3px 10px;  border:solid 1px #222222;border-bottom:none;}
+#nav li { float:left; background-image:url(../images/el_bg2.png); margin:0; margin-left:0.1em;margin-right:0.1em;padding:3px 5px 3px 5px;  border:solid 1px #222222;border-bottom:none;}
 #nav li.active, #nav li.active a { background-color:#F1F1F1; color:#333; font-weight:normal;  }
 #nav li a:hover{ background-color:#3333;}
 #nav li.active em { display:block; position:absolute; top:0; right:-1px; width:3px; height:27px; }
@@ -78,3 +78,128 @@
 #nav li.over ul li.over ul li.over ul { left:100px; }
 
 #nav-bar:after, #nav-container:after { content:"."; display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+
+
+
+/*New Menu*/
+/* Root = Vertical, Secondary = Vertical */
+ul#navmenu,
+ul#navmenu li,
+ul#navmenu ul {
+	margin: 0;
+	border: 0 none;
+	padding: 0;
+	width: 202px; /*For KHTML*/
+	list-style: none;
+
+	}
+
+ul#navmenu:after /*From IE 7 lack of compliance*/{
+	clear: both;
+	display: block;
+	font: 1px/0px serif;
+	content: ".";
+	height: 0;
+	visibility: hidden;
+	}
+
+ul#navmenu li {
+	float: left; /*For IE 7 lack of compliance*/
+	display: block !important; /*For GOOD browsers*/
+	display: inline; /*For IE*/
+	position: relative;
+	}
+
+/* Root Menu */
+ul#navmenu a {
+	border: 1px solid #FFF;
+	text-decoration: none;
+        height: 32px;
+          
+        voice-family: inherit;
+        height: 24px;
+        color:#6C6459;
+        display: block;
+        background: url(../images/menu8.gif);
+        padding: 8px 0 0 20px;
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu a:hover,
+ul#navmenu li:hover a,
+ul#navmenu li.iehover a {
+	
+	color: #FF6900;
+        background: url(../images/menu8.gif) 0 -32px;
+        padding: 8px 0 0 25px;
+	}
+
+/* 2nd Menu */
+ul#navmenu li:hover li a,
+ul#navmenu li.iehover li a {
+	/*background: #EEE;*/
+	background: url(../images/menu8-1.gif) 0 -32px;
+	color: #666;
+	padding: 8px 0 0 25px;
+	}
+
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu li:hover li a:hover,
+ul#navmenu li:hover li:hover a,
+ul#navmenu li.iehover li a:hover,
+ul#navmenu li.iehover li.iehover a {
+	/*background: #CCC;*/
+	background: url(../images/menu8-1.gif) 0 -32px;
+	color:#FFFFFF;
+	padding: 8px 0 0 25px;
+	  
+}
+
+
+
+ul#navmenu ul,
+ul#navmenu ul ul,
+ul#navmenu ul ul ul {
+	display: none;
+
+/*	position: absolute;
+	top: 0;
+	left: 200px;*/
+	}
+
+/* Do Not Move - Must Come Before display:block for Gecko */
+ul#navmenu li:hover ul ul,
+ul#navmenu li:hover ul ul ul,
+ul#navmenu li.iehover ul ul,
+ul#navmenu li.iehover ul ul ul {
+	display: none;
+	}
+
+ul#navmenu li:hover ul,
+ul#navmenu ul li:hover ul,
+ul#navmenu ul ul li:hover ul,
+ul#navmenu li.iehover ul,
+ul#navmenu ul li.iehover ul,
+ul#navmenu ul ul li.iehover ul {
+
+	display: block;
+	}
+/*Top Menu*/
+
+.top_menu ul{
+    float: right;
+    list-style-position:outside;
+    list-style-image:none;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+.top_menu ul li{
+    display: inline-block;
+    float: left;
+    margin: 0 0 0 10px;
+}
+.top_menu ul li a{
+    text-decoration: none;
+}
