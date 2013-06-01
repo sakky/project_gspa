@@ -21,10 +21,10 @@
             $curpage .= Yii::app()->getRequest()->getQuery('id');
             
             $controller = Yii::app()->getController()->getAction()->controller->id;
-            echo $curpage;
-            
-            echo "<br/>";
-            echo $controller;
+//            echo $curpage;
+//            
+//            echo "<br/>";
+//            echo $controller;
 ?>
             <ul id="navmenu">
             <!-- CSS Tabs -->
