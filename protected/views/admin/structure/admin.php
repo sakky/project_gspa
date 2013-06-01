@@ -3,14 +3,13 @@
 /* @var $model Structure */
 
 $this->breadcrumbs=array(
-	'โครงสร้างหน่วยงาน',
-        'บุคลากร'=>array('index'),
+	'โครงสร้างหน่วยงาน'=>array('index'),
 	'จัดการข้อมูล',
 );
 
 $this->menu=array(	
-	array('label'=>'เพิ่มข้อมูลบุคลากร', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับข้อมูลบุคลากร', 'url'=>array('order')),
+	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับข้อมูล', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,12 +26,13 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลบุคลากร</h1>
+<h1>จัดการโครงสร้างหน่วยงาน</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
+        'str_type_list'=>$str_type_list,
 )); ?>
 </div><!-- search-form -->
 

@@ -18,7 +18,9 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'str_type_id'); ?>
-		<?php echo $form->textField($model,'str_type_id'); ?>
+		<?php echo $form->dropDownList($model,'str_type_id',$str_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?>
 	</div>
 
 	<div class="row">
@@ -43,32 +45,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'sex'); ?>
-		<?php echo $form->textField($model,'sex',array('size'=>1,'maxlength'=>1)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order'); ?>
+		<?php echo $form->dropDownList($model, 'sex', array('M'=>'ชาย','F'=>'หญิง')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'time_stamp'); ?>
-		<?php echo $form->textField($model,'time_stamp'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 	</div>
 
 	<div class="row buttons">

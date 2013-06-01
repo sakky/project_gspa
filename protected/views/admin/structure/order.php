@@ -3,18 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-        'โครงสร้างหน่วยงาน',
-	'ข้อมูลบุคลากร'=>array('index'),
+        'โครงสร้างหน่วยงาน'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Executive', 'url'=>array('index')),
-	array('label'=>'จัดการข้อมูลบุคลากร', 'url'=>array('admin')),
+	array('label'=>'จัดการโครงสร้างหน่วยงาน', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เรียงลำดับการแสดงผลข้อมูลบุคลากร</h1>
+<h1>เรียงลำดับการแสดงผลข้อมูล</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 

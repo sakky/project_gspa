@@ -3,8 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'โครงสร้างหน่วยงาน',
-        'ข้อมูลบุคลากร',
+	'โครงสร้างหน่วยงาน'=>array('index'),
 );
 
 $this->menu=array(
