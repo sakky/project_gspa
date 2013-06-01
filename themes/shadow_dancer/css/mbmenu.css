@@ -124,18 +124,50 @@ ul#navmenu a {
         padding: 8px 0 0 20px;
 }
 
+ul#navmenu li.current a{
+	border: 1px solid #FFF;
+	text-decoration: none;
+        height: 32px;
+          
+        voice-family: inherit;
+        height: 24px;
+        color: #FF6900;
+        display: block;
+        background: url(../images/menu8.gif) 0 -32px;
+        padding: 8px 0 0 25px;
+}
+ul#navmenu li.current ul li a{
+	border: 1px solid #FFF;
+	text-decoration: none;
+        height: 32px;
+        color:#6C6459;  
+        voice-family: inherit;
+        height: 24px;
+        display: block;
+        background: url(../images/menu8-1.gif) 0 -32px;
+        padding: 8px 0 0 25px;
+}
+ul#navmenu li.current ul li.current a{
+	border: 1px solid #FFF;
+	text-decoration: none;
+        height: 32px;
+        color:#FFFFFF;  
+        voice-family: inherit;
+        height: 24px;
+        display: block;
+        background: url(../images/menu8-1.gif) 0 -64px;
+        padding: 8px 0 0 25px;
+}
+
 /* Root Menu Hover Persistence */
-ul#navmenu a:hover,
-ul#navmenu li:hover a,
-ul#navmenu li.iehover a {
-	
+ul#navmenu li a:hover{	
 	color: #FF6900;
         background: url(../images/menu8.gif) 0 -32px;
         padding: 8px 0 0 25px;
 	}
 
 /* 2nd Menu */
-ul#navmenu li:hover li a,
+ul#navmenu li li a,
 ul#navmenu li.iehover li a {
 	/*background: #EEE;*/
 	background: url(../images/menu8-1.gif) 0 -32px;
@@ -145,12 +177,12 @@ ul#navmenu li.iehover li a {
 
 
 /* 2nd Menu Hover Persistence */
-ul#navmenu li:hover li a:hover,
-ul#navmenu li:hover li:hover a,
+ul#navmenu li li a:hover,
+ul#navmenu li li:hover a,
 ul#navmenu li.iehover li a:hover,
 ul#navmenu li.iehover li.iehover a {
 	/*background: #CCC;*/
-	background: url(../images/menu8-1.gif) 0 -32px;
+	background: url(../images/menu8-1.gif) 0 -64px;
 	color:#FFFFFF;
 	padding: 8px 0 0 25px;
 	  
@@ -158,12 +190,14 @@ ul#navmenu li.iehover li.iehover a {
 
 
 
+
+
 ul#navmenu ul,
 ul#navmenu ul ul,
 ul#navmenu ul ul ul {
-	display: none;
-
-/*	position: absolute;
+/*	display: none;*/
+/*
+	position: absolute;
 	top: 0;
 	left: 200px;*/
 	}
@@ -173,7 +207,7 @@ ul#navmenu li:hover ul ul,
 ul#navmenu li:hover ul ul ul,
 ul#navmenu li.iehover ul ul,
 ul#navmenu li.iehover ul ul ul {
-	display: none;
+/*	display: none;*/
 	}
 
 ul#navmenu li:hover ul,
