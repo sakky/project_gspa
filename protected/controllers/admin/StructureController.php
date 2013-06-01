@@ -154,6 +154,15 @@ class StructureController extends AdminController
 	 */
 	public function actionIndex()
 	{
+                $str_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $str_type = StructureType::model()->findAll($criteria);
+                foreach($str_type as $type) {
+			$str_type_list[$type->str_type_id] = $type->name_th;
+		}
 		$model=new Structure('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Structure']))
@@ -161,6 +170,7 @@ class StructureController extends AdminController
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'str_type_list'=>$str_type_list,
 		));
 	}
 
@@ -169,6 +179,15 @@ class StructureController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+                $str_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $str_type = StructureType::model()->findAll($criteria);
+                foreach($str_type as $type) {
+			$str_type_list[$type->str_type_id] = $type->name_th;
+		}
 		$model=new Structure('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Structure']))
@@ -176,6 +195,7 @@ class StructureController extends AdminController
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'str_type_list'=>$str_type_list,
 		));
 	}
         public function actionOrder()
