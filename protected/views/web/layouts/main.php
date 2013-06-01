@@ -85,7 +85,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li>   
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('structure'); ?>">Organization Structure</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Teachers</a></li>
 <!--                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">Academic Cooperation</a></li>     
                             <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">GSPA Alumni</a></li> 
