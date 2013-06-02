@@ -7,7 +7,11 @@ class JobsController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-        
+        public $upload_path_pdf;
+	
+	public function init() {
+                $this->upload_path_pdf = Yii::app()->basePath . '/../uploads/news/pdf/';
+	}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -32,9 +36,49 @@ class JobsController extends AdminController
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['user_id'] = Yii::app()->user->id;
+                        
+                        list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
+                        $create_date = $year.'-'.$month.'-'.$day;
+                        $_POST['News']['create_date'] = $create_date;
+                        
 			$model->attributes=$_POST['News'];
-			if($model->save())
-				$this->redirect(array('index'));
+                        //Upload pdf_file EN
+                        $file_en = CUploadedFile::getInstance($model, 'pdf_en');	
+			if($file_en) {
+
+				$genName = 'en_pdf_' . date('YmdHis');
+				$saveName = $genName;
+				
+				while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_en->getExtensionName())) {
+					$saveName = $genName . '-' . rand(0,99);
+				}
+					
+				$model->pdf_en = $saveName . '.' . $file_en->getExtensionName();
+			}
+                        //Upload pdf_file TH
+                        $file_th = CUploadedFile::getInstance($model, 'pdf_th');	
+			if($file_th) {
+
+				$genName = 'th_pdf_' . date('YmdHis');
+				$saveName = $genName;
+				
+				while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_th->getExtensionName())) {
+					$saveName = $genName . '-' . rand(0,99);
+				}
+					
+				$model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
+			}
+			if($model->save()){
+                                if($file_en) {
+                                        $file_en->saveAs($this->upload_path_pdf . $model->pdf_en);
+                                }
+                                if($file_th) {
+                                        $file_th->saveAs($this->upload_path_pdf . $model->pdf_th);
+                                }
+                                $this->redirect(array('index'));
+                        }
+				
 		}
 
 		$this->render('create',array(
@@ -56,9 +100,54 @@ class JobsController extends AdminController
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['user_id'] = Yii::app()->user->id;
+                        $record_file_en = $model->pdf_en;
+                        $record_file_th = $model->pdf_th;
+                        list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
+                        $create_date = $year.'-'.$month.'-'.$day;
+                        $_POST['News']['create_date'] = $create_date;
+                        
 			$model->attributes=$_POST['News'];
-			if($model->save())
-				$this->redirect(array('index'));
+                        $file_en = CUploadedFile::getInstance($model, 'pdf_en');
+                        if($file_en) {			
+                                $genName = 'en_pdf_' . date('YmdHis');
+                                $saveName = $genName;
+
+                                while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_en->getExtensionName())) {
+                                        $saveName = $genName . '-' . rand(0,99);
+                                }
+
+                                $model->pdf_en = $saveName . '.' . $file_en->getExtensionName();
+                        }
+                        $file_th = CUploadedFile::getInstance($model, 'pdf_th');
+                        if($file_th) {			
+                                $genName = 'th_pdf_' . date('YmdHis');
+                                $saveName = $genName;
+
+                                while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_th->getExtensionName())) {
+                                        $saveName = $genName . '-' . rand(0,99);
+                                }
+
+                                $model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
+                        }
+			if($model->save()){
+                                if($file_en) {
+                                        if(file_exists($this->upload_path_pdf . $record_file_en)) {
+                                                @unlink($this->upload_path_pdf . $record_file_en);
+                                        }
+
+                                        $file_en->saveAs($this->upload_path_pdf . $model->pdf_en);
+                                }
+                                if($file_th) {
+                                        if(file_exists($this->upload_path_pdf . $record_file_th)) {
+                                                @unlink($this->upload_path_pdf . $record_file_th);
+                                        }
+
+                                        $file_th->saveAs($this->upload_path_pdf . $model->pdf_th);
+                                }
+                                $this->redirect(array('index'));
+                        }
+				
 		}
 
 		$this->render('update',array(
@@ -85,25 +174,14 @@ class JobsController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$model=$this->loadNewsTypeModel();
-//                echo "<br> ===> ";
-//                echo "<pre>";
-//                print_r($model);
-//                echo "</pre>";
-                //exit;
-                if($model){
+		$model=new News('searchJobs');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
-                        $this->render('admin',array(
-                                'model'=>$model,
-                        ));
-                }else{
-                   $model=new News('search');
-                    $this->render('admin',array(
-                                'model'=>$model,
-                        ));
-                }
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
 		
 	}
 
@@ -112,18 +190,7 @@ class JobsController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-//		$model=new News('search');
-
-                $model=$this->loadNewsTypeModel();
-//                         echo "<br> ===> ";
-//                         echo "<pre>";
-//                         print_r($model);
-//                         echo "</pre>";
-//                         exit;
-                if(!$model){
-                    $model=new News('search');
-                }
-                
+                $model=new News('searchJobs');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
@@ -140,16 +207,6 @@ class JobsController extends AdminController
 	 * @return News the loaded model
 	 * @throws CHttpException
 	 */
-	public function loadNewsTypeModel()
-	{
-            $Criteria = new CDbCriteria();
-            $Criteria->condition = "news_type_id = 3";
-            
-            $model=News::model()->find($Criteria);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');	
-		return $model;
-	}
         
         public function loadModel($id)
 	{
