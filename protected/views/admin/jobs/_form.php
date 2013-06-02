@@ -9,6 +9,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'news-form',
 	'enableAjaxValidation'=>false,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
 	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
@@ -86,7 +87,6 @@
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
 
-        <div id="show_pdf" <?php if($model->news_type_id && $model->news_type_id==1){?>style="display:none"<?php }?>>
         <div class="row"><br/>
                 <label>อัพโหลดไฟล์ pdf<br/>(ภาษาอังกฤษ)</label><br/>
                 <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
@@ -100,7 +100,6 @@
 		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_th'); ?>
 	</div>
-        </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'create_date'); ?>

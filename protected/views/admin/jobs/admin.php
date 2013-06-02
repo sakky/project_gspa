@@ -41,7 +41,7 @@ $('.search-form form').submit(function(){
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'news-grid',
 	'dataProvider'=>$model->searchJobs(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
                 array(
                         'header'=> 'ลำดับ',
@@ -63,6 +63,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+                        'filter'=>array('1'=>'แสดง','0'=>'ไม่แสดง'),
 		),
 		/*
 		'desc_en',
