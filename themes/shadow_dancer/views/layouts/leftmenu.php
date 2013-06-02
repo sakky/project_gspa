@@ -42,10 +42,10 @@
                 </ul>
             </li>
             <!--<li><a href="/inventory/admin/withdraw.php">ข้อมูลการเบิกวัสดุ</a></li>-->
-            <li><a href="#">ประกาศ</a>
-                <ul style="display: none">
-                    <li><a href="#">สมัครเรียน</a></li>
-                    <li><a href="#">รับสมัครงาน</a></li>
+            <li <?php if($controller=='student' || $controller=='jobs'){?>class="current" <?php }?>><a href="#">ประกาศ</a>
+                <ul <?php if($controller=='student' || $controller=='jobs'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+                    <li <?php if($controller=='student'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('student'); ?>">สมัครเรียน</a></li>
+                    <li <?php if($controller=='jobs'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('jobs'); ?>">รับสมัครงาน</a></li>
                 </ul>
             </li>
             <!--<li><a href="/inventory/admin/borrow.php">ข้อมูลการยืมครุภัณฑ์</a></li>-->
