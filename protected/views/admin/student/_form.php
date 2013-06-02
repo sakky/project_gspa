@@ -9,16 +9,15 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'news-form',
 	'enableAjaxValidation'=>false,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_type_id'); ?>
-		<?php echo $form->textField($model,'news_type_id'); ?>
-		<?php echo $form->error($model,'news_type_id'); ?>
+            <input id="News_news_type_id" type="hidden" name="News[news_type_id]" value="2"></input>
 	</div>
 
 	<div class="row">
@@ -46,57 +45,95 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'desc_en'); ?>
-		<?php echo $form->textArea($model,'desc_en',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
+                <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_en',
+                        'config'=>array(
+                                'id'=>'xheditor_1',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
+                
 		<?php echo $form->error($model,'desc_en'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'desc_th'); ?>
-		<?php echo $form->textArea($model,'desc_th',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="row"><br/>
+		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
+                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_th',
+                        'config'=>array(
+                                'id'=>'xheditor_2',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'image'); ?>
+	<div class="row"><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาอังกฤษ)</label><br/>
+                <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
+		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_en'); ?>
+	</div>
+
+	<div class="row"><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาไทย)</label><br/>
+		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_th);} }?><br />
+		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_th'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
+                <?php list($year,$month,$day) = explode('-',$model->create_date);
+                      $crate_date = $day.'/'.$month.'/'.$year;
+                      $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                        'model' => $model,
+                        'attribute' => 'create_date',
+                        'language'=>'th',
+
+                        'options'=>array(
+                                    'showAnim'=>'fold',
+                                    'dateFormat'=>'dd/mm/yy',
+                                    'changeMonth'=>true,
+                                    'changeYear'=>true,
+                                    'changeDate'=>true,
+                                    'showAnim'=>'fold',
+                                    //'showButtonPanel'=>true,
+                                    'debug'=>true,
+
+                                    ),
+                        'htmlOptions' => array(
+                            'value' => ($model->create_date)?$crate_date:date('d/m/Y'), // set the default date here
+                            'class'=>'shadowdatepicker',
+                            'readonly'=>"readonly",
+                        ),
+                    )) ?>
 		<?php echo $form->error($model,'create_date'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'show_homepage'); ?>
-		<?php echo $form->textField($model,'show_homepage'); ?>
-		<?php echo $form->error($model,'show_homepage'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'show_new'); ?>
-		<?php echo $form->textField($model,'show_new'); ?>
-		<?php echo $form->error($model,'show_new'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($model,'status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
-		<?php echo $form->error($model,'user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'time_stamp'); ?>
-		<?php echo $form->textField($model,'time_stamp'); ?>
-		<?php echo $form->error($model,'time_stamp'); ?>
 	</div>
 
 	<div class="row buttons">

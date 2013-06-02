@@ -3,16 +3,17 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'News'=>array('index'),
-	'Create',
+	'ประกาศ',
+	'สมัครเรียน'=>array('index'),
+	'เพิ่มข้อมูล',
 );
 
 $this->menu=array(
-	array('label'=>'List News', 'url'=>array('index')),
-	array('label'=>'Manage News', 'url'=>array('admin')),
+	//array('label'=>'List News', 'url'=>array('index')),
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create News</h1>
+<h1>เพิ่มข้อมูล</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

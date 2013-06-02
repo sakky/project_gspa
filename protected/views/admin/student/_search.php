@@ -17,11 +17,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'news_type_id'); ?>
-		<?php echo $form->textField($model,'news_type_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'name_en'); ?>
 		<?php echo $form->textField($model,'name_en',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
@@ -52,38 +47,36 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
+		<?php list($year,$month,$day) = explode('-',$model->create_date);
+                      $crate_date = $day.'/'.$month.'/'.$year;
+                      $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                        'model' => $model,
+                        'attribute' => 'create_date',
+                        'language' => 'th',
+
+                        'options'=>array(
+                                    'showAnim'=>'fold',
+                                    'dateFormat'=>'dd/mm/yy',
+                                    'changeMonth'=>true,
+                                    'changeYear'=>true,
+                                    'changeDate'=>true,
+                                    'showAnim'=>'fold',
+                                    //'showButtonPanel'=>true,
+                                    'debug'=>true,
+
+                                    ),
+                        'htmlOptions' => array(
+                            'class'=>'shadowdatepicker',
+                            'readonly'=>"readonly",
+                        ),
+                    )) ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'show_homepage'); ?>
-		<?php echo $form->textField($model,'show_homepage'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'show_new'); ?>
-		<?php echo $form->textField($model,'show_new'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'time_stamp'); ?>
-		<?php echo $form->textField($model,'time_stamp'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>	
 	</div>
 
 	<div class="row buttons">
