@@ -103,7 +103,38 @@ class News extends CActiveRecord
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function searchJobs()
+	public function searchStudent()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('news_id',$this->news_id);
+		$criteria->compare('news_type_id',2);
+		$criteria->compare('name_en',$this->name_en,true);
+		$criteria->compare('name_th',$this->name_th,true);
+		$criteria->compare('title_en',$this->title_en,true);
+		$criteria->compare('title_th',$this->title_th,true);
+		$criteria->compare('desc_en',$this->desc_en,true);
+		$criteria->compare('desc_th',$this->desc_th,true);
+                $criteria->compare('pdf_en',$this->pdf_en,true);
+		$criteria->compare('pdf_th',$this->pdf_th,true);
+		$criteria->compare('image',$this->image,true);
+                $criteria->compare('thumbnail',$this->thumbnail,true);
+		$criteria->compare('create_date',$this->create_date,true);
+		$criteria->compare('show_homepage',$this->show_homepage);
+		$criteria->compare('show_new',$this->show_new);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('time_stamp',$this->time_stamp,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
+		));
+	}
+        public function searchJobs()
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
