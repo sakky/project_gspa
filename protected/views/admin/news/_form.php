@@ -106,14 +106,14 @@
 	</div>
         <div id="show_pdf" <?php if($model->news_type_id && $model->news_type_id==1){?>style="display:none"<?php }?>>
         <div class="row"><br/>
-                <label>อัพโหลดไฟล์ pdf  (ภาษาอังกฤษ)</label><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาอังกฤษ)</label><br/>
                 <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
 		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_en'); ?>
 	</div>
 
 	<div class="row"><br/>
-                <label>อัพโหลดไฟล์ pdf (ภาษาไทย)</label><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาไทย)</label><br/>
 		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_th);} }?><br />
 		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'pdf_th'); ?>
