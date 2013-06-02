@@ -7,43 +7,15 @@ class StudentController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $upload_path_pdf;
+        
+        public function init() {
+                $this->upload_path_pdf = Yii::app()->basePath . '/../uploads/news/pdf/';
+	}
 
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
-		);
-	}
-
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
 
 	/**
 	 * Displays a particular model.
@@ -69,9 +41,48 @@ class StudentController extends AdminController
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['user_id'] = Yii::app()->user->id;
+                        
+                        list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
+                        $create_date = $year.'-'.$month.'-'.$day;
+                        $_POST['News']['create_date'] = $create_date;
+                        
 			$model->attributes=$_POST['News'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_id));
+                        //Upload pdf_file EN
+                        $file_en = CUploadedFile::getInstance($model, 'pdf_en');	
+			if($file_en) {
+
+				$genName = 'en_pdf_' . date('YmdHis');
+				$saveName = $genName;
+				
+				while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_en->getExtensionName())) {
+					$saveName = $genName . '-' . rand(0,99);
+				}
+					
+				$model->pdf_en = $saveName . '.' . $file_en->getExtensionName();
+			}
+                        //Upload pdf_file TH
+                        $file_th = CUploadedFile::getInstance($model, 'pdf_th');	
+			if($file_th) {
+
+				$genName = 'th_pdf_' . date('YmdHis');
+				$saveName = $genName;
+				
+				while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_th->getExtensionName())) {
+					$saveName = $genName . '-' . rand(0,99);
+				}
+					
+				$model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
+			}
+			if($model->save()){
+                                if($file_en) {
+                                        $file_en->saveAs($this->upload_path_pdf . $model->pdf_en);
+                                }
+                                if($file_th) {
+                                        $file_th->saveAs($this->upload_path_pdf . $model->pdf_th);
+                                }
+                                $this->redirect(array('index'));
+                        }
 		}
 
 		$this->render('create',array(
@@ -93,9 +104,53 @@ class StudentController extends AdminController
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['user_id'] = Yii::app()->user->id;
+                        $record_file_en = $model->pdf_en;
+                        $record_file_th = $model->pdf_th;
+                        list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
+                        $create_date = $year.'-'.$month.'-'.$day;
+                        $_POST['News']['create_date'] = $create_date;
+                        
 			$model->attributes=$_POST['News'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_id));
+                        $file_en = CUploadedFile::getInstance($model, 'pdf_en');
+                        if($file_en) {			
+                                $genName = 'en_pdf_' . date('YmdHis');
+                                $saveName = $genName;
+
+                                while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_en->getExtensionName())) {
+                                        $saveName = $genName . '-' . rand(0,99);
+                                }
+
+                                $model->pdf_en = $saveName . '.' . $file_en->getExtensionName();
+                        }
+                        $file_th = CUploadedFile::getInstance($model, 'pdf_th');
+                        if($file_th) {			
+                                $genName = 'th_pdf_' . date('YmdHis');
+                                $saveName = $genName;
+
+                                while(file_exists($this->upload_path_pdf . $saveName . '.' . $file_th->getExtensionName())) {
+                                        $saveName = $genName . '-' . rand(0,99);
+                                }
+
+                                $model->pdf_th = $saveName . '.' . $file_th->getExtensionName();
+                        }
+			if($model->save()){
+                                if($file_en) {
+                                        if(file_exists($this->upload_path_pdf . $record_file_en)) {
+                                                @unlink($this->upload_path_pdf . $record_file_en);
+                                        }
+
+                                        $file_en->saveAs($this->upload_path_pdf . $model->pdf_en);
+                                }
+                                if($file_th) {
+                                        if(file_exists($this->upload_path_pdf . $record_file_th)) {
+                                                @unlink($this->upload_path_pdf . $record_file_th);
+                                        }
+
+                                        $file_th->saveAs($this->upload_path_pdf . $model->pdf_th);
+                                }
+                                $this->redirect(array('index'));
+                        }
 		}
 
 		$this->render('update',array(
@@ -122,9 +177,13 @@ class StudentController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('News');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$model=new News('searchStudent');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['News']))
+			$model->attributes=$_GET['News'];
+
+		$this->render('admin',array(
+			'model'=>$model,
 		));
 	}
 
@@ -133,7 +192,7 @@ class StudentController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new News('search');
+		$model=new News('searchStudent');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
