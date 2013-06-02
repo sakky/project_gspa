@@ -29,8 +29,8 @@
             <ul id="navmenu">
             <!-- CSS Tabs -->
             <li <?php if($curpage=='site/index'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('site'); ?>">หน้าหลัก</a></li>
-            <li <?php if($controller=='page'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?> class="current" <?php }?>><a href="#">เกี่ยวกับหน่วยงาน</a>
-                <ul <?php if($controller=='page'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+            <li <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?> class="current" <?php }?>><a href="#">เกี่ยวกับหน่วยงาน</a>
+                <ul <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
                     <li <?php if($curpage=='page/edit1'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>1)); ?>">ความเป็นมา</a></li>
                     <li <?php if($curpage=='page/edit2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
                     <li <?php if($curpage=='page/edit4'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
@@ -104,17 +104,17 @@
                 </ul>
             </li>
             
-            <li><a href="<?php echo Yii::app()->createUrl('link'); ?>">ลิงค์ที่เกี่ยวข้อง</a></li>
+            <li <?php if($controller=='link'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('link'); ?>">ลิงค์ที่เกี่ยวข้อง</a></li>
             
-            <li><a href="#">เมนูอื่นๆ</a>
-                <ul style="display: none">                         
-                        <li><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>7)); ?>">ข้อมูลการติดต่อ</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('slide'); ?>">Slide Show</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>3)); ?>">Video</a></li>
+            <li <?php if($curpage=='page/edit7'|| $curpage=='page/edit3'||$controller=='slide'){?> class="current" <?php }?>><a href="#">เมนูอื่นๆ</a>
+                <ul <?php if($curpage=='page/edit7'|| $curpage=='page/edit3' ||$controller=='slide'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
+                        <li <?php if($curpage=='page/edit7'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>7)); ?>">ข้อมูลการติดต่อ</a></li>
+                        <li <?php if($controller=='slide'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('slide'); ?>">Slide Show</a></li>
+                        <li <?php if($curpage=='page/edit3'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>3)); ?>">Video</a></li>
                 </ul>
             </li>
             
-            </li><li><a href="<?php echo Yii::app()->createUrl('user'); ?>">ผู้ใช้งาน</a></li>
+            <li <?php if($controller=='user'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ผู้ใช้งาน</a></li>
 
             </ul>
 
