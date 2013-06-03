@@ -36,7 +36,8 @@
 		<div id="logo"><a href="<?php echo Yii::app()->createUrl('site'); ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/images/front/buu_logo.png" width="80px"/></a><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 	
-	<?php if($this->showMenu) { $this->widget('application.extensions.mbmenu.MbMenu',array(
+	<?php 
+        /* if($this->showMenu) { $this->widget('application.extensions.mbmenu.MbMenu',array(
 		'items'=>array(
 //			array('label'=>'หน้าแรก', 'url'=>array('/site')),
 //			array('label'=>'จัดการหน้าเว็บ', 'items'=>array(
@@ -146,7 +147,7 @@
                         array('label'=>'ผู้ใช้งาน','url'=>array('/user')),
 			
                  ),
-	)); } ?>
+	)); }*/ ?>
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
