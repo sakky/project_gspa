@@ -109,13 +109,29 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">Announce</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Student Services" >Student Services</a>
+                <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
+                    
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Student Services" >Student Services</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">Document</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">Thesis / Dissertation</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">Special problems / Thesis work</a></li>         
                     </ul>
-                </li>
+                </li>-->
                 <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="Organization" >Organization</a>
                     <ul>
                         <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
@@ -160,13 +176,29 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">ข่าวประกาศ</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a>
+                <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่/ดาวน์โหลด" >สื่อเผยแพร่/ดาวน์โหลด</a>                   
+                    
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">เอกสารประกอบการเรียน</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">วิทยานิพนธ์ / ดุษฎีนิพนธ์</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">ปัญหาพิเศษ / งานนิพนธ์</a></li>         
                     </ul>
-                </li>
+                </li>-->
                 <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="หน่วยงานภายใน" >หน่วยงานภายใน</a>
                     <ul>
                         <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
