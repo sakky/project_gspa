@@ -15,7 +15,14 @@
 	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
-
+        <div class="row">
+		<?php echo $form->labelEx($model,'doc_type_id'); ?>
+                <?php echo $form->dropDownList($model,'doc_type_id',$doc_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?>
+		<?php echo $form->error($model,'doc_type_id'); ?>
+	</div>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'name_en'); ?>
 		<?php echo $form->textField($model,'name_en',array('size'=>60,'maxlength'=>255)); ?>
@@ -27,7 +34,50 @@
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'name_th'); ?>
 	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
+                <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_en',
+                        'config'=>array(
+                                'id'=>'xheditor_1',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
+                
+		<?php echo $form->error($model,'desc_en'); ?>
+	</div>
 
+	<div class="row"><br/>
+		<?php echo $form->labelEx($model,'desc_th'); ?><br/>
+                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+                        'model'=>$model,
+                        'modelAttribute'=>'desc_th',
+                        'config'=>array(
+                                'id'=>'xheditor_2',
+                                'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
+                                'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
+                                'width'=>'700px',
+                                'height'=>'300px',
+                                'loadCSS'=>XHtml::cssUrl('editor.css'),
+                                'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+                                'upLinkExt'=>'zip,rar,txt,pdf',
+                                'upImgUrl'=>$this->createUrl('request/uploadFile'),
+                                'upImgExt'=>'jpg,jpeg,gif,png',
+                        ),
+                )); ?>
+		<?php echo $form->error($model,'desc_th'); ?>
+	</div>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'pdf_en'); ?><br/>
                 <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('view', '../../uploads/documents/'.$model->pdf_en);} }?><br />
