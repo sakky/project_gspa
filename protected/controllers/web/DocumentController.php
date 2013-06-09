@@ -34,6 +34,24 @@ class DocumentController extends Controller
                 }
 	}
         
+        public function actionType($id)
+	{
+
+                $criteria = new CDbCriteria();
+		$criteria->select = '*';
+		$criteria->condition = 'status = 1 AND doc_type_id ='.$id;                
+                $criteria->order = 'sort_order ASC ,last_update DESC';
+
+		
+		$model = Document::model()->findAll($criteria);    
+               
+
+		
+		$type = DocumentType::model()->findByPK($id);  
+                $this->render('index',array('model'=>$model,'type'=>$type));
+
+	}
+        
         public function thai_date($time){  
 
             $thai_date_return = date("j",$time)." ".$this->thai_month_arr[date("n",$time)]." ".(date("Y",$time)+543);  
