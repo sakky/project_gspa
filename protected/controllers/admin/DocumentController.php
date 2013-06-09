@@ -34,7 +34,16 @@ class DocumentController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $doc_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'name_th';
+                $doc_type = DocumentType::model()->findAll($criteria);
+                
+                foreach($doc_type as $type) {
+			$doc_type_list[$type->doc_type_id] = $type->name_th;
+		}
 		if(isset($_POST['Document']))
 		{
                         $_POST['Document']['user_id'] = Yii::app()->user->id;
@@ -83,6 +92,7 @@ class DocumentController extends AdminController
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'doc_type_list'=>$doc_type_list
 		));
 	}
 
@@ -97,7 +107,16 @@ class DocumentController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $doc_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'name_th';
+                $doc_type = DocumentType::model()->findAll($criteria);
+                
+                foreach($doc_type as $type) {
+			$doc_type_list[$type->doc_type_id] = $type->name_th;
+		}
 		if(isset($_POST['Document']))
 		{
                         $record_file_en = $model->pdf_en;
@@ -151,6 +170,7 @@ class DocumentController extends AdminController
 
 		$this->render('update',array(
 			'model'=>$model,
+                        'doc_type_list'=>$doc_type_list
 		));
 	}
 
