@@ -1,23 +1,23 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Document';
+    $this->pageTitle='Graduate School of Public Administration - Download';
     $this->breadcrumbs=array(
-            'Document',
+            'Download',
     );
-    $header = "Document";
+    $header = "Download :: ".$type->name_en;
     $td1_header = "No.";
-    $td2_header = "Document's Name";
+    $td2_header = "Topic";
     $td3_header = "Last Updated";
     $td4_header = "Visitors";
 }else{
-    $this->pageTitle=Yii::app()->name. ' - เอกสารประกอบการเรียน';
+    $this->pageTitle=Yii::app()->name. ' - สื่อเผยแพร่/ดาวน์โหลด';
     $this->breadcrumbs=array(
-            'เอกสารประกอบการเรียน',
+            'สื่อเผยแพร่/ดาวน์โหลด',
     );
-    $header = "เอกสารประกอบการเรียน";
+    $header = "สื่อเผยแพร่/ดาวน์โหลด :: ".$type->name_th;
     $td1_header = "ลำดับ";
-    $td2_header = "ชื่อเอกสาร";
+    $td2_header = "สื่อเผยแพร่/ดาวน์โหลด";
     $td3_header = "วันที่ปรับปรุง";
     $td4_header = "ผู้เข้าชม";
 }
@@ -64,7 +64,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                ?>
               <tr>
                   <td align="center"><?php echo $count;?></td>
-                  <td><a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/documents/<?php echo $pdf; ?>"><?php echo $name;?></a></td>
+                  <td><a href="<?php echo Yii::app()->createUrl('document', array('id'=>$value->doc_id)); ?>"><?php echo $name;?></a></td>
                   <td align="center"><?php echo $updated;?></td>
                   <td align="center"><?php echo $value->counter;?></td>
               </tr>
