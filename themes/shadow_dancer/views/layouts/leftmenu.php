@@ -41,20 +41,24 @@
                     <li <?php if($controller=='board'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('board'); ?>">คณาจารย์</a></li>
                 </ul>
             </li>
-            <!--<li><a href="/inventory/admin/withdraw.php">ข้อมูลการเบิกวัสดุ</a></li>-->
             <li <?php if($controller=='student' || $controller=='jobs'){?>class="current" <?php }?>><a href="#">ประกาศ</a>
                 <ul <?php if($controller=='student' || $controller=='jobs'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
                     <li <?php if($controller=='student'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('student'); ?>">สมัครเรียน</a></li>
                     <li <?php if($controller=='jobs'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('jobs'); ?>">รับสมัครงาน</a></li>
                 </ul>
             </li>
-            <!--<li><a href="/inventory/admin/borrow.php">ข้อมูลการยืมครุภัณฑ์</a></li>-->
-            <li><a href="#">ประชาสัมพันธ์/กิจกรรม</a>
-                <ul style="display: none">
-                        <li><a href="#">ภายใน</a></li>
-                        <li><a href="#">จากสื่อ</a></li>
+            <li <?php if($controller=='news'){?>class="current" <?php }?>><a href="#">ประชาสัมพันธ์/กิจกรรม</a>
+                <ul <?php if($controller=='news'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">จากสื่อ</a></li>
                 </ul>
-            <li><a href="<?php echo Yii::app()->createUrl(''); ?>">สื่อเผยแพร่/ดาวโหลด</a></li>
+            </li>
+            <li <?php if($controller=='document'||$controller=='documentType'){?>class="current" <?php }?>><a href="#">สื่อเผยแพร่/ดาวน์โหลด</a>
+                    <ul <?php if($controller=='document'||$controller=='documentType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='document'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('document'); ?>">จัดการสื่อเผยแพร่</a></li>
+                        <li <?php if($controller=='documentType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('documentType'); ?>">ประเภทสื่อเผยแพร่</a></li>
+                    </ul>
+            </li>
 
 
             <li><a href="#">ความร่วมมือ</a>
