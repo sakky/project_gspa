@@ -47,7 +47,7 @@ $('.search-form form').submit(function(){
 		),
 		array(
 			'name'=>'name_th',
-                        'header'=> 'ชื่อประภท',
+                        'header'=> 'ชื่อประเภท',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
 		),
 		array(
