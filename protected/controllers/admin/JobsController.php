@@ -37,7 +37,7 @@ class JobsController extends AdminController
 		if(isset($_POST['News']))
 		{
                         $_POST['News']['user_id'] = Yii::app()->user->id;
-                        
+                        $_POST['News']['news_group_id'] = 0;
                         list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
                         $create_date = $year.'-'.$month.'-'.$day;
                         $_POST['News']['create_date'] = $create_date;
@@ -101,6 +101,7 @@ class JobsController extends AdminController
 		if(isset($_POST['News']))
 		{
                         $_POST['News']['user_id'] = Yii::app()->user->id;
+                        $_POST['News']['news_group_id'] = 0;
                         $record_file_en = $model->pdf_en;
                         $record_file_th = $model->pdf_th;
                         list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
