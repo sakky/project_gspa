@@ -39,12 +39,14 @@ $('.search-form form').submit(function(){
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'news-group-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
-		array(
-			'name'=>'news_group_id',
-                        'htmlOptions'=>array('style'=>'text-align: left;width: 30px;'),
-		),
+                array(
+                        'header'=> 'ลำดับ',
+                        'type' => 'raw',
+                        'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1', //this for the auto page number of cgridview
+                        'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
+                ),
 		array(
 			'name'=>'name_th',
                         'header'=> 'ชื่อประเภท',
