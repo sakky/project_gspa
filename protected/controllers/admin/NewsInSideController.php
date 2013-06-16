@@ -36,7 +36,7 @@ class NewsInSideController extends AdminController
 		//$this->performAjaxValidation($model);
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria->condition = 'status=:status AND news_type_id=5';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
                 $news_type = NewsGroup::model()->findAll($criteria);
@@ -108,7 +108,7 @@ class NewsInSideController extends AdminController
                 
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria->condition = 'status=:status AND news_type_id=5';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
                 $news_type = NewsGroup::model()->findAll($criteria);
@@ -199,7 +199,7 @@ class NewsInSideController extends AdminController
 		$model=new News('searchInSide');
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria->condition = 'status=:status AND news_type_id=5';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
                 $news_type = NewsGroup::model()->findAll($criteria);
@@ -225,7 +225,7 @@ class NewsInSideController extends AdminController
 		$model=new News('searchInSide');
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria->condition = 'status=:status AND news_type_id=5';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
                 $news_type = NewsGroup::model()->findAll($criteria);
