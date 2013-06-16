@@ -85,7 +85,7 @@ class NewsGroup extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('news_group_id',$this->news_group_id);
-                $criteria->compare('news_type_id',$this->news_type_id);
+                $criteria->compare('news_type_id',5);
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('sort_order',$this->sort_order);
