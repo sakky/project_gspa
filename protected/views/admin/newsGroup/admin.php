@@ -8,9 +8,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	//array('label'=>'List NewsGroup', 'url'=>array('index')),
 	array('label'=>'เพิ่มประเภท', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับประเภท', 'url'=>array('order')),
+        array('label'=>'เรียงลำดับ', 'url'=>array('order')),        
+	//array('label'=>'<<ย้อนกลับ', 'url'=>array('newsGroup/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
