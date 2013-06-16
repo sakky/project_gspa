@@ -136,6 +136,7 @@ class NewsGroupController extends AdminController
                 $dataProvider = new CActiveDataProvider('NewsGroup', array(
                     'pagination' => false,
                     'criteria' => array(
+                        'condition'=>'news_type_id=5',
                         'order' => 'sort_order ASC, news_group_id ASC',
                     ),
                 ));
