@@ -38,17 +38,18 @@ class NewsController extends AdminController
 		// $this->performAjaxValidation($model);
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria->condition = 'status=:status AND news_type_id=1';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
-                $news_type = NewsType::model()->findAll($criteria);
+                $news_type = NewsGroup::model()->findAll($criteria);
                 
                 foreach($news_type as $type) {
-			$news_type_list[$type->news_type_id] = $type->name_th;
+			$news_type_list[$type->news_group_id] = $type->name_th;
 		}
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['news_type_id'] = 1;
 			$_POST['News']['user_id'] = Yii::app()->user->id;
                         
                         list($day,$month,$year) = explode('/', $_POST['News']['create_date']);
@@ -142,14 +143,14 @@ class NewsController extends AdminController
 	{
 		$model=$this->loadModel($id);
                 $news_type_list = array();
-		$criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id=1';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
-                $news_type = NewsType::model()->findAll($criteria);
+                $news_type = NewsGroup::model()->findAll($criteria);
                 
                 foreach($news_type as $type) {
-			$news_type_list[$type->news_type_id] = $type->name_th;
+			$news_type_list[$type->news_group_id] = $type->name_th;
 		}
 
 		// Uncomment the following line if AJAX validation is needed
@@ -157,6 +158,7 @@ class NewsController extends AdminController
 
 		if(isset($_POST['News']))
 		{
+                        $_POST['News']['news_type_id'] = 1;
 			$_POST['News']['user_id'] = Yii::app()->user->id;
                         $record_image = $model->image;
                         $record_thumb = $model->thumbnail;
@@ -276,12 +278,25 @@ class NewsController extends AdminController
 //			'dataProvider'=>$dataProvider,
 //		));
                 $model=new News('search');
+                
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id=1';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsGroup::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_group_id] = $type->name_th;
+		}
+                
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list,
 		));
 	}
 
@@ -291,12 +306,25 @@ class NewsController extends AdminController
 	public function actionAdmin()
 	{
 		$model=new News('search');
+                
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id=1';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsGroup::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_group_id] = $type->name_th;
+		}
+                
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list,
 		));
 	}
                 
