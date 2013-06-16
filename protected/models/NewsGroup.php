@@ -96,4 +96,24 @@ class NewsGroup extends CActiveRecord
                         'pagination'=>array('pageSize'=> 20),
 		));
 	}
+        
+        public function search2()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('news_group_id',$this->news_group_id);
+                $criteria->compare('news_type_id',1);
+		$criteria->compare('name_en',$this->name_en,true);
+		$criteria->compare('name_th',$this->name_th,true);
+		$criteria->compare('sort_order',$this->sort_order);
+		$criteria->compare('status',$this->status);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
+		));
+	}
 }
