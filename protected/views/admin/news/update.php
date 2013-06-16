@@ -3,7 +3,7 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ข่าวสาร'=>array('index'),
+	'ประชาสัมพันธ์/กิจกรรม จากสื่อ'=>array('index'),
 	'แก้ไขข้อมูล',
 );
 
@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>แก้ไขข้อมูลข่าวสาร #<?php echo $model->news_id; ?></h1>
+<h1>แก้ไขข่าวประชาสัมพันธ์/กิจกรรม จากสื่อ #<?php echo $model->news_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>

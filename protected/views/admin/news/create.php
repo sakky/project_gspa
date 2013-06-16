@@ -3,16 +3,16 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ข่าวสาร'=>array('index'),
+	'ประชาสัมพันธ์/กิจกรรม จากสื่อ'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List News', 'url'=>array('index')),
-	array('label'=>'จัดการข้อมูลข่าวสาร', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เพิ่มข้อมูลข่าวสาร</h1>
+<h1>เพิ่มข่าวประชาสัมพันธ์/กิจกรรม จากสื่อ</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>

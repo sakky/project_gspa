@@ -3,13 +3,14 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ข่าวสาร'=>array('index'),
+	'ประชาสัมพันธ์/กิจกรรม จากสื่อ'=>array('index'),
 	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List News', 'url'=>array('index')),
-	array('label'=>'เพิ่มข้อมูลข่าวสาร', 'url'=>array('create')),
+	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
+        array('label'=>'ประเภท', 'url'=>array('newsGroup2/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,43 +27,37 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลข่าวสาร</h1>
+<h1>จัดการประชาสัมพันธ์/กิจกรรม จากสื่อ</h1>
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
+        'news_type_list'=>$news_type_list,
 )); ?>
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'news-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
-		array(
-			'name'=>'news_id',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
-		),
-//                array(
-//			'name'=>'thumbnail',
-//                        'header'=> 'Thumbnail',
-//                        'type'=>'html',
-//                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/news/".$data->thumbnail, "รูปข่าว",array(\'width\'=>120))',
-//                        'htmlOptions'=>array('width'=>'100px'),
-//                        'filter'=>FALSE,
-//
-//                ),                
+                array(
+                        'header'=> 'ลำดับ',
+                        'type' => 'raw',
+                        'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1', //this for the auto page number of cgridview
+                        'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
+                ),               
 		array(
 			'name'=>'name_th',
                         'header'=> 'หัวข้อข่าว',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
+			'htmlOptions'=>array('style'=>'text-align: left;'),
 		),
                 array(
-			'name'=>'news_type_id',
-                        'header'=> 'ประเภทข่าว',
-                        'value'=>'$data->newsType->name_th',
+			'name'=>'news_group_id',
+                        'header'=> 'ประเภท',
+                        'value'=>'$data->newsGroup->name_th',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
-                        'filter'=>CHtml::listData(NewsType::model()->findAll('status=1'), 'news_type_id', 'name_th'),
+                        'filter'=>CHtml::listData(NewsGroup::model()->findAll('status=1 AND news_type_id=5'), 'news_group_id', 'name_th'),
 
 		),
                 array(

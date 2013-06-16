@@ -15,10 +15,12 @@
 		<?php echo $form->label($model,'news_id'); ?>
 		<?php echo $form->textField($model,'news_id'); ?>
 	</div>
-
+    
 	<div class="row">
-		<?php echo $form->label($model,'news_type_id'); ?>
-		<?php echo $form->textField($model,'news_type_id'); ?>
+		<?php echo $form->labelEx($model,'news_group_id'); ?>
+		<?php echo $form->dropDownList($model,'news_group_id',$news_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?>
 	</div>
 
 	<div class="row">

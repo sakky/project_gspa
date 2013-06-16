@@ -1,17 +1,3 @@
-<script>
-    $(function(){
-        $('select#News_news_type_id').change(function() {
-            var news_type_id = $('select#News_news_type_id option:selected').val();
-            if(news_type_id==1){
-                document.getElementById('show_pdf').style.display = "none";
-                document.getElementById('show_image').style.display = "";
-            }else{
-                document.getElementById('show_pdf').style.display = "";
-                document.getElementById('show_image').style.display = "none";
-            }
-        });
-    });
-</script>
 <?php
 /* @var $this NewsController */
 /* @var $model News */
@@ -29,13 +15,12 @@
 	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
-
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_type_id'); ?>
-                <?php echo $form->dropDownList($model,'news_type_id',$news_type_list,array(
-                            'prompt' => '--กรุณาเลือกประเภทข่าว--',
-                            'value' => '0',)); ?><!-- กรณีไม่มีข้อมูลคลิกเพิ่ม <a href="<?php echo Yii::app()->createUrl('newstype'); ?>" target="_blank">ที่นี่</a>-->
-		<?php echo $form->error($model,'news_type_id'); ?>
+		<?php echo $form->labelEx($model,'news_group_id'); ?>
+		<?php echo $form->dropDownList($model,'news_group_id',$news_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?> กรณีไม่มีข้อมูลคลิกเพิ่ม <a href="<?php echo Yii::app()->createUrl('newsGroup2'); ?>" target="_blank">ที่นี่</a>
+		<?php echo $form->error($model,'news_group_id'); ?>
 	</div>
 
 	<div class="row">
@@ -103,25 +88,9 @@
                         ),
                 )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
-	</div>
-        <div id="show_pdf" <?php if($model->news_type_id && $model->news_type_id==1){?>style="display:none"<?php }?>>
-        <div class="row"><br/>
-                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาอังกฤษ)</label><br/>
-                <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
-		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
-		<?php echo $form->error($model,'pdf_en'); ?>
-	</div>
-
-	<div class="row"><br/>
-                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาไทย)</label><br/>
-		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_th);} }?><br />
-		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
-		<?php echo $form->error($model,'pdf_th'); ?>
-	</div>
-        </div>
+	</div>       
         
-        <div id="show_image" <?php if($model->news_type_id && $model->news_type_id!=1){?>style="display:none"<?php }?>>
-	<div class="row"><br/>
+       <div class="row"><br/>
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
 		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 600px')); ?><br />
                 <span class="required">รูปภาพขนาดความกว้างไม่เกิน 600 px</span><br/>
@@ -136,7 +105,7 @@
 		<?php echo $form->fileField($model,'thumbnail',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
-        </div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'create_date'); ?>
                 <?php list($year,$month,$day) = explode('-',$model->create_date);
