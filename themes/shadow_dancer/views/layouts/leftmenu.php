@@ -63,8 +63,8 @@
 
             <li><a href="#">ความร่วมมือ</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ภายในประเทศ</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ต่างประเทศ</a></li>
+                        <li><a href="#">ภายในประเทศ</a></li>
+                        <li><a href="#">ต่างประเทศ</a></li>
                 </ul>
             </li>
             
@@ -72,39 +72,39 @@
             
             <li><a href="#">รายงานผลการดำเนินงาน</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">รายงานทั้งหมด</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ประเภทรายงาน</a></li>
+                        <li><a href="#">รายงานทั้งหมด</a></li>
+                        <li><a href="#">ประเภทรายงาน</a></li>
                 </ul>
             
             </li>
             
             <li><a href="#">บริการ</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">บริการทั้งหมด</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ประเภทบริการ</a></li>
+                        <li><a href="#">บริการทั้งหมด</a></li>
+                        <li><a href="#">ประเภทบริการ</a></li>
                 </ul>
             </li>
             
             <li><a href="#">คลังข้อมูลความรู้</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">การจัดการความรู้</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">หมวดความรู้</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">สารคดี</a></li>
+                        <li><a href="#">การจัดการความรู้</a></li>
+                        <li><a href="#">หมวดความรู้</a></li>
+                        <li><a href="#">สารคดี</a></li>
                 </ul>
             </li>
             
             <li><a href="#">บริการนิสิต</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ปริญญาโท</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ปริญาเอก</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ประเมินการเรียนการสอน</a></li>
+                        <li><a href="#">ปริญญาโท</a></li>
+                        <li><a href="#">ปริญาเอก</a></li>
+                        <li><a href="#">ประเมินการเรียนการสอน</a></li>
                 </ul>
             </li>
             
             <li><a href="#">ทำเนียบนิสิต</a>
                 <ul style="display: none">
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ปริญญาโท</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl(''); ?>">ปริญาเอก</a></li>
+                        <li><a href="#">ปริญญาโท</a></li>
+                        <li><a href="#">ปริญาเอก</a></li>
                 </ul>
             </li>
             
