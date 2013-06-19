@@ -51,7 +51,7 @@ $('.search-form form').submit(function(){
 			'name'=>'image',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
                         'type'=>'html',
-                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/executives/".$data->image, "รูปผู้บริหารวิทยาลัย",array(\'width\'=>120))',
+                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/executives/".$data->image, "รูปผู้บริหารวิทยาลัย",array(\'height\'=>80))',
                 ),
 		array(
 			'name'=>'name_th',                        
