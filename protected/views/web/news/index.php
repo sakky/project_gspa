@@ -2,18 +2,20 @@
 /* @var $this NewsController */
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - News & Events';
+    $this->pageTitle='Graduate School of Public Administration - News & Activities';
     $this->breadcrumbs=array(
-            'News',
+            'News & Activities',
+            'GSPA News'=>array('index'),
     );
-    $header = "News & Events";
+    $header = "GSPA News";
     $readmore = "Read More";
 }else{
-    $this->pageTitle=Yii::app()->name. ' - ข่าวสารและกิจกรรม';
+    $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์/กิจกรรม';
     $this->breadcrumbs=array(
-            'ข่าวสาร',
+            'ประชาสัมพันธ์/กิจกรรม',
+            'ภายใน'=>array('index'),
     );
-    $header = "ข่าวสารและกิจกรรม";
+    $header = "ประชาสัมพันธ์/กิจกรรม ภายใน";
     $readmore = "อ่านต่อ...";
 }
 ?>

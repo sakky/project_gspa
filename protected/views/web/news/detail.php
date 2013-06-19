@@ -3,24 +3,41 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - News';
-    $this->breadcrumbs=array(
-            'News'=>array('index'),
-            $model->name_en
-    );
-    $info_text = "Download More Info.";
+
     $name = $model->name_en;
-    $pdf = $model->pdf_en;
+    $type = $model->news_type_id;
+    if($type == 1){
+        $type_name ="GSPA News";
+    }
+    if($type == 5){
+        $type_name ="Media News";
+    }
+    $group = $model->newsGroup->name_en;
     $desc = $model->desc_en;
+    $this->breadcrumbs=array(
+            'News & Activities',
+            $type_name,
+            $group
+    );
 }else{
     $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';
-    $this->breadcrumbs=array(
-            'ข่าวสาร'=>array('index'),
-            $model->name_th
-    );
-    $info_text = "ดาวน์โหลดรายละเอียด";
-    $name = $model->name_en;
-    $pdf = $model->pdf_en;
+
+    $name = $model->name_th;
+    $type = $model->news_type_id;
+    if($type == 1){
+        $type_name ="ภายใน";
+    }
+    if($type == 5){
+        $type_name ="จากสื่อ";
+    }
+    $group = $model->newsGroup->name_th;
     $desc = $model->desc_th;
+    $this->breadcrumbs=array(
+            'ประชาสัมพันธ์/กิจกรรม',
+            $type_name,
+            $group
+        
+    );
 }
 
 ?>
@@ -43,7 +60,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           <h4><?php echo $name;?></h4>
           <div>
               
-              <?php if($model->image && $model->news_type_id==1){?>
+              <?php if($model->image){?>
               <div align="center">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $model->image;?>" align="center" />
               </div><br/>
@@ -52,10 +69,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <?php echo $desc; ?>
           
           </div>
-          <?php if($pdf){?>
-          <br/>
-          <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/pdf/<?php echo $pdf;?>"><?php echo $info_text;?></a></div>
-          <?php }?>
     </article>      
     </div>
   </div>
