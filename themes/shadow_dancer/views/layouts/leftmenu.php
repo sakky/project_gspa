@@ -59,15 +59,15 @@
             <ul id="navmenu">
             <!-- CSS Tabs -->
             <li <?php if($curpage=='site/index'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('site'); ?>">หน้าหลัก</a></li>
-            <li <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?> class="current" <?php }?>><a href="#">เกี่ยวกับหน่วยงาน</a>
-                <ul <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structuretype' || $controller=='board'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+            <li <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structureType' || $controller=='board'){?> class="current" <?php }?>><a href="#">เกี่ยวกับหน่วยงาน</a>
+                <ul <?php if($curpage=='page/edit1'||$curpage=='page/edit2'||$curpage=='page/edit4'||$curpage=='page/edit5'||$controller=='executive' || $controller=='structure' || $controller=='structureType' || $controller=='board'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
                     <li <?php if($curpage=='page/edit1'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>1)); ?>">ความเป็นมา</a></li>
                     <li <?php if($curpage=='page/edit2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
                     <li <?php if($curpage=='page/edit4'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
                     <li <?php if($curpage=='page/edit5'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>5)); ?>">พันธกิจ</a></li>
                     <li <?php if($controller=='executive'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('executive'); ?>">ทำเนียบผู้บริหาร</a></li>
                     <li <?php if($controller=='structure'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('structure'); ?>">โครงสร้างหน่วยงาน</a></li>
-                    <li <?php if($controller=='structuretype'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('structuretype'); ?>">ประเภทโครงสร้างหน่วยงาน</a></li>
+                    <li <?php if($controller=='structureType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('structureType'); ?>">ประเภทโครงสร้างหน่วยงาน</a></li>
                     <li <?php if($controller=='board'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('board'); ?>">คณาจารย์</a></li>
                 </ul>
             </li>
