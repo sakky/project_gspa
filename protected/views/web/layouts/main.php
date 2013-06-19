@@ -99,10 +99,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     </ul>
                 </li>
                 
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='gallery/index'){?> class="active" <?php }?> href="#" title="News & Activities" >News & Activities</a>
                     <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">จากสื่อ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">GSPA News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">Gallery</a></li>
                     </ul>
                 </li>
@@ -183,7 +183,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">จากสื่อ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">ประมวลภาพกิจกรรม</a></li>
                     </ul>
                 </li>
