@@ -61,6 +61,7 @@ div.form select
 	-moz-transition: border .2s linear, box-shadow .2s linear;
 	-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
+div.form input:hover { font-weight: bold; }
 
 input:focus 
 , textarea:focus
