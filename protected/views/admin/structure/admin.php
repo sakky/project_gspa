@@ -58,7 +58,7 @@ $('.search-form form').submit(function(){
 			'name'=>'image',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 100px;'),
                         'type'=>'html',
-                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/structures/".$data->image, "รูปประจำตัว",array(\'width\'=>100))',
+                        'value'=>'CHtml::image(Yii::app()->request->baseUrl ."/uploads/structures/".$data->image, "รูปประจำตัว",array(\'height\'=>80))',
                 ),
                 array(
 			'name'=>'name_th',                        
