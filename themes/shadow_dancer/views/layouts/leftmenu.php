@@ -2,18 +2,48 @@
         <div class="span-5">
             <div id="sidebar">
             <div id="left_side">
+            
+<style>
+#navmenu li ul li a {padding-left: 35px;}
+#navmenu li ul li a:hover {padding-left: 35px;}
+#navmenu li ul li.current a {padding-left: 35px;}
+#navmenu li.current ul li.current a {padding-left: 35px;}
+
+</style>
+            
             <script type="text/javascript">
+/*
             $(function(){    
                     //$('#navmenu>li>ul').hide();    
                     $('#navmenu>li').click(function(){ 
                         
                         $(this).find('ul').slideToggle();
+
+
 //                    // close open sub menus        
 //                    $(this).siblings().find('ul:visible').slideUp(500);        
 //                    // open current menu if it's closed        
 //                    $(this).find('ul:hidden').slideDown(500);   
                     })
             });
+*/
+
+
+			$(document).ready(function () {
+			  $('#navmenu > li > a').click(function(e){
+			     if ($(this).attr('class') != 'current'){
+			       $('#navmenu li ul').slideUp();
+				   $(this).next().slideToggle();
+				   $('#navmenu li a').removeClass('current');
+				   $(this).addClass('current');
+				 }else{
+				   $(this).next().slideToggle();
+				 }
+				 e.preventDefault();
+			  });
+			});
+            
+            
             </script>
 <?php 
             $curpage = Yii::app()->getController()->getAction()->controller->id;
