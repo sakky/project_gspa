@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>เพิ่มข่าวประชาสัมพันธ์/กิจกรรม จากสื่อ</h1>
+<h1>เพิ่มประชาสัมพันธ์/กิจกรรม จากสื่อ</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>
