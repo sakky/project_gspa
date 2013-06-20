@@ -28,7 +28,31 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'last_update'); ?>
-		<?php echo $form->textField($model,'last_update'); ?>
+		<?php list($year,$month,$day) = explode('-',$model->last_update);
+                      $crate_date = $day.'/'.$month.'/'.$year;
+                      $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+                        'model' => $model,
+                        'attribute' => 'last_update',
+                        'language' => 'th',
+
+                        'options'=>array(
+                                    'showAnim'=>'fold',
+                                    'changeMonth'=>true,
+                                    'changeYear'=>true,
+                                    'changeDate'=>true,
+                                    'showAnim'=>'fold',
+                                    'dateFormat' => 'yy-mm-dd', // save to db format
+                                    'altFormat' => 'dd/mm/yy', // show to user format
+                                    //'showButtonPanel'=>true,
+                                    'debug'=>true,
+
+                                    ),
+                        'htmlOptions' => array(
+                            'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
+                            'class'=>'shadowdatepicker',
+                            'readonly'=>"readonly",
+                        ),
+                    )) ?>
 	</div>
 
 	<div class="row">

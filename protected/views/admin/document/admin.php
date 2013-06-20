@@ -3,13 +3,13 @@
 /* @var $model Document */
 
 $this->breadcrumbs=array(
-	'Documents'=>array('index'),
-	'Manage',
+	'สื่อเผยแพร่/ดาวน์โหลด'=>array('index'),
+	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	
-	array('label'=>'เพิ่มข้อมูลสื่อเผยแพร่', 'url'=>array('create')),
+	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
         //array('label'=>'เรียงลำดับข้อมูล', 'url'=>array('documentType/index')),
 );
 
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูล สื่อเผยแพร่/ดาวน์โหลด</h1>
+<h1>จัดการสื่อเผยแพร่/ดาวน์โหลด</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -54,16 +54,16 @@ $('.search-form form').submit(function(){
 			'name'=>'doc_type_id',
                         'header'=>'ประเภท',
                         'value'=> '$data->documentType->name_th',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
+			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
                         'filter'=>CHtml::listData(DocumentType::model()->findAll('status=1'), 'doc_type_id', 'name_th'),
 		),
-                array(
-			'name'=>'last_update',
-                        'header'=>'วันที่ปรับปรุง',
-                        'value'=> 'date(\'d/m/Y\',strtotime($data->last_update))',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-                        'filter'=>FALSE,
-		),
+//                array(
+//			'name'=>'last_update',
+//                        'header'=>'วันที่ปรับปรุง',
+//                        'value'=> 'date(\'d/m/Y\',strtotime($data->last_update))',
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//                        'filter'=>FALSE,
+//		),
 //                array(
 //			'name'=>'sort_order', 
 //			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),

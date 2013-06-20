@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'List Document', 'url'=>array('index')),
-	array('label'=>'จัดการข้อมูลสื่อเผยแพร่', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เพิ่มข้อมูล สื่อเผยแพร่/ดาวน์โหลด</h1>
+<h1>เพิ่มสื่อเผยแพร่/ดาวน์โหลด</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'doc_type_list'=>$doc_type_list)); ?>
