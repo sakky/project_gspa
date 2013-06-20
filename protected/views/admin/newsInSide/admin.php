@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข่าวประชาสัมพันธ์/กิจกรรม ภายใน</h1>
+<h1>จัดการประชาสัมพันธ์/กิจกรรม ภายใน</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

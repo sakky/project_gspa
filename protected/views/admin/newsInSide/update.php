@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>แก้ไขข่าวประชาสัมพันธ์/กิจกรรม ภายใน #<?php echo $model->news_id; ?></h1>
+<h1>แก้ไขประชาสัมพันธ์/กิจกรรม ภายใน #<?php echo $model->news_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>
