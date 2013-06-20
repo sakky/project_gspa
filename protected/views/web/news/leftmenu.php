@@ -26,7 +26,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         ?>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('news/groupMedia', array('id'=>$type->news_group_id)); ?>"><?php echo $type->name_en;?></a></li>        
         <?php }?>
-        <li><h6><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">Gallery</a></h6></li>
+        <!--li><h6><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">Gallery</a></h6></li-->
 </ul>
 <?php }else{?>
 <ul class="list-1">
@@ -54,6 +54,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         ?>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('news/groupMedia', array('id'=>$type->news_group_id)); ?>"><?php echo $type->name_th;?></a></li>        
         <?php }?>
-        <li><h6><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">ประมวลภาพกิจกรรม</a></h6></li>
+        <!--li><h6><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">ประมวลภาพกิจกรรม</a></h6></li-->
 </ul>   
 <?php } ?>
