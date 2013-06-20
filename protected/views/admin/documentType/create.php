@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'List DocumentType', 'url'=>array('index')),
-	array('label'=>'จัดการประเภทสื่อเผยแพร่', 'url'=>array('admin')),
+	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
 );
 ?>
 

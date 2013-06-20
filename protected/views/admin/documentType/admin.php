@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(	
-	array('label'=>'เพิ่มประเภทสื่อเผยแพร่', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับประเภทสื่อเผยแพร่', 'url'=>array('order')),
+	array('label'=>'เพิ่มประเภท', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับประเภท', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'เพิ่มประเภทสื่อเผยแพร่', 'url'=>array('create')),
-	array('label'=>'จัดการประเภทสื่อเผยแพร่', 'url'=>array('admin')),
+	array('label'=>'เพิ่มประเภท', 'url'=>array('create')),
+	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
 );
 ?>
 

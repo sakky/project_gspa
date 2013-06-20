@@ -9,9 +9,9 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	//array('label'=>'List DocumentType', 'url'=>array('index')),
-	array('label'=>'เพิ่มประเภทสื่อเผยแพร่', 'url'=>array('create')),
+	array('label'=>'เพิ่มประเภท', 'url'=>array('create')),
 	//array('label'=>'View DocumentType', 'url'=>array('view', 'id'=>$model->doc_type_id)),
-	array('label'=>'จัดการประเภทสื่อเผยแพร่', 'url'=>array('admin')),
+	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
 );
 ?>
 
