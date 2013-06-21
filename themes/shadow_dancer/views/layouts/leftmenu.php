@@ -49,9 +49,10 @@
             $curpage = Yii::app()->getController()->getAction()->controller->id;
             $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
             $curpage .= Yii::app()->getRequest()->getQuery('id');
+            $curpage .= Yii::app()->getRequest()->getQuery('group');
             
             $controller = Yii::app()->getController()->getAction()->controller->id;
-//            echo $curpage;
+            //echo $curpage;
 //            
 //            echo "<br/>";
 //            echo $controller;
@@ -91,10 +92,11 @@
             </li>
 
 
-            <li><a href="#">ความร่วมมือ</a>
-                <ul style="display: none">
-                        <li><a href="#">ภายในประเทศ</a></li>
-                        <li><a href="#">ต่างประเทศ</a></li>
+            <li <?php if($controller=='cooperation'||$controller=='cooperationType'){?>class="current" <?php }?>><a href="#">ความร่วมมือ</a>
+                <ul <?php if($controller=='cooperation'||$controller=='cooperationType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($curpage=='cooperation/index1'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperation/', array('group'=>1)); ?>">ภายในประเทศ</a></li>
+                        <li <?php if($curpage=='cooperation/index2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperation', array('group'=>2)); ?>">ต่างประเทศ</a></li>
+                        <li <?php if($controller=='cooperationType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperationType'); ?>">ประเภทความร่วมมือ</a></li>
                 </ul>
             </li>
             
