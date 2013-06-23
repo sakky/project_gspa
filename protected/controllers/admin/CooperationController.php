@@ -40,7 +40,16 @@ class CooperationController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $co_type_list = array();
+                $criteria = new CDbCriteria();
+                 $criteria->condition = 'status=:status AND t.group=:group';
+		$criteria->params=array(':status'=>1,':group'=>$group);
+                $criteria->order = 'name_th';
+                $co_type = CooperationType::model()->findAll($criteria);
+                
+                foreach($co_type as $type) {
+			$co_type_list[$type->co_type_id] = $type->name_th;
+		}
 		if(isset($_POST['Cooperation']))
 		{       
                         $_POST['Cooperation']['user_id'] = Yii::app()->user->id;
@@ -51,6 +60,7 @@ class CooperationController extends AdminController
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'co_type_list'=>$co_type_list
 		));
 	}
 
@@ -65,6 +75,19 @@ class CooperationController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+                
+                $group = $model->group;
+                
+                $co_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND t.group=:group';
+		$criteria->params=array(':status'=>1,':group'=>$group);
+                $criteria->order = 'name_th';
+                $co_type = CooperationType::model()->findAll($criteria);
+                
+                foreach($co_type as $type) {
+			$co_type_list[$type->co_type_id] = $type->name_th;
+		}
 
 		if(isset($_POST['Cooperation']))
 		{
@@ -76,6 +99,7 @@ class CooperationController extends AdminController
 
 		$this->render('update',array(
 			'model'=>$model,
+                        'co_type_list'=>$co_type_list
 		));
 	}
 
@@ -98,7 +122,12 @@ class CooperationController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$model=new Cooperation('search');
+            if(isset($_GET['group'])&&$_GET['group']==1){
+                $model=new Cooperation('search');
+            }else{
+                $model=new Cooperation('search2');
+            }
+		
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Cooperation']))
 			$model->attributes=$_GET['Cooperation'];
@@ -122,6 +151,20 @@ class CooperationController extends AdminController
 			'model'=>$model,
 		));
 	}
+        
+        public function actionType()
+        {
+               $group =  (!empty($_POST['group'])) ? $_POST['group']: '';
+               $data=CooperationType::model()->findAll('t.group=:group',
+                                array(':group'=>$group));
+
+                $data=CHtml::listData($data,'co_type_id','name_th');
+                foreach($data as $value=>$name_th)
+                {
+                echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name_th),true);
+                }
+
+        }
         
         public function actionOrder()
         {
