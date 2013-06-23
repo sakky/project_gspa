@@ -25,6 +25,11 @@
 		<?php echo $form->label($model,'name_th'); ?>
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
+    
+    	<div class="row">
+		<?php echo $form->labelEx($model,'group'); ?>
+                <?php echo $form->dropDownList($model, 'group', array('inbound'=>'ในประเทศ','outbound'=>'ต่างประเทศ')); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'desc_en'); ?>

@@ -3,13 +3,13 @@
 /* @var $model Cooperation */
 
 $this->breadcrumbs=array(
-	'ความร่วมมือทางวิชาการ'=>array('index'),
+	'ความร่วมมือ'=>array('index'),
 	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Cooperation', 'url'=>array('index')),
-	array('label'=>'เพิ่มข้อมูลความร่วมมือฯ', 'url'=>array('create')),
+	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
         array('label'=>'เรียงลำดับข้อมูล', 'url'=>array('order')),
 );
 
@@ -27,12 +27,12 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูล ความร่วมมือทางวิชาการ</h1>
+<h1>จัดการข้อมูลความร่วมมือ</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+	'model'=>$model,'co_type_list'=>$co_type_list,
 )); ?>
 </div><!-- search-form -->
 
@@ -47,13 +47,28 @@ $('.search-form form').submit(function(){
 		), 
 		array(
 			'name'=>'name_th',                        
-                        'header'=>'หัวข้อ',
+                        'header'=>'ชื่อเรื่อง',
                         'htmlOptions'=>array('style'=>'text-align: left;'),
 		),
+
                 array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+			'name'=>'co_type_id',
+                        'header'=>'ประเภทความร่วมมือ',
+                        'value'=> '$data->coType->name_th',
+			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
+                        'filter'=>CHtml::listData(CooperationType::model()->findAll('status=1'), 'co_type_id', 'name_th'),
 		),
+                array(
+			'name'=>'group',                        
+                        'header'=>'กลุ่มความร่วมมือ',
+                        'value'=> '($data->group==\'inbound\')? \'ในประเทศ\' : \'ต่างประเทศ\'',
+                        'htmlOptions'=>array('style'=>'text-align: left;width: 90px;'),
+                        'filter'=>array('inbound'=>'ในประเทศ','outbound'=>'ต่างประเทศ'),
+		),
+//                array(
+//			'name'=>'sort_order', 
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+//		),
                 array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',

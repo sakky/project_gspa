@@ -3,17 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'ความร่วมมือทางวิชาการ'=>array('index'),
+	'ความร่วมมือ'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Executive', 'url'=>array('index')),
-	array('label'=>'จัดการข้อมูลความร่วมมือฯ', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เรียงลำดับการแสดงผลข้อมูลความร่วมมือทางวิชาการ</h1>
+<h1>เรียงลำดับการแสดงผลข้อมูลความร่วมมือ</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 

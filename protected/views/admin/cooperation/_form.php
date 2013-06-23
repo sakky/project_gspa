@@ -26,6 +26,29 @@
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'name_th'); ?>
 	</div>
+        
+	<div class="row">
+		<?php echo $form->labelEx($model,'group'); ?>
+                <?php echo $form->dropDownList($model, 'group', array('inbound'=>'ในประเทศ','outbound'=>'ต่างประเทศ'),                              array(
+                                    'prompt' => '--กรุณาเลือก--',
+                                    'value' => '',
+                                    'ajax'  => array(
+                                    'type'  => 'POST',
+                                    'url' => CController::createUrl('cooperation/type'),
+                                    'update' => '#Cooperation_co_type_id',   //selector to update value
+                                    'data' => array('group'=>'js:this.value'),
+                                    )
+                              )); ?>
+		<?php echo $form->error($model,'group'); ?>
+	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'co_type_id'); ?>
+                <?php echo $form->dropDownList($model, 'co_type_id', $co_type_list,array(
+                                    'prompt' => '--กรุณาเลือก--',
+                                    'value' => '',)); ?>
+		<?php echo $form->error($model,'co_type_id'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'desc_en'); ?><br/>
