@@ -45,10 +45,10 @@ class Cooperation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th', 'required'),
-			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
+			array('name_en, name_th, co_type_id, group', 'required'),
+			array('sort_order, status, user_id, co_type_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
-			array('desc_en, desc_th', 'safe'),
+			array('desc_en, desc_th, group', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('co_id, name_en, name_th, desc_en, desc_th, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
@@ -64,6 +64,7 @@ class Cooperation extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+                        'coType' => array(self::BELONGS_TO, 'CooperationType', 'co_type_id'),
 		);
 	}
 
@@ -74,8 +75,10 @@ class Cooperation extends CActiveRecord
 	{
 		return array(
 			'co_id' => 'รหัส',
-			'name_en' => 'หัวข้อ (ภาษาอังกฤษ)',
-			'name_th' => 'หัวข้อ (ภาษาไทย)',
+                        'group' => 'กลุ่มความร่วมมือ',
+                        'co_type_id' => 'ประเภท',
+			'name_en' => 'ชื่อเรื่อง (ภาษาอังกฤษ)',
+			'name_th' => 'ชื่อเรื่อง (ภาษาไทย)',
 			'desc_en' => 'รายละเอียด (ภาษาอังกฤษ)',
 			'desc_th' => 'รายละเอียด (ภาษาไทย)',
 			'sort_order' => 'การเรียงลำดับ',
@@ -97,6 +100,8 @@ class Cooperation extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('co_id',$this->co_id);
+                $criteria->compare('group',$this->group,true);
+                $criteria->compare('co_type_id',$this->co_type_id);
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('desc_en',$this->desc_en,true);
@@ -111,4 +116,5 @@ class Cooperation extends CActiveRecord
                         'pagination'=>array('pageSize'=> 20),
 		));
 	}
+        
 }
