@@ -94,13 +94,13 @@
 
             <li <?php if($controller=='cooperation'||$controller=='cooperationType'){?>class="current" <?php }?>><a href="#">ความร่วมมือ</a>
                 <ul <?php if($controller=='cooperation'||$controller=='cooperationType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
-                        <li <?php if($curpage=='cooperation/index1'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperation/', array('group'=>1)); ?>">ภายในประเทศ</a></li>
-                        <li <?php if($curpage=='cooperation/index2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperation', array('group'=>2)); ?>">ต่างประเทศ</a></li>
+                        <li <?php if($controller=='cooperation'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">จัดการข้อมูลความร่วมมือ</a></li>
                         <li <?php if($controller=='cooperationType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('cooperationType'); ?>">ประเภทความร่วมมือ</a></li>
                 </ul>
             </li>
             
             <li><a href="#">หน่วยงานภายใต้กำกับ</a></li>
+
             
             <li><a href="#">รายงานผลการดำเนินงาน</a>
                 <ul style="display: none">
@@ -133,10 +133,10 @@
                 </ul>
             </li>
             
-            <li><a href="#">ทำเนียบนิสิต</a>
-                <ul style="display: none">
-                        <li><a href="#">ปริญญาโท</a></li>
-                        <li><a href="#">ปริญาเอก</a></li>
+            <li <?php if($controller=='alumni'|| $controller=='alumniNo'){?> class="current" <?php }?>><a href="#">ทำเนียบนิสิต</a>
+                <ul <?php if($controller=='alumni'|| $controller=='alumniNo'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='alumni'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">ข้อมูลนิสิต</a></li>
+                        <li <?php if($controller=='alumniNo'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('alumniNo'); ?>">รุ่นที่จบ</a></li>
                 </ul>
             </li>
             
