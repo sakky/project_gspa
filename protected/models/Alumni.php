@@ -53,10 +53,10 @@ class Alumni extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, sex', 'required','message'=>'{attribute} ห้ามว่าง'),
-			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
+			array('name_en, name_th, sex, alumni_group, alumni_no_id', 'required','message'=>'{attribute} ห้ามว่าง'),
+			array('sort_order, status, user_id, alumni_no_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, major_en, major_th, campus_en, campus_th, position_en, position_th', 'length', 'max'=>255),
-			array('desc_en, desc_th', 'safe'),
+			array('desc_en, desc_th, alumni_group', 'safe'),
                         array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -73,6 +73,7 @@ class Alumni extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+                        'alumniType' => array(self::BELONGS_TO, 'AlumniNo', 'alumni_no_id'),
 		);
 	}
 
@@ -83,6 +84,8 @@ class Alumni extends CActiveRecord
 	{
 		return array(
 			'alumni_id' => 'รหัส',
+                        'alumni_group' => 'ระดับ',
+                        'alumni_no_id' => 'รุ่นที่จบ',
 			'name_en' => 'ชื่อ-นามสกุล (ภาษาอังกฤษ)',
 			'name_th' => 'ชื่อ-นามสกุล (ภาษาไทย)',
 			'sex' => 'เพศ',
@@ -114,6 +117,8 @@ class Alumni extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('alumni_id',$this->alumni_id);
+                $criteria->compare('alumni_group',$this->alumni_group,true);
+                $criteria->compare('alumni_no_id',$this->alumni_no_id);
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('sex',$this->sex,true);
