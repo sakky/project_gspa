@@ -14,10 +14,6 @@ class CooperationController extends AdminController
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-              return array();
-	}
 
 	/**
 	 * Displays a particular model.
