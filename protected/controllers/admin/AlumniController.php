@@ -30,10 +30,20 @@ class AlumniController extends AdminController
 	public function actionCreate()
 	{
 		$model=new Alumni;
-
+                $group = $model->alumni_group;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $alumni_no_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND alumni_group=:alumni_group';
+		$criteria->params=array(':status'=>1,':alumni_group'=>$group);
+                $criteria->order = 'name_th';
+                $co_type = AlumniNo::model()->findAll($criteria);
+                
+                foreach($co_type as $type) {
+			$alumni_no_list[$type->alumni_no_id] = $type->name_th;
+		}
+                
 		if(isset($_POST['Alumni']))
 		{
                         $_POST['Alumni']['user_id'] = Yii::app()->user->id;
@@ -62,6 +72,7 @@ class AlumniController extends AdminController
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'alumni_no_list'=>$alumni_no_list
 		));
 	}
 
@@ -73,9 +84,19 @@ class AlumniController extends AdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+                $group = $model->alumni_group;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+                $alumni_no_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND alumni_group=:alumni_group';
+		$criteria->params=array(':status'=>1,':alumni_group'=>$group);
+                $criteria->order = 'name_th';
+                $co_type = AlumniNo::model()->findAll($criteria);
+                
+                foreach($co_type as $type) {
+			$alumni_no_list[$type->alumni_no_id] = $type->name_th;
+		}
 
 		if(isset($_POST['Alumni']))
 		{
@@ -112,6 +133,7 @@ class AlumniController extends AdminController
 
 		$this->render('update',array(
 			'model'=>$model,
+                        'alumni_no_list'=>$alumni_no_list,
 		));
 	}
 
@@ -192,6 +214,20 @@ class AlumniController extends AdminController
                     'dataProvider' => $dataProvider,
                 ));
             }
+        }
+        
+        public function actionType()
+        {
+               $group =  (!empty($_POST['alumni_group'])) ? $_POST['alumni_group']: '';
+               $data=AlumniNo::model()->findAll('t.alumni_group=:alumni_group',
+                                array(':alumni_group'=>$group));
+
+                $data=CHtml::listData($data,'alumni_no_id','name_th');
+                foreach($data as $value=>$name_th)
+                {
+                echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name_th),true);
+                }
+
         }
 
 	/**
