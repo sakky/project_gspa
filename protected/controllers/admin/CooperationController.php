@@ -33,7 +33,7 @@ class CooperationController extends AdminController
 	public function actionCreate()
 	{
 		$model=new Cooperation;
-
+                $group = $model->group;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
                 $co_type_list = array();
