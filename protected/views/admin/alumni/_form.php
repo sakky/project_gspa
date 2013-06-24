@@ -27,6 +27,29 @@
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'name_th'); ?>
 	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'alumni_group'); ?>
+                <?php echo $form->dropDownList($model, 'alumni_group', array('Master'=>'ปริญญาโท','Doctor'=>'ปริญญาเอก'),                              array(
+                                    'prompt' => '--กรุณาเลือก--',
+                                    'value' => '',
+                                    'ajax'  => array(
+                                    'type'  => 'POST',
+                                    'url' => CController::createUrl('alumni/type'),
+                                    'update' => '#Alumni_alumni_no_id',   //selector to update value
+                                    'data' => array('alumni_group'=>'js:this.value'),
+                                    )
+                              )); ?>
+		<?php echo $form->error($model,'group'); ?>
+	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'alumni_no_id'); ?>
+                <?php echo $form->dropDownList($model, 'alumni_no_id', $alumni_no_list,array(
+                                    'prompt' => '--กรุณาเลือก--',
+                                    'value' => '',)); ?>
+		<?php echo $form->error($model,'alumni_no_id'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sex'); ?>
@@ -117,12 +140,6 @@
                         ),
                 )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
-		<?php echo $form->error($model,'sort_order'); ?>
 	</div>
 
 	<div class="row">

@@ -3,7 +3,7 @@
 /* @var $model Alumni */
 
 $this->breadcrumbs=array(
-	'ข้อมูลศิษย์เก่า'=>array('index'),
+	'ทำเนียบนิสิต'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>เพิ่มข้อมูลศิษย์เก่า</h1>
+<h1>เพิ่มข้อมูลนิสิต</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'alumni_no_list'=>$alumni_no_list)); ?>

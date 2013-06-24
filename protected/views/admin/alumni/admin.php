@@ -3,13 +3,13 @@
 /* @var $model Alumni */
 
 $this->breadcrumbs=array(
-	'ข้อมูลศิษย์เก่า'=>array('index'),
+	'ทำเนียบนิสิต'=>array('index'),
 	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Alumni', 'url'=>array('index')),
-	array('label'=>'เพิ่มข้อมูลศิษย์เก่า', 'url'=>array('create')),
+	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลศิษย์เก่า</h1>
+<h1>จัดการข้อมูลนิสิต</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -56,13 +56,20 @@ $('.search-form form').submit(function(){
                         'htmlOptions'=>array('style'=>'text-align: left;width: 160px;'),
 		),
                 array(
-			'name'=>'position_th',                        
-                        'header'=>'ตำแหน่งงานปัจจุบัน',
+			'name'=>'alumni_group',                        
+                        'header'=>'ระดับ',
+                        'value'=> '($data->alumni_group==\'Master\')? \'ปริญญาโท\' : \'ปริญญาเอก\'',
+                        'htmlOptions'=>array('style'=>'text-align: left;width: 90px;'),
+                        'filter'=>array('Master'=>'ปริญญาโท','Doctor'=>'ปริญญาเอก'),
 		),
-                 array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+                array(
+			'name'=>'alumni_no_id',
+                        'header'=>'รุ่นที่จบ',
+                        'value'=> '$data->alumniType->name_th',
+			'htmlOptions'=>array('style'=>'text-align: left;width: 70px;'),
+                        'filter'=>CHtml::listData(AlumniNo::model()->findAll('status=1'), 'alumni_no_id', 'name_th'),
 		),
+
                 array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
