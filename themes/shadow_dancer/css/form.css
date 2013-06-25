@@ -203,6 +203,11 @@ div.form
     width: 700px;    
     background: #F5F5F5;
 }
+div.wide.form
+{ 
+    width: 650px;    
+    /*background: none;*/
+}
 
 div.form .row label
 { 
