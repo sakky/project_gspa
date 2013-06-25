@@ -12,7 +12,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name . ' - ผู้บริหารวิทยาลัยการบริหารรัฐกิจ';
     $this->breadcrumbs=array(
-            'เกี่ยวกับเรา'=>array('index', 'id'=>'1'),
+            'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
             'ผู้บริหารวิทยาลัยการบริหารรัฐกิจ'=>array('executive'),
     );
     $header = "ผู้บริหารวิทยาลัยการบริหารรัฐกิจ";
