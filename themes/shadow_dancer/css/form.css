@@ -61,7 +61,6 @@ div.form select
 	-moz-transition: border .2s linear, box-shadow .2s linear;
 	-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
-div.form input:hover { font-weight: bold; }
 
 input:focus 
 , textarea:focus
@@ -197,3 +196,41 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	clear: left;
 	padding-left: 160px;
 }
+/**** Sak ****/
+div.form
+{ 
+    padding: 5px;
+    width: 700px;    
+    background: #F5F5F5;
+}
+
+div.form .row label
+{ 
+        margin-left: 5px;
+}
+div.form .row img ,div.form .row file
+{ 
+        margin-left: 20px;
+}
+
+div.form .row.buttons
+{
+        border-top: 1px dotted;
+        margin-top: 10px;
+        text-align: center;
+}
+div.form .row.buttons input
+{
+	margin-top: 10px;
+        text-align: center;
+        font-weight: bold; 
+        background: #8AE72E;
+}
+div.form .row.buttons input:hover 
+{ 
+        font-weight: bold; 
+        color : #fff;
+        background: #990000;
+}
+/**** Sak ****/
+
