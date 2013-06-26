@@ -102,10 +102,10 @@
             <li><a href="#">หน่วยงานภายใต้กำกับ</a></li>
 
             
-            <li><a href="#">รายงานผลการดำเนินงาน</a>
-                <ul style="display: none">
-                        <li><a href="#">รายงานทั้งหมด</a></li>
-                        <li><a href="#">ประเภทรายงาน</a></li>
+            <li <?php if($controller=='report'||$controller=='reportType'){?>class="current" <?php }?>><a href="#">รายงานผลการดำเนินงาน</a>
+                <ul <?php if($controller=='report'||$controller=='reportType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='report'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('report'); ?>">รายงานทั้งหมด</a></li>
+                        <li <?php if($controller=='reportType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('reportType'); ?>">ประเภทรายงาน</a></li>
                 </ul>
             
             </li>
