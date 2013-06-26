@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>เพิ่มประเภทรายงาน</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model,'report_type_list'=>$report_type_list)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
