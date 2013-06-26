@@ -47,8 +47,9 @@ class Report extends CActiveRecord
 		return array(
 			array('report_type_id, name_en, name_th', 'required'),
 			array('report_type_id, sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
-			array('name_en, name_th, pdf_en, pdf_th', 'length', 'max'=>255),
+			array('name_en, name_th', 'length', 'max'=>255),
 			array('desc_en, desc_th', 'safe'),
+                        array('pdf_en, pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'ไฟล์ควรมีขนาดเล็กกว่า 10 MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('report_id, report_type_id, name_en, name_th, desc_en, desc_th, pdf_en, pdf_th, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
