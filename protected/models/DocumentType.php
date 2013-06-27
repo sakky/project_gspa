@@ -41,7 +41,7 @@ class DocumentType extends CActiveRecord
 			array('name_en, name_th', 'required'),
 			array('sort_order, status', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
-                        array('doc_group', 'length', 'max'=>10),
+                        array('doc_group', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('doc_type_id, name_en, name_th, sort_order, status', 'safe', 'on'=>'search'),
@@ -66,6 +66,7 @@ class DocumentType extends CActiveRecord
 	{
 		return array(
 			'doc_type_id' => 'รหัส',
+                        'doc_group' => 'กลุ่ม',
 			'name_en' => 'ชื่อประเภท (ภาษาอังกฤษ)',
 			'name_th' => 'ชื่อประเภท (ภาษาไทย)',
 			'sort_order' => 'การเรียงลำดับ',
