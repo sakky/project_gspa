@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>แก้ไขประเภทสื่อเผยแพร่ #<?php echo $model->doc_type_id; ?></h1>
+<h1>แก้ไขประเภทสื่อเผยแพร่</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
