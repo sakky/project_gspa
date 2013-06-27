@@ -110,10 +110,10 @@
             
             </li>
             
-            <li><a href="#">บริการ</a>
-                <ul style="display: none">
-                        <li><a href="#">บริการทั้งหมด</a></li>
-                        <li><a href="#">ประเภทบริการ</a></li>
+            <li <?php if($controller=='service'||$controller=='serviceType'){?>class="current" <?php }?>><a href="#">บริการ</a>
+                <ul <?php if($controller=='service'||$controller=='serviceType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='service'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('service'); ?>">บริการทั้งหมด</a></li>
+                        <li <?php if($controller=='serviceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('serviceType'); ?>">ประเภทบริการ</a></li>
                 </ul>
             </li>
             
