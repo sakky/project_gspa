@@ -141,6 +141,7 @@ class DocumentTypeController extends AdminController
                 $dataProvider = new CActiveDataProvider('DocumentType', array(
                     'pagination' => false,
                     'criteria' => array(
+                        'condition'=>'doc_group="download"',
                         'order' => 'sort_order ASC, doc_type_id DESC',
                     ),
                 ));
