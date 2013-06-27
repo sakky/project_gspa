@@ -50,6 +50,7 @@ class Structure extends CActiveRecord
 			array('name_en, name_th, position_en, position_th, image', 'length', 'max'=>255),
 			array('sex', 'length', 'max'=>1),
 			array('time_stamp', 'safe'),
+                        array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('str_id, str_type_id, name_en, name_th, position_en, position_th, sex, image, sort_order, status, time_stamp, user_id', 'safe', 'on'=>'search'),
