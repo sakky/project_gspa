@@ -50,7 +50,7 @@ class Document extends CActiveRecord
 			array('name_en, name_th,doc_type_id', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('counter, sort_order, status, user_id,doc_type_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
-			array('last_update, desc_en, desc_th', 'safe'),
+			array('last_update, desc_en, desc_th, doc_group', 'safe'),
                         array('pdf_en,pdf_th', 'file', 'types'=>'pdf,zip', 'maxSize'=>1024 * 1024 * 15, 'tooLarge'=>'File has to be smaller than 15MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -107,6 +107,36 @@ class Document extends CActiveRecord
 
 		$criteria->compare('doc_id',$this->doc_id);
                 $criteria->compare('doc_type_id',$this->doc_type_id);
+                $criteria->compare('doc_group','download');
+		$criteria->compare('name_en',$this->name_en,true);
+		$criteria->compare('name_th',$this->name_th,true);
+                $criteria->compare('desc_en',$this->desc_en,true);
+		$criteria->compare('desc_th',$this->desc_th,true);
+		$criteria->compare('pdf_en',$this->pdf_en,true);
+		$criteria->compare('pdf_th',$this->pdf_th,true);
+		$criteria->compare('last_update',$this->last_update,true);
+		$criteria->compare('counter',$this->counter);
+		$criteria->compare('sort_order',$this->sort_order);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('time_stamp',$this->time_stamp,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
+		));
+	}
+        
+        public function searchService()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('doc_id',$this->doc_id);
+                $criteria->compare('doc_type_id',$this->doc_type_id);
+                $criteria->compare('doc_group','service');
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
                 $criteria->compare('desc_en',$this->desc_en,true);

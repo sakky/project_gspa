@@ -41,6 +41,7 @@ class DocumentType extends CActiveRecord
 			array('name_en, name_th', 'required'),
 			array('sort_order, status', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
+                        array('doc_group', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('doc_type_id, name_en, name_th, sort_order, status', 'safe', 'on'=>'search'),
@@ -84,6 +85,27 @@ class DocumentType extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('doc_type_id',$this->doc_type_id);
+                $criteria->compare('doc_group','download');
+		$criteria->compare('name_en',$this->name_en,true);
+		$criteria->compare('name_th',$this->name_th,true);
+		$criteria->compare('sort_order',$this->sort_order);
+		$criteria->compare('status',$this->status);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
+		));
+	}
+        
+        public function searchService()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('doc_type_id',$this->doc_type_id);
+                $criteria->compare('doc_group','service');
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('sort_order',$this->sort_order);
