@@ -40,18 +40,15 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		array(
-			'name'=>'doc_type_id',
-			'header'=>'รหัส',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
-		),
+                array(
+                        'header'=> 'ลำดับ',
+                        'type' => 'raw',
+                        'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1', //this for the auto page number of cgridview
+                        'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
+                ),
                 array(
 			'name'=>'name_th',                        
                         'header'=>'ชื่อประเภท',
-		),
-                array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
 		),
 		array(
 			'name'=>'status',                 
