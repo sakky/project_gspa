@@ -32,6 +32,7 @@ class DocumentTypeController extends AdminController
 
 		if(isset($_POST['DocumentType']))
 		{
+                        $_POST['DocumentType']['doc_group'] = 'download';
 			$model->attributes=$_POST['DocumentType'];
 			if($model->save())
 				$this->redirect(array('index'));
@@ -56,6 +57,7 @@ class DocumentTypeController extends AdminController
 
 		if(isset($_POST['DocumentType']))
 		{
+                        $_POST['DocumentType']['doc_group'] = 'download';
 			$model->attributes=$_POST['DocumentType'];
 			if($model->save())
 				$this->redirect(array('index'));

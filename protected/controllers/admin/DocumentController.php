@@ -47,6 +47,7 @@ class DocumentController extends AdminController
 		if(isset($_POST['Document']))
 		{
                         $_POST['Document']['user_id'] = Yii::app()->user->id;
+                        $_POST['Document']['doc_group'] = 'download';
                         list($day,$month,$year) = explode('/', $_POST['Document']['last_update']);
                         $create_date = $year.'-'.$month.'-'.$day;
                         $_POST['Document']['last_update'] = $create_date;
@@ -122,6 +123,7 @@ class DocumentController extends AdminController
                         $record_file_en = $model->pdf_en;
                         $record_file_th = $model->pdf_th;
                         $_POST['Document']['user_id'] = Yii::app()->user->id;
+                        $_POST['Document']['doc_group'] = 'download';
                         list($day,$month,$year) = explode('/', $_POST['Document']['last_update']);
                         $create_date = $year.'-'.$month.'-'.$day;
                         $_POST['Document']['last_update'] = $create_date;
