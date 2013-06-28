@@ -102,7 +102,16 @@ function createThumbnail($filename) {
 		}
 	}
 
-	imagejpeg($nm, $path_to_thumbs_directory . $filename);
+
+	if(preg_match('/[.]jpg$/', $filename)) {
+            imagejpeg($nm, $path_to_thumbs_directory . $filename);
+	} else if (preg_match('/[.]gif$/', $filename)) {
+            imagegif($nm, $path_to_thumbs_directory . $filename);
+	} else if (preg_match('/[.]png$/', $filename)) {
+            imagepng($nm, $path_to_thumbs_directory . $filename);
+	}
+        
+        //imagejpeg($nm, $path_to_thumbs_directory . $filename);
 	
 	//header("location: index.php");
 }

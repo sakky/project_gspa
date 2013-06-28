@@ -14,6 +14,7 @@ if(isset($_FILES['fupload'])) {
     {
         //print_r($match);
     }
+    if ($match[1]=='jpeg') $match[1] = 'jpg';
 
     $filename = 'photo_'.date('YmdHis').rand(0,99).".".$match[1];
     $source = $_FILES['fupload']['tmp_name'];    
