@@ -1,0 +1,33 @@
+body {  
+font-family: helvetica, georgia, sans-serif;
+}
+
+ul {
+margin: 0;
+padding: 0;
+}
+
+ul li {
+float: left;
+margin: 0 1em 1em 0;
+list-style: none;
+height: 75px; /* you can remove this if you like. */
+overflow: hidden;
+}
+
+img {
+border: none;
+}
+
+h1, h4 {
+clear: left;
+}
+
+label {
+display: block;
+}
+
+.alert {
+color: red;
+margin: .3em 0;
+}
