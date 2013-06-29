@@ -100,7 +100,11 @@
                 </ul>
             </li>
             
-            <li><a href="#">หน่วยงานภายใต้กำกับ</a></li>
+            <li <?php if($controller=='organization'){?>class="current" <?php }?>><a href="#">หน่วยงานที่เกี่ยวข้อง</a>
+                <ul <?php if($controller=='organization'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='organization'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('organization'); ?>">จัดการหน่วยงานที่เกี่ยวข้อง</a></li>
+                </ul>
+            </li>
 
             
             <li <?php if($controller=='report'||$controller=='reportType'){?>class="current" <?php }?>><a href="#">รายงานผลการดำเนินงาน</a>
@@ -141,17 +145,28 @@
                 </ul>
             </li>
             
-            <li <?php if($controller=='link'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('link'); ?>">ลิงค์ที่เกี่ยวข้อง</a></li>
+            <li <?php if($controller=='link'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('link'); ?>">ลิงค์ที่เกี่ยวข้อง</a>
+                 <ul <?php if($controller=='link'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='link'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('link'); ?>">จัดการลิงค์ที่เกี่ยวข้อง</a></li>
+                 </ul>
+            </li>
             
             <li <?php if($curpage=='page/edit7'|| $curpage=='page/edit3'||$controller=='slide'){?> class="current" <?php }?>><a href="#">เมนูอื่นๆ</a>
                 <ul <?php if($curpage=='page/edit7'|| $curpage=='page/edit3' ||$controller=='slide'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
                         <li <?php if($curpage=='page/edit7'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>7)); ?>">ข้อมูลการติดต่อ</a></li>
+                        <li <?php if($curpage=='page/edit6'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>
                         <li <?php if($controller=='slide'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('slide'); ?>">Slide Show</a></li>
                         <li <?php if($curpage=='page/edit3'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>3)); ?>">Video</a></li>
                 </ul>
             </li>
             
-            <li <?php if($controller=='user'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ผู้ใช้งาน</a></li>
+            <li <?php if($controller=='user'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
+                <ul <?php if($controller=='user'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
+                        <li <?php if($curpage=='user/update'.Yii::app()->user->id){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user/update', array('id'=>Yii::app()->user->id)); ?>">แก้ไขข้อมูลส่วนตัว</a></li>
+                        <li <?php if($curpage=='user/index'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
+                        <li <?php if($controller=='userGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('userGroup'); ?>">ประเภทผู้ใช้งาน</a></li>
+                </ul>
+            </li>
 
             </ul>
 
