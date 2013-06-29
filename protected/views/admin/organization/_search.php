@@ -1,6 +1,6 @@
 <?php
 /* @var $this OrganizationController */
-/* @var $model Link */
+/* @var $model Organization */
 /* @var $form CActiveForm */
 ?>
 
@@ -12,8 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'link_id'); ?>
-		<?php echo $form->textField($model,'link_id'); ?>
+		<?php echo $form->label($model,'org_id'); ?>
+		<?php echo $form->textField($model,'org_id'); ?>
 	</div>
 
 	<div class="row">
@@ -25,8 +25,8 @@
 		<?php echo $form->label($model,'name_th'); ?>
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
-
-	<div class="row">
+    
+    	<div class="row">
 		<?php echo $form->label($model,'link_en'); ?>
 		<?php echo $form->textField($model,'link_en',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
@@ -37,32 +37,12 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'type'); ?>
-		<?php echo $form->textField($model,'type',array('size'=>8,'maxlength'=>8)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'time_stamp'); ?>
-		<?php echo $form->textField($model,'time_stamp'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('ค้นหา'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

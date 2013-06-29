@@ -1,18 +1,17 @@
 <?php
 /* @var $this OrganizationController */
-/* @var $model Link */
+/* @var $model Organization */
 
 $this->breadcrumbs=array(
-	'Links'=>array('index'),
-	'Create',
+	'หน่วยงานภายใน'=>array('index'),
+	'เพิ่มข้อมูล',
 );
 
-$this->menu=array(
-	array('label'=>'List Link', 'url'=>array('index')),
-	array('label'=>'Manage Link', 'url'=>array('admin')),
+$this->menu=array(	
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Link</h1>
+<h1>เพิ่มข้อมูลหน่วยงานภายใน</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,12 +1,12 @@
 <?php
 /* @var $this OrganizationController */
-/* @var $data Link */
+/* @var $data Organization */
 ?>
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('link_id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->link_id), array('view', 'id'=>$data->link_id)); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('org_id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->org_id), array('view', 'id'=>$data->org_id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name_en')); ?>:</b>
@@ -23,10 +23,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('link_th')); ?>:</b>
 	<?php echo CHtml::encode($data->link_th); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('type')); ?>:</b>
-	<?php echo CHtml::encode($data->type); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sort_order')); ?>:</b>
