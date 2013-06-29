@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
 
@@ -28,14 +28,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order'); ?>
-		<?php echo $form->error($model,'sort_order'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
