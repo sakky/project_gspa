@@ -40,12 +40,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
-		<?php echo $form->error($model,'sort_order'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
                 <?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($model,'status'); ?>
