@@ -115,7 +115,7 @@
                         'htmlOptions' => array(
                             'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
                             'class'=>'shadowdatepicker',
-                            'readonly'=>"readonly",
+                            //'readonly'=>"readonly",
                         ),
                     )) ?>
 		<?php echo $form->error($model,'last_update'); ?>

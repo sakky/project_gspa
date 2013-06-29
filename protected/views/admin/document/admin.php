@@ -26,13 +26,11 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-
 <h1>จัดการสื่อเผยแพร่/ดาวน์โหลด</h1>
-
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+	'model'=>$model,'doc_type_list'=>$doc_type_list
 )); ?>
 </div><!-- search-form -->
 
@@ -58,13 +56,29 @@ $('.search-form form').submit(function(){
 			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
                         'filter'=>CHtml::listData(DocumentType::model()->findAll('status=1'), 'doc_type_id', 'name_th'),
 		),
-//                array(
-//			'name'=>'last_update',
-//                        'header'=>'วันที่ปรับปรุง',
-//                        'value'=> 'date(\'d/m/Y\',strtotime($data->last_update))',
-//			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-//                        'filter'=>FALSE,
-//		),
+                array(
+			'name'=>'last_update',
+                        'header'=>'วันที่ปรับปรุง',
+                        'value'=> 'date(\'d/m/Y\',strtotime($data->last_update))',
+			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
+                        'filter'=>$this->widget('zii.widgets.jui.CJuiDatepicker', array('model'=>$model, 'attribute'=>'last_update','language'=>'th','options'=>array(
+                                    'showAnim'=>'fold',
+                                    'changeMonth'=>true,
+                                    'changeYear'=>true,
+                                    'changeDate'=>true,
+                                    'showAnim'=>'fold',
+                                    'dateFormat' => 'yy-mm-dd', // save to db format
+                                    'altFormat' => 'dd/mm/yy', // show to user format
+                                    //'showButtonPanel'=>true,
+                                    'debug'=>true,
+
+                                    ),
+                        'htmlOptions' => array(
+                            //'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
+                            'class'=>'shadowdatepicker',
+                            'readonly'=>"readonly",
+                        )), true),
+		),
 //                array(
 //			'name'=>'sort_order', 
 //			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),

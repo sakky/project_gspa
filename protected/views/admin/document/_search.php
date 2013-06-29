@@ -15,6 +15,14 @@
 		<?php echo $form->label($model,'doc_id'); ?>
 		<?php echo $form->textField($model,'doc_id'); ?>
 	</div>
+    
+    	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
+        <div class="row">
+		<?php echo $form->labelEx($model,'doc_type_id'); ?>
+                <?php echo $form->dropDownList($model,'doc_type_id',$doc_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'name_en'); ?>
@@ -48,16 +56,11 @@
 
                                     ),
                         'htmlOptions' => array(
-                            'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
+                            //'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
                             'class'=>'shadowdatepicker',
                             'readonly'=>"readonly",
                         ),
                     )) ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
 	</div>
 
 	<div class="row">
