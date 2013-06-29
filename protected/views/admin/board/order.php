@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'จัดการข้อมูลคณาจารย์', 'url'=>array('admin')),
 );
 ?>
-
 <h1>เรียงลำดับการแสดงผลข้อมูลคณาจารย์</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
@@ -59,7 +58,8 @@ $this->menu=array(
     ));
 
 
-?>
+?>&nbsp;&nbsp;
+<?php echo CHtml::Button('ยกเลิก', array('onClick'=>'window.location="'.Yii::app()->createUrl('board').'"')); ?>
 </div>
 </div>
 
