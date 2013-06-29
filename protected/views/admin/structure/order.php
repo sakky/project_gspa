@@ -64,7 +64,8 @@ $this->menu=array(
     ));
 
 
-?>
+?>&nbsp;&nbsp;
+<?php echo CHtml::Button('ยกเลิก', array('onClick'=>'window.location="'.Yii::app()->createUrl('structure').'"')); ?>
 </div>
 </div>
 
