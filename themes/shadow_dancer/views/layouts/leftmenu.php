@@ -99,9 +99,9 @@
                 </ul>
             </li>
             
-            <li <?php if($controller=='organization'){?>class="current" <?php }?>><a href="#">หน่วยงานที่เกี่ยวข้อง</a>
+            <li <?php if($controller=='organization'){?>class="current" <?php }?>><a href="#">หน่วยงานภายใน</a>
                 <ul <?php if($controller=='organization'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
-                        <li <?php if($controller=='organization'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('organization'); ?>">จัดการหน่วยงานที่เกี่ยวข้อง</a></li>
+                        <li <?php if($controller=='organization'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('organization'); ?>">จัดการหน่วยงานภายใน</a></li>
                 </ul>
             </li>
 
