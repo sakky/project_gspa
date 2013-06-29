@@ -36,8 +36,8 @@ class DocumentController extends AdminController
 		// $this->performAjaxValidation($model);
                 $doc_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
-		$criteria->params=array(':status'=>1);
+                $criteria->condition = 'status=:status AND doc_group=\'download\'';
+		$criteria->params=array(':status'=>1,);
                 $criteria->order = 'name_th';
                 $doc_type = DocumentType::model()->findAll($criteria);
                 
@@ -110,8 +110,8 @@ class DocumentController extends AdminController
 		// $this->performAjaxValidation($model);
                 $doc_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status';
-		$criteria->params=array(':status'=>1);
+                $criteria->condition = 'status=:status AND doc_group=\'download\'';
+		$criteria->params=array(':status'=>1,);
                 $criteria->order = 'name_th';
                 $doc_type = DocumentType::model()->findAll($criteria);
                 
@@ -195,6 +195,17 @@ class DocumentController extends AdminController
 	 */
 	public function actionIndex()
 	{
+                $doc_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND doc_group=\'download\'';
+		$criteria->params=array(':status'=>1,);
+                $criteria->order = 'name_th';
+                $doc_type = DocumentType::model()->findAll($criteria);
+                
+                foreach($doc_type as $type) {
+			$doc_type_list[$type->doc_type_id] = $type->name_th;
+		}
+                
 		$model=new Document('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Document']))
@@ -202,6 +213,7 @@ class DocumentController extends AdminController
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'doc_type_list'=>$doc_type_list
 		));
 	}
 
@@ -210,6 +222,16 @@ class DocumentController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+             $doc_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND doc_group=\'download\'';
+		$criteria->params=array(':status'=>1,);
+                $criteria->order = 'name_th';
+                $doc_type = DocumentType::model()->findAll($criteria);
+                
+                foreach($doc_type as $type) {
+			$doc_type_list[$type->doc_type_id] = $type->name_th;
+		}
 		$model=new Document('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Document']))
@@ -217,6 +239,7 @@ class DocumentController extends AdminController
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'doc_type_list'=>$doc_type_list
 		));
 	}
 
