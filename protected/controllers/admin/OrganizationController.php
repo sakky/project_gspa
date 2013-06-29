@@ -7,7 +7,7 @@ class OrganizationController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -25,16 +25,17 @@ class OrganizationController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new Link;
+		$model=new Organization;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Link']))
+		if(isset($_POST['Organization']))
 		{
-			$model->attributes=$_POST['Link'];
+                        $_POST['Organization']['user_id'] = Yii::app()->user->id;
+			$model->attributes=$_POST['Organization'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->link_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
@@ -54,11 +55,12 @@ class OrganizationController extends AdminController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Link']))
+		if(isset($_POST['Organization']))
 		{
-			$model->attributes=$_POST['Link'];
+                        $_POST['Organization']['user_id'] = Yii::app()->user->id;
+			$model->attributes=$_POST['Organization'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->link_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
@@ -85,14 +87,10 @@ class OrganizationController extends AdminController
 	 */
 	public function actionIndex()
 	{
-//		$dataProvider=new CActiveDataProvider('Link');
-//		$this->render('index',array(
-//			'dataProvider'=>$dataProvider,
-//		));
-                $model=new Link('search');
+		$model=new Organization('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Link']))
-			$model->attributes=$_GET['Link'];
+		if(isset($_GET['Organization']))
+			$model->attributes=$_GET['Organization'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -104,26 +102,60 @@ class OrganizationController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new Link('search');
+		$model=new Organization('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Link']))
-			$model->attributes=$_GET['Link'];
+		if(isset($_GET['Organization']))
+			$model->attributes=$_GET['Organization'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
 
+        public function actionOrder()
+        {
+            // Handle the POST request data submission
+            if (isset($_POST['Order']))
+            {
+                // Since we converted the Javascript array to a string,
+                // convert the string back to a PHP array
+                $models = explode(',', $_POST['Order']);
+
+                for ($i = 0; $i < sizeof($models); $i++)
+                {
+                    if ($model = Organization::model()->findbyPk($models[$i]))
+                    {
+                        $model->sort_order = $i;
+
+                        $model->save();
+                    }
+                }
+            }
+            // Handle the regular model order view
+            else
+            {
+                $dataProvider = new CActiveDataProvider('Organization', array(
+                    'pagination' => false,
+                    'criteria' => array(
+                        'order' => 'sort_order ASC, org_id DESC',
+                    ),
+                ));
+
+                $this->render('order',array(
+                    'dataProvider' => $dataProvider,
+                ));
+            }
+        }
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Link the loaded model
+	 * @return Organization the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Link::model()->findByPk($id);
+		$model=Organization::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -131,11 +163,11 @@ class OrganizationController extends AdminController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Link $model the model to be validated
+	 * @param Organization $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='link-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='organization-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
