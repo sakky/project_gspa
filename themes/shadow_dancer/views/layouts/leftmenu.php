@@ -82,7 +82,6 @@
                 <ul <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='gallery'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
                         <li <?php if($controller=='newsInSide'||$controller=='newsGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('newsInSide'); ?>">ภายใน</a></li>
                         <li <?php if($controller=='news'||$controller=='newsGroup2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('news'); ?>">จากสื่อ</a></li>
-                        <li <?php if($controller=='gallery'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">ประมวลภาพกิจกรรม</a></li>
                 </ul>
             </li>
             <li <?php if($controller=='document'||$controller=='documentType'){?>class="current" <?php }?>><a href="#">สื่อเผยแพร่/ดาวน์โหลด</a>
