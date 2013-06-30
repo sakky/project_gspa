@@ -143,7 +143,7 @@
 
         
 
-<?if (!$model->isNewRecord) { ?>
+<?php if (!$model->isNewRecord) { ?>
         <div class="row buttons"><br/>
 <script type="text/javascript">
   $(function(){
