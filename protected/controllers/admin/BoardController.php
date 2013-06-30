@@ -8,9 +8,19 @@ class BoardController extends AdminController
 	 */
 	public $layout='//layouts/column2';
         public $upload_path;
+        public $user_group_menu;
+        public $menu_use = array();
 	
 	public function init() {
 		$this->upload_path = Yii::app()->basePath . '/../uploads/boards/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
+                
+                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }
 	}
 
 
@@ -31,6 +41,7 @@ class BoardController extends AdminController
 	 */
 	public function actionCreate()
 	{
+           if($this->menu_use[1]){
 		$model=new Board;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -65,6 +76,9 @@ class BoardController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -74,6 +88,7 @@ class BoardController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+             if($this->menu_use[1]){
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -114,6 +129,9 @@ class BoardController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -135,21 +153,7 @@ class BoardController extends AdminController
 	 */
 	public function actionIndex()
 	{
-                $model=new Board('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Board']))
-			$model->attributes=$_GET['Board'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
+           if($this->menu_use[1]){
 		$model=new Board('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Board']))
@@ -158,12 +162,35 @@ class BoardController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
+	}
+
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+            if($this->menu_use[1]){
+		$model=new Board('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Board']))
+			$model->attributes=$_GET['Board'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
         /**
         * Handles the ordering of models.
         */
         public function actionOrder()
         {
+            if($this->menu_use[1]){
             // Handle the POST request data submission
             if (isset($_POST['Order']))
             {
@@ -194,6 +221,10 @@ class BoardController extends AdminController
                 $this->render('order',array(
                     'dataProvider' => $dataProvider,
                 ));
+            }
+            
+            }else{
+                $this->redirect(array('site/index'));
             }
         }
 
