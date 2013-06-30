@@ -39,7 +39,7 @@ class KnowledgeType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, know_group, status', 'required'),
+			array('name_en, name_th, know_group, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('status,know_group', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
 			array('sort_order', 'length', 'max'=>6),
