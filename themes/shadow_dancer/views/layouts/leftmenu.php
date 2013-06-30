@@ -8,43 +8,24 @@
 #navmenu li ul li a:hover {padding-left: 35px;}
 #navmenu li ul li.current a {padding-left: 35px;}
 #navmenu li.current ul li.current a {padding-left: 35px;}
-
-</style>
-            
-            <script type="text/javascript">
-/*
-            $(function(){    
-                    //$('#navmenu>li>ul').hide();    
-                    $('#navmenu>li').click(function(){ 
-                        
-                        $(this).find('ul').slideToggle();
-
-
-//                    // close open sub menus        
-//                    $(this).siblings().find('ul:visible').slideUp(500);        
-//                    // open current menu if it's closed        
-//                    $(this).find('ul:hidden').slideDown(500);   
-                    })
+</style>            
+<script type="text/javascript">
+            $(document).ready(function () {
+                $('#navmenu > li > a').click(function(e){
+                    if ($(this).attr('class') != 'current'){
+                    $('#navmenu li ul').slideUp();
+                        $(this).next().slideToggle();
+                        $('#navmenu li a').removeClass('current');
+                        $(this).addClass('current');
+                        }else{
+                        $(this).next().slideToggle();
+                        }
+                        e.preventDefault();
+                });
             });
-*/
 
 
-			$(document).ready(function () {
-			  $('#navmenu > li > a').click(function(e){
-			     if ($(this).attr('class') != 'current'){
-			       $('#navmenu li ul').slideUp();
-				   $(this).next().slideToggle();
-				   $('#navmenu li a').removeClass('current');
-				   $(this).addClass('current');
-				 }else{
-				   $(this).next().slideToggle();
-				 }
-				 e.preventDefault();
-			  });
-			});
-            
-            
-            </script>
+</script>
 <?php 
             $curpage = Yii::app()->getController()->getAction()->controller->id;
             $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
@@ -52,8 +33,7 @@
             $curpage .= Yii::app()->getRequest()->getQuery('group');
             
             $controller = Yii::app()->getController()->getAction()->controller->id;
-            //echo $curpage;
-//            
+            //echo $curpage;       
 //            echo "<br/>";
 //            echo $controller;
 ?>
@@ -159,7 +139,6 @@
             
             <li <?php if($controller=='user'||$controller=='userGroup'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
                 <ul <?php if($controller=='user'||$controller=='userGroup'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
-                        <li <?php if($curpage=='user/edit'.Yii::app()->user->id){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">แก้ไขข้อมูลส่วนตัว</a></li>
                         <li <?php if($curpage=='user/index'||$curpage=='user/create'||$curpage=='user/update'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
                         <li <?php if($controller=='userGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('userGroup'); ?>">ประเภทผู้ใช้งาน</a></li>
                 </ul>
