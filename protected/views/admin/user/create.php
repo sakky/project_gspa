@@ -3,16 +3,16 @@
 /* @var $model User */
 
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Create',
+	'ผู้ใช้งาน'=>array('index'),
+	'เพิ่มผู้ใช้งาน',
 );
 
 $this->menu=array(
 	//array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูลผู้ใช้งาน', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create User</h1>
+<h1>เพิ่มผู้ใช้งาน</h1>
 
 <?php echo $this->renderPartial('_form', array('user'=>$user,'user_group_data'=>$user_group_data)); ?>

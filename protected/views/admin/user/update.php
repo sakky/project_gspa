@@ -3,19 +3,18 @@
 /* @var $model User */
 
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$user->user_id=>array('view','id'=>$user->user_id),
-	'Update',
+	'ผู้ใช้งาน'=>array('index'),
+	'แก้ไขข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>'เพิ่มผู้ใช้งาน', 'url'=>array('create')),
 	//array('label'=>'View User', 'url'=>array('view', 'id'=>$model->user_id)),
-	array('label'=>'Manage User', 'url'=>array('admin')),
+	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update User <?php echo $user->user_id; ?></h1>
+<h1>แก้ไขข้อมูลผู้ใช้งาน #<?php echo $user->user_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('user'=>$user,'user_group_data'=>$user_group_data)); ?>

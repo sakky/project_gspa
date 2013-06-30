@@ -37,17 +37,12 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('ค้นหา'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
