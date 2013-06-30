@@ -130,18 +130,6 @@
 		<?php echo $form->error($model,'create_date'); ?>
 	</div>
 
-<!--	<div class="row">
-		<?php echo $form->labelEx($model,'show_homepage'); ?>
-		<?php echo $form->textField($model,'show_homepage'); ?>
-		<?php echo $form->error($model,'show_homepage'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'show_new'); ?>
-		<?php echo $form->textField($model,'show_new'); ?>
-		<?php echo $form->error($model,'show_new'); ?>
-	</div>-->
-
         <div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
