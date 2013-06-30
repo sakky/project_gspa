@@ -102,10 +102,10 @@ class UserController extends AdminController
 			$user->attributes=$_POST['User'];
                         
 			if($user->save())
-				$this->redirect(array('index'));
+				$this->redirect(array('site/index'));
 		}
 
-		$this->render('update',array(
+		$this->render('edit',array(
 			'user'=>$user,
 			'user_group_data'=>$user_group_data,
 		));
