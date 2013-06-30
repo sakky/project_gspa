@@ -82,6 +82,34 @@ class UserController extends AdminController
 			'user_group_data'=>$user_group_data,
 		));
 	}
+        
+        public function actionEdit($id)
+	{
+		$user_groups= UserGroup::model()->findAll();
+		$user_group_data = array();
+		foreach($user_groups as $user_group) {
+			$user_group_data[$user_group->user_group_id] = $user_group->name;
+		}	
+	
+		$user=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['User']))
+		{
+                        $_POST['User']['last_login'] = date('Y-m-d H:i:s');
+			$user->attributes=$_POST['User'];
+                        
+			if($user->save())
+				$this->redirect(array('index'));
+		}
+
+		$this->render('update',array(
+			'user'=>$user,
+			'user_group_data'=>$user_group_data,
+		));
+	}
 
 	/**
 	 * Deletes a particular model.
