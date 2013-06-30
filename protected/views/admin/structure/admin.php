@@ -48,7 +48,7 @@ $('.search-form form').submit(function(){
 		),
                 array(
 			'name'=>'str_type_id',
-                        'header'=> 'ประเภทหน่วยงาน',
+                        'header'=> 'ประเภท',
                         'value'=>'$data->structureType->name_th',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
                         'filter'=>CHtml::listData(StructureType::model()->findAll(), 'str_type_id', 'name_th'),

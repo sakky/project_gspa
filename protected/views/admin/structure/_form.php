@@ -20,7 +20,7 @@
 		<?php echo $form->labelEx($model,'str_type_id'); ?>
                 <?php echo $form->dropDownList($model,'str_type_id',$str_type_list,array(
                             'prompt' => '--กรุณาเลือกประเภท--',
-                            'value' => '0',)); ?>
+                            'value' => '0',)); ?> กรณีไม่มีข้อมูลคลิกเพิ่ม <a href="<?php echo Yii::app()->createUrl('structureType'); ?>" target="_blank">ที่นี่</a>
 		<?php echo $form->error($model,'str_type_id'); ?>
 	</div>
 
@@ -59,12 +59,6 @@
                 <?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/structures/' . $model->image, '', array('style'=>'width: 100px')); ?><br />
 		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'image'); ?>
-	</div>
-
-        <div class="row">
-		<?php echo $form->labelEx($model,'sort_order'); ?>
-                <?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
-		<?php echo $form->error($model,'sort_order'); ?>
 	</div>
 
 	<div class="row">
