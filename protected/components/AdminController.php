@@ -33,7 +33,7 @@ class AdminController extends CController
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index','view','create','update','admin','delete','order','type'),
+				'actions'=>array('index','view','create','update','admin','delete','order','type','edit'),
 				'roles'=>array('top_admin', 'admin'),
 			),
 			array('allow',
