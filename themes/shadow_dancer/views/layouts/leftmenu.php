@@ -128,11 +128,10 @@
                 </ul>
             </li>
             
-            <li><a href="#">บริการนิสิต</a>
-                <ul style="display: none">
-                        <li><a href="#">ปริญญาโท</a></li>
-                        <li><a href="#">ปริญาเอก</a></li>
-                        <li><a href="#">ประเมินการเรียนการสอน</a></li>
+            <li <?php if($controller=='studentService'||$controller=='studentServiceType'){?>class="current" <?php }?>><a href="#">บริการนิสิต</a>
+                <ul <?php if($controller=='studentService'||$controller=='studentServiceType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='studentService'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentService'); ?>">บริการนิสิตทั้งหมด</a></li>
+                        <li <?php if($controller=='studentServiceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentServiceType'); ?>">ประเภทบริการนิสิต</a></li>
                 </ul>
             </li>
             
