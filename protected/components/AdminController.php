@@ -56,7 +56,24 @@ class AdminController extends CController
 				'users'=>array('*'),
 			),
 		);
-	}	
+	}
+        public function getUserGroupMenu($id)
+	{
+                $model=User::model()->findByPk($id);
+                $group_id = $model->user_group_id;
+                $menu = UserGroup::model()->findByPk($group_id);
+                return $menu->user_menu;
+        }
+        
+        public function getUserRole($id)
+	{
+                $model=User::model()->findByPk($id);
+                $group_id = $model->user_group_id;
+                $menu = UserGroup::model()->findByPk($group_id);
+                return $menu->role;
+        }
+        
+        
 }
 
 ?>
