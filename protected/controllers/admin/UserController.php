@@ -25,7 +25,7 @@ class UserController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$user_groups= UserGroup::model()->findAll('user_group_id!=3');
+		$user_groups= UserGroup::model()->findAll();
 		$user_group_data = array();
 		foreach($user_groups as $user_group) {
 			$user_group_data[$user_group->user_group_id] = $user_group->name;
