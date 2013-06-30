@@ -37,7 +37,7 @@
 //            echo "<br/>";
 //            echo $controller;
             $user_role = $this->getUserRole(Yii::app()->user->id);
-            echo $user_role;
+            //echo $user_role;
             $user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
 
                       $menu_use = array();
