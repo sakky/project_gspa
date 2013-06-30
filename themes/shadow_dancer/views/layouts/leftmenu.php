@@ -161,7 +161,7 @@
                 </ul>
             </li>
             <?php }?>
-            <?php if($menu_use[14]){?>
+            <?php if($user_role=='top_admin'){?>
             <li <?php if($controller=='user'||$controller=='userGroup'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
                 <ul <?php if($controller=='user'||$controller=='userGroup'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
                         <li <?php if($curpage=='user/index'||$curpage=='user/create'||$curpage=='user/update'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
