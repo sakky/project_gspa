@@ -8,9 +8,19 @@ class ExecutiveController extends AdminController
 	 */
 	public $layout='//layouts/column2';
         public $upload_path;
+        public $user_group_menu;
+        public $menu_use = array();
 	
 	public function init() {
 		$this->upload_path = Yii::app()->basePath . '/../uploads/executives/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
+                
+                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }
 	}
 
 	/**
@@ -30,6 +40,7 @@ class ExecutiveController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[1]){
 		$model=new Executive;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -64,6 +75,9 @@ class ExecutiveController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                    $this->redirect(array('site/index'));
+                }
 	}
 
 	/**
@@ -73,6 +87,7 @@ class ExecutiveController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[1]){
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -113,6 +128,9 @@ class ExecutiveController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                    $this->redirect(array('site/index'));
+                }
 	}
 
 	/**
@@ -134,6 +152,7 @@ class ExecutiveController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[1]){
 		$model=new Executive('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Executive']))
@@ -142,6 +161,9 @@ class ExecutiveController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -149,6 +171,7 @@ class ExecutiveController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+	    if($this->menu_use[1]){
 		$model=new Executive('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Executive']))
@@ -157,6 +180,9 @@ class ExecutiveController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -191,7 +217,8 @@ class ExecutiveController extends AdminController
      * Handles the ordering of models.
      */
     public function actionOrder()
-    {
+    {        
+        if($this->menu_use[1]){
         // Handle the POST request data submission
         if (isset($_POST['Order']))
         {
@@ -222,6 +249,9 @@ class ExecutiveController extends AdminController
             $this->render('order',array(
                 'dataProvider' => $dataProvider,
             ));
+        }
+        }else{
+            $this->redirect(array('site/index'));
         }
     }	        
 }
