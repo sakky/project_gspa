@@ -7,7 +7,19 @@ class StructureTypeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array();
+	
+        public function init() {
+		$this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
+                
+                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
 
+                    $this->menu_use[$value] = $value;
+                }
+	}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -25,6 +37,7 @@ class StructureTypeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[1]){
 		$model=new StructureType;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -40,6 +53,9 @@ class StructureTypeController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -49,6 +65,7 @@ class StructureTypeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[1]){
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -64,6 +81,9 @@ class StructureTypeController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+             }else{
+                $this->redirect(array('site/index'));
+            }                
 	}
 
 	/**
@@ -85,6 +105,7 @@ class StructureTypeController extends AdminController
 	 */
 	public function actionIndex()
 	{
+             if($this->menu_use[1]){
 		$model=new StructureType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['StructureType']))
@@ -93,6 +114,9 @@ class StructureTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+             }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -100,6 +124,7 @@ class StructureTypeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[1]){
 		$model=new StructureType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['StructureType']))
@@ -108,10 +133,14 @@ class StructureTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+             }else{
+                $this->redirect(array('site/index'));
+            }
 	}
         
         public function actionOrder()
         {
+            if($this->menu_use[1]){
             // Handle the POST request data submission
             if (isset($_POST['Order']))
             {
@@ -143,6 +172,10 @@ class StructureTypeController extends AdminController
                     'dataProvider' => $dataProvider,
                 ));
             }
+            }else{
+                $this->redirect(array('site/index'));
+            } 
+           
         }
 
 	/**

@@ -9,9 +9,19 @@ class StructureController extends AdminController
 	public $layout='//layouts/column2';
         
         public $upload_path;
+        public $user_group_menu;
+        public $menu_use = array();
 	
 	public function init() {
 		$this->upload_path = Yii::app()->basePath . '/../uploads/structures/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
+                
+                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }
 	}
 
 	/**
@@ -31,6 +41,7 @@ class StructureController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[1]){  
 		$model=new Structure;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -75,6 +86,9 @@ class StructureController extends AdminController
 			'model'=>$model,
                         'str_type_list'=>$str_type_list,
 		));
+               }else{
+                 $this->redirect(array('site/index'));
+               }
 	}
 
 	/**
@@ -84,6 +98,8 @@ class StructureController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            
+            if($this->menu_use[1]){     
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -133,6 +149,9 @@ class StructureController extends AdminController
 			'model'=>$model,
                         'str_type_list'=>$str_type_list,
 		));
+             }else{
+                 $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -154,6 +173,7 @@ class StructureController extends AdminController
 	 */
 	public function actionIndex()
 	{
+                if($this->menu_use[1]){
                 $str_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status';
@@ -172,6 +192,9 @@ class StructureController extends AdminController
 			'model'=>$model,
                         'str_type_list'=>$str_type_list,
 		));
+             }else{
+                $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
@@ -179,6 +202,7 @@ class StructureController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[1]){
                 $str_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status';
@@ -197,9 +221,13 @@ class StructureController extends AdminController
 			'model'=>$model,
                         'str_type_list'=>$str_type_list,
 		));
+             }else{
+                $this->redirect(array('site/index'));
+            }
 	}
         public function actionOrder()
         {
+            if($this->menu_use[1]){
             // Handle the POST request data submission
             if (isset($_POST['Order']))
             {
@@ -230,6 +258,9 @@ class StructureController extends AdminController
                 $this->render('order',array(
                     'dataProvider' => $dataProvider,
                 ));
+            }
+            }else{
+                $this->redirect(array('site/index'));
             }
         }
 
