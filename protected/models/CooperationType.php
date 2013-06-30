@@ -39,7 +39,7 @@ class CooperationType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, group, status', 'required'),
+			array('name_en, name_th, group, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
 			array('group', 'length', 'max'=>8),

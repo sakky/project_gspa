@@ -45,7 +45,7 @@ class Structure extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('str_type_id, name_en, name_th', 'required'),
+			array('str_type_id, name_en, name_th', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('str_type_id, sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, position_en, position_th, image', 'length', 'max'=>255),
 			array('sex', 'length', 'max'=>1),

@@ -45,7 +45,7 @@ class Report extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('report_type_id, name_en, name_th', 'required'),
+			array('report_type_id, name_en, name_th', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('report_type_id, sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
 			array('desc_en, desc_th', 'safe'),

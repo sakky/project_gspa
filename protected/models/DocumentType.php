@@ -38,7 +38,7 @@ class DocumentType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th', 'required'),
+			array('name_en, name_th', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
                         array('doc_group', 'safe'),

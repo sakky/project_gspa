@@ -38,7 +38,7 @@ class NewsGroup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, status', 'required'),
+			array('name_en, name_th, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status, news_type_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
 			// The following rule is used by search().

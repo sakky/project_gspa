@@ -41,7 +41,7 @@ class Organization extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_en, name_th, status, user_id, time_stamp', 'required'),
+			array('name_en, name_th, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, link_en, link_th', 'length', 'max'=>255),
 			// The following rule is used by search().
