@@ -1,22 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "gs_user_group".
+ * This is the model class for table "gs_user_menu".
  *
- * The followings are the available columns in table 'esto_user_group':
- * @property integer $user_group_id
- * @property string $name
- * @property string $role
- *
- * The followings are the available model relations:
- * @property User[] $users
+ * The followings are the available columns in table 'gs_user_menu':
+ * @property integer $menu_id
+ * @property string $name_th
+ * @property integer $sort_order
+ * @property integer $status
  */
-class UserGroup extends CActiveRecord
+class UserMenu extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return UserGroup the static model class
+	 * @return UserMenu the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +26,7 @@ class UserGroup extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'gs_user_group';
+		return 'gs_user_menu';
 	}
 
 	/**
@@ -39,12 +37,12 @@ class UserGroup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, role', 'required','message'=>'{attribute} ห้ามว่าง'),
-			array('name, role', 'length', 'max'=>32),
-                        array('user_menu', 'length', 'max'=>255),
+			array('name_th, status', 'required'),
+			array('sort_order, status', 'numerical', 'integerOnly'=>true),
+			array('name_th', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_group_id, name, role, user_menu', 'safe', 'on'=>'search'),
+			array('menu_id, name_th, sort_order, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +54,6 @@ class UserGroup extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'users' => array(self::HAS_MANY, 'User', 'user_group_id'),
 		);
 	}
 
@@ -66,10 +63,10 @@ class UserGroup extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_group_id' => 'ID',
-			'name' => 'ชื่อประเภท',
-			'role' => 'Role',
-                        'user_menu' => 'เมนูที่สามารถจัดการได้',
+			'menu_id' => 'Menu',
+			'name_th' => 'Name Th',
+			'sort_order' => 'Sort Order',
+			'status' => 'Status',
 		);
 	}
 
@@ -84,10 +81,10 @@ class UserGroup extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_group_id',$this->user_group_id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('role',$this->role,true);
-                $criteria->compare('user_menu',$this->user_menu,true);
+		$criteria->compare('menu_id',$this->menu_id);
+		$criteria->compare('name_th',$this->name_th,true);
+		$criteria->compare('sort_order',$this->sort_order);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
