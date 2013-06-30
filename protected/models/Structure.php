@@ -77,7 +77,7 @@ class Structure extends CActiveRecord
 	{
 		return array(
 			'str_id' => 'รหัส',
-			'str_type_id' => 'สังกัดหน่วยงาน',
+			'str_type_id' => 'ประเภทโครงสร้างหน่วย',
 			'name_en' => 'ชื่อ-นามสกุล (ภาษาอังกฤษ)',
 			'name_th' => 'ชื่อ-นามสกุล (ภาษาไทย)',
 			'position_en' => 'ตำแหน่ง (ภาษาอังกฤษ)',
