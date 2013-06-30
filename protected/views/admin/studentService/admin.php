@@ -31,7 +31,7 @@ $('.search-form form').submit(function(){
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+	'model'=>$model,'ser_group_list'=>$ser_group_list,'ser_type_list'=>$ser_type_list
 )); ?>
 </div><!-- search-form -->
 
