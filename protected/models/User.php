@@ -76,15 +76,15 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_id' => 'User',
-			'user_group_id' => 'User Group',
-			'username' => 'Username',
-			'password' => 'Password',
-			'firstname' => 'Firstname',
-                        'lastname' => 'Lastname',
-			'create_date' => 'Register Date',
-                        'last_login' => 'Last Login',
-			'status' => 'Status',
+			'user_id' => 'User ID',
+			'user_group_id' => 'ประเภทผู้ใช้งาน',
+			'username' => 'ชื่อผู้ใช้',
+			'password' => 'รหัสผ่าน',
+			'firstname' => 'ชื่อ',
+                        'lastname' => 'นามสกุล',
+			'create_date' => 'วันที่สมัคร',
+                        'last_login' => 'เข้าสู่ระบบครั้งล่าสุด',
+			'status' => 'สถานะ',
 		);
 	}
 
