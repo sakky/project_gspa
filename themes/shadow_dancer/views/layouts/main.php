@@ -148,14 +148,13 @@
 			
                  ),
 	)); }*/ ?>
-
+        <div style="position: relative;top:20px;right:20px;float: right;"><a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a></div>
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
-
-	<?php echo $content; ?>
+        <?php echo $content; ?>
 
 	<div id="footer">
 		Content management System (CMS)<br/>
