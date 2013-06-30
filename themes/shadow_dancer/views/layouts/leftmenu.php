@@ -157,10 +157,10 @@
                 </ul>
             </li>
             
-            <li <?php if($controller=='user'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
-                <ul <?php if($controller=='user'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
-                        <li <?php if($curpage=='user/update'.Yii::app()->user->id){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user/update', array('id'=>Yii::app()->user->id)); ?>">แก้ไขข้อมูลส่วนตัว</a></li>
-                        <li <?php if($curpage=='user/index'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
+            <li <?php if($controller=='user'||$controller=='userGroup'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
+                <ul <?php if($controller=='user'||$controller=='userGroup'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
+                        <li <?php if($curpage=='user/edit'.Yii::app()->user->id){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">แก้ไขข้อมูลส่วนตัว</a></li>
+                        <li <?php if($curpage=='user/index'||$curpage=='user/create'||$curpage=='user/update'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
                         <li <?php if($controller=='userGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('userGroup'); ?>">ประเภทผู้ใช้งาน</a></li>
                 </ul>
             </li>
