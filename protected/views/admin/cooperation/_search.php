@@ -42,11 +42,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
 		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 	</div>
