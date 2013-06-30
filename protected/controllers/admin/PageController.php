@@ -11,12 +11,23 @@ class PageController extends AdminController
         public $upload_path_images;
         public $upload_path_thumb;
         public $upload_path_pdf;
-	
-	public function init() {
+        public $user_group_menu;
+        public $menu_use = array();
+
+
+        public function init() {
                 $this->upload_path = Yii::app()->basePath . '/../uploads/pdf/';
                 $this->upload_path_images = Yii::app()->basePath . '/../uploads/pages/images/';
                 $this->upload_path_thumb = Yii::app()->basePath . '/../uploads/pages/thumbnail/';
                 $this->upload_path_pdf = Yii::app()->basePath . '/../uploads/pages/pdf/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);
+                
+                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }
 	}
 
 	/**
@@ -282,6 +293,7 @@ class PageController extends AdminController
 //		$this->render('index',array(
 //			'dataProvider'=>$dataProvider,
 //		));
+                if($this->menu_use[1]){
                 $model=new Page('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Page']))
@@ -290,6 +302,9 @@ class PageController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+                }else{
+                    $this->redirect(array('site/index'));
+                }
 	}
 
 	/**
@@ -297,18 +312,29 @@ class PageController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new Page('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Page']))
-			$model->attributes=$_GET['Page'];
+               if($this->menu_use[1]){
+                    $model=new Page('search');
+                    $model->unsetAttributes();  // clear any default values
+                    if(isset($_GET['Page']))
+                            $model->attributes=$_GET['Page'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
+                    $this->render('admin',array(
+                            'model'=>$model,
+                    ));
+               }else{
+                    $this->redirect(array('site/index'));
+               }
 	}
         
         public function actionEdit($id)
-	{
+	{    
+            if($this->menu_use[1]){           
+             $menu_use = array();
+                      $user_menu = explode(',', $user_group_menu);
+                      foreach ($user_menu as $key => $value) {
+                          
+                          $menu_use[$value] = $value;
+                      }
 		$model=$this->loadModel($id);
                 if(isset($_POST['Page']))
 		{
@@ -322,6 +348,9 @@ class PageController extends AdminController
 		$this->render('edit',array(
 			'model'=>$model,
 		));
+            }else{
+                 $this->redirect(array('site/index'));
+            }
 	}
 
 	/**
