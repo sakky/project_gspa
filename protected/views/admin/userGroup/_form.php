@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'role'); ?>
-                <?php echo $form->dropDownList($model, 'role', array('top_admin'=>'Top Admin','admin'=>'Admin')); ?>
+                <?php echo $form->dropDownList($model, 'role', array('top_admin'=>'Top Admin','admin'=>'Admin')); ?> <span style="color: red">* หมายเหตุ Top Admin เท่านั้นที่จะสามารถจัดการเมนู "ผู้ใช้งาน" ได้</span>
 		<?php echo $form->error($model,'role'); ?>
 	</div>
 
