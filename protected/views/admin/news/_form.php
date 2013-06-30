@@ -153,6 +153,23 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
+<?php if (!$model->isNewRecord) { ?>
+        <div class="row buttons"><br/>
+<script type="text/javascript">
+  $(function(){
+    var lastHeightx = 0, curHeightx = 0, $frame = $('iframe:eq(0)');
+    setInterval(function(){
+      curHeightx = $frame.contents().find('body').height();
+      if ( curHeightx != lastHeightx ) {
+        $frame.css('height', (lastHeightx = parseInt(curHeightx)+50) + 'px' );
+      }
+    },500);
+  });
+</script>
+            <iframe id="ifrmUpload" src="<?=Yii::app()->request->baseUrl;?>/gallery/index.php?album_id=<?=$_GET['id'];?>" width="700" scrolling="no"></iframe>
+	</div>
+        
+<? } ?>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'เพิ่มข้อมูล' : 'บันทึกข้อมูล'); ?>&nbsp;&nbsp;
