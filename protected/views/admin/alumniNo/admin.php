@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	//array('label'=>'List AlumniNo', 'url'=>array('index')),
 	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับข้อมูล', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

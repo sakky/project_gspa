@@ -29,19 +29,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'alumni_group'); ?>
-		<?php echo $form->textField($model,'alumni_group',array('size'=>6,'maxlength'=>6)); ?>
-		<?php echo $form->error($model,'alumni_group'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'sort_order'); ?>
-		<?php echo $form->textField($model,'sort_order'); ?>
-		<?php echo $form->error($model,'sort_order'); ?>
+		<?php echo $form->dropDownList($model,'alumni_group',array('Master'=>'ปริญญาโท','Doctor'=>'ปริญญาเอก')); ?>
+                <?php echo $form->error($model,'alumni_group'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
