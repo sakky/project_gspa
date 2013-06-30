@@ -121,11 +121,10 @@
                 </ul>
             </li>
             
-            <li><a href="#">คลังข้อมูลความรู้</a>
-                <ul style="display: none">
-                        <li><a href="#">การจัดการความรู้</a></li>
-                        <li><a href="#">หมวดความรู้</a></li>
-                        <li><a href="#">สารคดี</a></li>
+            <li <?php if($controller=='knowledge'||$controller=='knowledgeType'){?>class="current" <?php }?>><a href="#">คลังข้อมูลความรู้</a>
+                <ul <?php if($controller=='knowledge'||$controller=='knowledgeType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='knowledge'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">จัดการคลังข้อมูลความรู้</a></li>
+                        <li <?php if($controller=='knowledgeType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledgeType'); ?>">ประเภทคลังข้อมูลความรู้</a></li>
                 </ul>
             </li>
             
