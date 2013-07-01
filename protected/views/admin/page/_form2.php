@@ -57,8 +57,8 @@
         <?php }?>
         <?php if($model->page_id==3){?>
         <div class="row">
-		<label>ลิงค์ Video</label>
-		<?php echo $form->textField($model,'title_th',array('size'=>60,'maxlength'=>255)); ?>
+		<label>โค้ด Video youtube</label>
+		<?php echo $form->textArea($model,'title_th',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'title_th'); ?>
 	</div>
         <?php }?>
