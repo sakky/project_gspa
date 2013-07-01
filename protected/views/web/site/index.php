@@ -106,7 +106,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       <article class="col-3">
         <div class="indent-top">
         <h3><?php echo $col3_header;?></h3>
-        <?php echo $vdo->desc_th;?>
+        <?php echo $vdo->title_th;?>
         <div class="clear"></div>
         <br/>
         <!-- ข่าวประชาสัมพันธ์ -->
