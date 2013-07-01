@@ -8,9 +8,17 @@ class NewsInSideController extends AdminController
 	 */
 	public $layout='//layouts/column2';
         public $upload_path;
+        public $user_group_menu;
+        public $menu_use = array();               
         
         public function init() {
                 $this->upload_path = Yii::app()->basePath . '/../uploads/news/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                         
 	}
 
 	/**
@@ -30,6 +38,7 @@ class NewsInSideController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[3]){              
 		$model=new News;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -95,6 +104,9 @@ class NewsInSideController extends AdminController
 			'model'=>$model,
                         'news_type_list'=>$news_type_list,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -104,6 +116,7 @@ class NewsInSideController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[3]){               
 		$model=$this->loadModel($id);
                 
                 $news_type_list = array();
@@ -175,6 +188,9 @@ class NewsInSideController extends AdminController
 			'model'=>$model,
                         'news_type_list'=>$news_type_list,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -196,6 +212,7 @@ class NewsInSideController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[3]){                
 		$model=new News('searchInSide');
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
@@ -215,6 +232,9 @@ class NewsInSideController extends AdminController
 			'model'=>$model,
                         'news_type_list'=>$news_type_list,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**
@@ -222,6 +242,7 @@ class NewsInSideController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[3]){             
 		$model=new News('searchInSide');
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
@@ -241,6 +262,9 @@ class NewsInSideController extends AdminController
 			'model'=>$model,
                         'news_type_list'=>$news_type_list,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**

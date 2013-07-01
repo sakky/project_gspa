@@ -7,6 +7,14 @@ class UserGroupController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+                
+        public $user_role;
+        
+        public function init() {
+
+                $this->user_role = $this->getUserRole(Yii::app()->user->id);
+ 
+	}
         
 	/**
 	 * Displays a particular model.
@@ -25,6 +33,7 @@ class UserGroupController extends AdminController
 	 */
 	public function actionCreate()
 	{
+             if($this->user_role=='top_admin'){             
 		$model=new UserGroup;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -60,6 +69,9 @@ class UserGroupController extends AdminController
 			'model'=>$model,
                         'menu_list' => $menu_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -69,6 +81,7 @@ class UserGroupController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+             if($this->user_role=='top_admin'){               
 		$model=$this->loadModel($id);
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status';
@@ -105,6 +118,9 @@ class UserGroupController extends AdminController
 			'model'=>$model,
                         'menu_list' => $menu_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -126,6 +142,7 @@ class UserGroupController extends AdminController
 	 */
 	public function actionIndex()
 	{
+             if($this->user_role=='top_admin'){              
 		$model=new UserGroup('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['UserGroup']))
@@ -134,6 +151,9 @@ class UserGroupController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                      
 	}
 
 	/**
@@ -141,6 +161,7 @@ class UserGroupController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+             if($this->user_role=='top_admin'){             
 		$model=new UserGroup('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['UserGroup']))
@@ -149,6 +170,9 @@ class UserGroupController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                      
 	}
 
 	/**

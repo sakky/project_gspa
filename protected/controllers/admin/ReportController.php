@@ -6,12 +6,20 @@ class ReportController extends AdminController
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
-        
+	public $layout='//layouts/column2';        
         public $upload_path;
+        
+        public $user_group_menu;
+        public $menu_use = array(); 
         
         public function init() {
                 $this->upload_path = Yii::app()->basePath . '/../uploads/reports/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                   
 	}
 
 	/**
@@ -31,6 +39,7 @@ class ReportController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[7]){             
 		$model=new Report;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -90,6 +99,9 @@ class ReportController extends AdminController
 			'model'=>$model,
                         'report_type_list'=>$report_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -99,6 +111,7 @@ class ReportController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[7]){              
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -164,6 +177,9 @@ class ReportController extends AdminController
 			'model'=>$model,
                         'report_type_list'=>$report_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**
@@ -185,6 +201,7 @@ class ReportController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[7]){               
                 $report_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status';
@@ -204,6 +221,9 @@ class ReportController extends AdminController
 			'model'=>$model,
                         'report_type_list'=>$report_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -211,6 +231,7 @@ class ReportController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[7]){               
                 $report_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status';
@@ -221,7 +242,6 @@ class ReportController extends AdminController
                 foreach($report_type as $type) {
 			$report_type_list[$type->report_type_id] = $type->name_th;
 		}
-                
 		$model=new Report('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Report']))
@@ -231,41 +251,48 @@ class ReportController extends AdminController
 			'model'=>$model,
                         'report_type_list'=>$report_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }    
 	}
         
         public function actionOrder()
         {
-            // Handle the POST request data submission
-            if (isset($_POST['Order']))
-            {
-                // Since we converted the Javascript array to a string,
-                // convert the string back to a PHP array
-                $models = explode(',', $_POST['Order']);
-
-                for ($i = 0; $i < sizeof($models); $i++)
+            if($this->menu_use[7]){              
+                // Handle the POST request data submission
+                if (isset($_POST['Order']))
                 {
-                    if ($model = Report::model()->findbyPk($models[$i]))
-                    {
-                        $model->sort_order = $i;
+                    // Since we converted the Javascript array to a string,
+                    // convert the string back to a PHP array
+                    $models = explode(',', $_POST['Order']);
 
-                        $model->save();
+                    for ($i = 0; $i < sizeof($models); $i++)
+                    {
+                        if ($model = Report::model()->findbyPk($models[$i]))
+                        {
+                            $model->sort_order = $i;
+
+                            $model->save();
+                        }
                     }
                 }
-            }
-            // Handle the regular model order view
-            else
-            {
-                $dataProvider = new CActiveDataProvider('Report', array(
-                    'pagination' => false,
-                    'criteria' => array(
-                        'order' => 'sort_order ASC, report_id DESC',
-                    ),
-                ));
+                // Handle the regular model order view
+                else
+                {
+                    $dataProvider = new CActiveDataProvider('Report', array(
+                        'pagination' => false,
+                        'criteria' => array(
+                            'order' => 'sort_order ASC, report_id DESC',
+                        ),
+                    ));
 
-                $this->render('order',array(
-                    'dataProvider' => $dataProvider,
-                ));
-            }
+                    $this->render('order',array(
+                        'dataProvider' => $dataProvider,
+                    ));
+                }
+            }else{
+                $this->redirect(array('site/index'));
+            }               
         }
 
 	/**

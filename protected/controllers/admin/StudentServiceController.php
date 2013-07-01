@@ -7,11 +7,19 @@ class StudentServiceController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array();        
         
         public $upload_path;
         
         public function init() {
                 $this->upload_path = Yii::app()->basePath . '/../uploads/student_services/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                   
 	}
 	/**
 	 * Displays a particular model.
@@ -30,6 +38,7 @@ class StudentServiceController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[10]){             
 		$model=new StudentService;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -105,6 +114,9 @@ class StudentServiceController extends AdminController
                         'ser_group_list'=>$ser_group_list,
                         'ser_type_list'=>$ser_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -114,6 +126,7 @@ class StudentServiceController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[10]){   
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -193,6 +206,9 @@ class StudentServiceController extends AdminController
                         'ser_group_list'=>$ser_group_list,
                         'ser_type_list'=>$ser_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -214,6 +230,7 @@ class StudentServiceController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[10]){              
 		$model=new StudentService('search');
                 $ser_group_list = array();
                 $criteria = new CDbCriteria();
@@ -245,6 +262,9 @@ class StudentServiceController extends AdminController
                         'ser_group_list'=>$ser_group_list,
                         'ser_type_list'=>$ser_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -252,6 +272,7 @@ class StudentServiceController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[10]){             
 		$model=new StudentService('search');
                 $ser_group_list = array();
                 $criteria = new CDbCriteria();
@@ -282,6 +303,9 @@ class StudentServiceController extends AdminController
                         'ser_group_list'=>$ser_group_list,
                         'ser_type_list'=>$ser_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                 
 	}
         
         public function actionType()

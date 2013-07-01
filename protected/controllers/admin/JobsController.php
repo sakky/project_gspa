@@ -1,5 +1,4 @@
 <?php
-
 class JobsController extends AdminController
 {
 	/**
@@ -8,9 +7,18 @@ class JobsController extends AdminController
 	 */
 	public $layout='//layouts/column2';
         public $upload_path_pdf;
+        
+        public $user_group_menu;
+        public $menu_use = array();
 	
 	public function init() {
                 $this->upload_path_pdf = Yii::app()->basePath . '/../uploads/news/pdf/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }
 	}
 	/**
 	 * Displays a particular model.
@@ -29,6 +37,7 @@ class JobsController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[2]){            
 		$model=new News;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -84,6 +93,9 @@ class JobsController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                
 	}
 
 	/**
@@ -93,7 +105,9 @@ class JobsController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
+            if($this->menu_use[2]){            
+		
+                $model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -154,6 +168,9 @@ class JobsController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                
 	}
 
 	/**
@@ -175,6 +192,7 @@ class JobsController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[2]){            
 		$model=new News('searchJobs');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
@@ -183,6 +201,9 @@ class JobsController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 		
 	}
 
@@ -191,7 +212,8 @@ class JobsController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-                $model=new News('searchJobs');
+            if($this->menu_use[2]){            
+		$model=new News('searchJobs');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['News']))
 			$model->attributes=$_GET['News'];
@@ -199,6 +221,9 @@ class JobsController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }  
 	}
 
 	/**

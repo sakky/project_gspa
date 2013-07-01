@@ -7,6 +7,17 @@ class StudentServiceTypeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array();   
+        
+        public function init() {
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                   
+	}        
 
 	/**
 	 * Displays a particular model.
@@ -25,6 +36,7 @@ class StudentServiceTypeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[10]){              
 		$model=new StudentServiceType;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -48,6 +60,9 @@ class StudentServiceTypeController extends AdminController
 			'model'=>$model,
                         'ser_group_list'=>$ser_group_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                     
 	}
 
 	/**
@@ -57,6 +72,7 @@ class StudentServiceTypeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[10]){             
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -80,6 +96,9 @@ class StudentServiceTypeController extends AdminController
 			'model'=>$model,
                         'ser_group_list'=>$ser_group_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -101,6 +120,7 @@ class StudentServiceTypeController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[10]){            
 		$model=new StudentServiceType('search');
                 $ser_group_list = array();
                 $criteria = new CDbCriteria();
@@ -118,6 +138,9 @@ class StudentServiceTypeController extends AdminController
 			'model'=>$model,
                         'ser_group_list'=>$ser_group_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -125,6 +148,7 @@ class StudentServiceTypeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[10]){            
 		$model=new StudentServiceType('search');
                 $ser_group_list = array();
                 $criteria = new CDbCriteria();
@@ -142,40 +166,47 @@ class StudentServiceTypeController extends AdminController
 			'model'=>$model,
                         'ser_group_list'=>$ser_group_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }      
 	}
         public function actionOrder()
         {
-            // Handle the POST request data submission
-            if (isset($_POST['Order']))
-            {
-                // Since we converted the Javascript array to a string,
-                // convert the string back to a PHP array
-                $models = explode(',', $_POST['Order']);
-
-                for ($i = 0; $i < sizeof($models); $i++)
+            if($this->menu_use[10]){              
+                // Handle the POST request data submission
+                if (isset($_POST['Order']))
                 {
-                    if ($model = StudentServiceType::model()->findbyPk($models[$i]))
-                    {
-                        $model->sort_order = $i;
+                    // Since we converted the Javascript array to a string,
+                    // convert the string back to a PHP array
+                    $models = explode(',', $_POST['Order']);
 
-                        $model->save();
+                    for ($i = 0; $i < sizeof($models); $i++)
+                    {
+                        if ($model = StudentServiceType::model()->findbyPk($models[$i]))
+                        {
+                            $model->sort_order = $i;
+
+                            $model->save();
+                        }
                     }
                 }
-            }
-            // Handle the regular model order view
-            else
-            {
-                $dataProvider = new CActiveDataProvider('StudentServiceType', array(
-                    'pagination' => false,
-                    'criteria' => array(
-                        'order' => 'sort_order ASC, ser_type_id ASC',
-                    ),
-                ));
+                // Handle the regular model order view
+                else
+                {
+                    $dataProvider = new CActiveDataProvider('StudentServiceType', array(
+                        'pagination' => false,
+                        'criteria' => array(
+                            'order' => 'sort_order ASC, ser_type_id ASC',
+                        ),
+                    ));
 
-                $this->render('order',array(
-                    'dataProvider' => $dataProvider,
-                ));
-            }
+                    $this->render('order',array(
+                        'dataProvider' => $dataProvider,
+                    ));
+                }
+            }else{
+                $this->redirect(array('site/index'));
+            }              
         }
         
 	/**

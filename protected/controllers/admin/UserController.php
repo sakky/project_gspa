@@ -7,6 +7,14 @@ class UserController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        
+        public $user_role;
+        
+        public function init() {
+
+                $this->user_role = $this->getUserRole(Yii::app()->user->id);
+ 
+	}
 
 	/**
 	 * Displays a particular model.
@@ -25,6 +33,7 @@ class UserController extends AdminController
 	 */
 	public function actionCreate()
 	{
+             if($this->user_role=='top_admin'){             
 		$user_groups= UserGroup::model()->findAll();
 		$user_group_data = array();
 		foreach($user_groups as $user_group) {
@@ -48,6 +57,9 @@ class UserController extends AdminController
 			'user'=>$user,
 			'user_group_data'=>$user_group_data,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -57,6 +69,7 @@ class UserController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+             if($this->user_role=='top_admin'){             
 		$user_groups= UserGroup::model()->findAll();
 		$user_group_data = array();
 		foreach($user_groups as $user_group) {
@@ -81,10 +94,13 @@ class UserController extends AdminController
 			'user'=>$user,
 			'user_group_data'=>$user_group_data,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
         
         public function actionEdit($id)
-	{
+	{          
 		$user_groups= UserGroup::model()->findAll();
 		$user_group_data = array();
 		foreach($user_groups as $user_group) {
@@ -108,7 +124,7 @@ class UserController extends AdminController
 		$this->render('edit',array(
 			'user'=>$user,
 			'user_group_data'=>$user_group_data,
-		));
+		));                
 	}
 
 	/**
@@ -134,11 +150,7 @@ class UserController extends AdminController
 	 */
 	public function actionIndex()
 	{
-// 		$dataProvider=new CActiveDataProvider('User');
-// 		$this->render('index',array(
-// 			'dataProvider'=>$dataProvider,
-// 		));
-
+             if($this->user_role=='top_admin'){
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
@@ -147,6 +159,9 @@ class UserController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -154,6 +169,7 @@ class UserController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+             if($this->user_role=='top_admin'){
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
@@ -162,6 +178,9 @@ class UserController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            } 
 	}
 
 	/**

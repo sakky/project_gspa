@@ -7,6 +7,17 @@ class ServiceTypeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array();    
+
+        public function init() {
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                    
+	}        
 
 	/**
 	 * Displays a particular model.
@@ -25,6 +36,7 @@ class ServiceTypeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[8]){            
 		$model=new DocumentType;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -41,6 +53,9 @@ class ServiceTypeController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**
@@ -50,6 +65,7 @@ class ServiceTypeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[8]){               
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -66,6 +82,9 @@ class ServiceTypeController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -87,6 +106,7 @@ class ServiceTypeController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[8]){            
 		$model=new DocumentType('searchService');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['DocumentType']))
@@ -95,6 +115,9 @@ class ServiceTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -102,6 +125,7 @@ class ServiceTypeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[8]){            
 		$model=new DocumentType('searchService');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['DocumentType']))
@@ -110,42 +134,49 @@ class ServiceTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            } 
 	}
         
         public function actionOrder()
         {
-            // Handle the POST request data submission
-            if (isset($_POST['Order']))
-            {
-                // Since we converted the Javascript array to a string,
-                // convert the string back to a PHP array
-                $models = explode(',', $_POST['Order']);
-
-                for ($i = 0; $i < sizeof($models); $i++)
+            if($this->menu_use[8]){              
+                // Handle the POST request data submission
+                if (isset($_POST['Order']))
                 {
-                    if ($model = DocumentType::model()->findbyPk($models[$i]))
-                    {
-                        $model->sort_order = $i;
+                    // Since we converted the Javascript array to a string,
+                    // convert the string back to a PHP array
+                    $models = explode(',', $_POST['Order']);
 
-                        $model->save();
+                    for ($i = 0; $i < sizeof($models); $i++)
+                    {
+                        if ($model = DocumentType::model()->findbyPk($models[$i]))
+                        {
+                            $model->sort_order = $i;
+
+                            $model->save();
+                        }
                     }
                 }
-            }
-            // Handle the regular model order view
-            else
-            {
-                $dataProvider = new CActiveDataProvider('DocumentType', array(
-                    'pagination' => false,
-                    'criteria' => array(
-                        'condition'=>'doc_group="service"',
-                        'order' => 'sort_order ASC, doc_type_id DESC',
-                    ),
-                ));
+                // Handle the regular model order view
+                else
+                {
+                    $dataProvider = new CActiveDataProvider('DocumentType', array(
+                        'pagination' => false,
+                        'criteria' => array(
+                            'condition'=>'doc_group="service"',
+                            'order' => 'sort_order ASC, doc_type_id DESC',
+                        ),
+                    ));
 
-                $this->render('order',array(
-                    'dataProvider' => $dataProvider,
-                ));
-            }
+                    $this->render('order',array(
+                        'dataProvider' => $dataProvider,
+                    ));
+                }
+            }else{
+                $this->redirect(array('site/index'));
+            }             
         }
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

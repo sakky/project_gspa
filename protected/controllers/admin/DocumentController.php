@@ -8,9 +8,17 @@ class DocumentController extends AdminController
 	 */
 	public $layout='//layouts/column2';
         public $upload_path;
+        public $user_group_menu;
+        public $menu_use = array();           
         
         public function init() {
                 $this->upload_path = Yii::app()->basePath . '/../uploads/documents/';
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }    
 	}
 
 	/**
@@ -30,6 +38,7 @@ class DocumentController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[4]){             
 		$model=new Document;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -95,6 +104,9 @@ class DocumentController extends AdminController
 			'model'=>$model,
                         'doc_type_list'=>$doc_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
 
 	/**
@@ -104,6 +116,7 @@ class DocumentController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[4]){             
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -174,6 +187,9 @@ class DocumentController extends AdminController
 			'model'=>$model,
                         'doc_type_list'=>$doc_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                     
 	}
 
 	/**
@@ -195,6 +211,7 @@ class DocumentController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[4]){                 
                 $doc_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status AND doc_group=\'download\'';
@@ -215,6 +232,9 @@ class DocumentController extends AdminController
 			'model'=>$model,
                         'doc_type_list'=>$doc_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                     
 	}
 
 	/**
@@ -222,7 +242,8 @@ class DocumentController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-             $doc_type_list = array();
+            if($this->menu_use[4]){                 
+                $doc_type_list = array();
                 $criteria = new CDbCriteria();
                 $criteria->condition = 'status=:status AND doc_group=\'download\'';
 		$criteria->params=array(':status'=>1,);
@@ -232,6 +253,7 @@ class DocumentController extends AdminController
                 foreach($doc_type as $type) {
 			$doc_type_list[$type->doc_type_id] = $type->name_th;
 		}
+                
 		$model=new Document('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Document']))
@@ -241,6 +263,9 @@ class DocumentController extends AdminController
 			'model'=>$model,
                         'doc_type_list'=>$doc_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }   
 	}
 
 	/**

@@ -7,6 +7,17 @@ class DocumentTypeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array(); 
+        
+        public function init() {
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }    
+	}        
 
 	/**
 	 * Displays a particular model.
@@ -25,6 +36,7 @@ class DocumentTypeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[4]){               
 		$model=new DocumentType;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -41,6 +53,9 @@ class DocumentTypeController extends AdminController
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**
@@ -50,6 +65,7 @@ class DocumentTypeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[4]){              
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -66,6 +82,9 @@ class DocumentTypeController extends AdminController
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                     
 	}
 
 	/**
@@ -87,10 +106,7 @@ class DocumentTypeController extends AdminController
 	 */
 	public function actionIndex()
 	{
-//		$dataProvider=new CActiveDataProvider('DocumentType');
-//		$this->render('index',array(
-//			'dataProvider'=>$dataProvider,
-//		));
+            if($this->menu_use[4]){ 
                 $model=new DocumentType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['DocumentType']))
@@ -99,6 +115,9 @@ class DocumentTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                     
 	}
 
 	/**
@@ -106,7 +125,8 @@ class DocumentTypeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new DocumentType('search');
+            if($this->menu_use[4]){ 
+                $model=new DocumentType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['DocumentType']))
 			$model->attributes=$_GET['DocumentType'];
@@ -114,10 +134,14 @@ class DocumentTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }  
 	}
 
         public function actionOrder()
         {
+            if($this->menu_use[4]){             
             // Handle the POST request data submission
             if (isset($_POST['Order']))
             {
@@ -150,6 +174,9 @@ class DocumentTypeController extends AdminController
                     'dataProvider' => $dataProvider,
                 ));
             }
+            }else{
+                $this->redirect(array('site/index'));
+            }            
         }
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -7,6 +7,17 @@ class KnowledgeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+        public $user_group_menu;
+        public $menu_use = array(); 
+
+        public function init() {
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }    
+	}  
 
 	/**
 	 * Displays a particular model.
@@ -25,6 +36,7 @@ class KnowledgeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[9]){            
 		$model=new Knowledge;
                 
                 $group = $model->know_group;
@@ -56,6 +68,9 @@ class KnowledgeController extends AdminController
 			'model'=>$model,
                         'know_type_list'=>$know_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                    
 	}
 
 	/**
@@ -65,6 +80,7 @@ class KnowledgeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[9]){             
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -94,6 +110,9 @@ class KnowledgeController extends AdminController
 			'model'=>$model,
                         'know_type_list'=>$know_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -115,6 +134,7 @@ class KnowledgeController extends AdminController
 	 */
 	public function actionIndex()
 	{
+            if($this->menu_use[9]){             
 		$model=new Knowledge('search');
                 $group = $model->know_group;
 		// Uncomment the following line if AJAX validation is needed
@@ -138,6 +158,9 @@ class KnowledgeController extends AdminController
 			'model'=>$model,
                         'know_type_list'=>$know_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                       
 	}
 
 	/**
@@ -145,6 +168,7 @@ class KnowledgeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
+            if($this->menu_use[9]){             
 		$model=new Knowledge('search');
                 $group = $model->know_group;
 		// Uncomment the following line if AJAX validation is needed
@@ -159,6 +183,7 @@ class KnowledgeController extends AdminController
                 foreach($know_type as $type) {
 			$know_type_list[$type->know_type_id] = $type->name_th;
 		}
+                
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Knowledge']))
 			$model->attributes=$_GET['Knowledge'];
@@ -167,41 +192,48 @@ class KnowledgeController extends AdminController
 			'model'=>$model,
                         'know_type_list'=>$know_type_list
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }   
 	}
         
         public function actionOrder()
         {
-            // Handle the POST request data submission
-            if (isset($_POST['Order']))
-            {
-                // Since we converted the Javascript array to a string,
-                // convert the string back to a PHP array
-                $models = explode(',', $_POST['Order']);
-
-                for ($i = 0; $i < sizeof($models); $i++)
+            if($this->menu_use[9]){               
+                // Handle the POST request data submission
+                if (isset($_POST['Order']))
                 {
-                    if ($model = Knowledge::model()->findbyPk($models[$i]))
-                    {
-                        $model->sort_order = $i;
+                    // Since we converted the Javascript array to a string,
+                    // convert the string back to a PHP array
+                    $models = explode(',', $_POST['Order']);
 
-                        $model->save();
+                    for ($i = 0; $i < sizeof($models); $i++)
+                    {
+                        if ($model = Knowledge::model()->findbyPk($models[$i]))
+                        {
+                            $model->sort_order = $i;
+
+                            $model->save();
+                        }
                     }
                 }
-            }
-            // Handle the regular model order view
-            else
-            {
-                $dataProvider = new CActiveDataProvider('Knowledge', array(
-                    'pagination' => false,
-                    'criteria' => array(
-                        'order' => 'sort_order ASC, know_id ASC',
-                    ),
-                ));
+                // Handle the regular model order view
+                else
+                {
+                    $dataProvider = new CActiveDataProvider('Knowledge', array(
+                        'pagination' => false,
+                        'criteria' => array(
+                            'order' => 'sort_order ASC, know_id ASC',
+                        ),
+                    ));
 
-                $this->render('order',array(
-                    'dataProvider' => $dataProvider,
-                ));
-            }
+                    $this->render('order',array(
+                        'dataProvider' => $dataProvider,
+                    ));
+                }
+            }else{
+                $this->redirect(array('site/index'));
+            }              
         }
         
         public function actionType()
