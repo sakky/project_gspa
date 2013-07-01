@@ -148,17 +148,18 @@
         <?php if(!Yii::app()->user->isGuest){
             $user = $this->getUserProfile(Yii::app()->user->id);
         ?>
-        <div style="padding: 15px 20px; border-bottom: 2px solid #cccccc;background-color: #F1F1F1">
+        <div style="overflow: hidden;background-color: #F1F1F1;border-bottom: 2px solid #cccccc;">
+        <div style="float:left; padding: 15px 20px;">
             <b>ยินดีต้อนรับ : </b><?php echo $user->firstname." ".$user->lastname;?>
             <b>กลุ่มผู้ใช้ : </b><?php echo $user->userGroup->name; ?>
             <b>เข้าใช้ระบบล่าสุดเมื่อ : </b><?php echo $user->last_login; ?>
-            <span style="float:right">
+        </div>
+        <div style="float:right;padding: 15px 20px;">
             <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a>
             <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('site/logout'); ?>">[ ออกจากระบบ ]</a>
-            </span>
         </div>
-            
-
+        </div>
+        <div style="clear:both"></div>
         <?php } ?>
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
