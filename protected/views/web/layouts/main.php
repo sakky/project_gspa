@@ -140,23 +140,28 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     </ul>
                 </li>-->
 
-<!--                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Student Services" >Student Services</a>
+               <li><a <?php if($curpage=='cooperation/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
                     <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">Document</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">Thesis / Dissertation</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">Special problems / Thesis work</a></li>         
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">Inbound</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">Outbound</a></li>
                     </ul>
-                </li>-->
-<!--                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="Organization" >Organization</a>
+                </li>
+                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >Organization</a>
                     <ul>
-                        <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
-                        <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
-                        <li><a href="#">พิพิธภัณฑ์วิทยาศาสตร์ทางทะเล</a></li>
-                        <li><a href="#">มหาวิทยาลัยบูรพา</a></li>
-                        <li><a href="#">งานประกันคุณภาพ</a></li>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $org = Organization::model()->findAll($criteria);
+
+                            foreach($org as $or) {
+                        ?>
+                        <li><a href="<?php echo $or->link_en;?>" target="_blank"><?php echo $or->name_en;?></a></li>        
+                        <?php }?>
                     </ul>
-                </li>-->
-                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>
+                </li>
+<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
                 <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
@@ -210,23 +215,28 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">สมัครเรียนปริญญาโท</a></li>           
                     </ul>
                 </li>-->
-<!--                <li><a <?php if($curpage=='document/index'||$curpage=='page/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="บริการนิสิต" >บริการนิสิต</a>
+               <li><a <?php if($curpage=='cooperation/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
                     <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('document'); ?>">เอกสารประกอบการเรียน</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>16)); ?>">วิทยานิพนธ์ / ดุษฎีนิพนธ์</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('page', array('id'=>17)); ?>">ปัญหาพิเศษ / งานนิพนธ์</a></li>         
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">ภายในประเทศ</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">ต่างประเทศ</a></li>
                     </ul>
-                </li>-->
-<!--                <li><a <?php if($curpage=='link/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl(''); ?>" title="หน่วยงานภายใน" >หน่วยงานภายใน</a>
+                </li>
+                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >หน่วยงานภายใน</a>
                     <ul>
-                        <li><a href="#">ศูนย์อินโดจีนศึกษา</a></li>
-                        <li><a href="#">ศูนย์วิจัยนโยบายและการบริหาร</a></li>
-                        <li><a href="#">พิพิธภัณฑ์วิทยาศาสตร์ทางทะเล</a></li>
-                        <li><a href="#">มหาวิทยาลัยบูรพา</a></li>
-                        <li><a href="#">งานประกันคุณภาพ</a></li>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $org = Organization::model()->findAll($criteria);
+
+                            foreach($org as $or) {
+                        ?>
+                        <li><a href="<?php echo $or->link_th;?>" target="_blank"><?php echo $or->name_th;?></a></li>        
+                        <?php }?>
                     </ul>
-                </li>-->
-                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>
+                </li>
+<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>-->
             
             <?php }?>
         </ul>
