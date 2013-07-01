@@ -243,7 +243,7 @@ div.breadcrumbs
 {
 	font-size: 0.9em;
 	padding: 15px 20px 15px 20px ;
-	border-bottom: 1px solid #CCCCCC;
+	/*border-bottom: 1px solid #CCCCCC;*/
 }
 div.breadcrumbs a
 {
@@ -253,7 +253,7 @@ div.breadcrumbs a
 .breadcrumbs
 {
 	
-  background-color:#F1F1F1;
+  /*background-color:#F1F1F1;*/
 
 }
 
