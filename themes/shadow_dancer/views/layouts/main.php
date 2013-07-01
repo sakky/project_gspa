@@ -148,7 +148,7 @@
         <?php if(!Yii::app()->user->isGuest){
             $user = $this->getUserProfile(Yii::app()->user->id);
         ?>
-        <div style="overflow: hidden;background-color: #F1F1F1;border-bottom: 2px solid #cccccc;">
+        <div style="overflow: hidden;border-bottom: 2px solid #cccccc;">
         <div style="float:left; padding: 15px 20px;">
             <b>ยินดีต้อนรับ : </b><?php echo $user->firstname." ".$user->lastname;?>
             <b>กลุ่มผู้ใช้ : </b><?php echo $user->userGroup->name; ?>
