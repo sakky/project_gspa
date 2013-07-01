@@ -5,6 +5,7 @@
 	'enableAjaxValidation'=>false,
         'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
+        <?php if($model->page_id!=3){?>
 	<div class="row">
                 <label>ข้อมูลหน้าภาษาอังกฤษ</label><br/>
                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
@@ -46,6 +47,21 @@
                 )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
+        <?php }?>
+        <?php if($model->page_id==7){?>
+        <div class="row">
+		<label>อีเมล์ผู้ดูแลระบบ</label>
+                <?php echo $form->textField($model,'title_en',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'title_en'); ?>
+	</div>
+        <?php }?>
+        <?php if($model->page_id==3){?>
+        <div class="row">
+		<label>ลิงค์ Video</label>
+		<?php echo $form->textField($model,'title_th',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'title_th'); ?>
+	</div>
+        <?php }?>
         <?php if($model->page_id ==14 || $model->page_id ==15){?>
         <br/>
         <div class="row">
