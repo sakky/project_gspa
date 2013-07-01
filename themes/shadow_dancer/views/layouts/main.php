@@ -29,9 +29,6 @@
 <body>
     
 <div class="container" id="page">
-	<div id="topnav">
-		<div class="topnav_text"><?php echo (!Yii::app()->user->isGuest)? CHtml::link('ออกจากระบบ ('.Yii::app()->user->name.')', array('site/logout')) :''; ?></div>
-	</div>
 	<div id="header">
 		<div id="logo"><a href="<?php echo Yii::app()->createUrl('site'); ?>"><img src="<?php echo Yii::app()->baseUrl; ?>/images/front/buu_logo.png" width="80px"/></a><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
@@ -148,7 +145,21 @@
 			
                  ),
 	)); }*/ ?>
-        <div style="position: relative;top:20px;right:20px;float: right;"><a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a></div>
+        <?php if(!Yii::app()->user->isGuest){
+            $user = $this->getUserProfile(Yii::app()->user->id);
+        ?>
+        <div style="padding: 15px 20px; border-bottom: 2px solid #cccccc;background-color: #F1F1F1">
+            <b>ยินดีต้อนรับ : </b><?php echo $user->firstname." ".$user->lastname;?>
+            <b>กลุ่มผู้ใช้ : </b><?php echo $user->userGroup->name; ?>
+            <b>เข้าใช้ระบบล่าสุดเมื่อ : </b><?php echo $user->last_login; ?>
+            <span style="float:right">
+            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a>
+            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('site/logout'); ?>">[ ออกจากระบบ ]</a>
+            </span>
+        </div>
+            
+
+        <?php } ?>
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
