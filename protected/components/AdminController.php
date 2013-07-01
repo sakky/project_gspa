@@ -73,6 +73,12 @@ class AdminController extends CController
                 return $menu->role;
         }
         
+        public function getUserProfile($id)
+	{
+                $model=User::model()->findByPk($id);
+                return $model;
+        }
+        
         
 }
 

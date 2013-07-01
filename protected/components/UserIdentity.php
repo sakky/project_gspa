@@ -26,12 +26,18 @@ class UserIdentity extends CUserIdentity
 		} else {
 			$this->user_id = $user->user_id;
 			$this->username = $user->username;
+                        
+                        //save date time when login
+                        $user->last_login = date('Y-m-d H:i:s');  
+                        $user->save();
 			
 			$auth=Yii::app()->authManager;
 			
 			if(!$auth->isAssigned($user->userGroup->role,$this->user_id)) {
 				if($auth->assign($user->userGroup->role,$this->user_id)) {
 					Yii::app()->authManager->save();
+                                        
+
 				}
 			}
 			
