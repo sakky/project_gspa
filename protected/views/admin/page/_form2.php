@@ -50,16 +50,25 @@
         <?php }?>
         <?php if($model->page_id==7){?>
         <div class="row">
-		<label>อีเมล์ผู้ดูแลระบบ</label>
-                <?php echo $form->textField($model,'title_en',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'title_en'); ?>
+            <table width="100%"  border="0" cellpadding="1" cellspacing="1">
+                <tr>
+                    <td width="20%"><b>อีเมล์ผู้ดูแลระบบ</b></td>
+                    <td width="2%">:</td>
+                    <td ><?php echo $form->textField($model,'title_en',array('size'=>60,'maxlength'=>255)); ?><?php echo $form->error($model,'title_en'); ?></td>
+                </tr>                
+            </table>
 	</div>
         <?php }?>
         <?php if($model->page_id==3){?>
         <div class="row">
-		<label>โค้ด Video youtube</label>
-		<?php echo $form->textArea($model,'title_th',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'title_th'); ?>
+            <table width="100%"  border="0" cellpadding="1" cellspacing="1">
+                <tr>
+                    <td width="20%"><b>Link Video youtube</b></td>
+                    <td width="2%">:</td>
+                    <td ><?php echo $form->textField($model,'title_th',array('size'=>80, 'maxlength'=>255)); ?><?php echo $form->error($model,'title_th'); ?></td>
+                </tr>                
+            </table>
+
 	</div>
         <?php }?>
         <?php if($model->page_id ==14 || $model->page_id ==15){?>
@@ -78,7 +87,6 @@
 		<?php echo $form->error($model,'pdf_th'); ?>
 	</div>
         <?php } ?>
-        <br/>
         <div class="row">
             <table width="100%"  border="0" cellpadding="1" cellspacing="1">
                 <tr>
