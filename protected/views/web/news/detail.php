@@ -21,6 +21,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     );
     
     $news_date = 'Date :';
+    $news_photo = 'Photos Gallery';
 }else{
     $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';
 
@@ -41,6 +42,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         
     );
     $news_date = 'วันที่ข่าว :';
+    $news_photo = 'ประมวลภาพ';
 }
 
 ?>
@@ -69,13 +71,48 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               
               <?php if($model->image){?>
               <div align="center">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $model->image;?>" align="center" />
+                  <? if ($model->vdo_link) { ?>
+                  <iframe width="600" height="400" src="<?php echo $model->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+                  <? } else { ?>
+                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $model->image;?>" align="center" />
+                  <? } ?>
               </div><br/>
               <div class="clear"></div>
               <?php }?>             
               <?php echo $desc; ?>
           
           </div>
+          
+          
+          
+<?php if (count($model_photo)>0){ ?>
+          <br/>
+          <div>
+          <h4><?=$news_photo;?></h4>
+
+            <?php
+            Yii::import('ext.jqPrettyPhoto');
+
+            $options = array(
+                'slideshow'=>2000,
+                'autoplay_slideshow'=>false, 
+                'show_title'=>false
+            );
+            // call addPretty static function
+            jqPrettyPhoto::addPretty('.gallery a',jqPrettyPhoto::PRETTY_GALLERY,jqPrettyPhoto::THEME_FACEBOOK, $options);
+            ?>
+
+            <p><div class="gallery"><br />
+            <?php foreach($model_photo as $photo) { ?>
+            <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/gallery/<?=$photo->src;?>">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/gallery/tn/<?=$photo->tn_src;?>" width="100"/>
+            </a>
+            <? } ?>    
+            </div></p>
+          
+          </div>
+<? } ?>    
+          
     </article>      
     </div>
   </div>
