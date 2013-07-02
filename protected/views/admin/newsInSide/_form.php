@@ -89,7 +89,7 @@
                 )); ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
-        
+
         <div class="row"><br/>
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
 		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 600px')); ?><br />
@@ -105,6 +105,14 @@
 		<?php echo $form->fileField($model,'thumbnail',array('style'=>'border: none;box-shadow:none')); ?>
 		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
+        
+        <div class="row" style="vertical-align: middle;">
+		<?php echo $form->labelEx($model,'vdo_link'); ?>
+		<?php echo $form->textField($model,'vdo_link',array('size'=>80,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'vdo_link'); ?>
+	</div>        
+        
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'create_date'); ?>
                 <?php list($year,$month,$day) = explode('-',$model->create_date);
