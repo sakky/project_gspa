@@ -42,24 +42,24 @@ class SiteController extends Controller
                 $model = Slide::model()->findAll($Criteria);
                 
                 $condition = new CDbCriteria();
-                $condition->condition = "news_type_id =4 AND status = 1";
+                $condition->condition = "news_type_id =2 AND status = 1";
                 $condition->order = "create_date desc,news_id desc";
                 $condition->offset = 0;
-                $condition->limit = 3; 
-                $news_ads = News::model()->findAll($condition);
+                $condition->limit = 6; 
+                $student_news = News::model()->findAll($condition);
                 
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "news_type_id =1 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 10; 
+                $news_criteria->limit = 3; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $job_criteria = new CDbCriteria();
                 $job_criteria->condition = "news_type_id =3 AND status = 1";
                 $job_criteria->order = "create_date desc,news_id desc";
                 $job_criteria->offset = 0;
-                $job_criteria->limit = 3; 
+                $job_criteria->limit = 6; 
                 $job_news = News::model()->findAll($job_criteria);
                 
                 $pr_criteria = new CDbCriteria();
@@ -67,7 +67,7 @@ class SiteController extends Controller
                 $pr_criteria->order = "create_date desc,news_id desc";
                 $pr_criteria->offset = 0;
                 $pr_criteria->limit = 3; 
-                $pr_news = News::model()->findAll($pr_criteria);
+                $newsInSide = News::model()->findAll($pr_criteria);
                 
                 $vdo_criteria = new CDbCriteria();
                 $vdo_criteria->condition = "page_id = 3 AND status = 1";
@@ -84,9 +84,9 @@ class SiteController extends Controller
                 $this->render('index',array(
                                 'model'=>$model,
                                 'news'=>$news,
-                                'news_ads'=>$news_ads,
+                                'newsInSide'=>$newsInSide,
                                 'job'=>$job_news,
-                                'pr_news'=>$pr_news,
+                                'student_news'=>$student_news,
                                 'vdo'=>$vdo,
                         ));
 	}
