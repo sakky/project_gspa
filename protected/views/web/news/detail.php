@@ -19,6 +19,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             $type_name,
             $group
     );
+    
+    $news_date = 'Date :';
 }else{
     $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';
 
@@ -35,9 +37,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->breadcrumbs=array(
             'ประชาสัมพันธ์/กิจกรรม',
             $type_name,
-            $group
+            $group=>array($action)
         
     );
+    $news_date = 'วันที่ข่าว :';
 }
 
 ?>
@@ -58,6 +61,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
           </div>
           <h4><?php echo $name;?></h4>
+
+          <div style="float:right"><?php echo $news_date. ' '. $this->getThaiDate($model->create_date,'dmY');?></div>
+          <p><br/><br/></p>
+
           <div>
               
               <?php if($model->image){?>

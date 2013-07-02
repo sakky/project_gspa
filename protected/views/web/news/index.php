@@ -4,18 +4,18 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - News & Activities';
     $this->breadcrumbs=array(
-            'News & Activities',
-            'GSPA News'=>array('index'),
+            'News & Activities'=>array('index'),
+            'GSPA News',
     );
     $header = "GSPA News";
     $readmore = "Read More";
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์/กิจกรรม';
     $this->breadcrumbs=array(
-            'ประชาสัมพันธ์/กิจกรรม',
-            'ภายใน'=>array('index'),
+            'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+            'ภายใน',
     );
-    $header = "ประชาสัมพันธ์/กิจกรรม ภายใน";
+    $header = "ประชาสัมพันธ์/กิจกรรม : ภายใน";
     $readmore = "อ่านต่อ...";
 }
 ?>
@@ -51,7 +51,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <div class="clear"></div>
           </div>
           <div style="float:left;width:300px;margin-left:10px;">
-          <h6><?php echo $name;?></h6>
+          <h6><?php echo $name;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</h6>
           <p class="p2"><?php echo $title;?></p>
           <a class="button" href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $readmore;?></a> 
           </div>

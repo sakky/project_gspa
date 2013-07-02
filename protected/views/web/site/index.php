@@ -87,7 +87,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $news_readmore = "ดูข่าวทั้งหมด";
               }
         ?>
-        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></h4>
+        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a></h4>
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
@@ -106,7 +106,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       <article class="col-3">
         <div class="indent-top">
         <h3><?php echo $col3_header;?></h3>
-        <?php echo $vdo->title_th;?>
+        <iframe width="320" height="215" src="<?php echo $vdo->title_th;?>" frameborder="0" allowfullscreen></iframe>
+            
         <div class="clear"></div>
         <br/>
         <!-- ข่าวประชาสัมพันธ์ -->
