@@ -16,7 +16,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $desc = $model->desc_en;
     $this->breadcrumbs=array(
             'News & Activities',
-            $type_name,
+            //$type_name,
             $group
     );
     
@@ -37,7 +37,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $desc = $model->desc_th;
     $this->breadcrumbs=array(
             'ประชาสัมพันธ์/กิจกรรม',
-            $type_name,
+            //$type_name,
             $group=>array($action)
         
     );
