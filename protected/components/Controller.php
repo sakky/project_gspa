@@ -22,6 +22,39 @@ class Controller extends CController
 	public $breadcrumbs=array();
 
         
+        public $thai_month_short_name=array(  
+                                "0"=>"",  
+                                "1"=>"ม.ค.",  
+                                "2"=>"ก.พ.",  
+                                "3"=>"มี.ค.",  
+                                "4"=>"เม.ย.",  
+                                "5"=>"พ.ค.",  
+                                "6"=>"มิ.ย.",   
+                                "7"=>"ก.ค.",  
+                                "8"=>"ส.ค.",  
+                                "9"=>"ก.ย.",  
+                                "10"=>"ต.ค.",  
+                                "11"=>"พ.ย.",  
+                                "12"=>"ธ.ค."                    
+                            );          
+        public $thai_month_full_name=array(  
+                                "0"=>"",  
+                                "1"=>"ม.ค.",  
+                                "2"=>"ก.พ.",  
+                                "3"=>"มี.ค.",  
+                                "4"=>"เม.ย.",  
+                                "5"=>"พ.ค.",  
+                                "6"=>"มิ.ย.",   
+                                "7"=>"ก.ค.",  
+                                "8"=>"ส.ค.",  
+                                "9"=>"ก.ย.",  
+                                "10"=>"ต.ค.",  
+                                "11"=>"พ.ย.",  
+                                "12"=>"ธ.ค."                    
+                            );          
+        
+        
+        
 /**
  * Checks if the current route matches with given routes
  * @param array $routes
@@ -44,4 +77,26 @@ class Controller extends CController
         }
         return false;
     }        
+    
+        
+        public function getThaiDate($datetime,$format = 'dmYHis'){  
+
+            //print $datetime;
+            $time = strtotime($datetime);
+            switch($format){
+                case 'dmY':
+                    $thai_date_return = date("j",$time)." ".$this->thai_month_short_name[date("n",$time)]." ".(date("Y",$time)+543);
+                    break;
+                case 'dmYHis':
+                    $thai_date_return = date("j",$time)." ".$this->thai_month_short_name[date("n",$time)]." ".(date("Y",$time)+543)." ".(date("H:i:s",$time));
+                    break;
+                case 'dMYHis':
+                    $thai_date_return = date("j",$time)." ".$this->thai_month_full_name[date("n",$time)]." ".(date("Y",$time)+543);
+                    break;
+                default :
+                    $thai_date_return = $time;
+                    
+            }
+            return $thai_date_return;  
+        }       
 }
