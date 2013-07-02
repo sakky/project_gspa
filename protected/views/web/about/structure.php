@@ -39,6 +39,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
           </div>
           <h3><?php echo $header;?></h3>
+          <p></p>
           <?php foreach ($model as $type){
               
               $str_type_id = $type->str_type_id;
@@ -46,6 +47,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               $Criteria->condition = 'status = 1 AND str_type_id ='.$str_type_id;
               $Criteria->order = 'sort_order';
               $str_model = Structure::model()->findAll($Criteria);
+              
+              
+              if (count($str_model)==0) continue;
+
+            ?>              
+          <div style="padding:10px 5px 5px 50px;background: #F1F1F1;">
+          <?php
+              
               foreach ($str_model as $board){
                 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     $board_name = $board->name_en;
@@ -57,6 +66,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     $type = $type->name_th;
                 }
           ?>
+              
+
           <h4><?php echo $type;?></h4>
           <div class="wrapper indent-bot">
             <figure class="img-indent">
@@ -71,7 +82,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <p><?php echo $position_text;?> : <?php echo $board_position;?></p>
              </div>
           </div>
-          <?php }}?>
+          <?php }?>
+          
+          </div><br/>
+          
+          <?php }?>
         </article>
       
     </div>
