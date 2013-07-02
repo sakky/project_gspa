@@ -3,18 +3,20 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle="Graduate School of Public Administration";
-    $col2_header = "News & Events";
+    $col1_header = "GSPA News & Activities";
+    $col2_header = "News & Activities";  
     $col3_header = "Media";
-    $col3_2_header = "Public Relations News";
+    $col3_2_header = "Admission";
     $col3_3_header = "Job News";
-    $col3_4_header = "Announce";
+
 }else{
     $this->pageTitle=Yii::app()->name;
-    $col2_header = "ข่าวสารและกิจกรรม";  
+    $col1_header = "ประชาสัมพันธ์/กิจกรรม ภายใน"; 
+    $col2_header = "ประชาสัมพันธ์/กิจกรรม จากสื่อ";  
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
-    $col3_2_header = "ข่าวประชาสัมพันธ์";
-    $col3_3_header = "ข่าวรับสมัครงาน";
-    $col3_4_header = "ประกาศ";
+    $col3_2_header = "ประกาศสมัครเรียน";
+    $col3_3_header = "ประกาศรับสมัครงาน";
+
 }
 ?>
 
@@ -104,6 +106,38 @@ $(window).load(function () {
     </div>
     <div class="wrapper">
       <article class="col-2">
+         <!-- ข่าวภายใน -------------------------------------------------------------------------------------------->
+         <h3><?php echo $col1_header;?></h3>
+         <?php foreach ($newsInSide as $new){
+              if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                  $news_name = $new->name_en;
+                  $news_title = $new->title_en;
+                  $news_readmore = "News More";
+              }else{
+                  $news_name = $new->name_th;
+                  $news_title = $new->title_th;
+                  $news_readmore = "ดูข่าวทั้งหมด";
+              }
+        ?>
+        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a></h4>
+        <div class="p1">
+          <figure class="img-border" style="margin-right:10px;">
+              <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
+                  <? if ($new->vdo_link) { ?>
+                  <iframe width="209" height="215" src="<?php echo $new->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+                  <? } else { ?>
+                  <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
+                  <? } ?>
+              </a>
+          </figure>
+          <p class="img-indent-bot"><?php echo $news_title;?></p>
+        </div>       
+        <div class="clear"></div>
+        <?php }?>
+        <div class="alignright" style="border-bottom:1px solid #aaa;padding-bottom: 10px;margin-bottom: 10px;">
+        <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>"><?php echo $news_readmore;?></a>
+        </div>
+        <!-- ข่าวจากสื่อ -------------------------------------------------------------------------------------------->
          <h3><?php echo $col2_header;?></h3>  
         <?php foreach ($news as $new){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
@@ -133,8 +167,8 @@ $(window).load(function () {
         <div class="clear"></div>
         <?php }?>
         <div class="alignright">
-        <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>"><?php echo $news_readmore;?></a>
-        </div>
+        <a class="button" href="<?php echo Yii::app()->createUrl('news/media'); ?>"><?php echo $news_readmore;?></a>
+        </div>      
       </article>
       <article class="col-3">
         <div class="indent-top">
@@ -143,11 +177,11 @@ $(window).load(function () {
             
         <div class="clear"></div>
         <br/>
-        <!-- ข่าวประชาสัมพันธ์ -->
+        <!-- ข่าวรับสมัครเรียน -->
         <h3><?php echo $col3_2_header;?></h3>
           <ul class="list-2">
             <?php 
-                foreach ($pr_news as $key_new => $new_pr){?>
+                foreach ($student_news as $key_new => $new_pr){?>
                 <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new_pr->news_id)); ?>"><?php echo $new_pr->name_th;?></a> </li>
             <?php }?>
           </ul>
@@ -161,14 +195,7 @@ $(window).load(function () {
             <?php }?>
           </ul>
         <!-- ข่าวประกาศ -->
-        <h3><?php echo $col3_4_header;?></h3>
-          <ul class="list-2">
-            <?php 
-                $count_news = -1;
-                foreach ($news_ads as $key_new => $new){?>
-                <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a></li>
-            <?php }?>
-          </ul>  
+
         </div>
       </article>
     </div>
