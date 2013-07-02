@@ -8,6 +8,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $col3_header = "Media";
     $col3_2_header = "Admission";
     $col3_3_header = "Job News";
+    $col3_4_header = "Link";
 
 }else{
     $this->pageTitle=Yii::app()->name;
@@ -16,7 +17,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
     $col3_2_header = "ประกาศสมัครเรียน";
     $col3_3_header = "ประกาศรับสมัครงาน";
-
+    $col3_4_header = "ลิงค์ที่เกี่ยวข้อง";
 }
 ?>
 
@@ -194,8 +195,21 @@ $(window).load(function () {
                 <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?></a> </li>
             <?php }?>
           </ul>
-        <!-- ข่าวประกาศ -->
-
+        <!-- ลิงค์ที่เกี่ยวข้อง -->
+        <h3><?php echo $col3_4_header;?></h3>
+          <ul class="list-2">
+            <?php 
+                foreach ($links as $key=>$value){      
+                    if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                        $url = $value->link_en;
+                        $link_name = $value->name_en;
+                    }else{
+                        $url = $value->link_th;
+                        $link_name = $value->name_th;
+                    }?>
+                <li><a href="<?php echo $url;?>"><?php echo $link_name;?></a> </li>
+            <?php }?>
+          </ul>
         </div>
       </article>
     </div>
