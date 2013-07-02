@@ -6,7 +6,10 @@ class NewsController extends Controller
 	{
                 if(isset($_GET['id'])){
                     $model=News::model()->findByPk($_GET['id']);
-                    $this->render('detail',array('model'=>$model));
+                    
+                    $model_photo=Photo::model()->getPhotoByAlbum($_GET['id']);
+                    //print_r($model_photo);
+                    $this->render('detail',array('model'=>$model, 'model_photo'=>$model_photo));
                 }else{
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "status = 1 AND news_type_id = 5";
