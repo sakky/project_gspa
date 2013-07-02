@@ -48,7 +48,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   <td width="5%"><?php echo $td1_header;?></td>
                   <td><?php echo $td2_header;?></td>
                   <td width="15%"><?php echo $td3_header;?></td>
-                  <td width="12%"><?php echo $td4_header;?></td>
+<!--                  <td width="12%"><?php echo $td4_header;?></td>-->
               </tr>
                <?php $count=1; ?>
                <?php foreach ($model as $value){
@@ -66,7 +66,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   <td align="center"><?php echo $count;?></td>
                   <td><a href="<?php echo Yii::app()->createUrl('document', array('id'=>$value->doc_id)); ?>"><?php echo $name;?></a></td>
                   <td align="center"><?php echo $updated;?></td>
-                  <td align="center"><?php echo $value->counter;?></td>
+<!--                  <td align="center"><?php echo $value->counter;?></td>-->
               </tr>
               <?php $count++; }?>
           </table>
