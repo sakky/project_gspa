@@ -35,22 +35,42 @@ $(document).ready(function () {
           </dl>
         </article>
         <article class="col-2">
-          <h3>ติดต่อเรา</h3>
-          <form id="contact-form" action="#">
+            <h3>ติดต่อเรา</h3>
+        <?php if(Yii::app()->user->hasFlash('contact')): ?>
+        <div class="confirmation">
+                <?php echo Yii::app()->user->getFlash('contact'); ?>
+        </div>
+        <?php else: ?>          
+          <?php $form=$this->beginWidget('CActiveForm', array(
+                    'id'=>'contact-form',
+                    'enableClientValidation'=>true,
+                    'clientOptions'=>array(
+                            'validateOnSubmit'=>true,
+                    ),
+            )); ?>
             <fieldset>
-              <label>
-                <input type="text" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />
-              </label>
-              <label>
-                <input type="text" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />
-              </label>
-              <label>
-                <input type="text" value="เบอร์โทรศัพท์" onBlur="if(this.value=='') this.value='เบอร์โทรศัพท์'" onFocus="if(this.value =='เบอร์โทรศัพท์' ) this.value=''" />
-              </label>
-              <textarea onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
-              <div class="buttons-wrapper"> <a class="button">ล้างข้อความ</a> <a class="button">ส่งข้อความ</a> </div>
+               <?php echo $form->error($model,'name'); ?>
+                <label>
+                <input type="text" name="ContactForm[name]" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />                
+                </label>
+                
+                <?php echo $form->error($model,'email'); ?> 
+                <label>
+                    <input type="text" name="ContactForm[email]" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />               
+                </label>
+                <?php echo $form->error($model,'subject'); ?>
+                <label>
+                    <input type="text" name="ContactForm[subject]" value="ชื่อเรื่องที่ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อเรื่องที่ติดต่อ'" onFocus="if(this.value =='ชื่อเรื่องที่ติดต่อ' ) this.value=''" />                
+                </label>
+                <?php echo $form->error($model,'body'); ?>
+                <textarea name="ContactForm[body]" onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
+              
+              	<div class="buttons-wrapper">
+                    <input name="submit" type="submit" value="ส่งข้อความ" />&nbsp;&nbsp;<input name="reset" type="reset" value="ล้างข้อความ"/>
+                </div>
             </fieldset>
-          </form>
+          <?php $this->endWidget(); ?> 
+        <?php endif; ?>                   
         </article>
       </div>
     </div>
