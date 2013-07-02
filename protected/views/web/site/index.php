@@ -18,6 +18,35 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }
 ?>
 
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
+
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/FF-cash.js" type="text/javascript"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms-0.3.js" type="text/javascript"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+    $('.close').bind('click', function () {
+        $(this).parent().show().fadeOut(500);
+    });
+});
+</script>
+<script type="text/javascript">
+$(window).load(function () {
+    $('.slider')._TMS({
+        duration: 800,
+        easing: 'easeOutQuart',
+        preset: 'diagonalExpand',
+        slideshow: 7000,
+        pagNums: false,
+        pagination: '.pagination',
+        banners: 'fade',
+        pauseOnHover: true,
+        waitBannerAnimation: true
+    });
+});
+</script>
+
 <!-- Top Banner -->
 <section id="content">
   <div class="main">
@@ -91,7 +120,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
+                  <? if ($new->vdo_link) { ?>
+                  <iframe width="209" height="215" src="<?php echo $new->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+                  <? } else { ?>
                   <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
+                  <? } ?>
               </a>
           </figure>
           <p class="img-indent-bot"><?php echo $news_title;?></p>
@@ -106,7 +139,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       <article class="col-3">
         <div class="indent-top">
         <h3><?php echo $col3_header;?></h3>
-        <iframe width="320" height="215" src="<?php echo $vdo->title_th;?>" frameborder="0" allowfullscreen></iframe>
+        <iframe width="320" height="215" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
             
         <div class="clear"></div>
         <br/>
