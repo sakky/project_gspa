@@ -111,6 +111,12 @@ p {
 .alignright {
 	text-align:right
 }
+a.yellow{
+	color: #ffffff;
+}
+a:hover {
+	color:#FFE400;
+}
 .aligncenter {
 	text-align:center
 }
