@@ -22,7 +22,7 @@ class ContactForm extends CFormModel
 			// name, email, subject and body are required
 			array('name, email, subject, body', 'required','message'=>'{attribute} ห้ามว่าง'),
 			// email has to be a valid email address
-			array('email', 'email'),
+			array('email', 'email','message'=>'{attribute} รูปแบบอีเมล์ไม่ถูกต้อง'),
 
 		);
 	}
