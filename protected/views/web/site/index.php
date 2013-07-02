@@ -207,7 +207,7 @@ $(window).load(function () {
                         $url = $value->link_th;
                         $link_name = $value->name_th;
                     }?>
-                <li><a href="<?php echo $url;?>"><?php echo $link_name;?></a> </li>
+                <li><a target="_blank" href="<?php echo $url;?>"><?php echo $link_name;?></a> </li>
             <?php }?>
           </ul>
         </div>
