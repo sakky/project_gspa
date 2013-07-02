@@ -155,8 +155,8 @@
             <b>เข้าใช้ระบบล่าสุดเมื่อ : </b><?php echo $this->getThaiDate($user->last_login,'dmYHis'); ?>
         </div>
         <div style="float:right;padding: 15px 20px;">
-            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a>
-            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('site/logout'); ?>">[ ออกจากระบบ ]</a>
+            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/small_icons/user_red.png"/> แก้ไขข้อมูลส่วนตัว ]</a>
+            <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('site/logout'); ?>">[<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/small_icons/status_busy.png"/> ออกจากระบบ ]</a>
         </div>
         </div>
         <div style="clear:both"></div>
