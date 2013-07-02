@@ -5,23 +5,27 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Announcement';
     $this->breadcrumbs=array(
-            'Announcement',
+            'Announcement'=>array('admission'),
             $model->newsType->name_en
     );
     $info_text = "Download More Info.";
     $name = $model->name_en;
     $pdf = $model->pdf_en;
     $desc = $model->desc_en;
+
+    $annouce_date = 'Date :';    
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประกาศ';
     $this->breadcrumbs=array(
-            'ประกาศ',
+            'ประกาศ'=>array('admission'),
             $model->newsType->name_th=>array($action),
     );
     $info_text = "ดาวน์โหลดรายละเอียด";
     $name = $model->name_en;
     $pdf = $model->pdf_en;
     $desc = $model->desc_th;
+
+    $annouce_date = 'วันที่ประกาศ :';        
 }
 
 ?>
@@ -42,6 +46,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
           </div>
           <h4><?php echo $name;?></h4>
+
+          <div style="float:right"><?php echo $annouce_date . ' '.$this->getThaiDate($model->create_date,'dmY');?></div>
+          <p><br/><br/></p>
+
           <div>
               
               <?php if($model->image && $model->news_type_id==1){?>

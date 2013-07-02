@@ -4,16 +4,16 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Admission Announcement';
     $this->breadcrumbs=array(
-            'Announcement',
-            'Admission'=>array('admission'),
+            'Announcement'=>array('admission'),
+            'Admission',
     );
     $header = "Admission Announcement";
     $readmore = "Read More";
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประกาศสมัครเรียน';
     $this->breadcrumbs=array(
-            'ประกาศ',
-            'สมัครเรียน'=>array('admission'),
+            'ประกาศ'=>array('admission'),
+            'สมัครเรียน',
     );
     $header = "ประกาศสมัครเรียน";
     $readmore = "อ่านต่อ...";
@@ -46,7 +46,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $title = $new->title_th;
               }
           ?>
-               <li><a href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new->news_id)); ?>"><?php echo $name;?></a></li>         
+               <li><a href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new->news_id)); ?>">[<?php echo $this->getThaiDate($new->create_date,'dmY');?>] <?php echo $name;?></a></li>         
           <?php }?>
           </ul>
           <?php $this->widget('CLinkPager', array(
