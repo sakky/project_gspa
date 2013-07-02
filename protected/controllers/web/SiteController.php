@@ -69,6 +69,11 @@ class SiteController extends Controller
                 $pr_criteria->limit = 3; 
                 $newsInSide = News::model()->findAll($pr_criteria);
                 
+                $link_criteria = new CDbCriteria();
+                $link_criteria->condition = "status = 1";
+                $link_criteria->order = "sort_order";
+                $links = Link::model()->findAll($link_criteria);
+                
                 $vdo_criteria = new CDbCriteria();
                 $vdo_criteria->condition = "page_id = 3 AND status = 1";
                 $vdo = Page::model()->find($vdo_criteria);
@@ -87,6 +92,7 @@ class SiteController extends Controller
                                 'newsInSide'=>$newsInSide,
                                 'job'=>$job_news,
                                 'student_news'=>$student_news,
+                                'links'=>$links,
                                 'vdo'=>$vdo,
                         ));
 	}
