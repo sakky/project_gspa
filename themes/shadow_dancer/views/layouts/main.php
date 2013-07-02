@@ -152,7 +152,7 @@
         <div style="float:left; padding: 15px 20px;">
             <b>ยินดีต้อนรับ : </b><?php echo $user->firstname." ".$user->lastname;?>
             <b>กลุ่มผู้ใช้ : </b><?php echo $user->userGroup->name; ?>
-            <b>เข้าใช้ระบบล่าสุดเมื่อ : </b><?php echo $user->last_login; ?>
+            <b>เข้าใช้ระบบล่าสุดเมื่อ : </b><?php echo $this->getThaiDate($user->last_login,'dmYHis'); ?>
         </div>
         <div style="float:right;padding: 15px 20px;">
             <a style="text-decoration: none;" href="<?php echo Yii::app()->createUrl('user/edit', array('id'=>Yii::app()->user->id)); ?>">[ แก้ไขข้อมูลส่วนตัว ]</a>
