@@ -1,27 +1,27 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Academic Cooperation';
+    $this->pageTitle='Graduate School of Public Administration - Cooperation';
     $this->breadcrumbs=array(
-        'About Us'=>array('about/index', 'id'=>'1'),
-        'Academic Cooperation'=>array('/cooperation'),
+        'Cooperation'=>array('index'),
+        $model->name_en
 
     );
-    $header = "Academic Cooperation";
+    $header = "Cooperation";
 
-    $name = "Academic Cooperation ".$model->name_en;
+    $name = $model->name_en;
     $desc = $model->desc_en;
 
  
 }else{
-    $this->pageTitle=Yii::app()->name . ' - ความร่วมมือทางวิชาการ';
+    $this->pageTitle=Yii::app()->name . ' - ความร่วมมือ';
     $this->breadcrumbs=array(
-        'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
-        'ความร่วมมือทางวิชาการ'=>array('/cooperation'),
+        'ความร่วมมือ'=>array('index'),
+        $model->name_th
     );
-    $header = "ความร่วมมือทางวิชาการ";
+    $header = "ความร่วมมือ";
 
-    $name = "ความร่วมมือทางวิชาการ".$model->name_th;
+    $name = $model->name_th;
     $desc = $model->desc_th;
 
 }
@@ -32,7 +32,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">
-          <?php $this->renderPartial('/about/about_menu');?>
+          <?php $this->renderPartial('/cooperation/leftmenu');?>
         </div>
       </article>
       <article class="col-2">
