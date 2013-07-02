@@ -8,19 +8,7 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/layout.css" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/fonts.css" type="text/css" charset="utf-8" />
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
 
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/FF-cash.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms-0.3.js" type="text/javascript"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function () {
-    $('.close').bind('click', function () {
-        $(this).parent().show().fadeOut(500);
-    });
-});
-</script>
 <!--[if lt IE 9]>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/html5.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/ie.css" type="text/css" media="screen">
@@ -267,20 +255,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     </div>
   </div>
 </footer>
-<script type="text/javascript">
-$(window).load(function () {
-    $('.slider')._TMS({
-        duration: 800,
-        easing: 'easeOutQuart',
-        preset: 'diagonalExpand',
-        slideshow: 7000,
-        pagNums: false,
-        pagination: '.pagination',
-        banners: 'fade',
-        pauseOnHover: true,
-        waitBannerAnimation: true
-    });
-});
-</script>
+
 </body>
 </html>
