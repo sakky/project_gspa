@@ -284,32 +284,30 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       <article class="fcol-1">
          <h3 class="color-1"><?php echo $service;?></h3>
           <ul class="list-3">
-            <li><a href="#"><?php echo $service1;?></a></li>
-	    <li><a href="#"><?php echo $service2;?></a></li>            
+            <li><a href="<?php echo Yii::app()->createUrl('information/master'); ?>"><?php echo $service1;?></a></li>
+	    <li><a href="<?php echo Yii::app()->createUrl('information/doctor'); ?>"><?php echo $service2;?></a></li>            
           </ul>
          <br/>
          <h3 class="color-1"><?php echo $service_student;?></h3>
          <ul class="list-3">
-            <li><a href="#"><?php echo $service_student1;?></a></li>
-            <li><a href="#"><?php echo $service_student2;?></a></li>
-
-	    <li class="last-item"><a href="#"><?php echo $service_student3;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('student/group1'); ?>"><?php echo $service_student1;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('student/group2'); ?>"><?php echo $service_student2;?></a></li>
+	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('student/group3'); ?>"><?php echo $service_student3;?></a></li>
             
           </ul>
       </article>
       <article class="fcol-2">
          <h3 class="color-1"><?php echo $alumni;?></h3>
           <ul class="list-3">
-            <li><a href="#"><?php echo $service_student1;?></a></li>
-	    <li><a href="#"><?php echo $service_student2;?></a></li>            
+            <li><a href="<?php echo Yii::app()->createUrl('alumni/master'); ?>"><?php echo $service_student1;?></a></li>
+	    <li><a href="<?php echo Yii::app()->createUrl('alumni/doctor'); ?>"><?php echo $service_student2;?></a></li>            
           </ul>
          <br/>
          <h3 class="color-1"><?php echo $knowledge;?></h3>
          <ul class="list-3">
-            <li><a href="#"><?php echo $knowledge1;?></a></li>
-            <li><a href="#"><?php echo $knowledge2;?></a></li>
-	    <li class="last-item"><a href="#"><?php echo $knowledge3;?></a></li>
-            
+            <li><a href="<?php echo Yii::app()->createUrl('knowledge/group1'); ?>"><?php echo $knowledge1;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('knowledge/group2'); ?>"><?php echo $knowledge2;?></a></li>
+	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('knowledge/group3'); ?>"><?php echo $knowledge3;?></a></li>            
           </ul>
       </article>
       <article class="fcol-3">
@@ -330,7 +328,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         $name = $type->name_th;
                     }
                 ?>
-                    <li><a href="<?php echo Yii::app()->createUrl('report/type', array('id'=>$type->report_type_id)); ?>"><?php echo $name;?></a></li>        
+                    <li><a href="<?php echo Yii::app()->createUrl('report', array('type_id'=>$type->report_type_id)); ?>"><?php echo $name;?></a></li>        
                 <?php }?>
         </ul>
       </article>
