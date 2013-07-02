@@ -52,7 +52,8 @@ class Page extends CActiveRecord
 			array('page_type_id, name_en, name_th,create_date, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('page_type_id, sort_order, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, pdf_en, pdf_th, images', 'length', 'max'=>255),
-			array('title_en, title_th, desc_en, desc_th, create_date', 'safe'),
+			array('title_th, desc_en, desc_th, create_date', 'safe'),
+                        array('title_en', 'email','message'=>'{attribute} รูปแบบอีเมล์ไม่ถูกต้อง'),
                         array('images,thumbnail', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
                         array('pdf_en,pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'ไฟล์ควรมีขนาดเล็กกว่า 10 MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
@@ -84,7 +85,7 @@ class Page extends CActiveRecord
 			'page_type_id' => 'Page Type',
 			'name_en' => 'Name (English)',
 			'name_th' => 'Name (Thai)',
-			'title_en' => 'Title (English)',
+			'title_en' => 'อีเมล์ผู้ดูแลระบบ',
 			'title_th' => 'Title (Thai)',
 			'desc_en' => 'Description (English)',
 			'desc_th' => 'Description (Thai)',
