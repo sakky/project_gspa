@@ -284,8 +284,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
       <article class="fcol-1">
          <h3 class="color-1"><?php echo $service;?></h3>
           <ul class="list-3">
-            <li><a href="<?php echo Yii::app()->createUrl('information/master'); ?>"><?php echo $service1;?></a></li>
-	    <li><a href="<?php echo Yii::app()->createUrl('information/doctor'); ?>"><?php echo $service2;?></a></li>            
+            <li><a href="<?php echo Yii::app()->createUrl('information/download'); ?>"><?php echo $service1;?></a></li>
+	    <li><a href="<?php echo Yii::app()->createUrl('information/library'); ?>"><?php echo $service2;?></a></li>            
           </ul>
          <br/>
          <h3 class="color-1"><?php echo $service_student;?></h3>
