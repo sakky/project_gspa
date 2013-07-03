@@ -1,0 +1,51 @@
+<?php
+$lang = Yii::app()->language; 
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $this->pageTitle='Graduate School of Public Administration - Knowledge';
+    $this->breadcrumbs=array(
+            'Knowledge'=>array('index'),
+            $model->name_en
+    );
+    $header = "Knowledge";
+
+}else{
+    $this->pageTitle=Yii::app()->name. ' - คลังข้อมูลความรู้';
+    $this->breadcrumbs=array(
+            'คลังข้อมูลความรู้'=>array('index'),
+            $model->name_th
+    );
+    $header = "คลังข้อมูลความรู้";
+
+}
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                       $name = $model->name_en;
+                       $desc = $model->desc_en;
+                   }else{
+                       $name = $model->name_th;
+                       $desc = $model->desc_th;
+                   }
+
+?>
+<div id="page6">
+  <div class="main">
+    <div class="wrapper">
+      <article class="col-1">
+        <div class="indent-left">
+          <?php $this->renderPartial('leftmenu');?>
+        </div>
+      </article>
+      <article class="col-2">
+          <div style="margin-bottom: 10px;">
+            <?php if(isset($this->breadcrumbs)):?>
+                    <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'links'=>$this->breadcrumbs,
+                    )); ?><!-- breadcrumbs -->
+            <?php endif?>
+          </div>
+          <h3><?php echo $name;?></h3>
+          <div><?php echo $desc;?></div>
+      </article>
+      
+    </div>
+  </div>
+</div>
