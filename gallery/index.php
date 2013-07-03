@@ -81,6 +81,13 @@ if(isset($_FILES['fupload'])) {
 			});
 		});
 	})
+        
+        function waitUpload()
+        {
+            document.getElementById('btn_upload').style.display = 'none';
+            document.getElementById('show_waiting').style.display = '';
+            
+        }
 	</script>
 
 </head>
@@ -99,7 +106,9 @@ if(isset($_FILES['fupload'])) {
 	    <p><label for="description">รายละเอียดรูป: </label>
 	    <textarea rows="6" cols="50" id="description" name="description"></textarea></p>
 -->	    
-	    <input type="submit" value="อัพโหลด" name="submit" class="" /></p>
+	    <input type="submit" value="อัพโหลด" name="submit" id="btn_upload" onclick="waitUpload();"/>
+            <div id="show_waiting" style="display:none;">กำลังอัพโหลด..</div>
+            </p>
     </form>
 
     <?php
