@@ -13,7 +13,7 @@ if (preg_match("/^mysql:host=(\w.*);dbname=(\w.*)/i", $cfg['components']['db']['
 //$db_user = "root";
 //$db_pass = "";
 
-$db_name = "gspa";
+$db_name = $match[2];
 $db_server = $match[1];
 
 //print '<pre>';
