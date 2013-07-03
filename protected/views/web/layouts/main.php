@@ -335,17 +335,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     </div>
         <div style="clear:both"></div>
     
-        <div class="alignright" style="margin-bottom: 10px;">
-<!--            <a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $privacy;?></a>-->
-            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a> | <a class="yellow" href="#">Site Map</a> | <a class="yellow" href="#">FAQ</a> 
-        </div>
+<!--        <div class="alignright" style="margin-bottom: 10px;">
+            <a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $privacy;?></a>
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a>
+            | <a class="yellow" href="#">Site Map</a>
+            | <a class="yellow" href="#">FAQ</a> 
+        </div>-->
    <ul class="list-services">
-        <li><a href="#">Facebook</a></li>
+       <li><a style="background:none;" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a></li> 
+       <li><a href="#">Facebook</a></li>
         <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
 
     </ul>
-    <div class="alignleft">
-        <?php echo $footer_text;?>
+    <div class="alignleft" style="color:#FFFFFF">
+        <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
+            <div style="margin-left:70px;"><?php echo $footer_text;?></div>
     </div>
   </div>
 </footer>

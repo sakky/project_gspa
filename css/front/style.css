@@ -15,7 +15,8 @@ body {
 	/*color:#808080;*/
 	color:#666666;
 	min-width:980px;
-	background:#A5D5E2;
+	/*background:#004080;*/
+        background: url('../../images/front/bg.jpg');
 }
 .ic, .ic a {
 	border:0;
@@ -574,6 +575,9 @@ h6 {
 	color:#fff;
 	background:url(../../images/front/li_yellow.png) 0 3px no-repeat;
 }
+.list-3 li a:hover {
+	color:#FCB549;
+}
 .list-3 li span {
 	color:#808080;
 	display:inline-block
@@ -713,8 +717,11 @@ footer {
 .list-services li a {
 	display:inline-block;
 	padding-left:31px;
-	color:#808080;
+	color:#ffffff;
 	background:url(../../images/front/social-icons.png) 0 0 no-repeat;
+}
+.list-services li a:hover {
+	color:#FCB549;
 }
 .list-services li a.it-2 {
 	background-position:0 -40px
