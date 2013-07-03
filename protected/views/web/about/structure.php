@@ -68,13 +68,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           ?>
               
 
-          <h4><?php echo $type;?></h4>
+          <div align="center"><h4><?php echo $type;?></h4></div>
           <div class="wrapper indent-bot">
             <figure class="img-indent">
                 <?php if($board->image){?>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/structures/<?php echo $board->image;?>" width="100px"/>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/structures/<?php echo $board->image;?>" height="100px"/>
                 <?php }else{ ?>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no-pic.png" width="100px"/>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no-pic.png" height="100px"/>
                 <?php }?>
             </figure>
             <div class="extra-wrap" style="padding-top: 10px">
