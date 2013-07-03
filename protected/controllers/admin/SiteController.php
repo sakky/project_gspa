@@ -81,7 +81,19 @@ class SiteController extends AdminController
 	 */
 	public function actionLogout()
 	{
-		Yii::app()->user->logout();
+                //print '<pre>';
+                //print_r(Yii::app()->user->getId());exit;
+                $current_user_id = Yii::app()->user->getId();
+
+                Yii::app()->user->logout();
+                // Save log for login
+                
+                $log = LogLogin::model()->find('user_id = ? ORDER BY login_time DESC', array($current_user_id));
+                //$log = new LogLogin();
+                $log->logout_time = date('Y-m-d H:i:s');
+                $log->save();
+                //////////////////////
+                
 		$this->redirect(Yii::app()->homeUrl);
 	}
 }

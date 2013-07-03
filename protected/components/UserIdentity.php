@@ -30,7 +30,7 @@ class UserIdentity extends CUserIdentity
                         //save date time when login
                         $user->last_login = date('Y-m-d H:i:s');  
                         $user->save();
-			
+
 			$auth=Yii::app()->authManager;
 			
 			if(!$auth->isAssigned($user->userGroup->role,$this->user_id)) {
@@ -40,7 +40,17 @@ class UserIdentity extends CUserIdentity
 
 				}
 			}
-			
+
+        		// Save log for login
+                        $log = new LogLogin;
+                        $log->user_id = $user->user_id;
+                        $log->login_time = $user->last_login;
+                        $log->ip = $_SERVER['REMOTE_ADDR'];
+                        $log->browser = $_SERVER['HTTP_USER_AGENT'];
+                        $log->save();
+        		//////////////////////
+                        
+                        
 			$this->errorCode=self::ERROR_NONE;
 		}
 		
