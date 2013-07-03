@@ -2,41 +2,79 @@
 
 class InformationController extends Controller
 {
-
-	public $layout;
+        public $thai_month_arr=array(  
+                                "0"=>"",  
+                                "1"=>"ม.ค.",  
+                                "2"=>"ก.พ.",  
+                                "3"=>"มี.ค.",  
+                                "4"=>"เม.ย.",  
+                                "5"=>"พ.ค.",  
+                                "6"=>"มิ.ย.",   
+                                "7"=>"ก.ค.",  
+                                "8"=>"ส.ค.",  
+                                "9"=>"ก.ย.",  
+                                "10"=>"ต.ค.",  
+                                "11"=>"พ.ย.",  
+                                "12"=>"ธ.ค."                    
+                            );  
 	
 	public function actionIndex()
 	{
-		$this->layout = '//layouts/information_list';
-		
-		$criteria=new CDbCriteria();
-		$criteria->select='*';
-		$criteria->condition='status=:status';
-		$criteria->params=array(':status'=>1);
-		$criteria->order='date_added desc';
+                 if(isset($_GET['id'])){
+                    $model=Document::model()->findByPk($_GET['id']);
+                    $this->render('detail',array('model'=>$model));
+                }else{
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND doc_group=\'service\'';                
+                    $criteria->order = 'sort_order';
 
-		$information_total = Information::model()->count($criteria);
-	
-		$pages = new CPagination($information_total);
-                $pages->setPageSize(Yii::app()->params['itemsPerPage']);
-                $pages->applyLimit($criteria);
+                    $model = Document::model()->findAll($criteria);
 
-		$informations = Information::model()->findAll($criteria);
-	
-		$this->render('index', array(
-			'informations'	=> $informations,
-			'pages'			=> $pages,
-		));
+                    $this->render('index',array('model'=>$model));
+                }
 	}
-	
-	public function actionView($id)
+
+        public function actionDownload()
 	{
-		$this->layout = '//layouts/information_view';
-	
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+                if(isset($_GET['id'])){
+                    $model=Document::model()->findByPk($_GET['id']);
+                    $this->render('detail',array('model'=>$model));
+                }else{
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND doc_group=\'service\' AND doc_type_id = 5';                
+                    $criteria->order = 'sort_order';
+
+                    $model = Document::model()->findAll($criteria);
+
+                    $this->render('download',array('model'=>$model));
+                }
 	}
+        
+        public function actionLibrary()
+	{
+                if(isset($_GET['id'])){
+                    $model=Document::model()->findByPk($_GET['id']);
+                    $this->render('detail',array('model'=>$model));
+                }else{
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND doc_group=\'service\' AND doc_type_id = 6';                
+                    $criteria->order = 'sort_order';
+
+                    $model = Document::model()->findAll($criteria);
+
+                    $this->render('library',array('model'=>$model));
+                }
+	}
+        
+        public function thai_date($time){  
+
+            $thai_date_return = date("j",$time)." ".$this->thai_month_arr[date("n",$time)]." ".(date("Y",$time)+543);  
+            return $thai_date_return;  
+        }  
+
 
 	// Uncomment the following methods and override them if needed
 	/*
@@ -74,7 +112,7 @@ class InformationController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Information::model()->findByPk($id);
+		$model=  Document::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

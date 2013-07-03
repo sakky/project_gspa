@@ -3,16 +3,18 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Service';
     $this->breadcrumbs=array(
-            'Service',
+            'Service'=>array('index'),
+            'Download Documents',
     );
-    $header = "Service";
+    $header = "Service :: Download Documents";
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - บริการ';
     $this->breadcrumbs=array(
-            'บริการ',
+            'บริการ'=>array('index'),
+            'ดาวน์โหลดแบบฟอร์ม',
     );
-    $header = "บริการ";
+    $header = "บริการ :: ดาวน์โหลดแบบฟอร์ม";
 
 }
 
