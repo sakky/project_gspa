@@ -11,7 +11,7 @@ class CooperationController extends Controller
                     $criteria->order = 'sort_order ASC ,co_id ASC';
                     $model = Cooperation::model()->findAll($criteria);                              
                     $this->render('index',array('model'=>$model));
-                }if(isset($_GET['id'])){
+                }else if(isset($_GET['id'])){
                     $model=Cooperation::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
                 }else{
