@@ -228,5 +228,52 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+        
+	public function actionSearch()
+	{
+
+		$keyword=trim($_GET['q']);
+                
+		if(isset($keyword))
+		{
+                    $condition = new CDbCriteria();
+                    $condition->condition = "name_th LIKE '%$keyword%' OR name_en LIKE '%$keyword%' OR desc_th LIKE '%$keyword%' OR desc_en LIKE '%$keyword%'";
+                    $condition->order = "create_date desc";
+                    $condition->offset = 0;
+                    $condition->limit = 20; 
+                    $model_news = News::model()->findAll($condition);
+
+                    $condition = new CDbCriteria();
+                    $condition->condition = "name_th LIKE '%$keyword%' OR name_en LIKE '%$keyword%'";
+                    $condition->order = "last_update desc";
+                    $condition->offset = 0;
+                    $condition->limit = 20; 
+                    $model_document = Document::model()->findAll($condition);
+
+                    $condition = new CDbCriteria();
+                    $condition->condition = "name_th LIKE '%$keyword%' OR name_en LIKE '%$keyword%'";
+                    $condition->order = "know_id desc";
+                    $condition->offset = 0;
+                    $condition->limit = 20; 
+                    $model_knowledge = Knowledge::model()->findAll($condition);
+                    
+                    $condition = new CDbCriteria();
+                    $condition->condition = "name_th LIKE '%$keyword%' OR name_en LIKE '%$keyword%' OR desc_th LIKE '%$keyword%' OR desc_en LIKE '%$keyword%'";
+                    $condition->order = "last_update desc";
+                    $condition->offset = 0;
+                    $condition->limit = 20; 
+                    $model_student = StudentService::model()->findAll($condition);
+                    
+                    //print_r($model);
+                    $this->render('search',array(
+                        'model_news'=>$model_news,
+                        'model_document'=>$model_document,
+                        'model_knowledge'=>$model_knowledge,
+                        'model_student'=>$model_student,
+                            ));
+		}
+	}       
+        
         
 }

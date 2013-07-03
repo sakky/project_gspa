@@ -53,11 +53,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     <div class="wrapper">
       <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
        <div id="search">    
-        <form action="#" method="post">
+        <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
             <fieldset>
             <legend>Site Search</legend>
-            <input type="text" placeholder="<?php echo $search_text;?>..." />
-            <input type="submit" name="go" id="go" value="GO" />
+            <input type="text" name="q" placeholder="<?php echo $search_text;?>..." />
+            <input type="submit" id="go" value="GO" />
             </fieldset>
         </form>
       </div>
