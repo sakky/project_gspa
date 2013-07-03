@@ -132,7 +132,8 @@ class NewsController extends AdminController
                             if($file_th) {
                                     $file_th->saveAs($this->upload_path_pdf . $model->pdf_th);
                             }
-                            $this->redirect(array('index'));
+                            //$this->redirect(array('index'));
+                            $this->redirect(array('update','id'=>$model->news_id));
                         }
 				
 		}

@@ -95,7 +95,8 @@ class NewsInSideController extends AdminController
                                 if($thumbnail) {
                                         $thumbnail->saveAs($this->upload_path . $model->thumbnail);
                                 }
-                                $this->redirect(array('index'));
+                                //$this->redirect(array('index'));
+                                $this->redirect(array('update','id'=>$model->news_id));
                         }
 				
 		}
