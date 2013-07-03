@@ -35,7 +35,8 @@ body {
 	padding:10px 0 0 0;
 	margin:0 auto;
 	font-size:0.875em;
-	line-height:1.428em
+	line-height:1.428em;
+	min-height: 180px;
 }
 a {
 	color:#159FC1;
@@ -67,7 +68,7 @@ a:hover {
 	width:300px
 }
 .wrapper {
-	width:100%;
+        width:100%;
 	overflow:hidden
 }
 .extra-wrap {
