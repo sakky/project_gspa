@@ -10,19 +10,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "GSPA Alumni";
     $position_text = "Position";
     $major_text = "Major";
+    $gen_text = "Graduate";
     $campus_text ="Campus";
     $info_text = "More Detail";
  
 }else{
-    $this->pageTitle=Yii::app()->name . ' - ทำเนียบศิษย์เก่า';
+    $this->pageTitle=Yii::app()->name . ' - ทำเนียบนิสิต';
     $this->breadcrumbs=array(
         'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
-        'ทำเนียบศิษย์เก่า'
+        'ทำเนียบนิสิต'
 
     );
-    $header = "ทำเนียบศิษย์เก่า";
+    $header = "ทำเนียบนิสิต";
     $position_text = "ตำแหน่ง";
     $major_text = "สาขาวิชา";
+    $gen_text = "รุ่นที่จบ";
     $campus_text = "ศูนย์การศึกษา";
     $info_text = "ข้อมูลเพิ่มเติม";
 }
@@ -33,7 +35,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     <div class="wrapper">
       <article class="col-1">
         <div class="indent-left">            
-            <?php $this->renderPartial('/about/about_menu');?>
+            <?php $this->renderPartial('/alumni/leftmenu');?>
         </div>
       </article>
       <article class="col-2">
@@ -44,19 +46,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
-          <h3><?php echo $header;?></h3>
+          <h3><?php echo $header;?> :: <?php echo $level;?></h3>
           <?php foreach ($model as $value){
                if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     $name = $value->name_en;
                     $major = $value->major_en;
                     $campus = $value->campus_en;
                     $position = $value->position_en;
+                    $gen = $value->alumniType->name_en;
                     
                 }else{
                     $name = $value->name_th;  
                     $major = $value->major_th;
                     $campus = $value->campus_th;
                     $position = $value->position_th;
+                    $gen = $value->alumniType->name_th;
                 }
           ?>
           <div class="wrapper indent-bot">
@@ -64,6 +68,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <div class="extra-wrap">
               <h6><?php echo $name;?></h6>
               <p><?php echo $major_text;?> : <?php echo $major;?><br/>
+              <?php echo $gen_text;?> : <?php echo $gen;?><br/>
               <?php echo $campus_text;?> : <?php echo $campus;?><br/>
               <?php echo $position_text;?> : <?php echo $position;?><br/>
               <span class="small"><a href="<?php echo Yii::app()->createUrl('alumni', array('id'=>$value->alumni_id)); ?>"><?php echo $info_text;?></a></span></p>

@@ -55,15 +55,15 @@ a:hover {
 	float:left
 }
 .fcol-1 {
-	width:240px;
-	margin-right:50px
+	width:300px;
+	margin-right:45px
 }
 .fcol-2 {
-	width:319px;
-	margin-right:50px
+	width:290px;
+	margin-right:45px
 }
 .fcol-3 {
-	width:310px
+	width:300px
 }
 .wrapper {
 	width:100%;
@@ -111,6 +111,12 @@ p {
 .alignright {
 	text-align:right
 }
+a.yellow{
+	color: #ffffff;
+}
+a:hover {
+	color:#FFE400;
+}
 .aligncenter {
 	text-align:center
 }
@@ -155,7 +161,7 @@ p {
 	margin-bottom:25px
 }
 .margin-bot {
-	margin-bottom:35px
+	margin-bottom:10px
 }
 .img-indent {
 	float:left;
@@ -487,8 +493,8 @@ h6 {
 }
 .border-bot2 {
 	width:100%;
-	padding-bottom:35px;
-	/*background:url(../../images/front/pic-2.gif) 0 bottom repeat-x;*/
+/*	padding-bottom:35px;*/
+/*	background:url(../../images/front/pic-2.gif) 0 bottom repeat-x;*/
 	border-bottom:1px solid #FFFFFF;
 }
 .button {
@@ -627,7 +633,25 @@ dl span {
 	display:block;
 	height:50px;
 }
-#contact-form input {
+#contact-form input[type="submit"],#contact-form input[type="reset"] {
+	font-family:Tahoma, Arial, Helvetica, sans-serif;
+	display:inline-block;
+	padding:10px 20px;
+	margin-left:2px;
+	margin-bottom:2px;
+	font-size:13px;
+	color:#000;
+	border:1px solid #fff;
+	background:url(../../images/front/button-tail.gif) 0 0 repeat-x #f2f2f2;
+	box-shadow:0 0 2px #bbb;
+	cursor:pointer;
+}
+#contact-form input[type="submit"]:hover,#contact-form input[type="reset"]:hover {
+	/*background:#60b001;*/
+	background:#F9DF1B;
+	color:#fff
+}
+#contact-form input[type="text"] {
 	width:323px;
 	padding:12px 20px;
 	margin:0;
@@ -653,7 +677,13 @@ dl span {
 	background:#fff;
 	outline:none;
 }
+
+#contact-form .errorMessage{
+    color:red;
+    padding: 5px;
+}
 .buttons-wrapper {
+        width:600px;
 	padding:18px 0 0 0;
 	text-align:right
 }
@@ -786,3 +816,4 @@ ul.pagenav  li.last.hidden
 .pagenav a:hover {
   background: #35AFCE;
 }
+

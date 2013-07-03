@@ -24,13 +24,15 @@ if(Yii::app()->language == 'en_us'){
 }
 $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $contact_us = "Contact Us";
     $h1_text = "Graduate School of Public Administration";
     $css_class = "logo_en";
     $search_text = "Search Here";
     $footer_text = "Graduate School of Public Administration, Burapha University<br/>
         168 Long-Hard Bangsaen Road, Saen Sook Sub-district, Mueang District, Chonburi 20131<br/>
         Tel. +66 (0) 38-393-260 (Auto 5 lines) Fax. +66 (0) 38-745-851-2 Ext. 120";
-}else{  
+}else{
+    $contact_us = "ติดต่อเรา";
     $h1_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา";
     $css_class = "logo_th";
     $search_text = "ค้นหาที่นี่";
@@ -241,14 +243,106 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--==============================content================================-->
 <?php echo $content;?>
 <!--==============================footer=================================-->
+<?php
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $privacy = "Privacy Policy";
+    $service = "Service";
+    $service_student = "Service for student";
+    $service1 = "Download Documents";
+    $service2 = "Library";
+    $service_student1 = "Master's degree";
+    $service_student2 = "Doctorate Degree";
+    $service_student3 = "Evaluation of Teaching";
+    $alumni ="Alumni";
+    $knowledge = "Knowledge";
+    $knowledge1 = "Knowledge Management";
+    $knowledge2 = "Categories of Knowledge";
+    $knowledge3 = "Documentary";
+    $report = "Reports";
+
+    
+}else{ 
+    $privacy = "นโยบายความเป็นส่วนตัว"; 
+    $service = "บริการ";
+    $service_student = "บริการนิสิต";
+    $service1 = "ดาวน์โหลดแบบฟอร์ม";
+    $service2 = "ห้องสมุด";
+    $service_student1 = "ปริญญาโท";
+    $service_student2 = "ปริญาเอก";
+    $service_student3 = "ประเมินการเรียนการสอน";
+    $alumni ="ทำเนียบนิสิต";
+    $knowledge = "คลังข้อมูลความรู้";
+    $knowledge1 = "การจัดการความรู้";
+    $knowledge2 = "หมวดความรู้";
+    $knowledge3 = "สารคดี";
+     $report = "รายงานผลการดำเนินงาน";
+}
+?>
 <footer>
-  <div class="main">
-    <ul class="list-services">
+    <div class="main">
+    <div class="wrapper border-bot2 margin-bot">
+      <article class="fcol-1">
+         <h3 class="color-1"><?php echo $service;?></h3>
+          <ul class="list-3">
+            <li><a href="<?php echo Yii::app()->createUrl('information/master'); ?>"><?php echo $service1;?></a></li>
+	    <li><a href="<?php echo Yii::app()->createUrl('information/doctor'); ?>"><?php echo $service2;?></a></li>            
+          </ul>
+         <br/>
+         <h3 class="color-1"><?php echo $service_student;?></h3>
+         <ul class="list-3">
+            <li><a href="<?php echo Yii::app()->createUrl('student/group1'); ?>"><?php echo $service_student1;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('student/group2'); ?>"><?php echo $service_student2;?></a></li>
+	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('student/group3'); ?>"><?php echo $service_student3;?></a></li>
+            
+          </ul>
+      </article>
+      <article class="fcol-2">
+         <h3 class="color-1"><?php echo $alumni;?></h3>
+          <ul class="list-3">
+            <li><a href="<?php echo Yii::app()->createUrl('alumni/master'); ?>"><?php echo $service_student1;?></a></li>
+	    <li><a href="<?php echo Yii::app()->createUrl('alumni/doctor'); ?>"><?php echo $service_student2;?></a></li>            
+          </ul>
+         <br/>
+         <h3 class="color-1"><?php echo $knowledge;?></h3>
+         <ul class="list-3">
+            <li><a href="<?php echo Yii::app()->createUrl('knowledge/group1'); ?>"><?php echo $knowledge1;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('knowledge/group2'); ?>"><?php echo $knowledge2;?></a></li>
+	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('knowledge/group3'); ?>"><?php echo $knowledge3;?></a></li>            
+          </ul>
+      </article>
+      <article class="fcol-3">
+        <h3 class="color-1"><?php echo $report;?></h3>
+        <ul class="list-3">
+             <?php
+                    $criteria = new CDbCriteria();
+                    $criteria->condition = 'status=:status';
+                    $criteria->params=array(':status'=>1);
+                    $criteria->order = 'sort_order';
+                    $report = ReportType::model()->findAll($criteria);
+                    $count = -1;
+                    foreach($report as $key=>$type) {
+                    
+                    if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                        $name = $type->name_en;
+                    }else{
+                        $name = $type->name_th;
+                    }
+                ?>
+                    <li><a href="<?php echo Yii::app()->createUrl('report', array('type_id'=>$type->report_type_id)); ?>"><?php echo $name;?></a></li>        
+                <?php }?>
+        </ul>
+      </article>
+    </div>
+        <div style="clear:both"></div>
+    
+        <div class="alignright" style="margin-bottom: 10px;">
+<!--            <a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $privacy;?></a>-->
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a> | <a class="yellow" href="#">Site Map</a> | <a class="yellow" href="#">FAQ</a> 
+        </div>
+   <ul class="list-services">
         <li><a href="#">Facebook</a></li>
         <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
-        <div class="alignright">
-            Site Map | FAQ
-        </div>
+
     </ul>
     <div class="alignleft">
         <?php echo $footer_text;?>
