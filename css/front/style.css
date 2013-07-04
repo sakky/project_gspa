@@ -527,7 +527,8 @@ h6 {
 	background:none
 }
 .list-1 li a {
-	color:#808080
+	color:#808080;
+        font-weight: bold;
 }
 .list-1 li a:hover {
 	/*color:#60b001;*/
