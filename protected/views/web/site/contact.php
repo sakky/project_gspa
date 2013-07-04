@@ -27,11 +27,12 @@ $(document).ready(function () {
             <div class="clear"></div>
           </div>
           <dl>
-            <dt>168 ถ.ลงหาดบางแสน ต.แสนสุข <br>
-            อ.เมือง จ.ชลบุรี 20131</dt>
-            <dd><span>Telephone:</span> 038-393-260 (Auto 5 lines)</dd>
-            <dd><span>FAX:</span> 038-745-851-2 Ext. 120</dd>
-            <dd><span>E-mail:</span> <a class="link-2" href="#">mail@xxx.com</a></dd>
+            <?php 
+            if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                echo $page->desc_en;
+            }else{
+                echo $page->desc_th;
+            }?>  
           </dl>
         </article>
         <article class="col-2">

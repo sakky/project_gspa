@@ -129,10 +129,10 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
-                $model=Page::model()->findByPk(7);
-                $email_admin = $model->title_en;
+                $page =Page::model()->findByPk(7);
+                $email_admin = $page->title_en;
                 
-		$model=new ContactForm;
+		$model = new ContactForm;
 
 		if(isset($_POST['ContactForm']))
 		{
@@ -151,7 +151,7 @@ class SiteController extends Controller
 				$this->refresh();
 			}
 		}
-		$this->render('contact',array('model'=>$model));
+		$this->render('contact',array('model'=>$model,'page'=>$page));
 	}       
 
 	/**

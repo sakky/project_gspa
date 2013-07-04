@@ -22,23 +22,20 @@ $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id
 if(Yii::app()->language == 'en_us'){
    Yii::app()->language = 'en' ;
 }
+$contact =Page::model()->findByPk(7);
 $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $contact_us = "Contact Us";
     $h1_text = "Graduate School of Public Administration";
     $css_class = "logo_en";
     $search_text = "Search Here";
-    $footer_text = "Graduate School of Public Administration, Burapha University<br/>
-        168 Long-Hard Bangsaen Road, Saen Sook Sub-district, Mueang District, Chonburi 20131<br/>
-        Tel. +66 (0) 38-393-260 (Auto 5 lines) Fax. +66 (0) 38-745-851-2 Ext. 120";
+    $footer_text = $contact->desc_en;
 }else{
     $contact_us = "ติดต่อเรา";
     $h1_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา";
     $css_class = "logo_th";
     $search_text = "ค้นหาที่นี่";
-    $footer_text = "วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา<br/>
-        168 ถ.ลงหาดบางแสน ต.แสนสุข อ.เมือง จ.ชลบุรี 20131<br/>
-        โทร. 038-393-260 (อัตโนมัติ 5 คู่สาย) โทรสาร 038-745-851-2 ต่อ 120";
+    $footer_text = $contact->desc_th;
 }
 //echo Yii::app()->controller->getId();
 //echo "<br/>";
@@ -162,7 +159,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณาจารย์</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="#" title="ประกาศ" >ประกาศ</a>
