@@ -1,3 +1,4 @@
+<?php Yii::app()->counter->refresh();?>
 <?php
 /* @var $this SiteController */
 $lang = Yii::app()->language; 
@@ -210,6 +211,19 @@ $(window).load(function () {
                 <li><a target="_blank" href="<?php echo $url;?>"><?php echo $link_name;?></a> </li>
             <?php }?>
           </ul>
+
+
+        <!-- User Online -->
+          <div style="padding: 10px; background: #F1F1F1;width: 250px;">
+        <h3>User Online</h3>
+            online: <?php echo Yii::app()->counter->getOnline(); ?><br />
+            today: <?php echo Yii::app()->counter->getToday(); ?><br />
+            yesterday: <?php echo Yii::app()->counter->getYesterday(); ?><br />
+            total: <?php echo Yii::app()->counter->getTotal(); ?><br />
+            maximum: <?php echo Yii::app()->counter->getMaximal(); ?><br />
+            date for maximum: <?php echo $this->getThaiDate(date('Y-m-d', Yii::app()->counter->getMaximalTime()),'dmY'); ?>
+          </div>
+
         </div>
       </article>
     </div>
