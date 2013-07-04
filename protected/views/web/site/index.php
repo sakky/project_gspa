@@ -124,11 +124,11 @@ $(window).load(function () {
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
-                  <? if ($new->vdo_link) { ?>
+                  <?php if ($new->vdo_link) { ?>
                   <iframe width="209" height="215" src="<?php echo $new->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
-                  <? } else { ?>
+                  <?php } else { ?>
                   <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
-                  <? } ?>
+                  <?php } ?>
               </a>
           </figure>
           <p class="img-indent-bot"><?php echo $news_title;?></p>
