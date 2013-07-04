@@ -51,7 +51,7 @@ class News extends CActiveRecord
 			array('news_type_id, news_group_id, name_en, name_th,title_en,title_th,create_date, status,', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('news_type_id, news_group_id, show_homepage, show_new, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, image', 'length', 'max'=>255),
-			array('title_en, title_th, desc_en, desc_th, create_date ,vdo_link', 'safe'),
+			array('title_en, title_th, desc_en, desc_th, create_date ,vdo_link ,news_icon', 'safe'),
                         array('image, thumbnail', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
                         array('pdf_en,pdf_th', 'file', 'types'=>'pdf', 'maxSize'=>1024 * 1024 * 10, 'tooLarge'=>'ไฟล์ควรมีขนาดเล็กกว่า 10 MB','allowEmpty'=>true) ,
 			// The following rule is used by search().
@@ -91,6 +91,7 @@ class News extends CActiveRecord
                     	'pdf_en' => 'ไฟล์ PDF (ภาษาอังกฤษ)',
 			'pdf_th' => 'ไฟล์ PDF (ภาษาไทย)',  
 			'image' => 'รูปภาพประกอบ',
+                        'news_icon' => 'รูปไอคอน',
                         'thumbnail' => 'รูปภาพ Thumbnail',
                         'vdo_link' => 'VDO Link',
                         
