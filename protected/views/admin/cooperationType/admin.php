@@ -57,11 +57,11 @@ $('.search-form form').submit(function(){
                         'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
                         'filter'=>array('inbound'=>'ในประเทศ','outbound'=>'ต่างประเทศ'),
 		),
-                array(
-			'name'=>'sort_order', 
-                        'header'=>'ลำดับ',
-			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
-		),
+//                array(
+//			'name'=>'sort_order', 
+//                        'header'=>'ลำดับ',
+//			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+//		),
 		array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
