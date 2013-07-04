@@ -11,7 +11,7 @@ class ReportController extends Controller
                     $criteria->order = 'sort_order';
                     $model = Report::model()->findAll($criteria);    
                     
-                    $type = ReportType::model()->findByPK($id);  
+                    $type = ReportType::model()->findByPK($_GET['type_id']);  
                     $this->render('index',array('model'=>$model,'type'=>$type));
                     
                 }else if(isset($_GET['id'])){
