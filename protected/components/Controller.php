@@ -98,5 +98,14 @@ class Controller extends CController
                     
             }
             return $thai_date_return;  
-        }       
+        }   
+
+        public function showIcon($value){  
+
+            $icon = '';
+            if ($value) {
+                $icon = ' <span style="display:inline"><img src="'.Yii::app()->request->baseUrl.'/images/front/icon_'.$value.'.gif" style="vertical-align:middle;"></span>';
+            } 
+            return $icon;  
+        }            
 }
