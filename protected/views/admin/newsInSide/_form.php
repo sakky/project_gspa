@@ -90,6 +90,16 @@
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
 
+        <?php
+        $icon_list = array('new'=>'new','hot'=>'hot','update'=>'update');
+        ?>        
+	<div class="row"  style="margin-top: 20px;vertical-align: middle;">
+		<?php echo $form->labelEx($model,'news_icon'); ?>
+		<?php echo $form->dropDownList($model,'news_icon',$icon_list,array(
+                            'prompt' => '--ไม่แสดงไอคอน--',
+                            'value' => '0',)); ?>
+	</div>
+        
         <div class="row"><br/>
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
 		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/news/' . $model->image, '', array('style'=>'width: 600px')); ?><br />
