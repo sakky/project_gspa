@@ -92,7 +92,7 @@
                 <tr>
                     <td width="20%"><b>วันที่ปรับปรุงล่าสุด</b></td>
                     <td width="2%">:</td>
-                    <td ><?php echo $model->time_stamp;?></td>
+                    <td ><?php echo $this->getThaiDate($model->time_stamp,'dmYHis');?></td>
                 </tr>
                 <tr>
                     <td><b>ผู้ปรับปรุงข้อมูล</b></td>

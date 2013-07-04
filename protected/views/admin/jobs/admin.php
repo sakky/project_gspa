@@ -56,8 +56,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		),
                 array(
 			'name'=>'create_date',
-                        'value'=> 'date(\'d/m/Y\',strtotime($data->create_date))',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 70px;'),
+                        'value'=> 'Controller::getThaiDate($data->create_date,"dmY")',
+			'htmlOptions'=>array('style'=>'text-align: left;width: 80px;'),
 		),
                 array(
 			'name'=>'status',                 

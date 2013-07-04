@@ -56,10 +56,6 @@ $('.search-form form').submit(function(){
                         'htmlOptions'=>array('style'=>'text-align: left;width: 90px;'),
                         'filter'=>array('Master'=>'ปริญญาโท','Doctor'=>'ปริญญาเอก'),
 		),
-                array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: left;width: 80px;'),
-		),
 		array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',

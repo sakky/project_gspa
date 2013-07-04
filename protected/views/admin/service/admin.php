@@ -60,25 +60,9 @@ $('.search-form form').submit(function(){
                             array(
 			'name'=>'last_update',
                         'header'=>'วันที่ปรับปรุง',
-                        'value'=> 'date(\'d/m/Y\',strtotime($data->last_update))',
+                        'value'=> 'Controller::getThaiDate($data->last_update,"dmY")',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-                        'filter'=>$this->widget('zii.widgets.jui.CJuiDatepicker', array('model'=>$model, 'attribute'=>'last_update','language'=>'th','options'=>array(
-                                    'showAnim'=>'fold',
-                                    'changeMonth'=>true,
-                                    'changeYear'=>true,
-                                    'changeDate'=>true,
-                                    'showAnim'=>'fold',
-                                    'dateFormat' => 'yy-mm-dd', // save to db format
-                                    'altFormat' => 'dd/mm/yy', // show to user format
-                                    //'showButtonPanel'=>true,
-                                    'debug'=>true,
 
-                                    ),
-                        'htmlOptions' => array(
-                            //'value' => ($model->last_update)?$crate_date:date('d/m/Y'), // set the default date here
-                            'class'=>'shadowdatepicker',
-                            'readonly'=>"readonly",
-                        )), true),
 		),
 		array(
 			'name'=>'status',                 
