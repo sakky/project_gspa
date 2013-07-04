@@ -39,8 +39,27 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
         </div>
+
           <h3><?php echo $name;?></h3>
-          <div><?php echo $desc;?></div>
+            <?php
+            Yii::import('ext.jqPrettyPhoto');
+
+            $options = array(
+                'slideshow'=>2000,
+                'autoplay_slideshow'=>false, 
+                'show_title'=>false
+            );
+            // call addPretty static function
+            jqPrettyPhoto::addPretty('.gallery a',jqPrettyPhoto::PRETTY_GALLERY,jqPrettyPhoto::THEME_FACEBOOK, $options);
+            ?>
+
+            <p>
+            <div class="gallery"><br />
+              <div><?php echo $desc;?></div>
+            </div>
+            </p>
+
+
         </article>
       
     </div>
