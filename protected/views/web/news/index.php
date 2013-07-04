@@ -51,7 +51,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <div class="clear"></div>
           </div>
           <div style="float:left;width:300px;margin-left:10px;">
-          <h6><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $name;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a></h6>
+          <h6><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $name;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h6>
           <p class="p2"><?php echo $title;?></p>
           <a class="button" href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $readmore;?></a> 
           </div>

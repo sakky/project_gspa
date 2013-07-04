@@ -120,7 +120,7 @@ $(window).load(function () {
                   $news_readmore = "ดูข่าวทั้งหมด";
               }
         ?>
-        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a></h4>
+         <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h4>
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
@@ -151,7 +151,7 @@ $(window).load(function () {
                   $news_readmore = "ดูข่าวทั้งหมด";
               }
         ?>
-        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a></h4>
+        <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h4>
         <div class="p1">
           <figure class="img-border" style="margin-right:10px;">
               <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">

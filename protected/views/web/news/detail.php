@@ -62,7 +62,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
-          <h4><?php echo $name;?></h4>
+          <h4><?php echo $name;?></h4><?php echo $this->showIcon($model->news_icon);?>
 
           <div style="float:right"><?php echo $news_date. ' '. $this->getThaiDate($model->create_date,'dmY');?></div>
           <p><br/><br/></p>
