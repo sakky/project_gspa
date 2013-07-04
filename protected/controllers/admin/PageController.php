@@ -329,12 +329,6 @@ class PageController extends AdminController
         public function actionEdit($id)
 	{    
             if($this->menu_use[1]||$this->menu_use[13]){           
-             $menu_use = array();
-                      $user_menu = explode(',', $user_group_menu);
-                      foreach ($user_menu as $key => $value) {
-                          
-                          $menu_use[$value] = $value;
-                      }
 		$model=$this->loadModel($id);
                 if(isset($_POST['Page']))
 		{
