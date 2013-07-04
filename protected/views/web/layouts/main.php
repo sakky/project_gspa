@@ -77,9 +77,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Teachers</a></li>
-<!--                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">Academic Cooperation</a></li>     
-                            <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">GSPA Alumni</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>           -->
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="#" title="Announcement" >Announcement</a>
@@ -164,9 +162,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณาจารย์</a></li>
-<!--                            <li><a href="<?php echo Yii::app()->createUrl('cooperation'); ?>">ความร่วมมือทางวิชาการ</a></li>     
-                            <li><a href="<?php echo Yii::app()->createUrl('alumni'); ?>">ทำเนียบศิษย์เก่า</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>           -->
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li>
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="#" title="ประกาศ" >ประกาศ</a>
