@@ -162,10 +162,11 @@
             </li>
             <?php }?>
             <?php if($user_role=='top_admin'){?>
-            <li <?php if($controller=='user'||$controller=='userGroup'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
-                <ul <?php if($controller=='user'||$controller=='userGroup'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
+            <li <?php if($controller=='user'||$controller=='userGroup'||$controller=='log'){?> class="current" <?php }?>><a href="#">ผู้ใช้งาน</a>
+                <ul <?php if($controller=='user'||$controller=='userGroup'||$controller=='log'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
                         <li <?php if($curpage=='user/index'||$curpage=='user/create'||$curpage=='user/update'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('user'); ?>">ข้อมูลผู้ใช้งาน</a></li>
                         <li <?php if($controller=='userGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('userGroup'); ?>">ประเภทผู้ใช้งาน</a></li>
+                        <li <?php if($controller=='log'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('log'); ?>">ประวัติการเข้าใช้ระบบ</a></li>
                 </ul>
             </li>
             <?php }?>
