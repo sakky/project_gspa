@@ -57,10 +57,6 @@ $('.search-form form').submit(function(){
 
 		),
                 array(
-			'name'=>'sort_order', 
-			'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
-                array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 60px;'),

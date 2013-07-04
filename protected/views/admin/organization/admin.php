@@ -50,11 +50,6 @@ $('.search-form form').submit(function(){
                         'htmlOptions'=>array('style'=>'text-align: left;'),
 		),
                 array(
-			'name'=>'sort_order',                        
-                        'header'=>'การเรียงลำดับ',
-                        'htmlOptions'=>array('style'=>'text-align: center;width: 80px;'),
-		),
-                array(
 			'name'=>'status',                 
 			'value'=> '($data->status)? \'แสดง\' : \'ไม่แสดง\'',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
