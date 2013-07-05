@@ -9,16 +9,14 @@ $this->breadcrumbs=array(
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
 	'columns'=>array(
-                array(
-                        'header'=> 'ลำดับ',
-                        'type' => 'raw',
-                        'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1', //this for the auto page number of cgridview
+            	array(
+			'name'=>'log_id',
                         'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
-                ),               
+		),              
 		array(
 			'name'=>'user_id',
                         'value'=>'$data->user->firstname." ".$data->user->lastname',
-			'htmlOptions'=>array('style'=>'text-align: left;width: 150px;'),
+			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),
 		),
                 array(
 			'name'=>'login_time',
@@ -30,6 +28,11 @@ $this->breadcrumbs=array(
 			'name'=>'logout_time',
                         'value'=> '($data->logout_time)?Controller::getThaiDate($data->logout_time,"dmYHis"):""',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),                        
+
+		),
+                array(
+			'name'=>'ip',
+			'htmlOptions'=>array('style'=>'text-align: left;width: 70px;'),                        
 
 		),
                 array(
