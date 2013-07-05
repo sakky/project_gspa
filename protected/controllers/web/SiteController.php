@@ -152,7 +152,25 @@ class SiteController extends Controller
 			}
 		}
 		$this->render('contact',array('model'=>$model,'page'=>$page));
-	}       
+	}
+        /**
+	 * Displays the privacy page
+	 */
+	public function actionPrivacy()
+	{
+                $model =Page::model()->findByPk(8);
+                
+		$this->render('privacy',array('model'=>$model));
+	}
+        
+        /**
+	 * Displays the faq page
+	 */
+	public function actionFaq()
+	{
+                $model =Page::model()->findByPk(9);
+		$this->render('privacy',array('model'=>$model));
+	}
 
 	/**
 	 * Displays the login page
