@@ -342,7 +342,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     </ul>
     <div class="alignleft" style="color:#FFFFFF">
         <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
-            <div style="margin-left:70px;"><?php echo $footer_text;?></div>
+            <div style="margin-left:70px;"><?php echo nl2br($footer_text);?></div>
     </div>
   </div>
 </footer>
