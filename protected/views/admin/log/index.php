@@ -22,11 +22,13 @@ $this->breadcrumbs=array(
 		),
                 array(
 			'name'=>'login_time',
+                        'value'=> 'Controller::getThaiDate($data->login_time,"dmYHis")',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),                        
 
 		),
                 array(
 			'name'=>'logout_time',
+                        'value'=> '($data->logout_time)?Controller::getThaiDate($data->logout_time,"dmYHis"):""',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),                        
 
 		),
