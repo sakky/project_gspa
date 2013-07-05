@@ -28,10 +28,11 @@ $(document).ready(function () {
           </div>
           <dl>
             <?php 
+            $lang = Yii::app()->language;
             if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-                echo $page->desc_en;
+                echo nl2br($page->desc_en);
             }else{
-                echo $page->desc_th;
+                echo nl2br($page->desc_th);
             }?>  
           </dl>
         </article>
