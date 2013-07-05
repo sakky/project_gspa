@@ -8,6 +8,9 @@
         <?php if($model->page_id!=3){?>
 	<div class="row">
                 <label>ข้อมูลหน้าภาษาอังกฤษ</label><br/>
+                <?php if($model->page_id==7){?>
+                        <?php echo $form->textArea($model,'desc_en',array('rows'=>6, 'cols'=>50)); ?>
+                <?php }else{?>
                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
                         'model'=>$model,
                         'modelAttribute'=>'desc_en',
@@ -24,11 +27,15 @@
                                 'upImgExt'=>'jpg,jpeg,gif,png',
                         ),
                 )); ?>
+                <?php } ?>
 		<?php echo $form->error($model,'desc_en'); ?>
 	</div>
         <br/><br/>
 	<div class="row">
                 <label>ข้อมูลหน้าภาษาไทย</label><br/>
+                <?php if($model->page_id==7){?>
+                        <?php echo $form->textArea($model,'desc_th',array('rows'=>6, 'cols'=>50)); ?>
+                <?php }else{?>
                 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
                         'model'=>$model,
                         'modelAttribute'=>'desc_th',
@@ -45,6 +52,7 @@
                                 'upImgExt'=>'jpg,jpeg,gif,png',
                         ),
                 )); ?>
+                <?php } ?>
 		<?php echo $form->error($model,'desc_th'); ?>
 	</div>
         <?php }?>

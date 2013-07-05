@@ -12,7 +12,10 @@ class LogController extends AdminController
 	public function actionIndex()
 	{
              if($this->user_role=='top_admin'){ 
-		$this->render('index');
+                $model=new LogLogin;
+		$this->render('index',array(
+			'model'=>$model,
+		));
              }else{
                 $this->redirect(array('site/index'));
             }  

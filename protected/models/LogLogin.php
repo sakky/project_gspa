@@ -51,6 +51,14 @@ class LogLogin extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+                    	'log_id' => 'Log ID',
+			'login_time' => 'เวลาที่เข้าสู่ระบบ',
+			'logout_time' => 'เวลาที่ออกจากระบบ',
+                    	'user_id' => 'ชื่อผู้เข้าใช้',
+			'ip' => 'IP',
+			'browser' => 'Browser',
+
+
 
 		);
 	}
@@ -70,7 +78,7 @@ class LogLogin extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-                        'pagination'=>array('pageSize'=> 20,)
+                        'pagination'=>array('pageSize'=> 50,)
 		));
 	}
 }
