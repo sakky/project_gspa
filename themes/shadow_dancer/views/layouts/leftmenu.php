@@ -153,9 +153,11 @@
             </li>
             <?php }?>
             <?php if($menu_use[13]){?>
-            <li <?php if($curpage=='page/edit7' || $curpage=='page/edit3'||$controller=='slide'){?> class="current" <?php }?>><a href="#">เมนูอื่นๆ</a>
-                <ul <?php if($curpage=='page/edit7' || $curpage=='page/edit3' ||$controller=='slide'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
-                        <li <?php if($curpage=='page/edit7'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>7)); ?>">ข้อมูลการติดต่อ</a></li>                       
+            <li <?php if($curpage=='page/edit7'|| $curpage=='page/edit8'|| $curpage=='page/edit9' || $curpage=='page/edit3'||$controller=='slide'){?> class="current" <?php }?>><a href="#">เมนูอื่นๆ</a>
+                <ul <?php if($curpage=='page/edit7'|| $curpage=='page/edit8'|| $curpage=='page/edit9' || $curpage=='page/edit3' ||$controller=='slide'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>                         
+                        <li <?php if($curpage=='page/edit7'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>7)); ?>">ข้อมูลการติดต่อ</a></li>  
+                        <li <?php if($curpage=='page/edit8'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>8)); ?>">นโยบายความเป็นส่วนตัว</a></li>
+                        <li <?php if($curpage=='page/edit9'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>9)); ?>">คำถามที่พบบ่อย</a></li>
                         <li <?php if($controller=='slide'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('slide'); ?>">Slide Show</a></li>
                         <li <?php if($curpage=='page/edit3'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('page/edit', array('id'=>3)); ?>">Video</a></li>
                 </ul>
