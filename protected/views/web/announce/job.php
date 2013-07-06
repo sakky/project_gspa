@@ -3,7 +3,7 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Job Announcement';
     $this->breadcrumbs=array(
-            'Announcement'=>array('admission'),
+            'Announcement'=>array('index'),
             'Jobs',
     );
     $header = "Job Announcement";
@@ -11,7 +11,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประกาศรับสมัครงาน';
     $this->breadcrumbs=array(
-            'ประกาศ'=>array('admission'),
+            'ประกาศ'=>array('index'),
             'รับสมัครงาน',
     );
     $header = "ประกาศรับสมัครงาน";

@@ -5,8 +5,10 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Announcement';
     $this->breadcrumbs=array(
-            'Announcement'=>array('admission'),
-            $model->newsType->name_en
+            'Announcement'=>array('index'),
+            $model->newsType->name_en=>array($action),
+            $model->name_en
+            
     );
     $info_text = "Download More Info.";
     $name = $model->name_en;
@@ -17,8 +19,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประกาศ';
     $this->breadcrumbs=array(
-            'ประกาศ'=>array('admission'),
+            'ประกาศ'=>array('index'),
             $model->newsType->name_th=>array($action),
+            $model->name_en
     );
     $info_text = "ดาวน์โหลดรายละเอียด";
     $name = $model->name_en;
