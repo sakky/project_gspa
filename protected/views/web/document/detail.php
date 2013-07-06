@@ -3,7 +3,8 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Download';
     $this->breadcrumbs=array(
-            'Download',
+            'Download'=>array('index'),
+            $model->documentType->name_en=>array('type','id'=>$model->doc_type_id),
             $model->name_en
     );
     $header = "Download";
@@ -11,7 +12,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name. ' - สื่อเผยแพร่/ดาวน์โหลด';
     $this->breadcrumbs=array(
-            'สื่อเผยแพร่/ดาวน์โหลด',
+            'สื่อเผยแพร่/ดาวน์โหลด'=>array('index'),
+            $model->documentType->name_th=>array('type','id'=>$model->doc_type_id),
             $model->name_th
     );
     $header = "สื่อเผยแพร่/ดาวน์โหลด";

@@ -2,9 +2,16 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Download';
-    $this->breadcrumbs=array(
-            'Download',
-    );
+    if($type->doc_type_id){
+        $this->breadcrumbs=array(
+                'Download'=>array('index'),
+                $type->name_en
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'Download',
+        );
+    }
     $header = "Download :: ".$type->name_en;
     $td1_header = "No.";
     $td2_header = "Topic";
@@ -12,9 +19,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $td4_header = "Visitors";
 }else{
     $this->pageTitle=Yii::app()->name. ' - สื่อเผยแพร่/ดาวน์โหลด';
-    $this->breadcrumbs=array(
-            'สื่อเผยแพร่/ดาวน์โหลด',
-    );
+    if($type->doc_type_id){
+        $this->breadcrumbs=array(
+                'สื่อเผยแพร่/ดาวน์โหลด'=>array('index'),
+                $type->name_th
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'สื่อเผยแพร่/ดาวน์โหลด',
+        );
+    }    
     $header = "สื่อเผยแพร่/ดาวน์โหลด :: ".$type->name_th;
     $td1_header = "ลำดับ";
     $td2_header = "สื่อเผยแพร่/ดาวน์โหลด";
