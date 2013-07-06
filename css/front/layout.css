@@ -28,6 +28,17 @@
 	margin-right:20px;
 	/*background-color:#00FFFF;*/
 }
+#page2 .col-left {
+        float: left;
+	width:589px;
+	margin-right:40px;
+	/*background:#CC6666;*/
+}
+#page2 .col-right {
+        float: right;
+	width:320px;
+	/*background-color:#3366CC;*/
+}
 #page2 .col-4 {
 	width:460px;
 	/*background-color:#FFFF66;*/
