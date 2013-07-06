@@ -12,7 +12,7 @@ class NewsController extends Controller
                     $this->render('detail',array('model'=>$model, 'model_photo'=>$model_photo));
                 }else{
                 $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "status = 1 AND news_type_id = 5";
+                $news_criteria->condition = "status = 1 AND (news_type_id = 5 OR news_type_id = 1)";
                 $news_criteria->order = "create_date desc,news_id desc";
                 
                 
@@ -28,6 +28,32 @@ class NewsController extends Controller
                 }
                 
 	}
+	public function actionInside()
+	{
+                if(isset($_GET['id'])){
+                    $model=News::model()->findByPk($_GET['id']);
+                    
+                    $model_photo=Photo::model()->getPhotoByAlbum($_GET['id']);
+                    //print_r($model_photo);
+                    $this->render('detail',array('model'=>$model, 'model_photo'=>$model_photo));
+                }else{
+                $news_criteria = new CDbCriteria();
+                $news_criteria->condition = "status = 1 AND news_type_id = 5";
+                $news_criteria->order = "create_date desc,news_id desc";
+                
+                
+                $news_total = News::model()->count($news_criteria);
+	
+		$pages = new CPagination($news_total);
+                $pages->setPageSize(10);
+                $pages->applyLimit($news_criteria);
+                
+                $news = News::model()->findAll($news_criteria);
+                
+		$this->render('news',array('news'=>$news,'pages'=> $pages,));
+                }
+                
+	}        
         public function actionMedia()
 	{
                 if(isset($_GET['id'])){
@@ -65,7 +91,7 @@ class NewsController extends Controller
                 
                 $news = News::model()->findAll($news_criteria);
                 
-		$this->render('index',array('news'=>$news,'pages'=> $pages,));
+		$this->render('news',array('news'=>$news,'pages'=> $pages,));
                 
 	}
         
