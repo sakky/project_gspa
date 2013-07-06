@@ -19,6 +19,7 @@
 <?php
 $curpage = Yii::app()->getController()->getAction()->controller->id;
 $curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
+//echo $curpage;
 if(Yii::app()->language == 'en_us'){
    Yii::app()->language = 'en' ;
 }
@@ -43,7 +44,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 //echo "<br/>";
 //echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
 ?>
-<body <?php if($curpage=='site/index'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
+<body <?php if($curpage=='site/index'||$curpage=='site/faq'||$curpage=='site/privacy'||$curpage=='site/sitemap'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
 <!--==============================header=================================-->
 <header>
   <div class="main">
@@ -239,6 +240,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <?php
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $privacy = "Privacy Policy";
+    $faq = "FAQ";
+    $site_map = "Site Map";
     $service = "Service";
     $service_student = "Service for student";
     $service1 = "Download Documents";
@@ -255,7 +258,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
     
 }else{ 
-    $privacy = "นโยบายความเป็นส่วนตัว"; 
+    $privacy = "นโยบายความเป็นส่วนตัว";
+    $faq = "คำถามที่พบบ่อย";
+    $site_map = "แผนที่เว็บไซต์";
     $service = "บริการ";
     $service_student = "บริการนิสิต";
     $service1 = "ดาวน์โหลดแบบฟอร์ม";
@@ -268,7 +273,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $knowledge1 = "การจัดการความรู้";
     $knowledge2 = "หมวดความรู้";
     $knowledge3 = "สารคดี";
-     $report = "รายงานผลการดำเนินงาน";
+    $report = "รายงานผลการดำเนินงาน";
 }
 ?>
 <footer>
@@ -326,24 +331,24 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         </ul>
       </article>
     </div>
+<!--        <ul class="list-services">
+            <li><a href="#">Facebook</a></li>
+            <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
+        </ul>-->
         <div style="clear:both"></div>
-    
-<!--        <div class="alignright" style="margin-bottom: 10px;">
-            <a href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $privacy;?></a>
-            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a>
-            | <a class="yellow" href="#">Site Map</a>
-            | <a class="yellow" href="#">FAQ</a> 
-        </div>-->
-   <ul class="list-services">
-       <li><a style="background:none;" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?></a></li> 
-       <li><a href="#">Facebook</a></li>
-        <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
-
-    </ul>
-    <div class="alignleft" style="color:#FFFFFF">
-        <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
+        <div style="color:#FFFFFF;float:left;width: 550px;">
+            <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
             <div style="margin-left:70px;"><?php echo nl2br($footer_text);?></div>
-    </div>
+        </div>
+       <div style="margin-bottom: 10px;float: right;">
+            
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?> |</a>
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/privacy'); ?>"><?php echo $privacy;?> |</a>            
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/faq'); ?>"><?php echo $faq;?> |</a> 
+            <a class="yellow" href="<?php echo Yii::app()->createUrl('site/sitemap'); ?>"><?php echo $site_map;?></a>
+        </div>
+        <div style="clear:both"></div>
+
   </div>
 </footer>
 
