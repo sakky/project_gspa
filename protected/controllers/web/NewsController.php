@@ -19,12 +19,34 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(6);
+                $pages->setPageSize(10);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
                 
 		$this->render('index',array('news'=>$news,'pages'=> $pages,));
+                }
+                
+	}
+        public function actionMedia()
+	{
+                if(isset($_GET['id'])){
+                    $model=News::model()->findByPk($_GET['id']);
+                    $this->render('detail',array('model'=>$model));
+                }else{
+                $news_criteria = new CDbCriteria();
+                $news_criteria->condition = "status = 1 AND news_type_id = 1";
+                $news_criteria->order = "create_date desc,news_id desc";
+                
+                $news_total = News::model()->count($news_criteria);
+	
+		$pages = new CPagination($news_total);
+                $pages->setPageSize(10);
+                $pages->applyLimit($news_criteria);
+                
+                $news = News::model()->findAll($news_criteria);
+                
+		$this->render('media',array('news'=>$news,'pages'=> $pages,));
                 }
                 
 	}
@@ -38,7 +60,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(6);
+                $pages->setPageSize(10);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -57,7 +79,7 @@ class NewsController extends Controller
                 $news_total = News::model()->count($news_criteria);
 	
 		$pages = new CPagination($news_total);
-                $pages->setPageSize(6);
+                $pages->setPageSize(10);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
@@ -66,28 +88,7 @@ class NewsController extends Controller
                 
 	}
         
-        public function actionMedia()
-	{
-                if(isset($_GET['id'])){
-                    $model=News::model()->findByPk($_GET['id']);
-                    $this->render('detail',array('model'=>$model));
-                }else{
-                $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "status = 1 AND news_type_id = 1";
-                $news_criteria->order = "create_date desc,news_id desc";
-                
-                $news_total = News::model()->count($news_criteria);
-	
-		$pages = new CPagination($news_total);
-                $pages->setPageSize(20);
-                $pages->applyLimit($news_criteria);
-                
-                $news = News::model()->findAll($news_criteria);
-                
-		$this->render('media',array('news'=>$news,'pages'=> $pages,));
-                }
-                
-	}
+
 
 	// Uncomment the following methods and override them if needed
 	/*
