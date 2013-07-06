@@ -30,7 +30,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 </ul>
 <?php }else{?>
 <ul class="list-1">
-        <li><h6><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน</a></h6></li>
         <?php
             $criteria = new CDbCriteria();
             $criteria->condition = 'status=:status AND news_type_id=5';

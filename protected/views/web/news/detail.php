@@ -6,18 +6,22 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
     $name = $model->name_en;
     $type = $model->news_type_id;
-    if($type == 1){
-        $type_name ="GSPA News";
-    }
     if($type == 5){
-        $type_name ="Media News";
+        $type_name ="GSPA News";
+        $url = 'inside';
+        $url_group = 'group';
+    }
+    if($type == 1){
+        $type_name ="Media";
+        $url = 'media';
+        $url_group = 'groupMedia';
     }
     $group = $model->newsGroup->name_en;
     $desc = $model->desc_en;
     $this->breadcrumbs=array(
-            'News & Activities',
-            //$type_name,
-            $group
+            'News & Activities'=>array('index'),
+            $type_name=>array($url),
+            $group=>array($url_group,'id'=>$model->news_group_id),
     );
     
     $news_date = 'Date :';
@@ -27,18 +31,22 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
     $name = $model->name_th;
     $type = $model->news_type_id;
-    if($type == 1){
-        $type_name ="ภายใน";
-    }
     if($type == 5){
+        $type_name ="ภายใน";
+        $url = 'inside';
+        $url_group = 'group';        
+    }
+    if($type == 1){
         $type_name ="จากสื่อ";
+        $url = 'media';
+        $url_group = 'groupMedia';        
     }
     $group = $model->newsGroup->name_th;
     $desc = $model->desc_th;
     $this->breadcrumbs=array(
-            'ประชาสัมพันธ์/กิจกรรม',
-            //$type_name,
-            $group=>array($action)
+            'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+            $type_name=>array($url),
+            $group=>array($url_group,'id'=>$model->news_group_id),
         
     );
     $news_date = 'วันที่ข่าว :';

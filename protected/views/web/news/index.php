@@ -4,18 +4,16 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - News & Activities';
     $this->breadcrumbs=array(
-            'News & Activities'=>array('index'),
-            'GSPA News',
+            'News & Activities',
     );
-    $header = "GSPA News";
+    $header = "News & Activities";
     $readmore = "Read More";
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์/กิจกรรม';
     $this->breadcrumbs=array(
-            'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
-            'ภายใน',
+            'ประชาสัมพันธ์/กิจกรรม',
     );
-    $header = "ประชาสัมพันธ์/กิจกรรม : ภายใน";
+    $header = "ประชาสัมพันธ์/กิจกรรม ";
     $readmore = "อ่านต่อ...";
 }
 ?>

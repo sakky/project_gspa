@@ -4,20 +4,40 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - News & Activities';
-    $group = $model->newsGroup->name_en;
-    $this->breadcrumbs=array(
-            'News & Activities'=>array('media'),
-            'Media'
-    );
+    if($newsGroup->news_group_id){
+        $this->breadcrumbs=array(
+                'News & Activities'=>array('index'),
+                'Media'=>array('media'),
+                $newsGroup->name_en
+
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'News & Activities'=>array('index'),
+                'Media',
+        );
+    }
     $header = "Media News";
     $readmore = "Read More";
 }else{
     $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์/กิจกรรม';
-    $group = $model->newsGroup->name_th;
-    $this->breadcrumbs=array(
-            'ประชาสัมพันธ์/กิจกรรม'=>array('media'),
-            'จากสื่อ'
-    );
+    if($newsGroup->news_group_id){
+        $this->breadcrumbs=array(
+                'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+                'จากสื่อ'=>array('media'),
+                $newsGroup->name_th
+
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+                'จากสื่อ',
+        );
+    }
+//    $this->breadcrumbs=array(
+//            'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+//            'จากสื่อ'
+//    );
     $header = "ประชาสัมพันธ์/กิจกรรม : จากสื่อ";
     $readmore = "อ่านต่อ...";
 }

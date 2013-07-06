@@ -2,20 +2,39 @@
 /* @var $this NewsController */
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Public Relations News';
-    $this->breadcrumbs=array(
-            'News'=>array('index'),
-            'Public Relations News'
-    );
-    $header = "Public Relations News";
+    $this->pageTitle='Graduate School of Public Administration - News & Activities';
+    if($newsGroup->news_group_id){
+        $this->breadcrumbs=array(
+                'News & Activities'=>array('index'),
+                'GSPA News'=>array('inside'),
+                $newsGroup->name_en
+
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'News & Activities'=>array('index'),
+                'GSPA News',
+        );
+    }
+    
+    $header = "GSPA News";
     $readmore = "Read More";
 }else{
-    $this->pageTitle=Yii::app()->name. ' - ข่าวประชาสัมพันธ์';
-    $this->breadcrumbs=array(
-            'ข่าวสาร'=>array('index'),
-            'ข่าวประชาสัมพันธ์',
-    );
-    $header = "ข่าวประชาสัมพันธ์";
+    $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์/กิจกรรม';
+    if($newsGroup->news_group_id){
+        $this->breadcrumbs=array(
+                'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+                'ภายใน'=>array('inside'),
+                $newsGroup->name_th
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+                'ภายใน',
+        );
+    }
+
+    $header = "ประชาสัมพันธ์/กิจกรรม : ภายใน";
     $readmore = "อ่านต่อ...";
 }
 ?>
@@ -35,8 +54,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
-          <h3><?php echo $header;?></h3>
-          <ul class="list-2">
+          <h3><?php echo $header;?></h3>         
           <?php foreach ($news as $new){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $name = $new->name_en;
@@ -45,18 +63,28 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $name = $new->name_th;
                   $title = $new->title_th;
               }
-              
           ?>
-                <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $name;?></a></li>
+          <div class="wrapper margin-bot">
+          <div class="prev-indent-bot" style="float:left">
+            <figure class="img-border"><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>"<?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture2.png"<?php }?> alt="" width="290px" /></a></figure>
+            <div class="clear"></div>
+          </div>
+          <div style="float:left;width:300px;margin-left:10px;">
+          <h6><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $name;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h6>
+          <p class="p2"><?php echo $title;?></p>
+          <a class="button" href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $readmore;?></a> 
+          </div>
+          <div class="clear"></div>
+          </div>
           <?php }?>
-          </ul>
           <?php $this->widget('CLinkPager', array(
-                    'currentPage'=>$pages->getCurrentPage(),
-                    'pages' => $pages,
-                    'maxButtonCount'=>5,
-                    'htmlOptions'=>array('class'=>'pagenav'),
-                    'header'=> '',
-            )) ?>
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>
+         
       </article>     
     </div>
   </div>
