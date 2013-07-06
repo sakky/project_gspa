@@ -44,7 +44,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 //echo "<br/>";
 //echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
 ?>
-<body <?php if($curpage=='site/index'||$curpage=='site/faq'||$curpage=='site/privacy'||$curpage=='site/sitemap'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
+<body <?php if($curpage=='site/index'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
 <!--==============================header=================================-->
 <header>
   <div class="main">
@@ -97,7 +97,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <ul>
                         <?php
                             $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status';
+                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
                             $criteria->params=array(':status'=>1);
                             $criteria->order = 'sort_order';
                             $doc_type = DocumentType::model()->findAll($criteria);
@@ -108,24 +108,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
-<!--                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('program'); ?>">Programs</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>15)); ?>">PHD Admissions</a></li>          
-                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">Master Admissions</a></li>           
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('gallery'); ?>" title="Gallery">Gallery</a></li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/news'||$curpage=='news/student '||$curpage=='news/job'||$curpage=='news/advertise'){?> class="active" <?php }?> href="#" title="News" >News</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">News & Events</a></li>  
-                            <li><a href="<?php echo Yii::app()->createUrl('news/news'); ?>">Public Relations News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/student'); ?>">Student News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/job'); ?>">Employment News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/advertise'); ?>">Announce</a></li>
-                    </ul>
-                </li>-->
-
                <li><a <?php if($curpage=='cooperation/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">Inbound</a></li>
@@ -169,7 +151,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='gallery/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='gallery/index'){?> class="active" <?php }?> href="#" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
@@ -181,7 +163,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <ul>
                         <?php
                             $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status';
+                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
                             $criteria->params=array(':status'=>1);
                             $criteria->order = 'sort_order';
                             $doc_type = DocumentType::model()->findAll($criteria);
