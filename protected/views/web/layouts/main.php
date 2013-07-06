@@ -78,18 +78,17 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="#" title="Announcement" >Announcement</a>
+                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="Announcement" >Announcement</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">Admission</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
                     </ul>
                 </li>
                 
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='gallery/index'){?> class="active" <?php }?> href="#" title="News & Activities" >News & Activities</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
                     <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">GSPA News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
-                            <!--li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">Gallery</a></li-->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
@@ -145,17 +144,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="#" title="ประกาศ" >ประกาศ</a>
+                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="ประกาศ" >ประกาศ</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">สมัครเรียน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='gallery/index'){?> class="active" <?php }?> href="#" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='news/inside'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
                     <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news'); ?>">ภายใน</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
-                            <!--li><a href="<?php echo Yii::app()->createUrl('gallery'); ?>">ประมวลภาพกิจกรรม</a></li-->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่/ดาวน์โหลด" >สื่อเผยแพร่/ดาวน์โหลด</a>                   
