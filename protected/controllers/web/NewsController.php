@@ -81,17 +81,18 @@ class NewsController extends Controller
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "status = 1 AND news_group_id =".$id;
                 $news_criteria->order = "create_date desc,news_id desc";
-                
-                
+                                
                 $news_total = News::model()->count($news_criteria);
-	
-		$pages = new CPagination($news_total);
+                
+                $newsGroup = NewsGroup::model()->findByPk($id);
+		
+                $pages = new CPagination($news_total);
                 $pages->setPageSize(10);
                 $pages->applyLimit($news_criteria);
                 
                 $news = News::model()->findAll($news_criteria);
                 
-		$this->render('news',array('news'=>$news,'pages'=> $pages,));
+		$this->render('news',array('news'=>$news,'pages'=> $pages,'newsGroup'=> $newsGroup));
                 
 	}
         
@@ -100,9 +101,10 @@ class NewsController extends Controller
                 $news_criteria = new CDbCriteria();
                 $news_criteria->condition = "status = 1 AND news_group_id =".$id;
                 $news_criteria->order = "create_date desc,news_id desc";
-                
-                
+                                
                 $news_total = News::model()->count($news_criteria);
+                
+                $newsGroup = NewsGroup::model()->findByPk($id);
 	
 		$pages = new CPagination($news_total);
                 $pages->setPageSize(10);
@@ -110,7 +112,7 @@ class NewsController extends Controller
                 
                 $news = News::model()->findAll($news_criteria);
                 
-		$this->render('media',array('news'=>$news,'pages'=> $pages,));
+		$this->render('media',array('news'=>$news,'pages'=> $pages,'newsGroup'=> $newsGroup));
                 
 	}
         
