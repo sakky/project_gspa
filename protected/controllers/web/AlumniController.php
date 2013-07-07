@@ -12,15 +12,28 @@ class AlumniController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND alumni_no_id='.$_GET['type_id'];                
                     $criteria->order = 'sort_order';
+                    $total = Alumni::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);
+                    
                     $model = Alumni::model()->findAll($criteria);
-                    $this->render('index',array('model'=>$model));
+                    
+                    $type=AlumniNo::model()->findByPk($_GET['type_id']);
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
                 }else{
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1';                
                     $criteria->order = 'sort_order';
+                    $total = Alumni::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
                     $model = Alumni::model()->findAll($criteria);
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
         
@@ -30,14 +43,19 @@ class AlumniController extends Controller
                     $model=Alumni::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
                 }else{
-                $criteria = new CDbCriteria();
-		$criteria->select = '*';
-		$criteria->condition = 'status = 1 AND alumni_group=\'Master\'';                
-                $criteria->order = 'sort_order';
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND alumni_group=\'Master\'';                
+                    $criteria->order = 'sort_order';
+                    $total = Alumni::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                
 		
-		$model = Alumni::model()->findAll($criteria);
-                
-                $this->render('master',array('model'=>$model));
+                    $model = Alumni::model()->findAll($criteria);
+
+                    $this->render('master',array('model'=>$model,'pages'=> $pages));
                 }
 	}
         
@@ -47,14 +65,19 @@ class AlumniController extends Controller
                     $model=Alumni::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
                 }else{
-                $criteria = new CDbCriteria();
-		$criteria->select = '*';
-		$criteria->condition = 'status = 1 AND alumni_group=\'Doctor\'';                
-                $criteria->order = 'sort_order';
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND alumni_group=\'Doctor\'';                
+                    $criteria->order = 'sort_order';
+                    $total = Alumni::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                   
 		
-		$model = Alumni::model()->findAll($criteria);
-                
-                $this->render('doctor',array('model'=>$model));
+                    $model = Alumni::model()->findAll($criteria);
+
+                    $this->render('doctor',array('model'=>$model,'pages'=> $pages));
                 }
 	}
 
