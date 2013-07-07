@@ -12,18 +12,30 @@ class KnowledgeController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND know_type_id='.$_GET['type_id'];                
                     $criteria->order = 'sort_order';
+                    
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                    
 
-                    $model = Knowledge::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $model = Knowledge::model()->findAll($criteria); 
+                    $type=KnowledgeType::model()->findByPk($_GET['type_id']);                    
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
                 }else{
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1';                
                     $criteria->order = 'sort_order';
-
+                    
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
 
                     $model = Knowledge::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
         
@@ -34,8 +46,14 @@ class KnowledgeController extends Controller
                     $criteria->condition = 'status = 1 AND know_group=1';                
                     $criteria->order = 'sort_order';
 
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
+
                     $model = Knowledge::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
         
         public function actionGroup2()
@@ -45,8 +63,14 @@ class KnowledgeController extends Controller
                     $criteria->condition = 'status = 1 AND know_group=2';                
                     $criteria->order = 'sort_order';
 
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
+
                     $model = Knowledge::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
         
         public function actionGroup3()
@@ -55,9 +79,15 @@ class KnowledgeController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND know_group=3';                
                     $criteria->order = 'sort_order';
+                    
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                     
 
                     $model = Knowledge::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
 
 
