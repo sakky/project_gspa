@@ -49,6 +49,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <li><a href="<?php echo Yii::app()->createUrl('information', array('id'=>$value->doc_id)); ?>"><?php echo $name;?></a></li>
               <?php }?>
           </ul>
+          <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>          
         </article>
       
     </div>

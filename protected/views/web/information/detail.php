@@ -1,9 +1,15 @@
 <?php
 $lang = Yii::app()->language; 
+    if($model->doc_type_id==5){
+        $url_type ='download';
+    }else{
+        $url_type ='library';
+    }
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Service';
     $this->breadcrumbs=array(
-            'Service',
+            'Service'=>array('index'),
+            $model->documentType->name_en=>array($url_type),
             $model->name_en
     );
     $header = "Service";
@@ -11,7 +17,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name. ' - บริการ';
     $this->breadcrumbs=array(
-            'บริการ',
+            'บริการ'=>array('index'),
+            $model->documentType->name_th=>array($url_type),
             $model->name_th
     );
     $header = "บริการ";
