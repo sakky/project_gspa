@@ -10,9 +10,9 @@ class CooperationController extends Controller
                     $criteria->condition = 'status = 1 AND co_type_id ='.$_GET['type_id'];                
                     $criteria->order = 'sort_order ASC ,co_id ASC';
                     
-                    $co_tatal = Cooperation::model()->count($criteria);                    
+                    $co_total = Cooperation::model()->count($criteria);                    
                     
-                    $pages = new CPagination($co_tatal);
+                    $pages = new CPagination($co_total);
                     $pages->setPageSize(20);
                     $pages->applyLimit($criteria);
                     
@@ -28,9 +28,9 @@ class CooperationController extends Controller
                     $criteria->condition = 'status = 1';                
                     $criteria->order = 'sort_order ASC ,co_id ASC';
                     
-                    $co_tatal = Cooperation::model()->count($criteria);                    
+                    $co_total = Cooperation::model()->count($criteria);                    
                     
-                    $pages = new CPagination($co_tatal);
+                    $pages = new CPagination($co_total);
                     $pages->setPageSize(20);
                     $pages->applyLimit($criteria);
                     
@@ -52,9 +52,9 @@ class CooperationController extends Controller
                 $criteria->params=array(':status'=>1,':group'=>'inbound');               
                 $criteria->order = 'sort_order ASC ,co_id ASC';	
                 
-                $co_tatal = Cooperation::model()->count($criteria);                    
+                $co_total = Cooperation::model()->count($criteria);                    
 
-                $pages = new CPagination($co_tatal);
+                $pages = new CPagination($co_total);
                 $pages->setPageSize(20);
                 $pages->applyLimit($criteria);
                 
@@ -76,9 +76,9 @@ class CooperationController extends Controller
                 $criteria->params=array(':status'=>1,':group'=>'outbound');               
                 $criteria->order = 'sort_order ASC ,co_id ASC';	
                 
-                $co_tatal = Cooperation::model()->count($criteria);                    
+                $co_total = Cooperation::model()->count($criteria);                    
 
-                $pages = new CPagination($co_tatal);
+                $pages = new CPagination($co_total);
                 $pages->setPageSize(20);
                 $pages->applyLimit($criteria);
                 
