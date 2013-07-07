@@ -9,8 +9,16 @@ class CooperationController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND co_type_id ='.$_GET['type_id'];                
                     $criteria->order = 'sort_order ASC ,co_id ASC';
-                    $model = Cooperation::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    
+                    $co_tatal = Cooperation::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($co_tatal);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);
+                    
+                    $model = Cooperation::model()->findAll($criteria);                                        
+
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }else if(isset($_GET['id'])){
                     $model=Cooperation::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
@@ -18,9 +26,16 @@ class CooperationController extends Controller
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1';                
-                    $criteria->order = 'sort_order ASC ,co_id ASC';		
+                    $criteria->order = 'sort_order ASC ,co_id ASC';
+                    
+                    $co_tatal = Cooperation::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($co_tatal);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);
+                    
                     $model = Cooperation::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
 
 	}
@@ -35,9 +50,16 @@ class CooperationController extends Controller
 		$criteria->select = '*';
                 $criteria->condition = 'status=:status AND t.group=:group';
                 $criteria->params=array(':status'=>1,':group'=>'inbound');               
-                $criteria->order = 'sort_order ASC ,co_id ASC';		
+                $criteria->order = 'sort_order ASC ,co_id ASC';	
+                
+                $co_tatal = Cooperation::model()->count($criteria);                    
+
+                $pages = new CPagination($co_tatal);
+                $pages->setPageSize(20);
+                $pages->applyLimit($criteria);
+                
 		$model = Cooperation::model()->findAll($criteria);                              
-                $this->render('inbound',array('model'=>$model));
+                $this->render('inbound',array('model'=>$model,'pages'=> $pages,));
                 }
 
 	}
@@ -52,9 +74,16 @@ class CooperationController extends Controller
 		$criteria->select = '*';
                 $criteria->condition = 'status=:status AND t.group=:group';
                 $criteria->params=array(':status'=>1,':group'=>'outbound');               
-                $criteria->order = 'sort_order ASC ,co_id ASC';		
+                $criteria->order = 'sort_order ASC ,co_id ASC';	
+                
+                $co_tatal = Cooperation::model()->count($criteria);                    
+
+                $pages = new CPagination($co_tatal);
+                $pages->setPageSize(20);
+                $pages->applyLimit($criteria);
+                
 		$model = Cooperation::model()->findAll($criteria);                              
-                $this->render('outbound',array('model'=>$model));
+                $this->render('outbound',array('model'=>$model,'pages'=> $pages,));
                 }
 
 	}
