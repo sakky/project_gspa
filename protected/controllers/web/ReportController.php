@@ -9,10 +9,16 @@ class ReportController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND report_type_id ='.$_GET['type_id'];                
                     $criteria->order = 'sort_order';
+                    $total = Report::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);
+                    
                     $model = Report::model()->findAll($criteria);    
                     
                     $type = ReportType::model()->findByPK($_GET['type_id']);  
-                    $this->render('index',array('model'=>$model,'type'=>$type));
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages));
                     
                 }else if(isset($_GET['id'])){
                     $model=Report::model()->findByPk($_GET['id']);
@@ -22,8 +28,13 @@ class ReportController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1';                
                     $criteria->order = 'sort_order';
+                    $total = Report::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                    
                     $model = Report::model()->findAll($criteria);    
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages));
                 }
 
 	}               
