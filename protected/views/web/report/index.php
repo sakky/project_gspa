@@ -2,16 +2,31 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Report';
-    $this->breadcrumbs=array(
-            'Report',
-    );
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+                'Report'=>array('index'),
+                $type->name_en
+        );        
+    }else{
+        $this->breadcrumbs=array(
+                'Report',
+        );        
+    }    
+
     $header = "Report";
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - รายงานผลการดำเนินงาน';
-    $this->breadcrumbs=array(
-            'รายงานผลการดำเนินงาน',
-    );
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+                'รายงานผลการดำเนินงาน'=>array('index'),
+                $type->name_th
+        );        
+    }else{
+        $this->breadcrumbs=array(
+                'รายงานผลการดำเนินงาน',
+        );        
+    }       
     $header = "รายงานผลการดำเนินงาน";
 
 }
@@ -47,6 +62,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <li><a href="<?php echo Yii::app()->createUrl('report', array('id'=>$value->report_id)); ?>"><?php echo $name;?></a></li>
               <?php }?>
           </ul>
+          <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>          
         </article>
       
     </div>

@@ -4,6 +4,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Report';
     $this->breadcrumbs=array(
             'Report'=>array('index'),
+            $model->reportType->name_en=>array('index','type_id'=>$model->report_type_id),
             $model->name_en
     );
     $header = "Report";
@@ -12,6 +13,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle=Yii::app()->name. ' - รายงานผลการดำเนินงาน';
     $this->breadcrumbs=array(
             'รายงานผลการดำเนินงาน'=>array('index'),
+            $model->reportType->name_th=>array('index','type_id'=>$model->report_type_id),        
             $model->name_th
     );
     $header = "รายงานผลการดำเนินงาน";
