@@ -28,10 +28,16 @@ class InformationController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND doc_group=\'service\'';                
                     $criteria->order = 'sort_order';
+                    
+                    $total = Document::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);
 
                     $model = Document::model()->findAll($criteria);
 
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
 
@@ -45,10 +51,14 @@ class InformationController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND doc_group=\'service\' AND doc_type_id = 5';                
                     $criteria->order = 'sort_order';
-
+                    $total = Document::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);
                     $model = Document::model()->findAll($criteria);
 
-                    $this->render('download',array('model'=>$model));
+                    $this->render('download',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
         
@@ -62,10 +72,15 @@ class InformationController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND doc_group=\'service\' AND doc_type_id = 6';                
                     $criteria->order = 'sort_order';
+                    $total = Document::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                    
 
                     $model = Document::model()->findAll($criteria);
 
-                    $this->render('library',array('model'=>$model));
+                    $this->render('library',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
         
