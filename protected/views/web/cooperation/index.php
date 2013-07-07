@@ -1,17 +1,46 @@
 <?php
 $lang = Yii::app()->language; 
+$type=CooperationType::model()->findByPk($_GET['type_id']);
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    if($type->group == 'inbound'){
+        $group = "Domestic";
+    }else{
+        $group = "International";
+    }
     $this->pageTitle='Graduate School of Public Administration - Cooperation';
-    $this->breadcrumbs=array(
+    if($_GET['type_id']){
+          $this->breadcrumbs=array(
             'Cooperation'=>array('index'),
-    );
+            $group=>array($type->group),
+            $type->name_en,
+          );  
+    }else{
+          $this->breadcrumbs=array(
+            'Cooperation',
+          );                 
+    }
+
     $header = "Cooperation";
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - ความร่วมมือ';
-    $this->breadcrumbs=array(
-            'ความร่วมมือ'=>array('index'),
-    );
+    if($type->group == 'inbound'){
+        $group = "ภายในประเทศ";
+    }else{
+        $group = "ต่างประเทศ";
+    } 
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+                'ความร่วมมือ'=>array('index'),
+                $group=>array($type->group),
+                $type->name_th
+        );        
+    }else{
+        $this->breadcrumbs=array(
+                'ความร่วมมือ',
+        );        
+    }
+
     $header = "ความร่วมมือ";
 }
 
@@ -46,6 +75,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <li><a href="<?php echo Yii::app()->createUrl('cooperation', array('id'=>$value->co_id)); ?>"><?php echo $name;?></a></li>
               <?php }?>
           </ul>
+           <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>
         </article>
       
     </div>

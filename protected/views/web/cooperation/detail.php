@@ -2,9 +2,15 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Cooperation';
+    if($model->group == 'inbound'){
+        $group = "Domestic";
+    }else{
+        $group = "International";
+    }
     $this->breadcrumbs=array(
         'Cooperation'=>array('index'),
-        $model->name_en
+        $group=>array($model->group),
+        $model->coType->name_en=>array('index','type_id'=>$model->co_type_id),
 
     );
     $header = "Cooperation";
@@ -15,9 +21,15 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
  
 }else{
     $this->pageTitle=Yii::app()->name . ' - ความร่วมมือ';
+    if($model->group == 'inbound'){
+        $group = "ภายในประเทศ";
+    }else{
+        $group = "ต่างประเทศ";
+    }
     $this->breadcrumbs=array(
         'ความร่วมมือ'=>array('index'),
-        $model->name_th
+        $group=>array($model->group),
+        $model->coType->name_th=>array('index','type_id'=>$model->co_type_id),
     );
     $header = "ความร่วมมือ";
 
