@@ -95,11 +95,11 @@
 		<?php echo $form->error($model,'image'); ?>
 	</div>
 
-	<div class="row">
+<!--	<div class="row">
 		<?php echo $form->labelEx($model,'sort_order'); ?>
 		<?php echo $form->textField($model,'sort_order',array('size'=>5)); ?>
 		<?php echo $form->error($model,'sort_order'); ?>
-	</div>
+	</div>-->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
