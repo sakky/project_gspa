@@ -2,11 +2,26 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Alumni';
-    $this->breadcrumbs=array(
-        'About Us'=>array('about/index', 'id'=>'1'),
-        'Alumni'
+    if($type->alumni_group == 'Master'){
+        $group = "Master Degree";
+        $url = "master";
+    }else{
+        $group = "Doctorate Degree";
+        $url = "doctor";
+    }    
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+            'Alumni'=>array('index'),
+            $group=>array($url),
+            $type->name_en
 
-    );
+        );        
+    }else{
+        $this->breadcrumbs=array(
+            'Alumni',
+
+        );
+    }
     $header = "GSPA Alumni";
     $position_text = "Position";
     $major_text = "Major";
@@ -16,11 +31,26 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
  
 }else{
     $this->pageTitle=Yii::app()->name . ' - ทำเนียบนิสิต';
-    $this->breadcrumbs=array(
-        'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
-        'ทำเนียบนิสิต'
+    if($type->alumni_group == 'Master'){
+        $group = "ปริญญาโท";
+        $url = "master";
+    }else{
+        $group = "ปริญญาเอก";
+        $url = "doctor";
+    }        
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+            'ทำเนียบนิสิต'=>array('index'),
+            $group=>array($url),
+            $type->name_th
 
-    );
+        );        
+    }else{
+        $this->breadcrumbs=array(
+            'ทำเนียบนิสิต',
+
+        );
+    }    
     $header = "ทำเนียบนิสิต";
     $position_text = "ตำแหน่ง";
     $major_text = "สาขาวิชา";
@@ -75,6 +105,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
              </div>
           </div>
           <?php }?>
+           <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>          
         </article>
       
     </div>

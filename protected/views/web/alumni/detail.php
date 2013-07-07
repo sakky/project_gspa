@@ -1,9 +1,18 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    if($model->alumni_group == 'Master'){
+        $group = "Master Degree";
+        $url = "master";
+    }else{
+        $group = "Doctorate Degree";
+        $url = "doctor";
+    }
     $this->pageTitle='Graduate School of Public Administration - Alumni';
     $this->breadcrumbs=array(
         'Alumni'=>array('index'),
+        $group=>array($url),        
+        $model->alumniType->name_en=>array('index','type_id'=>$model->alumni_no_id),
         $model->name_en
 
     );
@@ -20,8 +29,17 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
  
 }else{
     $this->pageTitle=Yii::app()->name . ' - ทำเนียบนิสิต';
+    if($model->alumni_group == 'Master'){
+        $group = "ปริญญาโท";
+        $url = "master";
+    }else{
+        $group = "ปริญญาเอก";
+        $url = "doctor";
+    }    
     $this->breadcrumbs=array(
         'ทำเนียบนิสิต'=>array('index'),
+         $group=>array($url),
+         $model->alumniType->name_th=>array('index','type_id'=>$model->alumni_no_id),        
          $model->name_th
 
     );
