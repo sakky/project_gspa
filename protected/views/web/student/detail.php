@@ -17,7 +17,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->breadcrumbs=array(
             'Service for Student'=>array('index'),
             $type=>array($link),
-            $model->serType->name_en,
+            $model->serType->name_en=>array('index','type_id'=>$model->ser_type_id),
+            $model->name_en
     );
     $header = "Service for Student";
 
@@ -38,7 +39,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->breadcrumbs=array(
             'บริการนิสิต'=>array('index'),
             $type=>array($link),
-            $model->serType->name_th,
+            $model->serType->name_th=>array('index','type_id'=>$model->ser_type_id),
+            $model->name_th
     );
     $header = "บริการนิสิต";
 
