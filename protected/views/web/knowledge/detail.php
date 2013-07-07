@@ -10,8 +10,20 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - คลังข้อมูลความรู้';
+    if($model->know_group == 1){
+        $group = "การจัดการความรู้";
+        $url = "group1";
+    }else if($model->know_group == 2){
+        $group = "หมวดความรู้";
+        $url = "group2";
+    }else{
+        $group = "สารคดี";
+        $url = "group3";
+    }       
     $this->breadcrumbs=array(
             'คลังข้อมูลความรู้'=>array('index'),
+            $group=>array($url),
+            $model->knowType->name_th=>array('index','type_id'=>$model->know_type_id),          
             $model->name_th
     );
     $header = "คลังข้อมูลความรู้";
