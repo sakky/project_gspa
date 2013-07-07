@@ -12,18 +12,30 @@ class StudentController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND ser_type_id='.$_GET['type_id'];                
                     $criteria->order = 'sort_order';
+                    
+                    $total = StudentService::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                      
 
-                    $model = StudentService::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $model = StudentService::model()->findAll($criteria); 
+                    $type=StudentServiceType::model()->findByPk($_GET['type_id']);                     
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
                 }else{
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1';                
                     $criteria->order = 'sort_order';
 
-
+                    $total = Knowledge::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
+                    
                     $model = StudentService::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
 	}
         
@@ -34,8 +46,14 @@ class StudentController extends Controller
                     $criteria->condition = 'status = 1 AND ser_group=1';                
                     $criteria->order = 'sort_order';
 
+                    $total = StudentService::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
+
                     $model = StudentService::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
         
         public function actionGroup2()
@@ -44,9 +62,15 @@ class StudentController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND ser_group=2';                
                     $criteria->order = 'sort_order';
-
+                    
+                    $total = StudentService::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
+                    
                     $model = StudentService::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
         
         public function actionGroup3()
@@ -55,9 +79,13 @@ class StudentController extends Controller
                     $criteria->select = '*';
                     $criteria->condition = 'status = 1 AND ser_group=3';                
                     $criteria->order = 'sort_order';
-
+                    $total = StudentService::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria); 
                     $model = StudentService::model()->findAll($criteria);                              
-                    $this->render('index',array('model'=>$model));
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
 	}
 
 	// Uncomment the following methods and override them if needed
