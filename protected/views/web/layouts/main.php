@@ -65,7 +65,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <ul>
             <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
                 <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="Home">Home</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
@@ -85,13 +85,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     </ul>
                 </li>
                 
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
+                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
                     
                     <ul>
                         <?php
@@ -107,7 +107,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
-               <li><a <?php if($curpage=='cooperation/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
+               <li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">Inbound</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">Outbound</a></li>
@@ -131,7 +131,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='alumni'){?>class="active"<?php }?> 
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
@@ -150,13 +150,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/advertise'||$curpage=='news/inside'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='document/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่/ดาวน์โหลด" >สื่อเผยแพร่/ดาวน์โหลด</a>                   
+                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่/ดาวน์โหลด" >สื่อเผยแพร่/ดาวน์โหลด</a>                   
                     
                     <ul>
                         <?php
@@ -179,7 +179,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">สมัครเรียนปริญญาโท</a></li>           
                     </ul>
                 </li>-->
-               <li><a <?php if($curpage=='cooperation/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
+               <li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">ภายในประเทศ</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">ต่างประเทศ</a></li>
