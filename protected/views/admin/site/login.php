@@ -7,9 +7,9 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 
 ?>
 
-<h1>Login</h1>
+<h1>เข้าสู่ระบบ</h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+<p>กรุณากรอกชื่อผู้ใช้ และรหัสผ่านของคุณ เพื่อทำการเข้าสู่ระบบ</p>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -20,8 +20,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
+        <p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username'); ?>
@@ -41,7 +40,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php echo CHtml::submitButton('เข้าสู่ระบบ'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
