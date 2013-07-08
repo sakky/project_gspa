@@ -88,6 +88,9 @@ $(window).load(function () {
              if($loop==4){
                  $item = "item-4";
              }
+             if($loop==5){
+                 $item = "item-1";
+             }
          ?>
         
             <li><a class="<?php echo $item;?>" href="<?php echo $link;?>"><strong><?php echo $loop;?></strong></a></li>
