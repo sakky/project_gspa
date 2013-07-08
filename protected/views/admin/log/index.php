@@ -10,9 +10,11 @@ $this->breadcrumbs=array(
 	//'filter'=>$model,
 	'columns'=>array(
             	array(
-			'name'=>'log_id',
+                        'header'=> 'ลำดับ',
+                        'type' => 'raw',
+                        'value' => '$this->grid->dataProvider->pagination->currentPage*$this->grid->dataProvider->pagination->pageSize + $row+1', //this for the auto page number of cgridview
                         'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
-		),              
+                ),              
 		array(
 			'name'=>'user_id',
                         'value'=>'$data->user->firstname." ".$data->user->lastname',
