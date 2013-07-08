@@ -4,7 +4,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 <ul class="list-1">
     <?php
         $criteria = new CDbCriteria();
-        $criteria->condition = 'status=:status';
+        $criteria->condition = 'status=:status AND doc_group =\'download\'';
         $criteria->params=array(':status'=>1);
         $criteria->order = 'sort_order';
         $doc_type = DocumentType::model()->findAll($criteria);
@@ -21,7 +21,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 <ul class="list-1">
         <?php
             $criteria = new CDbCriteria();
-            $criteria->condition = 'status=:status';
+            $criteria->condition = 'status=:status AND doc_group =\'download\'';
             $criteria->params=array(':status'=>1);
             $criteria->order = 'sort_order';
             $doc_type = DocumentType::model()->findAll($criteria);
