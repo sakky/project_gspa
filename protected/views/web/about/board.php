@@ -1,21 +1,21 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Teachers';
+    $this->pageTitle='Graduate School of Public Administration - Board of directors';
     $this->breadcrumbs=array(
             'About GSPA'=>array('index', 'id'=>'1'),
-            'Teachers'=>array('board'),
+            'Board of directors'=>array('board'),
     );
-    $header = "Teachers";
+    $header = "Board of directors";
     $position_text = "Position";
     $readmore = "Read More";
 }else{
-    $this->pageTitle=Yii::app()->name . ' - คณาจารย์';
+    $this->pageTitle=Yii::app()->name . ' - คณะกรรมการ';
     $this->breadcrumbs=array(
             'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
-            'คณาจารย์'=>array('board'),
+            'คณะกรรมการ'=>array('board'),
     );
-    $header = "คณาจารย์";
+    $header = "คณะกรรมการ";
     $position_text = "ตำแหน่ง";
     $readmore = "ดูข้อมูลเพิ่มเติม";
 }

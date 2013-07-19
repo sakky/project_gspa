@@ -6,9 +6,20 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board of directors</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></h6></li>
-        <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Teachers</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></h6></li>
+        <?php
+            $criteria = new CDbCriteria();
+            $criteria->condition = 'status = 1 AND alumni_group=\'Master\''; 
+            $criteria->order = 'sort_order';
+            $co_type = AlumniNo::model()->findAll($criteria);
+
+            foreach($co_type as $type) {
+        ?>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('alumni', array('type_id'=>$type->alumni_no_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></h6></li>
 </ul>
 <?php }else{?>
@@ -17,9 +28,20 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></h6></li>
-        <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณาจารย์</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></h6></li>
+        <?php
+            $criteria = new CDbCriteria();
+            $criteria->condition = 'status = 1 AND alumni_group=\'Master\''; 
+            $criteria->order = 'sort_order';
+            $co_type = AlumniNo::model()->findAll($criteria);
+
+            foreach($co_type as $type) {
+        ?>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('alumni', array('type_id'=>$type->alumni_no_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></h6></li> 
 </ul>
 <?php } ?>
