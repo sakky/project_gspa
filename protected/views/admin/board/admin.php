@@ -3,14 +3,14 @@
 /* @var $model Board */
 
 $this->breadcrumbs=array(
-	'คณาจารย์'=>array('index'),
+	'คณะกรรมการ'=>array('index'),
 	'จัดการข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Board', 'url'=>array('index')),
-        array('label'=>'เพิ่มข้อมูลคณาจารย์', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับคณาจารย์', 'url'=>array('order')),
+        array('label'=>'เพิ่มข้อมูลคณะกรรมการ', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับคณะกรรมการ', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลคณาจารย์</h1>
+<h1>จัดการข้อมูลคณะกรรมการ</h1>
 
 <!--<p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
