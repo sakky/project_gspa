@@ -71,10 +71,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li>   
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li> 
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Teachers</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
@@ -138,9 +139,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณาจารย์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
@@ -248,7 +250,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $service_student1 = "ปริญญาโท";
     $service_student2 = "ปริญาเอก";
     $service_student3 = "ประเมินการเรียนการสอน";
-    $alumni ="ทำเนียบนิสิต";
     $knowledge = "คลังข้อมูลความรู้";
     $knowledge1 = "การจัดการความรู้";
     $knowledge2 = "หมวดความรู้";
@@ -275,12 +276,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           </ul>
       </article>
       <article class="fcol-2">
-         <h3 class="color-1"><?php echo $alumni;?></h3>
-          <ul class="list-3">
-            <li><a href="<?php echo Yii::app()->createUrl('alumni/master'); ?>"><?php echo $service_student1;?></a></li>
-	    <li><a href="<?php echo Yii::app()->createUrl('alumni/doctor'); ?>"><?php echo $service_student2;?></a></li>            
-          </ul>
-         <br/>
          <h3 class="color-1"><?php echo $knowledge;?></h3>
          <ul class="list-3">
             <li><a href="<?php echo Yii::app()->createUrl('knowledge/group1'); ?>"><?php echo $knowledge1;?></a></li>
