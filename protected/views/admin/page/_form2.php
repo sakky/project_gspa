@@ -97,6 +97,16 @@
         <?php } ?>
         <div class="row">
             <table width="100%"  border="0" cellpadding="1" cellspacing="1">
+                <?php if($model->page_id ==10){?>
+                <tr>
+                    <td width="20%"><b>สถานะ</b></td>
+                    <td width="2%">:</td>
+                    <td >
+                        <?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
+                        <?php echo $form->error($model,'status'); ?>
+                    </td>
+                </tr>
+                <?php } ?>
                 <tr>
                     <td width="20%"><b>วันที่ปรับปรุงล่าสุด</b></td>
                     <td width="2%">:</td>
