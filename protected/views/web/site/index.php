@@ -5,12 +5,20 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle="Graduate School of Public Administration";
     $col1_header = "GSPA News & Activities";
-    $col2_header = "News & Activities";  
+    $col2_header = "News & Activities"; 
+    $text_title = "Open Admissions Program";
+    $text_button1 = "Master's degree";
+    $text_button2 = "Doctorate Degree";
+    $text_button3 = "Online Admission";
 
 }else{
     $this->pageTitle=Yii::app()->name;
     $col1_header = "ประชาสัมพันธ์/กิจกรรม ภายใน"; 
-    $col2_header = "ประชาสัมพันธ์/กิจกรรม จากสื่อ";  
+    $col2_header = "ประชาสัมพันธ์/กิจกรรม จากสื่อ"; 
+    $text_title = "เปิดรับสมัครนักศึกษา หลักสูตร";
+    $text_button1 = "ปริญญาโท";
+    $text_button2 = "ปริญญาเอก";
+    $text_button3 = "สมัครเรียนออนไลน์";    
 }
 ?>
 
@@ -98,8 +106,11 @@ $(window).load(function () {
         <?php $loop++; }?>
       </ul>
     </div>
-    <div class="border-bot1 img-indent-bot">
-      <h2>&#126; <?php echo $this->pageTitle;?> &#126;</h2>
+    <div class="border-bot1 img-indent-bot" >
+        <h2>~ <?php echo $text_title;?> ~</h2>
+        <article class="fcol-1" style="text-align: center"><a href="#" class="button3"><?php echo $text_button1;?></a></article>
+        <article class="fcol-2" style="text-align: center"><a href="#" class="button3 color2"><?php echo $text_button2;?></a></article>
+        <article class="fcol-3" style="text-align: center"><a href="#" class="button3 color3"><?php echo $text_button3;?></a></article>
     </div>
     <div class="wrapper">
       <article class="col-2">
