@@ -12,13 +12,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></h6></li>
         <?php
             $criteria = new CDbCriteria();
-            $criteria->condition = 'status = 1 AND alumni_group=\'Master\''; 
+            $criteria->condition = 'status = 1'; 
             $criteria->order = 'sort_order';
-            $co_type = AlumniNo::model()->findAll($criteria);
+            $co_type = PersonnelType::model()->findAll($criteria);
 
             foreach($co_type as $type) {
         ?>
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('alumni', array('type_id'=>$type->alumni_no_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
         <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></h6></li>
 </ul>
@@ -34,13 +34,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></h6></li>
         <?php
             $criteria = new CDbCriteria();
-            $criteria->condition = 'status = 1 AND alumni_group=\'Master\''; 
+            $criteria->condition = 'status = 1'; 
             $criteria->order = 'sort_order';
-            $co_type = AlumniNo::model()->findAll($criteria);
+            $co_type = PersonnelType::model()->findAll($criteria);
 
             foreach($co_type as $type) {
         ?>
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('alumni', array('type_id'=>$type->alumni_no_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
         <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></h6></li> 
 </ul>
