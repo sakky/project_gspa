@@ -41,6 +41,24 @@ class AboutController extends Controller
                         'model'=>$model));
 
 	}
+        public function actionPersonnel()
+	{
+                if(isset($_GET['id'])){
+                    $model =$this->loadPersonnelModel($_GET['id']);
+                    $this->render('personnel_detail',array(
+                            'model'=>$model));
+                }else if(isset($_GET['type_id'])){
+                    $model =$this->getPersonnelType($_GET['type_id']);
+                    $type=PersonnelType::model()->findByPk($_GET['type_id']);
+                    $this->render('personnel',array(
+                            'model'=>$model,'type'=>$type,));
+                }else{
+                    $model = $this->getAllPersonnel();
+                    $this->render('personnel',array(
+                            'model'=>$model));
+                }
+	}
+        
         public function loadModel($id)
 	{
 		$model=Page::model()->findByPk($id);
@@ -64,6 +82,36 @@ class AboutController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+        
+        public function loadPersonnelModel($id)
+	{
+		$model=  Personnel::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}  
+        public function getAllPersonnel()
+	{
+		$Criteria = new CDbCriteria();
+                $Criteria->condition = 'status = 1';
+                $Criteria->order = 'sort_order';
+            
+                $model=Personnel::model()->findAll($Criteria);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');	
+		return $model;
+	}
+        public function getPersonnelType($type_id)
+	{
+		$Criteria = new CDbCriteria();
+                $Criteria->condition = 'status = 1 AND personnel_type_id ='.$type_id;
+                $Criteria->order = 'sort_order';
+            
+                $model=Personnel::model()->findAll($Criteria);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');	
+		return $model;
+	}        
         public function getAllStructureType()
 	{
 		$Criteria = new CDbCriteria();
