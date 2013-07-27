@@ -108,9 +108,9 @@ $(window).load(function () {
     </div>
     <div class="border-bot1 img-indent-bot" >
         <h2>~ <?php echo $text_title;?> ~</h2>
-        <article class="fcol-1" style="text-align: center"><a href="#" class="button3"><?php echo $text_button1;?></a></article>
-        <article class="fcol-2" style="text-align: center"><a href="#" class="button3 color2"><?php echo $text_button2;?></a></article>
-        <article class="fcol-3" style="text-align: center"><a href="#" class="button3 color3"><?php echo $text_button3;?></a></article>
+        <article class="fcol-1" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('student/group1'); ?>" class="button3"><?php echo $text_button1;?></a></article>
+        <article class="fcol-2" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('student/group2/'); ?>" class="button3 color2"><?php echo $text_button2;?></a></article>
+        <article class="fcol-3" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('admission'); ?>" class="button3 color3"><?php echo $text_button3;?></a></article>
     </div>
     <div class="wrapper">
       <article class="col-2">
