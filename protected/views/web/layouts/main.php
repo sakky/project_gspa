@@ -64,7 +64,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     <div class="menu">    
         <ul>
             <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
-                <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="Home">Home</a></li>
+                <li><a <?php if($curpage=='site/index'|| $curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="Home">Home</a></li>
                 <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
                     <ul>
@@ -131,7 +131,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 </li>
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
-                <li><a <?php if($curpage=='site/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->request->baseUrl; ?>" title="หน้าแรก">หน้าแรก</a></li>
+                <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
                 <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
                     <ul>
