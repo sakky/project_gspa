@@ -877,3 +877,58 @@ ul.pagenav  li.last.hidden
 .tree_menu li.submenu ul li {
    
 }
+.form-admission div{
+    overflow: hidden;
+}
+.form-admission div.row label{
+    width: 150px;
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    
+    
+}
+.form-admission{
+    font-size: 13px;
+}
+
+.form-admission p.note{
+    color:red;
+    padding: 0px;
+    margin: 3px 0;
+}
+.form-admission span.required{
+    color:red;
+}
+.form-admission div.row{
+    margin: 0 0 5px 0;
+}
+.form-admission table.tb1 td{
+    padding: 3px;
+    margin: 3px;
+}
+.form-admission .errorSummary{
+    border: 1px solid rgb(204, 0, 0);
+    padding: 7px 7px 12px;
+    margin: 0px 0px 20px;
+    background: none repeat scroll 0% 0% rgb(255, 238, 238);
+    font-size: 0.9em;
+}
+.form-admission .errorSummary ul li{
+    margin-left: 20px;
+}
+div.form-admission div.error label, div.form-admission label.error, div.form-admission span.error {
+    color: rgb(204, 0, 0);
+}
+
+div.form-admission  input.error, div.form-admission div.error textarea, div.form-admission div.error select, div.form input.error, div.form-admission textarea.error, div.form-admission select.error {
+    background: none repeat scroll 0% 0% rgb(255, 238, 238);
+    border-color: rgb(204, 0, 0);
+}
+
+div.form-admission .errorMessage {
+    color: red;
+    font-size: 0.9em;
+    text-align: left;
+    margin-left: 40px;
+}
