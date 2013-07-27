@@ -44,7 +44,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 //echo "<br/>";
 //echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
 ?>
-<body <?php if($curpage=='site/index'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
+<body <?php if($curpage=='site/index'||$curpage=='site/home'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
 <!--==============================header=================================-->
 <header>
   <div class="main">
