@@ -33,6 +33,11 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+            $intro =Page::model()->findByPk(10);
+            if($intro->status==1){
+                 $this->redirect(Yii::app()->createUrl('site/intro'));
+            }else{
+            
 	
 		$Criteria = new CDbCriteria();
                 $Criteria->condition = "status = 1";
@@ -95,7 +100,73 @@ class SiteController extends Controller
                                 'links'=>$links,
                                 'vdo'=>$vdo,
                         ));
+            }
 	}
+	public function actionHome()
+	{
+	
+		$Criteria = new CDbCriteria();
+                $Criteria->condition = "status = 1";
+                $Criteria->order = "sort_order";
+                $Criteria->offset = 0;
+                $Criteria->limit = 5;            
+                $model = Slide::model()->findAll($Criteria);
+                
+                $condition = new CDbCriteria();
+                $condition->condition = "news_type_id =2 AND status = 1";
+                $condition->order = "create_date desc,news_id desc";
+                $condition->offset = 0;
+                $condition->limit = 6; 
+                $student_news = News::model()->findAll($condition);
+                
+                $news_criteria = new CDbCriteria();
+                $news_criteria->condition = "news_type_id =1 AND status = 1";
+                $news_criteria->order = "create_date desc,news_id desc";
+                $news_criteria->offset = 0;
+                $news_criteria->limit = 3; 
+                $news = News::model()->findAll($news_criteria);
+                
+                $job_criteria = new CDbCriteria();
+                $job_criteria->condition = "news_type_id =3 AND status = 1";
+                $job_criteria->order = "create_date desc,news_id desc";
+                $job_criteria->offset = 0;
+                $job_criteria->limit = 6; 
+                $job = News::model()->findAll($job_criteria);
+                
+                $pr_criteria = new CDbCriteria();
+                $pr_criteria->condition = "news_type_id =5 AND status = 1";
+                $pr_criteria->order = "create_date desc,news_id desc";
+                $pr_criteria->offset = 0;
+                $pr_criteria->limit = 3; 
+                $newsInSide = News::model()->findAll($pr_criteria);
+                
+                $link_criteria = new CDbCriteria();
+                $link_criteria->condition = "status = 1";
+                $link_criteria->order = "sort_order";
+                $links = Link::model()->findAll($link_criteria);
+                
+                $vdo_criteria = new CDbCriteria();
+                $vdo_criteria->condition = "page_id = 3 AND status = 1";
+                $vdo = Page::model()->find($vdo_criteria);
+                
+
+                
+//                 echo "<br> ===> ";
+//                 echo "<pre>";
+//                 print_r($vdo);
+//                 echo "</pre>";
+//                 exit;
+                        
+                $this->render('index',array(
+                                'model'=>$model,
+                                'news'=>$news,
+                                'newsInSide'=>$newsInSide,
+                                'job'=>$job,
+                                'student_news'=>$student_news,
+                                'links'=>$links,
+                                'vdo'=>$vdo,
+                        ));
+	}        
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -171,6 +242,12 @@ class SiteController extends Controller
                 $model =Page::model()->findByPk(9);
 		$this->render('privacy',array('model'=>$model));
 	}
+        public function actionIntro()
+        {
+                $this->layout = '//layouts/intro';
+                $model =Page::model()->findByPk(10);
+		$this->render('intro',array('model'=>$model));
+        }        
         
         public function actionSitemap()
 	{         
