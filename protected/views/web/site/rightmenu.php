@@ -8,12 +8,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $col3_2_header = "Admission";
     $col3_3_header = "Job News";
     $col3_4_header = "Link";
+    $dean = "Direct Line‎ to Dean";
 
 }else{
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
     $col3_2_header = "ประกาศสมัครเรียน";
     $col3_3_header = "ประกาศรับสมัครงาน";
     $col3_4_header = "ลิงค์ที่เกี่ยวข้อง";
+    $dean = "สายตรงคณบดี";
 }
 ?>
 <div class="indent-top">
@@ -21,6 +23,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <iframe width="320" height="215" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
 
 <div class="clear"></div>
+<br/>
+<div align="center">
+  <a href="http://sky.gspa-buu.net/post_form.php" target="_blank" title="<?php echo $dean;?>">
+  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" border="0" alt="<?php echo $dean;?>"/>  
+  </a>
+</div>
+
 <br/>
 <!-- ข่าวรับสมัครเรียน -->
 <h3><?php echo $col3_2_header;?></h3>
