@@ -1,0 +1,75 @@
+/* 
+    Document   : intro
+    Created on : 18 ก.ค. 2556, 23:31:56
+    Author     : Kanokwan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Global properties ======================================================== */
+html {
+	width:100%
+}
+body {
+	font-family:Tahoma, Arial, Helvetica, sans-serif;
+	font-size:100%;
+	/*color:#808080;*/
+	color:#666666;
+	min-width:980px;
+/*	background:#004080;*/
+
+}
+.main {
+	width:980px;
+	padding:10px 0 0 0;
+	margin:0 auto;
+	font-size:0.875em;
+	line-height:1.428em;
+
+}
+a {
+	color:#159FC1;
+	outline:none;
+        text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+        color: #F9DF1B;
+}
+/***** slider *****/
+.wrapper {
+        width:100%;
+	overflow:hidden
+}
+.slider-wrapper {
+	width:980px;
+	min-height:470px;
+        background: #F9DF1B;
+        margin: 0 20px 20px 20px;
+	position:relative;
+	overflow:hidden;
+        
+}
+.lang{
+	padding:20px 0 0 0;
+        text-align: right;
+}
+.button {
+        font-family:Tahoma, Arial, Helvetica, sans-serif;
+	display:inline-block;
+	padding:0 24px;
+	margin-left:2px;
+	margin-bottom:2px;
+	font-size:13px;
+	line-height:38px;
+	color:#000;
+	border:1px solid #fff;
+	background:url(../../images/front/button-tail.gif) 0 0 repeat-x #f2f2f2;
+	box-shadow:0 0 2px #bbb;
+	cursor:pointer;
+}
+.button:hover {
+	/*background:#60b001;*/
+	background:#F9DF1B;
+	color:#fff
+}
