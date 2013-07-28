@@ -332,9 +332,28 @@ class PageController extends AdminController
 		$model=$this->loadModel($id);
                 if(isset($_POST['Page']))
 		{
+                    $record_image = $model->images;
                     $_POST['Page']['user_id'] = Yii::app()->user->id; 
                     $model->attributes=$_POST['Page'];
+                    $images = CUploadedFile::getInstance($model, 'images');
+                    if($images) {			
+                            $genName = 'img_' . date('YmdHis');
+                            $saveName = $genName;
+
+                            while(file_exists($this->upload_path_images . $saveName . '.' . $images->getExtensionName())) {
+                                    $saveName = $genName . '-' . rand(0,99);
+                            }
+
+                            $model->images = $saveName . '.' . $images->getExtensionName();
+                    }
                       if($model->save()){
+                           if($images) {
+                                    if(file_exists($this->upload_path_images . $record_image)) {
+                                            @unlink($this->upload_path_images . $record_image);
+                                    }
+
+                                    $images->saveAs($this->upload_path_images . $model->images);
+                            }
                             $this->redirect(array('edit','id'=>$id));
                       }
                 }
