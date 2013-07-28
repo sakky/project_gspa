@@ -1,3 +1,19 @@
+<?php
+$curpage = Yii::app()->getController()->getAction()->controller->id;
+$curpage .= '/'.Yii::app()->getController()->getAction()->controller->action->id;
+//echo $curpage;
+if(Yii::app()->language == 'en_us'){
+   Yii::app()->language = 'en' ;
+}
+$contact =Page::model()->findByPk(7);
+$lang = Yii::app()->language;
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $link = "Enter Site";
+    $desc = $model->desc_en;
+}else{
+    $link = "เข้าสู่เว็บไซต์";
+    $desc = $model->desc_th;
+}?>
 <!-- Top Banner -->
 <div class="main">
     <div class="lang">
@@ -8,10 +24,10 @@
 <section id="content">
   <div class="main">
     <div class="slider-wrapper">
-      
+        <?php echo $desc;?>
     </div>
     <div align="center">
-        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>">เข้าสู่เว็บไซต์</a>
+        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>"><?php echo $link;?></a>
     </div>
   </div>
 </section>
