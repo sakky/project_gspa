@@ -91,7 +91,7 @@ class Page extends CActiveRecord
 			'desc_th' => 'Description (Thai)',
 			'pdf_en' => 'File PDF (English)',
 			'pdf_th' => 'File PDF (Thai)',           
-			'images' => 'Images',
+			'images' => 'รูปภาพประกอบ',
                         'thumbnail' => 'Thumbnail',
 			'create_date' => 'Create Date',
 			'sort_order' => 'Sort Order',
