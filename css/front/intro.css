@@ -44,7 +44,7 @@ a:hover {
 .slider-wrapper {
 	width:980px;
 	min-height:470px;
-        background: #F9DF1B;
+/*        background: #F9DF1B;*/
         margin: 0 20px 20px 20px;
 	position:relative;
 	overflow:hidden;
