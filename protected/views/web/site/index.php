@@ -71,7 +71,7 @@ $(window).load(function () {
               }
               
               ?> 
-                <li> <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span><?php echo $title;?></span> <b class="margin-bot"><?php echo $desc;?></b> <a class="button2" href="<?php echo $link;?>"><?php echo $readmore;?></a> </strong> </li>
+                <li> <img  src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span><?php echo $title;?></span> <b class="margin-bot"><?php echo $desc;?></b> <a class="button2" href="<?php echo $link;?>"><?php echo $readmore;?></a> </strong> </li>
           <?php }?>
         </ul>
       </div>
@@ -86,28 +86,31 @@ $(window).load(function () {
              }
              if($loop==1){
                  $item = "item-1";
+                 $char = "G";
              }
              if($loop==2){
                  $item = "item-2";
+                 $char = "S";
              }
              if($loop==3){
                  $item = "item-3";
+                 $char = "P";
              }
              if($loop==4){
                  $item = "item-4";
+                 $char = "A";
              }
              if($loop==5){
                  $item = "item-1";
              }
          ?>
         
-            <li><a class="<?php echo $item;?>" href="<?php echo $link;?>"><strong><?php echo $loop;?></strong></a></li>
+            <li><a class="<?php echo $item;?>" href="<?php echo $link;?>"><strong><?php echo $char;?></strong></a></li>
         
         <?php $loop++; }?>
       </ul>
     </div>
     <div class="border-bot1 img-indent-bot" >
-        <h2>~ <?php echo $text_title;?> ~</h2>
         <article class="fcol-1" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('student/group1'); ?>" class="button3"><?php echo $text_button1;?></a></article>
         <article class="fcol-2" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('student/group2/'); ?>" class="button3 color2"><?php echo $text_button2;?></a></article>
         <article class="fcol-3" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('admission'); ?>" class="button3 color3"><?php echo $text_button3;?></a></article>
