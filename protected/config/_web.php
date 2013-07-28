@@ -5,7 +5,7 @@ return CMap::mergeArray(
     array(
 		'name'=>'วิทยาลัยการบริหารรัฐกิจ มหาวิทยาลัยบูรพา',
                 'language' =>'th',
-                'homeUrl'=>array('/site'),
+                'homeUrl'=>array('/site/home'),
                     	'components'=>array(
 			#...
                         # More setting http://www.yiiframework.com/doc/guide/1.1/en/topics.url
