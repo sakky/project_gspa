@@ -27,7 +27,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <?php echo $desc;?>
     </div>
     <div align="center">
-        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>"><?php echo $link;?></a>
+        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>">เข้าสู่เว็บไซต์</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>">Enter Site</a>
     </div>
   </div>
 </section>
