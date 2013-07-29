@@ -3,6 +3,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+$lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $col3_header = "Media";
     $col3_2_header = "Admission";
@@ -19,16 +20,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }
 ?>
 <div class="indent-top">
-<h3><?php echo $col3_header;?></h3>
-<iframe width="320" height="215" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
 
-<div class="clear"></div>
-<br/>
-<div align="center">
+<h3><?php echo $dean;?></h3>
+<div align="left">
   <a href="http://sky.gspa-buu.net/post_form.php" target="_blank" title="<?php echo $dean;?>">
   <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" border="0" alt="<?php echo $dean;?>"/>  
   </a>
 </div>
+    
+<br/>
+    
+    
+<h3><?php echo $col3_header;?></h3>
+<iframe width="320" height="215" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+
+<div class="clear"></div>
 
 <br/>
 <!-- ข่าวรับสมัครเรียน -->
