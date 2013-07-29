@@ -28,7 +28,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $link = "group1";
     }
     if($model->ser_group ==2){
-        $type = "ปริญาเอก";
+        $type = "ปริญญาเอก";
         $link = "group2";
     }
     if($model->ser_group ==3){
