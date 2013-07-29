@@ -306,10 +306,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         </ul>
       </article>
     </div>
-<!--        <ul class="list-services">
-            <li><a href="#">Facebook</a></li>
-            <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
-        </ul>-->
         <div style="clear:both"></div>
         <div style="color:#FFFFFF;float:left;width: 550px;">
             <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
@@ -322,6 +318,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <a class="yellow" href="<?php echo Yii::app()->createUrl('site/faq'); ?>"><?php echo $faq;?> |</a> 
             <a class="yellow" href="<?php echo Yii::app()->createUrl('site/sitemap'); ?>"><?php echo $site_map;?></a>
         </div>
+        <ul class="list-services">
+            <li><a href="#">Facebook</a></li>
+            <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
+        </ul>
         <div style="clear:both"></div>
 
   </div>
