@@ -137,7 +137,7 @@ class Admission extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'admission_id' => 'Admission',
+			'admission_id' => 'รหัส',
 			'location' => 'ระบุสถานที่เรียน',
 			'program' => 'สาขาที่เปิดรับสมัคร',
 			'firstname_th' => 'ชื่อ',
