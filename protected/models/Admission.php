@@ -285,11 +285,11 @@ class Admission extends CActiveRecord
 		$criteria->compare('company_add',$this->company_add,true);
 		$criteria->compare('company_road',$this->company_road,true);
 		$criteria->compare('company_district',$this->company_district,true);
-		$criteria->compare('company_amphur',$this->ompany_amphur,true);
-		$criteria->compare('company_province',$this->mpany_province,true);
-		$criteria->compare('company_postcode',$this->mpany_postcode,true);
-		$criteria->compare('company_phone',$this->mpany_phone,true);
-		$criteria->compare('company_department',$this->mpany_department,true);
+		$criteria->compare('company_amphur',$this->company_amphur,true);
+		$criteria->compare('company_province',$this->company_province,true);
+		$criteria->compare('company_postcode',$this->company_postcode,true);
+		$criteria->compare('company_phone',$this->company_phone,true);
+		$criteria->compare('company_department',$this->company_department,true);
 		$criteria->compare('ref_name_1',$this->ref_name_1,true);
 		$criteria->compare('ref_position_1',$this->ref_position_1,true);
 		$criteria->compare('ref_company_1',$this->ref_company_1,true);
