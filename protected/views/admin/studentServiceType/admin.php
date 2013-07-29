@@ -53,7 +53,7 @@ $('.search-form form').submit(function(){
                         'header'=>'กลุ่มประเภท',
                         'value'=> '$data->serGroup->ser_name',
                         'htmlOptions'=>array('style'=>'text-align: left;width: 120px;'),
-                        'filter'=>array('1'=>'การจัดการความรู้','2'=>'หมวดความรู้','3'=>'สารคดี'),
+                        'filter'=>array('1'=>'ปริญญาโท','2'=>'ปริญญาเอก','3'=>'ประเมินการเรียนการสอน'),
 		),
 		array(
 			'name'=>'status',                 
