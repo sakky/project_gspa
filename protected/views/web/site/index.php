@@ -100,9 +100,6 @@ $(window).load(function () {
                  $item = "item-4";
                  $char = "A";
              }
-             if($loop==5){
-                 $item = "item-1";
-             }
          ?>
         
             <li><a class="<?php echo $item;?>" href="<?php echo $link;?>"><strong><?php echo $char;?></strong></a></li>

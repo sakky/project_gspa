@@ -48,7 +48,7 @@ class SiteController extends Controller
                 $Criteria->condition = "status = 1";
                 $Criteria->order = "sort_order";
                 $Criteria->offset = 0;
-                $Criteria->limit = 5;            
+                $Criteria->limit = 4;            
                 $model = Slide::model()->findAll($Criteria);
                 
                 $condition = new CDbCriteria();

@@ -55,7 +55,7 @@
 	<div class="row">           
 		<?php echo $form->labelEx($model,'image'); ?><br/>
 		<?php if(!$model->isNewRecord) echo CHtml::image(Yii::app()->request->baseUrl . '/uploads/slide/' . $model->image, '', array('style'=>'width: 120px')); ?><br />
-		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?> <br/>ขนาดรูปภาพ กว้าง 830px ยาว 431px <br/>
+		<?php echo $form->fileField($model,'image',array('style'=>'border: none;box-shadow:none')); ?> <br/>ขนาดรูปภาพ กว้าง 830px ยาว 360px <br/>
                 (ไฟล์รูปภาพนามสกุล jpg, jpeg, gif, png เท่านั้น)
 		<?php echo $form->error($model,'image'); ?>
 	</div>
