@@ -248,7 +248,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $service1 = "ดาวน์โหลดแบบฟอร์ม";
     $service2 = "ห้องสมุด";
     $service_student1 = "ปริญญาโท";
-    $service_student2 = "ปริญาเอก";
+    $service_student2 = "ปริญญาเอก";
     $service_student3 = "ประเมินการเรียนการสอน";
     $knowledge = "คลังข้อมูลความรู้";
     $knowledge1 = "การจัดการความรู้";
