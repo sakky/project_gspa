@@ -36,7 +36,7 @@ body {
 	margin:0 auto;
 	font-size:0.875em;
 	line-height:1.428em;
-	min-height: 180px;
+	min-height: 150px;
 }
 a {
 	color:#159FC1;
@@ -200,7 +200,7 @@ header {
 	min-height:116px;
 }
 #page1 header {
-	min-height:250px
+	min-height:180px
 }
 h1 {
 	position:relative;
@@ -208,9 +208,9 @@ h1 {
 }
 h1.logo_th {
 	display:block;
-	margin-top: 20px;
+	margin-top: 10px;
 	width:480px;
-	height:120px;
+	height:110px;
 	font-size:44px;
 	font-weight:bold;
 	line-height:2.2em;
@@ -220,9 +220,9 @@ h1.logo_th {
 }
 h1.logo_en {
 	display:block;
-	margin-top: 20px;
+	margin-top: 10px;
 	width:480px;
-	height:120px;
+	height:110px;
 	font-size:44px;
 	font-weight:bold;
 	line-height:2.2em;
@@ -326,7 +326,7 @@ margin-top:50px;
 	width:850px;
 	height:400px;
 	padding:20px 0 0 130px;
-	margin-top:-120px;
+	margin-top:-60px;
 	position:relative;
 	overflow:hidden;
 	background:url(../../images/front/slider-bg.png) 0 0 no-repeat;
