@@ -33,7 +33,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
         </h3>
         <br/>
-        <a class="button" href="<?php echo Yii::app()->createUrl('site/index'); ?>">กลับสู่หน้าหลัก</a>
+        <a class="button" href="<?php echo Yii::app()->createUrl('site/home'); ?>">กลับสู่หน้าหลัก</a>
     </div>
     <?php else: ?>
     <h3><?php echo $header;?></h3>
@@ -54,32 +54,15 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
         <?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
         <div class="row">
-            <?php echo $form->labelEx($model,'location'); ?>
-            <?php echo $form->dropDownList($model, 'location', array(
-                                                                        ''=>'------------ กรุณาเลือก ------------',
-                                                                        '1'=>'วิทยาลัยการบริหารรัฐกิจ มหาลัยบูรพา(ชลบุรี)',
-                                                                        '4'=>'ศูนย์การศึกษาจันทบุรี',
-                                                                        '5'=>'ศูนย์การศึกษาสระแก้ว')
-                                                                    ); ?>
-            <?php echo $form->error($model,'location'); ?>
+            <?php echo $form->labelEx($model,'location_id'); ?>
+            <?php echo $form->dropDownList($model, 'location_id',$location_list,array('prompt' => '------------ กรุณาเลือกสถานที่เรียน ------------')); ?>
+            <?php echo $form->error($model,'location_id'); ?>
         </div>
         
         <div class="row">
-            <?php echo $form->labelEx($model,'program'); ?> 
-            <?php echo $form->dropDownList($model, 'program', array(
-                                            ''=>'------------ กรุณาเลือกสาขา ------------',
-                                            '1'=>'กลุ่มสาขาวิชาการจัดการภาครัฐและภาคเอกชน(ภาคพิเศษ เสาร์-อาทิตย์) ชลบุรี,จันทบุรี',
-                                            '2'=>'กลุ่มสาขาวิชาการจัดการภาครัฐและภาคเอกชน(ภาคปกติ จันทร์-ศุกร์) ชลบุรี',
-                                            '3'=>'กลุ่มสาขาวิชานโยบายสาธารณะ(ภาคพิเศษ เสาร์-อาทิตย์) ชลบุรี',
-                                            '4'=>'กลุ่มสาขาวิชาการบริหารทรัพยากรมนุษย์(ภาคพิเศษ เสาร์-อาทิตย์) ชลบุรี',
-                                            '5'=>'กลุ่มสาขาวิชาภูมิรัฐประศาสนศาสตร์(ภาคพิเศษ เสาร์-อาทิตย์) ชลบุรี',
-                                            '6'=>'กลุ่มสาขาวิชาภูมิรัฐประศาสนศาสตร์(ภาคปกติ จันทร์-ศุกร์) ชลบุรี',
-                                            '7'=>'กลุ่มสาขาวิชาการบริหารทั่วไป(ภาคค่ำ อังคาร-พฤหัส) ชลบุรี',
-                                            '8'=>'กลุ่มสาขาวิชาการบริหารทั่วไป(ภาคปกติ จันทร์-ศุกร์) ชลบุรี',
-                                            '9'=>'กลุ่มสาขาวิชาการบริหารทั่วไป(ภาคพิเศษ เสาร์-อาทิตย์) สระแก้ว',
-                                            '10'=>'กลุ่มสาขาวิชาการบริหารงานท้องถิ่น(ภาคค่ำ อังคาร-พฤหัส) ชลบุรี')
-                                        ); ?> (กรุณาอ่านรายละเอียดจากหน้าเว็บ)
-            <?php echo $form->error($model,'program'); ?>
+            <?php echo $form->labelEx($model,'program_id'); ?> 
+            <?php echo $form->dropDownList($model, 'program_id',$program_list,array('prompt' => '------------ กรุณาเลือกสาขา ------------')); ?> (กรุณาอ่านรายละเอียดจากหน้าเว็บ)
+            <?php echo $form->error($model,'program_id'); ?>
         </div>
         
     </div>
@@ -99,7 +82,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             </div>
             <div class="row">
                 <?php echo $form->labelEx($model,'title'); ?> 
-                <?php echo $form->dropDownList($model, 'title', array(''=>'--- เลือกคำนำหน้า ---','1'=>'นาย','2'=>'นาง','3'=>'นางสาว','4'=>'ยศ.')); ?>
+                <?php echo $form->dropDownList($model, 'title', array(''=>'--- เลือกคำนำหน้า ---','นาย'=>'นาย','นาง'=>'นาง','นางสาว'=>'นางสาว','ยศ.'=>'ยศ.')); ?>
                 <?php echo $form->error($model,'title'); ?>
             </div>
             <div class="row">
@@ -191,7 +174,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                                 ),
                         'htmlOptions' => array(
                         'class'=>'shadowdatepicker',
-                        'readonly'=>"readonly",
                         'style'=>'height:20px;',
                     ),
                 )); ?> (dd/mm/yyyy)
