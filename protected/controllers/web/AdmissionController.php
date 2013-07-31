@@ -6,6 +6,19 @@ class AdmissionController extends Controller
 	{
             
                 $model=new Admission;
+                $location_list = array();
+                $location = AdmissionLocation::model()->findAll();
+                
+                foreach($location as $locate) {
+			$location_list[$locate->location_id] = $locate->name;
+		}
+                $program_list = array();
+                $programs = AdmissionProgram::model()->findAll();
+                
+                foreach($programs as $pro) {
+			$program_list[$pro->program_id] = $pro->name;
+		}                
+                
                 if(isset($_POST['Admission']))
 		{
                         list($d, $m, $y) = explode("/", $_POST['Admission']['birthday']);
@@ -22,7 +35,10 @@ class AdmissionController extends Controller
 				
 		}
 		$this->render('index',array(
-			'model'=>$model));
+			'model'=>$model,
+                        'location_list'=>$location_list,
+                        'program_list'=>$program_list
+                    ));
 	}
 
 	// Uncomment the following methods and override them if needed
