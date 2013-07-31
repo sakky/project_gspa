@@ -5,8 +5,8 @@
  *
  * The followings are the available columns in table 'gs_admission':
  * @property integer $admission_id
- * @property string $location
- * @property string $program
+ * @property string $location_id
+ * @property string $program_id
  * @property string $firstname_th
  * @property string $lastname_th
  * @property string $firstname_en
@@ -110,13 +110,13 @@ class Admission extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('location, program, firstname_th, lastname_th, firstname_en, lastname_en, title, birthday, address, district, amphur, province, postcode, mobile_phone, email', 'required','message'=>'{attribute} ห้ามว่าง'),
-			array('location, program, firstname_th, lastname_th, firstname_en, lastname_en, title, address, district, amphur, province, postcode, home_phone, mobile_phone, email, year_end_1, university_1, major_1, degree_1, score_1, year_end_2, university_2, major_2, degree_2, score_2, year_end_3, university_3, major_3, degree_3, score_3, year_end_4, university_4, major_4, degree_4, score_4, year_end_5, university_5, major_5, degree_5, score_5, training_1, training_2, training_3, training_4, training_5, career, position, level, salary, period, company_name, company_add, company_road, company_district, company_amphur, company_province, company_postcode, company_phone, company_department, ref_name_1, ref_position_1, ref_company_1, ref_phone_1, ref_name_2, ref_position_2, ref_company_2, ref_phone_2, ref_name_3, ref_position_3, ref_company_3, ref_phone_3', 'length', 'max'=>255),
+			array('location_id, program_id, firstname_th, lastname_th, firstname_en, lastname_en, title, birthday, address, district, amphur, province, postcode, mobile_phone, email', 'required','message'=>'{attribute} ห้ามว่าง'),
+			array('location_id, program_id, firstname_th, lastname_th, firstname_en, lastname_en, title, address, district, amphur, province, postcode, home_phone, mobile_phone, email, year_end_1, university_1, major_1, degree_1, score_1, year_end_2, university_2, major_2, degree_2, score_2, year_end_3, university_3, major_3, degree_3, score_3, year_end_4, university_4, major_4, degree_4, score_4, year_end_5, university_5, major_5, degree_5, score_5, training_1, training_2, training_3, training_4, training_5, career, position, level, salary, period, company_name, company_add, company_road, company_district, company_amphur, company_province, company_postcode, company_phone, company_department, ref_name_1, ref_position_1, ref_company_1, ref_phone_1, ref_name_2, ref_position_2, ref_company_2, ref_phone_2, ref_name_3, ref_position_3, ref_company_3, ref_phone_3', 'length', 'max'=>255),
 			array('work_experience, succeed, reason, goal', 'safe'),
                         array('email', 'email'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('admission_id, location, program, firstname_th, lastname_th, firstname_en, lastname_en, title, birthday, address, district, amphur, province, postcode, home_phone, mobile_phone, email, year_end_1, university_1, major_1, degree_1, score_1, year_end_2, university_2, major_2, degree_2, score_2, year_end_3, university_3, major_3, degree_3, score_3, year_end_4, university_4, major_4, degree_4, score_4, year_end_5, university_5, major_5, degree_5, score_5, training_1, training_2, training_3, training_4, training_5, work_experience, career, position, level, salary, period, company_name, company_add, company_road, company_district, company_amphur, company_province, company_postcode, company_phone, company_department, ref_name_1, ref_position_1, ref_company_1, ref_phone_1, ref_name_2, ref_position_2, ref_company_2, ref_phone_2, ref_name_3, ref_position_3, ref_company_3, ref_phone_3, succeed, reason, goal', 'safe', 'on'=>'search'),
+			array('admission_id, location_id, program_id, firstname_th, lastname_th, firstname_en, lastname_en, title, birthday, address, district, amphur, province, postcode, home_phone, mobile_phone, email, year_end_1, university_1, major_1, degree_1, score_1, year_end_2, university_2, major_2, degree_2, score_2, year_end_3, university_3, major_3, degree_3, score_3, year_end_4, university_4, major_4, degree_4, score_4, year_end_5, university_5, major_5, degree_5, score_5, training_1, training_2, training_3, training_4, training_5, work_experience, career, position, level, salary, period, company_name, company_add, company_road, company_district, company_amphur, company_province, company_postcode, company_phone, company_department, ref_name_1, ref_position_1, ref_company_1, ref_phone_1, ref_name_2, ref_position_2, ref_company_2, ref_phone_2, ref_name_3, ref_position_3, ref_company_3, ref_phone_3, succeed, reason, goal', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -128,6 +128,9 @@ class Admission extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                     'location' => array(self::BELONGS_TO, 'AdmissionLocation', 'location_id', 'joinType'=>'INNER JOIN'),
+                     'program' => array(self::BELONGS_TO, 'AdmissionProgram', 'program_id', 'joinType'=>'INNER JOIN'),
+		
 		);
 	}
 
@@ -138,8 +141,8 @@ class Admission extends CActiveRecord
 	{
 		return array(
 			'admission_id' => 'รหัส',
-			'location' => 'ระบุสถานที่เรียน',
-			'program' => 'สาขาที่เปิดรับสมัคร',
+			'location_id' => 'ระบุสถานที่เรียน',
+			'program_id' => 'สาขาที่เปิดรับสมัคร',
 			'firstname_th' => 'ชื่อ',
 			'lastname_th' => 'นามสกุล',
 			'firstname_en' => 'Name',
@@ -229,8 +232,8 @@ class Admission extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('admission_id',$this->admission_id);
-		$criteria->compare('location',$this->location,true);
-		$criteria->compare('program',$this->program,true);
+		$criteria->compare('location_id',$this->location_id,true);
+		$criteria->compare('program_id',$this->program_id,true);
 		$criteria->compare('firstname_th',$this->firstname_th,true);
 		$criteria->compare('lastname_th',$this->lastname_th,true);
 		$criteria->compare('firstname_en',$this->firstname_en,true);
@@ -306,8 +309,9 @@ class Admission extends CActiveRecord
 		$criteria->compare('reason',$this->reason,true);
 		$criteria->compare('goal',$this->goal,true);
 
-		return new CActiveDataProvider($this, array(
+                return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
 		));
 	}
 }
