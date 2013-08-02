@@ -234,7 +234,7 @@ $this->menu=array(
             </div>
             <div class="row">
                 <label>จังหวัด : </label>
-                <?php echo $model->province;?>
+                <?php echo $model->company_province;?>
             </div>
             <div class="row">
                 <label>รหัสไปรษณีย์  : </label>
@@ -271,35 +271,35 @@ $this->menu=array(
             </div><br/>
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_name_2'); ?>
-                <?php echo $model->ref_name_1;?>
+                <?php echo $model->ref_name_2;?>
             </div> 
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_position_2'); ?> 
-                <?php echo $model->ref_position_1;?>
+                <?php echo $model->ref_position_2;?>
             </div>
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_company_2'); ?>
-                <?php echo $model->ref_company_1;?>
+                <?php echo $model->ref_company_2;?>
             </div>
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_phone_2'); ?> 
-                <?php echo $model->ref_phone_1;?>
+                <?php echo $model->ref_phone_2;?>
             </div><br/>
-                        <div class="row">
+            <div class="row">
                 <?php echo $form->labelEx($model,'ref_name_3'); ?>
-                <?php echo $model->ref_name_1;?>
+                <?php echo $model->ref_name_3;?>
             </div> 
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_position_3'); ?> 
-                <?php echo $model->ref_position_1;?>
+                <?php echo $model->ref_position_3;?>
             </div>
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_company_3'); ?>
-                <?php echo $model->ref_company_1;?>
+                <?php echo $model->ref_company_3;?>
             </div>
             <div class="row">
                 <?php echo $form->labelEx($model,'ref_phone_3'); ?> 
-                <?php echo $model->ref_phone_1;?>
+                <?php echo $model->ref_phone_3;?>
             </div>           
     </div>
     <br/>
