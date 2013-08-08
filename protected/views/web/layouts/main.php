@@ -48,7 +48,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--==============================header=================================-->
 <header>
   <div class="main">
-    <div class="wrapper">
+    <div class="wrapper" style="background:url('<?php echo Yii::app()->request->baseUrl; ?>/images/front/gspa_logo_en<?php echo rand(1,3) ;?>.png') 0 0 no-repeat;">
       <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
        <div id="search">    
         <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
@@ -60,6 +60,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         </form>
       </div>
     <div class="clear"></div>
+    
     <nav>
     <div class="menu">    
         <ul>
@@ -205,10 +206,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>-->
             
             <?php }?>
+
         </ul>
+
+        
     </div>
     </nav>
-    <div class="lang">
+    <div class="lang" id="lang" style="z-index: 10000">
     	   <a title="ภาษาไทย" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('th');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_th.png" alt="Thai" border="0" /></a>
            <a title="English" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('en');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_en.png" alt="English" border="0" /></a>
     </div>

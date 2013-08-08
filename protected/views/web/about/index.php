@@ -40,6 +40,10 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
         </div>
 
+          <?php if (in_array($_GET['id'],array(1,4,5))){?>
+          <div><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/history.jpg"/></div>
+          <?php } ?>
+          
           <h3><?php echo $name;?></h3>
             <?php
             Yii::import('ext.jqPrettyPhoto');

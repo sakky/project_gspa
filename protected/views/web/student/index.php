@@ -104,6 +104,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
+
+          <div><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/student.png"/></div>
+          
           <h3><?php echo $header;?></h3>
           <ul class="list-4">
               <?php foreach ($model as $value){

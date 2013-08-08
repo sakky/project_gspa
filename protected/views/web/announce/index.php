@@ -33,6 +33,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
+
+          <div><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/announce.jpg"/></div>
+          
           <h3><?php echo $header;?></h3>
           <ul class="list-2">
           <?php foreach ($news as $new){
