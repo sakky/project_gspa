@@ -259,7 +259,7 @@ margin-top:50px;
 }
 .menu ul {
 background: url("../../images/front/menu_bar.png") no-repeat scroll 0% 0% transparent;
-width: 100%;    
+width: 999px;    
 }
 .menu ul {
         position:absolute;
