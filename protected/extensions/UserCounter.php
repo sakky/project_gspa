@@ -84,6 +84,29 @@ class UserCounter extends CComponent
 	 **/
     public function refresh()
     {
+
+        
+$cfg = require  dirname(__FILE__).'/../config/main.php';
+//print '<pre>';
+//print_r($cfg['components']['db']);
+
+if (preg_match("/^mysql:host=(\w.*);dbname=(\w.*)/i", $cfg['components']['db']['connectionString'],$match))
+{
+    //print_r($match);    
+}
+//$db_name = "myphotos";
+//$db_server = "localhost";
+//$db_user = "root";
+//$db_pass = "";
+
+$db_name = $match[2];
+$db_server = $match[1];
+
+$db_user = $cfg['components']['db']["username"];
+$db_pass = $cfg['components']['db']["password"];
+        
+        
+        
 		$cfg_tbl_users		= $this->cfg_tbl_users;
 		$cfg_tbl_save		= $this->cfg_tbl_save;
 		$cfg_online_time	= $this->cfg_online_time;
@@ -97,6 +120,8 @@ class UserCounter extends CComponent
 		{
 			$data[$row['save_name']] = $row['save_value'];
 		}
+                unset($dataReader);
+                unset($command);
 
 		// Aktuellen Tag als julianisches Datum
 		$today_jd = GregorianToJD(date('m'), date('j'), date('Y'));
@@ -110,14 +135,19 @@ class UserCounter extends CComponent
 			$dataReader = $command->query();
 			$row = $dataReader->read();
 			$today_count = $row['user_count'];
+                        unset($dataReader);
+                        unset($command);
 
 			// Anzahl der Tage zum letzten Update ermitteln
 			$days_between = $today_jd - $data['day_time'];
 
 			// Zählerwert von heute auf gestern setzen
-			$sql = 'UPDATE ' . $cfg_tbl_save . ' SET save_value=' . ($days_between == 1 ? $today_count : 0) . ' WHERE save_name="yesterday"';
-			$command = Yii::app()->db->createCommand($sql);
-			$command->execute();
+                        $sql = 'UPDATE ' . $cfg_tbl_save . ' SET save_value=' . ($days_between == 1 ? $today_count : 0) . ' WHERE save_name="yesterday"';
+			//$command = Yii::app()->db->createCommand($sql);
+			//$command->execute();
+                        $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                        $stmt = $dbh->prepare($sql);
+                        $stmt->execute();
 
 			// Auf neuen Besucherrekord prüfen
 			if ($today_count >= $data['max_count'])
@@ -128,29 +158,44 @@ class UserCounter extends CComponent
 
 				// Rekordwerd speichern
 				$sql= 'UPDATE ' . $cfg_tbl_save . ' SET save_value=' . $today_count . ' WHERE save_name="max_count"';
-				$command = Yii::app()->db->createCommand($sql);
-				$command->execute();
+				//$command = Yii::app()->db->createCommand($sql);
+				//$command->execute();
+                                $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                                $stmt = $dbh->prepare($sql);
+                                $stmt->execute();
 
 				// Aktuellen Tag als neuen Rekordtag speichern
 				$sql= 'UPDATE ' . $cfg_tbl_save . ' SET save_value=' . $data['max_time'] . ' WHERE save_name="max_time"';
-				$command = Yii::app()->db->createCommand($sql);
-				$command->execute();
+				//$command = Yii::app()->db->createCommand($sql);
+				//$command->execute();
+                                $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                                $stmt = $dbh->prepare($sql);
+                                $stmt->execute();
 			}
 
 			// Gesamtzähler erhöhen
 			$sql = 'UPDATE ' . $cfg_tbl_save . ' SET save_value=save_value+' . $today_count . ' WHERE save_name="counter"';
-			$command = Yii::app()->db->createCommand($sql);
-			$command->execute();
+			//$command = Yii::app()->db->createCommand($sql);
+			//$command->execute();
+                        $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                        $stmt = $dbh->prepare($sql);
+                        $stmt->execute();
 
 			// Alte Besucherdaten aus Tabelle entfernen
 			$sql = 'TRUNCATE TABLE ' . $cfg_tbl_users;
-			$command = Yii::app()->db->createCommand($sql);
-			$command->execute();
+			//$command = Yii::app()->db->createCommand($sql);
+			//$command->execute();
+                        $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                        $stmt = $dbh->prepare($sql);
+                        $stmt->execute();
 
 			// Datum aktualisieren
 			$sql= 'UPDATE ' . $cfg_tbl_save . ' SET save_value=' . $today_jd . ' WHERE save_name="day_time"';
-			$command = Yii::app()->db->createCommand($sql);
-			$command->execute();
+			//$command = Yii::app()->db->createCommand($sql);
+			//$command->execute();
+                        $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                        $stmt = $dbh->prepare($sql);
+                        $stmt->execute();
 
 			// Daten aktualisieren
 			$data['counter'] += $today_count;
@@ -162,8 +207,11 @@ class UserCounter extends CComponent
 
 		// Besucher speichern oder aktualisieren
 		$sql = 'INSERT INTO ' . $cfg_tbl_users . ' VALUES ("' . $user_ip . '", ' . time() . ') ON DUPLICATE KEY UPDATE user_time=' . time();
-		$command = Yii::app()->db->createCommand($sql);
-		$command->execute();
+		//$command = Yii::app()->db->createCommand($sql);
+		//$command->execute();
+                $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                $stmt = $dbh->prepare($sql);
+                $stmt->execute();
 
 		// Rückgabearray initialisieren
 		$output = array();
@@ -174,6 +222,8 @@ class UserCounter extends CComponent
 		$dataReader = $command->query();
 		$row = $dataReader->read();
 		$output['today'] = $row['user_count'];
+                unset($dataReader);
+                unset($command);
 
 		// Gesamte Besucherzahl und Besucher vom Vortag zurückgeben
 		$output['counter']   = $data['counter'] + $output['today'];
@@ -185,6 +235,8 @@ class UserCounter extends CComponent
 		$dataReader = $command->query();
 		$row = $dataReader->read();
 		$output['online'] = $row['user_count'];
+                unset($dataReader);
+                unset($command);
 
 		// Wurde der aktuelle Besucherrekord heute überschritten?
 		if ($output['today'] >= $data['max_count'])
