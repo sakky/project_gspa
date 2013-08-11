@@ -76,10 +76,11 @@
             </li>
             <?php }?>
             <?php if($menu_use[3]){?>
-            <li <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='gallery'){?>class="current" <?php }?>><a href="#">ประชาสัมพันธ์/กิจกรรม</a>
-                <ul <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='gallery'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+            <li <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='event'){?>class="current" <?php }?>><a href="#">ประชาสัมพันธ์/กิจกรรม</a>
+                <ul <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='event'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
                         <li <?php if($controller=='newsInSide'||$controller=='newsGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('newsInSide'); ?>">ภายใน</a></li>
                         <li <?php if($controller=='news'||$controller=='newsGroup2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('news'); ?>">จากสื่อ</a></li>
+                        <li <?php if($controller=='event'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
                 </ul>
             </li>
             <?php }?>
