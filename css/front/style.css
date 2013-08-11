@@ -959,3 +959,25 @@ div.form-admission .errorMessage {
     text-align: left;
     margin-left: 40px;
 }
+.date-event {
+    padding: 5px 10px;
+    border: 1px solid orange;
+    float: left;
+    border-radius: 5px;
+}
+.date-event h5 {
+    color: rgb(0, 102, 255);
+    text-align: center;
+}
+
+h5 {
+    font-size: 17px;
+
+    font-weight: normal;
+}
+.date-detile {
+    margin-left: 60px;
+    overflow: hidden;
+    font-size: 0.85em;
+    height: 70px;
+}
