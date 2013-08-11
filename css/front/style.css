@@ -981,3 +981,16 @@ h5 {
     font-size: 0.85em;
     height: 70px;
 }
+ul .footer-list li{
+    float:left;
+}
+.footer-list li a {
+        float:left;
+	padding-left:25px;
+        padding-right:30px;
+	color:#fff;
+	background:url(../../images/front/li_yellow.png) 0 3px no-repeat;
+}
+.footer-list li a:hover {
+	color:#FCB549;
+}
