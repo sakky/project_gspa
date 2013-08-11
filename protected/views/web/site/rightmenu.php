@@ -62,12 +62,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <h5><?php echo date('j',  strtotime($value->event_start));?><br><?php echo date('M',  strtotime($value->event_start));?></h5>
         </div>
         <div class="date-detile">
-            <a href="#"><?php echo $event_title;?> : <?php echo $event_name;?><br/><?php echo $event_date;?> : <?php echo date('d/m/Y',  strtotime($value->event_start));?><?php if($value->event_end && $value->event_end != '0000-00-00'){ echo " - ".date('d/m/Y',  strtotime($value->event_end)); }?></a>
+            <a href="<?php echo Yii::app()->createUrl('event', array('id'=>$value->event_id)); ?>"><?php echo $event_title;?> : <?php echo $event_name;?><br/><?php echo $event_date;?> : <?php echo date('d/m/Y',  strtotime($value->event_start));?><?php if($value->event_end && $value->event_end != '0000-00-00'){ echo " - ".date('d/m/Y',  strtotime($value->event_end)); }?></a>
         </div>
     </li>
 <?php }?>
 </ul>
-<p class="alignright small"><a href="#"><?php echo $more;?></a></p>
+<p class="alignright small"><a href="<?php echo Yii::app()->createUrl('event'); ?>"><?php echo $more;?></a></p>
 <!-- ข่าวรับสมัครเรียน -->
 <h3><?php echo $col3_2_header;?></h3>
   <ul class="list-2">
