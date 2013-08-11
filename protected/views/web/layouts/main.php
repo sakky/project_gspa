@@ -266,7 +266,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <footer>
     <div class="main">
     <div class="wrapper border-bot2 margin-bot">
-      <article class="fcol-1">
+        <ul class="footer-list">
+            <li><a href="<?php echo Yii::app()->createUrl('information'); ?>"><?php echo $service;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>"><?php echo $knowledge;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('report'); ?>"><?php echo $report;?></a></li>
+            
+        </ul>
+        <div style="clear:both"></div>
+        <br/>
+<!--      <article class="fcol-1">
          <h3 class="color-1"><?php echo $service;?></h3>
           <ul class="list-3">
             <li><a href="<?php echo Yii::app()->createUrl('information/download'); ?>"><?php echo $service1;?></a></li>
@@ -280,16 +289,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('student/group3'); ?>"><?php echo $service_student3;?></a></li>
             
           </ul>
-      </article>
-      <article class="fcol-2">
+      </article>-->
+<!--      <article class="fcol-2">
          <h3 class="color-1"><?php echo $knowledge;?></h3>
          <ul class="list-3">
             <li><a href="<?php echo Yii::app()->createUrl('knowledge/group1'); ?>"><?php echo $knowledge1;?></a></li>
             <li><a href="<?php echo Yii::app()->createUrl('knowledge/group2'); ?>"><?php echo $knowledge2;?></a></li>
 	    <li class="last-item"><a href="<?php echo Yii::app()->createUrl('knowledge/group3'); ?>"><?php echo $knowledge3;?></a></li>            
           </ul>
-      </article>
-      <article class="fcol-3">
+      </article>-->
+<!--      <article class="fcol-3">
         <h3 class="color-1"><?php echo $report;?></h3>
         <ul class="list-3">
              <?php
@@ -310,7 +319,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <li><a href="<?php echo Yii::app()->createUrl('report', array('type_id'=>$type->report_type_id)); ?>"><?php echo $name;?></a></li>        
                 <?php }?>
         </ul>
-      </article>
+      </article>-->
     </div>
         <div style="clear:both"></div>
         <div style="color:#FFFFFF;float:left;width: 550px;">
