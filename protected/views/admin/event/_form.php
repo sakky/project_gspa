@@ -84,16 +84,22 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'location_en'); ?>
+		<?php echo $form->textField($model,'location_en',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'location_en'); ?>
+	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($model,'location_th'); ?>
+		<?php echo $form->textField($model,'location_th',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'location_th'); ?>
+	</div>
+        
+	<div class="row">
 		<?php echo $form->labelEx($model,'event_url'); ?>
 		<?php echo $form->textField($model,'event_url',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'event_url'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'event_location'); ?>
-		<?php echo $form->textField($model,'event_location',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'event_location'); ?>
-	</div>
+	</div>        
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'event_status'); ?>

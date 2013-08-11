@@ -27,7 +27,6 @@ $this->menu=array(
 		'event_start',
 		'event_end',
 		'event_url',
-		'event_location',
 		'event_status',
 	),
 )); ?>

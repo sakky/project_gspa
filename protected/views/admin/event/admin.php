@@ -65,7 +65,6 @@ $('.search-form form').submit(function(){
                         'filter'=>array('1'=>'แสดง','0'=>'ไม่แสดง'),
 		),
 		/*
-		'event_location',
 		'event_status',
 		*/
 		array(

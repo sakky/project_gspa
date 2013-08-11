@@ -29,9 +29,6 @@
 	<?php echo CHtml::encode($data->event_url); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('event_location')); ?>:</b>
-	<?php echo CHtml::encode($data->event_location); ?>
-	<br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('event_status')); ?>:</b>
