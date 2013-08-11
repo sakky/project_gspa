@@ -185,6 +185,7 @@ $(window).load(function () {
                                 'student_news'=>$student_news,
                                 'links'=>$links,
                                 'vdo'=>$vdo,
+                                'events'=>$events,
                         ));?>
       </article>
     </div>
