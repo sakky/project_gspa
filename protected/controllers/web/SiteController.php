@@ -72,6 +72,13 @@ class SiteController extends Controller
                 $job_criteria->limit = 6; 
                 $job = News::model()->findAll($job_criteria);
                 
+                $event_criteria = new CDbCriteria();
+                $event_criteria->condition = "event_start >= ".date('Y-m-d')." AND event_status = 1";
+                $event_criteria->order = "event_start ,event_id";
+                $event_criteria->offset = 0;
+                $event_criteria->limit = 5; 
+                $events = Event::model()->findAll($event_criteria);
+                
                 $pr_criteria = new CDbCriteria();
                 $pr_criteria->condition = "news_type_id =5 AND status = 1";
                 $pr_criteria->order = "create_date desc,news_id desc";
@@ -104,6 +111,7 @@ class SiteController extends Controller
                                 'student_news'=>$student_news,
                                 'links'=>$links,
                                 'vdo'=>$vdo,
+                                'events'=>$events,
                         ));
 	}        
 
