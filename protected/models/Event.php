@@ -43,11 +43,11 @@ class Event extends CActiveRecord
 		return array(
 			array('event_title_en, event_title_th, event_start, event_status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('event_status', 'numerical', 'integerOnly'=>true),
-			array('event_title_en, event_title_th, event_url, event_location', 'length', 'max'=>255),
+			array('event_title_en, event_title_th, event_url, location_en, location_th', 'length', 'max'=>255),
 			array('event_end', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('event_id, event_title_en, event_title_th, event_start, event_end, event_url, event_location, event_status', 'safe', 'on'=>'search'),
+			array('event_id, event_title_en, event_title_th, event_start, event_end, event_url, location_en, location_th, event_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,7 +74,8 @@ class Event extends CActiveRecord
 			'event_start' => 'วันที่เริ่ม',
 			'event_end' => 'วันที่สิ้นสุด',
 			'event_url' => 'ลิงค์ที่เกี่ยวข้อง',
-			'event_location' => 'สถานที่',
+                        'location_en' => 'สถานที่ (ภาษาอังกฤษ)',
+                        'location_th' => 'สถานที่ (ภาษาไทย)',
 			'event_status' => 'สถานะ',
 		);
 	}
@@ -96,7 +97,8 @@ class Event extends CActiveRecord
 		$criteria->compare('event_start',$this->event_start,true);
 		$criteria->compare('event_end',$this->event_end,true);
 		$criteria->compare('event_url',$this->event_url,true);
-		$criteria->compare('event_location',$this->event_location,true);
+                $criteria->compare('location_en',$this->location_en,true);
+                $criteria->compare('location_th',$this->location_th,true);
 		$criteria->compare('event_status',$this->event_status);
 
 		return new CActiveDataProvider($this, array(
