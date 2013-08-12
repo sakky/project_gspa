@@ -136,9 +136,22 @@ class Alumni extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('time_stamp',$this->time_stamp,true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-                        'pagination'=>array('pageSize'=> 20),
-		));
+                
+                
+                
+                $data = new CActiveDataProvider(get_class($this), array(
+                        'pagination'=>array('pageSize'=> Yii::app()->user->getState('pageSize',
+                                      Yii::app()->params['defaultPageSize']),),
+                        'criteria'=>$criteria,
+                ));
+
+                $_SESSION['Filtered_Excel']=$data; // get all data and filtered data :)
+
+                return $data;
+//
+//		return new CActiveDataProvider($this, array(
+//			'criteria'=>$criteria,
+//                        'pagination'=>array('pageSize'=> 20),
+//		));
 	}
 }
