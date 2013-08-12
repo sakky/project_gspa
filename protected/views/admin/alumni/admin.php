@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Alumni', 'url'=>array('index')),
 	array('label'=>'เพิ่มข้อมูล', 'url'=>array('create')),
+        array('label'=>'Export Excel', 'url'=>array('excel')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
