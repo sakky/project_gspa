@@ -260,10 +260,7 @@ class AlumniController extends AdminController
         
         
     public function actionExcel(){
-//                echo "<br> ===> ";
-//		  echo "<pre>";
-//		  print_r($_SESSION);
-//		  echo "</pre>";
+
 //		  
 //		  
 //        $model=new Alumni('search');
@@ -274,9 +271,9 @@ class AlumniController extends AdminController
 //        );
 //    
         $issueDataProvider = $_SESSION['Filtered_Excel'];
-        $strPath = realpath(basename(getenv($_SERVER["SCRIPT_NAME"]))); // C:/AppServ/www/myphp  
+
         $i = 0;
-        
+        unset($_SESSION['Filtered_Excel']);
         //fix column header. 
         //Could have used something like this - $data[]=array_keys($issueDataProvider->data[0]->attributes);. 
         //But that would return all attributes which i do not want
@@ -333,11 +330,11 @@ class AlumniController extends AdminController
             $data[$i]['desc_th'] = $issue['desc_th'];
             $i++;
         }
-
+        
         $xls = new JPhpExcel('UTF-8', false, 'Export Alumni');
         $xls->addArray($data);
         $xls->generateXML('alumni_file');
-   
+
         //*** Insert Picture (2) ***//
 
 
