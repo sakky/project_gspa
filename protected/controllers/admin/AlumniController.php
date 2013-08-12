@@ -257,7 +257,93 @@ class AlumniController extends AdminController
                 }
 
         }
+        
+        
+    public function actionExcel(){
+//                echo "<br> ===> ";
+//		  echo "<pre>";
+//		  print_r($_SESSION);
+//		  echo "</pre>";
+//		  
+//		  
+//        $model=new Alumni('search');
+//        $data = array(
+//            1 => array ('ลำดับ', 'Surname'),
+//            array('Schwarz', 'Oliver'),
+//            array('Test', 'Peter')
+//        );
+//    
+        $issueDataProvider = $_SESSION['Filtered_Excel'];
+        $strPath = realpath(basename(getenv($_SERVER["SCRIPT_NAME"]))); // C:/AppServ/www/myphp  
+        $i = 0;
+        
+        //fix column header. 
+        //Could have used something like this - $data[]=array_keys($issueDataProvider->data[0]->attributes);. 
+        //But that would return all attributes which i do not want
+        $data[$i]['alumni_id'] = 'ลำดับ';
+        $data[$i]['alumni_group'] = 'ระดับ';
+        $data[$i]['alumni_no_en'] = 'รุ่นที่จบ (ภาษาอังกฤษ)';
+        $data[$i]['alumni_no_th'] = 'รุ่นที่จบ (ภาษาไทย)';
+        $data[$i]['name_en'] = 'ชื่อ-นามสกุล (ภาษาอังกฤษ)';
+        $data[$i]['name_th'] = 'ชื่อ-นามสกุล (ภาษาไทย)';
+        $data[$i]['sex_en'] = 'เพศ (ภาษาอังกฤษ)';
+        $data[$i]['sex_th'] = 'เพศ (ภาษาไทย)';
+        $data[$i]['image'] = 'รูปประจำตัว';
+        $data[$i]['major_en'] = 'สาขาวิชาที่จบ (ภาษาอังกฤษ)';
+        $data[$i]['major_th'] = 'สาขาวิชาที่จบ (ภาษาไทย)';
+        $data[$i]['campus_en'] = 'ศูนย์การศึกษา (ภาษาอังกฤษ)';
+        $data[$i]['campus_th'] = 'ศูนย์การศึกษา (ภาษาไทย)';
+        $data[$i]['position_en'] = 'ตำแหน่งงานปัจจุบัน (ภาษาอังกฤษ)';
+        $data[$i]['position_th'] = 'ตำแหน่งงานปัจจุบัน (ภาษาไทย)';
+        $data[$i]['desc_en'] = 'ประวัติโดยย่อ (ภาษาอังกฤษ)';
+        $data[$i]['desc_th'] = 'ประวัติโดยย่อ (ภาษาไทย)';
+        $i++;
 
+        //populate data array with the required data elements
+        foreach($issueDataProvider->data as $issue)
+        {
+            if ($issue['alumni_group']=='Master'){
+                $alumni_group = 'ปริญญาโท';
+            }else{
+                $alumni_group = 'ปริญญาเอก';
+            }
+            
+            $AlumniNo = $this->loadModelAlumniNo($issue['alumni_no_id']);
+            
+            $alumni_no_en = $AlumniNo->name_th;
+            $alumni_no_th = $AlumniNo->name_th;
+            
+            $data[$i]['alumni_id'] = $issue['alumni_id'];
+            $data[$i]['alumni_group'] = $alumni_group;
+            $data[$i]['alumni_no_en'] = $alumni_no_en;
+            $data[$i]['alumni_no_th'] = $alumni_no_th;
+            $data[$i]['name_en'] = $issue['name_en'];
+            $data[$i]['name_th'] = $issue['name_th'];
+            $data[$i]['sex_en'] = ($issue['sex']=='F')? 'Female':'Male';
+            $data[$i]['sex_th'] = ($issue['sex']=='F')? 'หญิง':'ชาย';
+
+            $data[$i]['image'] =  $issue['image'];
+            $data[$i]['major_en'] = $issue['major_en'];
+            $data[$i]['major_th'] = $issue['major_th'];
+            $data[$i]['campus_en'] = $issue['campus_en'];
+            $data[$i]['campus_th'] = $issue['campus_th'];
+            $data[$i]['position_en'] = $issue['position_en'];
+            $data[$i]['position_th'] = $issue['position_th'];
+            $data[$i]['desc_en'] = $issue['desc_en'];
+            $data[$i]['desc_th'] = $issue['desc_th'];
+            $i++;
+        }
+
+        $xls = new JPhpExcel('UTF-8', false, 'Export Alumni');
+        $xls->addArray($data);
+        $xls->generateXML('alumni_file');
+   
+        //*** Insert Picture (2) ***//
+
+
+
+        
+    }//actionExcel method end
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -268,6 +354,14 @@ class AlumniController extends AdminController
 	public function loadModel($id)
 	{
 		$model=Alumni::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+        
+        public function loadModelAlumniNo($id)
+	{
+		$model=AlumniNo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
