@@ -141,13 +141,15 @@ class Alumni extends CActiveRecord
                 
                 $data = new CActiveDataProvider(get_class($this), array(
                         'pagination'=>array('pageSize'=> Yii::app()->user->getState('pageSize',
-                                      Yii::app()->params['defaultPageSize']),),
+                                                                        Yii::app()->params['itemsPerPage']),),
+                        
+                        
                         'criteria'=>$criteria,
                 ));
 
                 $_SESSION['Filtered_Excel']=$data; // get all data and filtered data :)
 
-                return $data;
+               return $data;
 //
 //		return new CActiveDataProvider($this, array(
 //			'criteria'=>$criteria,
