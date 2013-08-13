@@ -13,13 +13,38 @@ $(document).ready(function () {
     });
 });
 </script>
+<?php
+/* @var $this SiteController */
+$lang = Yii::app()->language; 
+if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+    $this->pageTitle="Graduate School of Public Administration - Direct Line‎ to Dean";
+    $col1_header = "Direct Line‎ to Dean";
+    $col2_header = "Contact Us"; 
+    $name = "Name";
+    $subject = "Subject";
+    $email = "E-mail";
+    $message = "Message";
+    $btn_submit = "Send Message";
+    $btn_reset = "Reset Message";
 
+}else{
+    $this->pageTitle=Yii::app()->name. ' - สายตรงคณบดี';
+    $col1_header = "สายตรงคณบดี"; 
+    $col2_header = "ติดต่อเรา"; 
+    $name = "ชื่อผู้ติดต่อ";
+    $subject = "ชื่อเรื่องที่ติดต่อ";
+    $email = "อีเมล์";
+    $message = "ข้อความ";  
+    $btn_submit = "ส่งข้อความ";
+    $btn_reset = "ล้างข้อความ";    
+}
+?>
 <section id="content">
   <div class="main">
     <div class="indent-left">
       <div class="wrapper">
         <article class="col-1" style="background:none;">
-          <h3>สายตรงคณบดี</h3>
+          <h3><?php echo $col1_header;?></h3>
           <div class="p1">
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" width="97%">
             <div class="clear"></div>
@@ -49,22 +74,22 @@ $(document).ready(function () {
             <fieldset>
                <?php echo $form->error($model,'name'); ?>
                 <label>
-                <input type="text" name="Directline[name]" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />                
+                <input type="text" name="Directline[name]" value="<?php echo $name;?>" onBlur="if(this.value=='') this.value='<?php echo $name;?>'" onFocus="if(this.value =='<?php echo $name;?>' ) this.value=''" />                
                 </label>
                 
                 <?php echo $form->error($model,'email'); ?> 
                 <label>
-                    <input type="text" name="Directline[email]" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />               
+                    <input type="text" name="Directline[email]" value="<?php echo $email;?>" onBlur="if(this.value=='') this.value='<?php echo $email;?>'" onFocus="if(this.value =='<?php echo $email;?>' ) this.value=''" />               
                 </label>
                 <?php echo $form->error($model,'subject'); ?>
                 <label>
-                    <input type="text" name="Directline[subject]" value="ชื่อเรื่องที่ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อเรื่องที่ติดต่อ'" onFocus="if(this.value =='ชื่อเรื่องที่ติดต่อ' ) this.value=''" />                
+                    <input type="text" name="Directline[subject]" value="<?php echo $subject;?>" onBlur="if(this.value=='') this.value='<?php echo $subject;?>'" onFocus="if(this.value =='<?php echo $subject;?>' ) this.value=''" />                
                 </label>
                 <?php echo $form->error($model,'message'); ?>
-                <textarea name="Directline[message]" onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
-              
+                <textarea name="Directline[message]" onBlur="if(this.value=='') this.value='<?php echo $message;?>'" onFocus="if(this.value =='<?php echo $message;?>' ) this.value=''"><?php echo $message;?></textarea>
+
               	<div class="buttons-wrapper">
-                    <input name="submit" type="submit" value="ส่งข้อความ" />&nbsp;&nbsp;<input name="reset" type="reset" value="ล้างข้อความ"/>
+                    <input name="submit" type="submit" value="<?php echo $btn_submit;?>" />&nbsp;&nbsp;<input name="reset" type="reset" value="<?php echo $btn_reset;?>"/>
                 </div>
             </fieldset>
           <?php $this->endWidget(); ?> 
