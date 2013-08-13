@@ -28,7 +28,7 @@ class AdmissionController extends AdminController
 	 */
 	public function actionView($id)
 	{   
-            if($this->menu_use[13]){  
+            if($this->menu_use[14]){  
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -43,7 +43,7 @@ class AdmissionController extends AdminController
 	 */
 	public function actionCreate()
 	{
-            if($this->menu_use[13]){
+            if($this->menu_use[14]){
 		$model=new Admission;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -71,7 +71,7 @@ class AdmissionController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
-            if($this->menu_use[13]){
+            if($this->menu_use[14]){
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -111,7 +111,7 @@ class AdmissionController extends AdminController
 	 */
 	public function actionIndex()
 	{
-          if($this->menu_use[13]){ 
+          if($this->menu_use[14]){ 
 //		$dataProvider=new CActiveDataProvider('Admission');
 //		$this->render('index',array(
 //			'dataProvider'=>$dataProvider,
@@ -134,7 +134,7 @@ class AdmissionController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-          if($this->menu_use[13]){             
+          if($this->menu_use[14]){             
 		$model=new Admission('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Admission']))
