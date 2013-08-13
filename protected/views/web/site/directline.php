@@ -34,43 +34,41 @@ $(document).ready(function () {
             }?>  
           </dl>
         </article>
-        <article class="col-2">
+        <article class="col-left">
             <h3>&nbsp;</h3>
         <?php if(Yii::app()->user->hasFlash('contact')): ?>
         <div class="confirmation">
                 <?php echo Yii::app()->user->getFlash('contact'); ?>
         </div>
-        <?php else: ?>          
+        <?php endif; ?> 
+
           <?php $form=$this->beginWidget('CActiveForm', array(
                     'id'=>'contact-form',
-                    'enableClientValidation'=>true,
-                    'clientOptions'=>array(
-                            'validateOnSubmit'=>true,
-                    ),
+                    'enableAjaxValidation'=>false,
             )); ?>
             <fieldset>
                <?php echo $form->error($model,'name'); ?>
                 <label>
-                <input type="text" name="ContactForm[name]" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />                
+                <input type="text" name="Directline[name]" value="ชื่อผู้ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อผู้ติดต่อ'" onFocus="if(this.value =='ชื่อผู้ติดต่อ' ) this.value=''" />                
                 </label>
                 
                 <?php echo $form->error($model,'email'); ?> 
                 <label>
-                    <input type="text" name="ContactForm[email]" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />               
+                    <input type="text" name="Directline[email]" value="อีเมล์" onBlur="if(this.value=='') this.value='อีเมล์'" onFocus="if(this.value =='อีเมล์' ) this.value=''" />               
                 </label>
                 <?php echo $form->error($model,'subject'); ?>
                 <label>
-                    <input type="text" name="ContactForm[subject]" value="ชื่อเรื่องที่ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อเรื่องที่ติดต่อ'" onFocus="if(this.value =='ชื่อเรื่องที่ติดต่อ' ) this.value=''" />                
+                    <input type="text" name="Directline[subject]" value="ชื่อเรื่องที่ติดต่อ" onBlur="if(this.value=='') this.value='ชื่อเรื่องที่ติดต่อ'" onFocus="if(this.value =='ชื่อเรื่องที่ติดต่อ' ) this.value=''" />                
                 </label>
-                <?php echo $form->error($model,'body'); ?>
-                <textarea name="ContactForm[body]" onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
+                <?php echo $form->error($model,'message'); ?>
+                <textarea name="Directline[message]" onBlur="if(this.value=='') this.value='ข้อความ'" onFocus="if(this.value =='ข้อความ' ) this.value=''">ข้อความ</textarea>
               
               	<div class="buttons-wrapper">
                     <input name="submit" type="submit" value="ส่งข้อความ" />&nbsp;&nbsp;<input name="reset" type="reset" value="ล้างข้อความ"/>
                 </div>
             </fieldset>
           <?php $this->endWidget(); ?> 
-        <?php endif; ?>                   
+                          
         </article>
       </div>
     </div>

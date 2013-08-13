@@ -36,13 +36,13 @@ $(document).ready(function () {
             }?>  
           </dl>
         </article>
-        <article class="col-2">
+        <article class="col-left">
             <h3>ติดต่อเรา</h3>
         <?php if(Yii::app()->user->hasFlash('contact')): ?>
         <div class="confirmation">
                 <?php echo Yii::app()->user->getFlash('contact'); ?>
         </div>
-        <?php else: ?>          
+        <?php endif; ?>          
           <?php $form=$this->beginWidget('CActiveForm', array(
                     'id'=>'contact-form',
                     'enableClientValidation'=>true,
@@ -71,8 +71,7 @@ $(document).ready(function () {
                     <input name="submit" type="submit" value="ส่งข้อความ" />&nbsp;&nbsp;<input name="reset" type="reset" value="ล้างข้อความ"/>
                 </div>
             </fieldset>
-          <?php $this->endWidget(); ?> 
-        <?php endif; ?>                   
+          <?php $this->endWidget(); ?>                   
         </article>
       </div>
     </div>
