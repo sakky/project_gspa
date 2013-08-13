@@ -19,25 +19,23 @@ $(document).ready(function () {
     <div class="indent-left">
       <div class="wrapper">
         <article class="col-1" style="background:none;">
-          <h3>ที่ตั้งวิทยาลัย</h3>
+          <h3>สายตรงคณบดี</h3>
           <div class="p1">
-            <figure class="img-border">
-              <div id="map_canvas"></div>
-            </figure>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" width="97%">
             <div class="clear"></div>
           </div>
           <dl>
             <?php 
             $lang = Yii::app()->language;
             if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-                echo nl2br($page->desc_en);
+                echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
             }else{
-                echo nl2br($page->desc_th);
+                echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
             }?>  
           </dl>
         </article>
         <article class="col-2">
-            <h3>ติดต่อเรา</h3>
+            <h3>&nbsp;</h3>
         <?php if(Yii::app()->user->hasFlash('contact')): ?>
         <div class="confirmation">
                 <?php echo Yii::app()->user->getFlash('contact'); ?>
