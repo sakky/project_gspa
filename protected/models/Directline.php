@@ -65,7 +65,7 @@ class Directline extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'direct_id' => 'Direct',
+			'direct_id' => 'ลำดับ',
 			'name' => 'ชื่อผู้ติดต่อ',
 			'email' => 'อีเมล์ผู้ติดต่อ',
 			'subject' => 'ชื่อเรื่องที่ติดต่อ',
