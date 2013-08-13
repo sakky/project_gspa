@@ -995,3 +995,11 @@ ul .footer-list li{
 .footer-list li a:hover {
 	color:#FCB549;
 }
+
+.confirmation{
+    	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #C6D880;        
+        background:#E6EFC2;
+	color:#264409;
+}
