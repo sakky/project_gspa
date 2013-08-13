@@ -756,6 +756,7 @@ dl span {
 footer {
 	width:100%;
 	padding:25px 0;
+        height:100px;
 }
 .list-services {
         float:right;
