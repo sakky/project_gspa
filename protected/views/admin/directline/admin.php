@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
                 array(
                         'header'=>'ลำดับ',
-			'name'=>'admission_id',
+			'name'=>'direct_id',
 			'htmlOptions'=>array('style'=>'text-align: center;width: 30px;'),
 		),  
             	array(
