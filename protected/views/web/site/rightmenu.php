@@ -31,7 +31,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 <h3><?php echo $dean;?></h3>
 <div align="left">
-  <a href="http://sky.gspa-buu.net/post_form.php" target="_blank" title="<?php echo $dean;?>">
+  <a href="<?php echo Yii::app()->createUrl('site/directline'); ?>" title="<?php echo $dean;?>">
   <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" border="0" alt="<?php echo $dean;?>"/>  
   </a>
 </div>
