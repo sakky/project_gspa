@@ -62,7 +62,9 @@
                 <tr>
                     <td width="20%"><b>อีเมล์ผู้ดูแลระบบ</b></td>
                     <td width="2%">:</td>
-                    <td ><?php echo $form->textField($model,'title_en',array('size'=>60,'maxlength'=>255)); ?><?php echo $form->error($model,'title_en'); ?></td>
+                    <td ><?php echo $form->textField($model,'title_en',array('size'=>80,'maxlength'=>255)); ?>
+                        <br/>(ถ้ามีมากกว่า 1 อีเมล์ให้ใส่ (,) คั่นระหว่างอีเมล์)
+                        <?php echo $form->error($model,'title_en'); ?></td>
                 </tr>                
             </table>
 	</div>

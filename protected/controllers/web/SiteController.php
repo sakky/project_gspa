@@ -164,7 +164,15 @@ class SiteController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-type: text/plain; charset=UTF-8";
 
-				mail($email_admin,$subject,$model->body,$headers);
+				$email = explode(",",$email_admin);
+                                if (count($email)>0)
+                                {
+                                    foreach($email as $mail)
+                                    {
+                                        $mail = trim($mail);
+                                        if ($mail) @mail($mail,$subject,$model->body,$headers);
+                                    }
+                                }
 				Yii::app()->user->setFlash('contact','ส่งข้อความเรียบร้อยแล้ว ทางเราจะติดต่อกลับไปยังท่านโดยเร็วที่สุด ขอบคุณค่ะ');
 				$this->refresh();
 			}
