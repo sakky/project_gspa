@@ -80,12 +80,18 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="Announcement" >Announcement</a>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">Doctorate Degree Programs</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">Master's Degree Programs</a></li>           
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="Announcement" >Announcement</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">Admission</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
                     </ul>
-                </li>
+                </li>-->
                 
                 <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
                     <ul>
@@ -148,12 +154,18 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
-                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="ประกาศ" >ประกาศ</a>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">หลักสูตรปริญญาเอก</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">หลักสูตรปริญญาโท</a></li>           
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="ประกาศ" >ประกาศ</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">สมัครเรียน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
-                </li>
+                </li>-->
                 <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน</a></li>
@@ -177,13 +189,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
-<!--                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('program'); ?>">หลักสูตรที่เปิดสอน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>15)); ?>">สมัครเรียนปริญญาเอก</a></li>          
-                            <li><a href="<?php echo Yii::app()->createUrl('program/admission', array('id'=>14)); ?>">สมัครเรียนปริญญาโท</a></li>           
-                    </ul>
-                </li>-->
                <li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
                     <ul>
                         <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">ภายในประเทศ</a></li>
