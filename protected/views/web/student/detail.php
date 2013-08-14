@@ -14,12 +14,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $link = "group3";
     }
     $this->pageTitle='Graduate School of Public Administration - Service for Student';
-    $this->breadcrumbs=array(
+     if($model->ser_group ==4){
+        $this->breadcrumbs=array(
+            'Service for Student'=>array('index'),
+            $model->serType->name_en=>array('index','type_id'=>$model->ser_type_id),
+            $model->name_en
+        );
+    }else{
+        $this->breadcrumbs=array(
             'Service for Student'=>array('index'),
             $type=>array($link),
             $model->serType->name_en=>array('index','type_id'=>$model->ser_type_id),
             $model->name_en
-    );
+        );
+    }
+
     $header = "Service for Student";
 
 }else{
@@ -36,12 +45,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $link = "group3";
     }
     $this->pageTitle=Yii::app()->name. ' - บริการนิสิต';
-    $this->breadcrumbs=array(
-            'บริการนิสิต'=>array('index'),
-            $type=>array($link),
-            $model->serType->name_th=>array('index','type_id'=>$model->ser_type_id),
-            $model->name_th
-    );
+   if($model->ser_group ==4){
+        $this->breadcrumbs=array(
+                'บริการนิสิต'=>array('index'),
+                $model->serType->name_th=>array('index','type_id'=>$model->ser_type_id),
+                $model->name_th
+        );
+    }else{
+        $this->breadcrumbs=array(
+                'บริการนิสิต'=>array('index'),
+                $type=>array($link),
+                $model->serType->name_th=>array('index','type_id'=>$model->ser_type_id),
+                $model->name_th
+        );    
+    }
+
     $header = "บริการนิสิต";
 
 }

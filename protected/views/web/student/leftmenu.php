@@ -35,6 +35,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         ?>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
         <?php }?>
+        <?php
+            $criteria = new CDbCriteria();
+            $criteria->condition = 'status = 1 AND ser_group=4'; 
+            $criteria->order = 'sort_order';
+            $co_type = StudentServiceType::model()->findAll($criteria);
+
+            foreach($co_type as $type) {
+        ?>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_en;?></a></h6></li>        
+        <?php }?>
 </ul>
 <?php }else{?>
 <ul class="list-1">
@@ -70,6 +80,16 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
             foreach($co_type as $type) {
         ?>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <?php }?>
+        <?php
+            $criteria = new CDbCriteria();
+            $criteria->condition = 'status = 1 AND ser_group=4'; 
+            $criteria->order = 'sort_order';
+            $co_type = StudentServiceType::model()->findAll($criteria);
+
+            foreach($co_type as $type) {
+        ?>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_th;?></a></h6></li>        
         <?php }?>
 </ul>
 <?php } ?>

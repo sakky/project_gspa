@@ -9,16 +9,23 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     }else if($type->ser_group == 2){
         $group = "Doctorate Degree";
         $url = "group2";
-    }else{
+    }else if($type->ser_group == 3){
         $group = "Evaluation of Teaching";
         $url = "group3";
     }
     if($_GET['type_id']){
-        $this->breadcrumbs=array(
-                'Service for Student'=>array('index'),
-                $group=>array($url),
-                $type->name_en            
-        );     
+        if($type->ser_group ==4){
+            $this->breadcrumbs=array(
+                    'Service for Student'=>array('index'),
+                    $type->name_en            
+            );  
+        }else{
+            $this->breadcrumbs=array(
+                    'Service for Student'=>array('index'),
+                    $group=>array($url),
+                    $type->name_en            
+            );  
+        }    
     }else if($action=='group1'){
         $this->breadcrumbs=array(
                 'Service for Student'=>array('index'),
@@ -34,7 +41,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 'Service for Student'=>array('index'),
                 'Evaluation of Teaching',          
         );                 
-    }else{
+    }else if($type->ser_group == 3){
         $this->breadcrumbs=array(
                 'Service for Student',
         );
@@ -50,12 +57,24 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     }else if($type->ser_group == 2){
         $group = "ปริญญาเอก";
         $url = "group2";
-    }else{
+    }else if($type->ser_group == 3){
         $group = "ประเมินการเรียนการสอน";
         $url = "group3";
     }
     
     if($_GET['type_id']){
+       if($type->ser_group ==4){
+            $this->breadcrumbs=array(
+                    'บริการนิสิต'=>array('index'),
+                    $type->name_th            
+            ); 
+        }else{
+            $this->breadcrumbs=array(
+                    'บริการนิสิต'=>array('index'),
+                    $group=>array($url),
+                    $type->name_th            
+            );  
+        }   
         $this->breadcrumbs=array(
                 'บริการนิสิต'=>array('index'),
                 $group=>array($url),
