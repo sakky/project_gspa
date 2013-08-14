@@ -3,8 +3,7 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Programs';
     $this->breadcrumbs=array(
-        'About Us'=>array('about/index', 'id'=>'1'),
-        'Academic Cooperation'=>array('/cooperation'),
+        'Programs',
 
     );
     $header = "Programs";
@@ -15,8 +14,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name . ' - หลักสูตรที่เปิดสอน';
     $this->breadcrumbs=array(
-        'เกี่ยวกับเรา'=>array('about/index', 'id'=>'1'),
-        'ความร่วมมือทางวิชาการ'=>array('/cooperation'),
+        'หลักสูตรที่เปิดสอน',
     );
     $header = "หลักสูตรที่เปิดสอน";
 
@@ -34,15 +32,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         </div>
       </article>
       <article class="col-2">
-          <h3>หลักสูตรที่เปิดสอน</h3>
-          <h4>หลักสูตรปริญญาโท</h4>
+          <div style="margin-bottom: 10px;">
+            <?php if(isset($this->breadcrumbs)):?>
+                    <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'links'=>$this->breadcrumbs,
+                    )); ?><!-- breadcrumbs -->
+            <?php endif?>
+          </div>
+          <h3>หลักสูตรปริญญาโท</h3>
             <ul class="list-4">
                 <?php foreach ($master as $value){?>
                     <li><a href="<?php echo Yii::app()->createUrl('program', array('id'=>$value->program_id)); ?>"><?php echo $value->name_th;?></a></li>
                 <?php }?>
             </ul>
           
-          <h4>หลักสูตรปริญญาเอก</h4>
+          <h3>หลักสูตรปริญญาเอก</h3>
              <ul class="list-4">
                 <?php foreach ($doctor as $value2){?>
                     <li><a href="<?php echo Yii::app()->createUrl('program', array('id'=>$value->program_id)); ?>"><?php echo $value2->name_th;?></a></li>
