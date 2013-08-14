@@ -63,10 +63,12 @@
 
 /****************page.html***************************/
 #page6 .col-1 {
-	width:275px;
-	margin-right:40px;
+        margin-top: 10px;
+	width:250px;
+	margin-right:30px;
 }
 #page6 .col-2 {
+        margin-top: 10px;
 	width:610px;
 }
 .TableBlue {

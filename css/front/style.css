@@ -574,6 +574,10 @@ h6 {
 	background:#F9DF1B;
 	color:#fff
 }
+.list-1{
+    padding: 10px 0;
+    width:210px;
+}
 .list-1 li {
 	line-height:20px;
 	padding:10px 0;
