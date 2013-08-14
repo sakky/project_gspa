@@ -83,7 +83,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a> </li>
     <?php }?>
   </ul>
-
+<p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>"><?php echo $more;?></a></p>
 <!-- ข่าวรับสมัครงาน -->
 <h3><?php echo $col3_3_header;?></h3>
   <ul class="list-2">
@@ -98,6 +98,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a> </li>
     <?php }?>
   </ul>
+<p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>"><?php echo $more;?></a></p>
 <!-- ลิงค์ที่เกี่ยวข้อง -->
 <h3><?php echo $col3_4_header;?></h3>
   <ul class="list-2">
