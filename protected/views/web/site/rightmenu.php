@@ -58,12 +58,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             }     
     ?>
     <li>
-        <div class="date-event pie">
+        <div class="date-event">
             <h5><?php echo date('j',  strtotime($value->event_start));?><br><?php echo date('M',  strtotime($value->event_start));?></h5>
         </div>
         <div class="date-detile">
             <a href="<?php echo Yii::app()->createUrl('event', array('id'=>$value->event_id)); ?>"><?php echo $event_title;?> : <?php echo $event_name;?><br/><?php echo $event_date;?> : <?php echo date('d/m/Y',  strtotime($value->event_start));?><?php if($value->event_end && $value->event_end != '0000-00-00'){ echo " - ".date('d/m/Y',  strtotime($value->event_end)); }?></a>
         </div>
+        <div class="clear"></div>
     </li>
 <?php }?>
 </ul>
