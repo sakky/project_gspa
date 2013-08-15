@@ -67,6 +67,13 @@
                 </ul>
             </li>
             <?php }?>
+            <?php if($menu_use[16]){?>
+            <li <?php if($controller=='program'){?>class="current" <?php }?>><a href="#">หลักสูตร</a>
+                <ul <?php if($controller=='program'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
+                    <li <?php if($controller=='program'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('program'); ?>">หลักสูตรที่เปิดสอน</a></li>
+                </ul>
+            </li>
+            <?php }?>            
             <?php if($menu_use[2]){?>
             <li <?php if($controller=='student' || $controller=='jobs'){?>class="current" <?php }?>><a href="#">ประกาศ</a>
                 <ul <?php if($controller=='student' || $controller=='jobs'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
@@ -76,10 +83,11 @@
             </li>
             <?php }?>
             <?php if($menu_use[3]){?>
-            <li <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='event'){?>class="current" <?php }?>><a href="#">ประชาสัมพันธ์/กิจกรรม</a>
-                <ul <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='event'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
-                        <li <?php if($controller=='newsInSide'||$controller=='newsGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('newsInSide'); ?>">ภายใน</a></li>
-                        <li <?php if($controller=='news'||$controller=='newsGroup2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('news'); ?>">จากสื่อ</a></li>
+            <li <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='newsOther'||$controller=='event'){?>class="current" <?php }?>><a href="#">ข่าวประชาสัมพันธ์/กิจกรรม</a>
+                <ul <?php if($controller=='newsInSide'||$controller=='news'||$controller=='newsGroup'||$controller=='newsGroup2'||$controller=='newsOther'||$controller=='event'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+                        <li <?php if($controller=='newsInSide'||$controller=='newsGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('newsInSide'); ?>">ข่าวภายใน</a></li>
+                        <li <?php if($controller=='news'||$controller=='newsGroup2'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('news'); ?>">ข่าวภายใน</a></li>
+                        <li <?php if($controller=='newsOther'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('newsOther'); ?>">ข่าวประเภทอื่นๆ</a></li>
                         <li <?php if($controller=='event'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
                 </ul>
             </li>
@@ -133,10 +141,11 @@
             </li>
             <?php }?>
             <?php if($menu_use[10]){?>
-            <li <?php if($controller=='studentService'||$controller=='studentServiceType'){?>class="current" <?php }?>><a href="#">บริการนิสิต</a>
-                <ul <?php if($controller=='studentService'||$controller=='studentServiceType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
+            <li <?php if($controller=='studentService'||$controller=='studentServiceType'||$controller=='studentServiceGroup'){?>class="current" <?php }?>><a href="#">บริการนิสิต</a>
+                <ul <?php if($controller=='studentService'||$controller=='studentServiceType'||$controller=='studentServiceGroup'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
                         <li <?php if($controller=='studentService'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentService'); ?>">บริการนิสิตทั้งหมด</a></li>
-                        <li <?php if($controller=='studentServiceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentServiceType'); ?>">ประเภทบริการนิสิต</a></li>
+                        <li <?php if($controller=='studentServiceGroup'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentServiceGroup'); ?>">ประเภทหลักบริการนิสิต</a></li>
+                        <li <?php if($controller=='studentServiceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('studentServiceType'); ?>">ประเภทย่อยบริการนิสิต</a></li>
                 </ul>
             </li>
             <?php }?>
