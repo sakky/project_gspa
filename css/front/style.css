@@ -966,16 +966,27 @@ div.form-admission .errorMessage {
 }
 .date-event {
     width:60px;
-    height: 58px;
+    height: 59px;
     background:url(../../images/front/calendar_bg.png) 0 0 no-repeat;
     float: left;
     overflow: hidden;
 }
-.date-event h5 {
+.date-event h3 {
+    font-family: Verdana, Geneva, sans-serif;
     color: #FFFFFF;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px;
+    font-size: 16px;
+    padding: 0px;
+    line-height: 1.1em;
+    text-align: center;
+    
+}
+.date-event h5 {
+    font-family: Verdana, Geneva, sans-serif;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 0;
+    margin-top: 10px;
     text-align: center;
 }
 
