@@ -3,13 +3,13 @@
 /* @var $model StudentServiceType */
 
 $this->breadcrumbs=array(
-	'ประเภทบริการนิสิต'=>array('index'),
-	'จัดการข้อมูล',
+	'ประเภทย่อยบริการนิสิต'=>array('index'),
+	'จัดการประเภทย่อ',
 );
 
 $this->menu=array(	
-	array('label'=>'เพิ่มประเภท', 'url'=>array('create')),
-        array('label'=>'เรียงลำดับประเภท', 'url'=>array('order')),
+	array('label'=>'เพิ่มประเภทย่อย', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับประเภทย่อย', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลประเภทบริการนิสิต</h1>
+<h1>จัดการประเภทย่อยบริการนิสิต</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
 );
 ?>
-<h1>เรียงลำดับการแสดงผลประเภทบริการนิสิต</h1>
+<h1>เรียงลำดับการแสดงผลประเภทย่อยบริการนิสิต</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 

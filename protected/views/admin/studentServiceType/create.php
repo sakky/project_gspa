@@ -3,16 +3,16 @@
 /* @var $model StudentServiceType */
 
 $this->breadcrumbs=array(
-	'ประเภทบริการนิสิต'=>array('index'),
-	'เพิ่มข้อมูล',
+	'ประเภทย่อยบริการนิสิต'=>array('index'),
+	'เพิ่มประเภทย่อย',
 );
 
 $this->menu=array(
 	//array('label'=>'List StudentServiceType', 'url'=>array('index')),
-	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
+	array('label'=>'จัดการประเภทย่อย', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เพิ่มข้อมูลประเภทบริการนิสิต</h1>
+<h1>เพิ่มประเภทย่อยบริการนิสิต</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'ser_group_list'=>$ser_group_list)); ?>
