@@ -35,11 +35,11 @@ class StudentServiceGroup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ser_name', 'required'),
-			array('ser_name', 'length', 'max'=>255),
+			array('ser_name,ser_name_en', 'required'),
+			array('ser_name,ser_name_en', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('ser_group, ser_name', 'safe', 'on'=>'search'),
+			array('ser_group, ser_name,ser_name_en', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +60,9 @@ class StudentServiceGroup extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ser_group' => 'Ser Group',
-			'ser_name' => 'Ser Name',
+			'ser_group' => 'รหัสเมนูหลัก',
+			'ser_name' => 'ชื่อเมนูหลัก (ภาษาไทย)',
+                        'ser_name_en' => 'ชื่อเมนูหลัก (ภาษาอังกฤษ)',
 		);
 	}
 
@@ -78,9 +79,11 @@ class StudentServiceGroup extends CActiveRecord
 
 		$criteria->compare('ser_group',$this->ser_group);
 		$criteria->compare('ser_name',$this->ser_name,true);
+                $criteria->compare('ser_name_en',$this->ser_name_en,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'pagination'=>array('pageSize'=> 20),
 		));
 	}
 }
