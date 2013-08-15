@@ -40,7 +40,11 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'ser_group',
+            	array(
+			'name'=>'ser_group',
+                        'header'=>'รหัส',
+			'htmlOptions'=>array('style'=>'text-align: center;width: 50px;'),
+		),
                 'ser_name_en',
 		'ser_name',
 		array(
