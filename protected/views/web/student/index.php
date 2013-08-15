@@ -3,45 +3,18 @@ $action = Yii::app()->getController()->getAction()->controller->action->id;
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Service for Student';
-    if($type->ser_group == 1){
-        $group = "Master's degree";
-        $url = "group1";
-    }else if($type->ser_group == 2){
-        $group = "Doctorate Degree";
-        $url = "group2";
-    }else if($type->ser_group == 3){
-        $group = "Evaluation of Teaching";
-        $url = "group3";
-    }
     if($_GET['type_id']){
-        if($type->ser_group ==4){
             $this->breadcrumbs=array(
                     'Service for Student'=>array('index'),
+                    $type->serGroup->ser_name_en=>array('index','group'=>$type->ser_group),
                     $type->name_en            
-            );  
-        }else{
-            $this->breadcrumbs=array(
-                    'Service for Student'=>array('index'),
-                    $group=>array($url),
-                    $type->name_en            
-            );  
-        }    
-    }else if($action=='group1'){
+            );    
+    }else if($_GET['group']){
         $this->breadcrumbs=array(
                 'Service for Student'=>array('index'),
-                'Master\'s degree',          
-        );                 
-    }else if($action=='group2'){
-        $this->breadcrumbs=array(
-                'Service for Student'=>array('index'),
-                'Doctorate Degree',          
-        );                 
-    }else if($action=='group3'){
-        $this->breadcrumbs=array(
-                'Service for Student'=>array('index'),
-                'Evaluation of Teaching',          
-        );                 
-    }else if($type->ser_group == 3){
+                $group->ser_name_en,          
+        );                                
+    }else{
         $this->breadcrumbs=array(
                 'Service for Student',
         );
@@ -50,56 +23,23 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - บริการนิสิต';
-    
-    if($type->ser_group == 1){
-        $group = "ปริญญาโท";
-        $url = "group1";
-    }else if($type->ser_group == 2){
-        $group = "ปริญญาเอก";
-        $url = "group2";
-    }else if($type->ser_group == 3){
-        $group = "ประเมินการเรียนการสอน";
-        $url = "group3";
-    }
-    
     if($_GET['type_id']){
-       if($type->ser_group ==4){
             $this->breadcrumbs=array(
                     'บริการนิสิต'=>array('index'),
+                    $type->serGroup->ser_name=>array('index','group'=>$type->ser_group),
                     $type->name_th            
-            ); 
-        }else{
-            $this->breadcrumbs=array(
-                    'บริการนิสิต'=>array('index'),
-                    $group=>array($url),
-                    $type->name_th            
-            );  
-        }   
+            );    
+    }else if($_GET['group']){
         $this->breadcrumbs=array(
                 'บริการนิสิต'=>array('index'),
-                $group=>array($url),
-                $type->name_th            
-        );     
-    }else if($action=='group1'){
-        $this->breadcrumbs=array(
-                'บริการนิสิต'=>array('index'),
-                'ปริญญาโท',          
-        );                 
-    }else if($action=='group2'){
-        $this->breadcrumbs=array(
-                'บริการนิสิต'=>array('index'),
-                'ปริญญาเอก',          
-        );                 
-    }else if($action=='group3'){
-        $this->breadcrumbs=array(
-                'บริการนิสิต'=>array('index'),
-                'ประเมินการเรียนการสอน',          
-        );                 
+                $group->ser_name,          
+        );                                
     }else{
         $this->breadcrumbs=array(
                 'บริการนิสิต',
         );
-    }        
+    }   
+           
     $header = "บริการนิสิต";
 
 }
