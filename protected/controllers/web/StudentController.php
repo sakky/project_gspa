@@ -22,6 +22,21 @@ class StudentController extends Controller
                     $model = StudentService::model()->findAll($criteria); 
                     $type=StudentServiceType::model()->findByPk($_GET['type_id']);                     
                     $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
+                }else if($_GET['group']){
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND ser_group='.$_GET['group'];                
+                    $criteria->order = 'sort_order';
+                    
+                    $total = StudentService::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                      
+
+                    $model = StudentService::model()->findAll($criteria); 
+                    $group=StudentServiceGroup::model()->findByPk($_GET['group']);                      
+                    $this->render('index',array('model'=>$model,'group'=>$group,'pages'=> $pages,));
                 }else{
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
