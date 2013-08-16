@@ -44,192 +44,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 //echo "<br/>";
 //echo Yii::app()->createUrl(Yii::app()->controller->getId().'/'.Yii::app()->controller->getAction()->getId(), $_GET);
 ?>
-<body <?php if($curpage=='site/index'||$curpage=='site/home'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
-<!--==============================header=================================-->
-<header>
-  <div class="main">
-    <div class="wrapper" style="background:url('<?php echo Yii::app()->request->baseUrl; ?>/images/front/gspa_logo_en<?php echo rand(1,3) ;?>.png') 0 0 no-repeat;">
-      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
-       <div id="search">    
-        <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
-            <fieldset>
-            <legend>Site Search</legend>
-            <input type="text" name="q" placeholder="<?php echo $search_text;?>..." />
-            <input type="submit" id="go" value="GO" />
-            </fieldset>
-        </form>
-      </div>
-    <div class="clear"></div>
-    
-    <nav>
-    <div class="menu">    
-        <ul>
-            <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
-                <li><a <?php if($curpage=='site/index'|| $curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="Home">Home</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
-                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">Doctorate Degree Programs</a></li>          
-                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">Master's Degree Programs</a></li>           
-                    </ul>
-                </li>
-<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="Announcement" >Announcement</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">Admission</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
-                    </ul>
-                </li>-->
-                
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
-                    
-                    <ul>
-                        <?php
-                            $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
-                            $criteria->params=array(':status'=>1);
-                            $criteria->order = 'sort_order';
-                            $doc_type = DocumentType::model()->findAll($criteria);
-
-                            foreach($doc_type as $type) {
-                        ?>
-                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
-                        <?php }?>
-                    </ul>
-                </li>
-               <li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
-                    <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">Inbound</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">Outbound</a></li>
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >Organization</a>
-                    <ul>
-                        <?php
-                            $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status';
-                            $criteria->params=array(':status'=>1);
-                            $criteria->order = 'sort_order';
-                            $org = Organization::model()->findAll($criteria);
-
-                            foreach($org as $or) {
-                        ?>
-                        <li><a href="<?php echo $or->link_en;?>" target="_blank"><?php echo $or->name_en;?></a></li>        
-                        <?php }?>
-                    </ul>
-                </li>
-<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
-            <?php }else{?>
-                <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
-                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">หลักสูตรปริญญาเอก</a></li>          
-                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">หลักสูตรปริญญาโท</a></li>           
-                    </ul>
-                </li>
-<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="ประกาศ" >ประกาศ</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">สมัครเรียน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
-                    </ul>
-                </li>-->
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์/กิจกรรม" >ประชาสัมพันธ์/กิจกรรม</a>
-                    <ul>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่/ดาวน์โหลด" >สื่อเผยแพร่/ดาวน์โหลด</a>                   
-                    
-                    <ul>
-                        <?php
-                            $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
-                            $criteria->params=array(':status'=>1);
-                            $criteria->order = 'sort_order';
-                            $doc_type = DocumentType::model()->findAll($criteria);
-
-                            foreach($doc_type as $type) {
-                        ?>
-                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
-                        <?php }?>
-                    </ul>
-                </li>
-               <li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
-                    <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">ภายในประเทศ</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">ต่างประเทศ</a></li>
-                    </ul>
-                </li>
-                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >หน่วยงานภายใน</a>
-                    <ul>
-                        <?php
-                            $criteria = new CDbCriteria();
-                            $criteria->condition = 'status=:status';
-                            $criteria->params=array(':status'=>1);
-                            $criteria->order = 'sort_order';
-                            $org = Organization::model()->findAll($criteria);
-
-                            foreach($org as $or) {
-                        ?>
-                        <li><a href="<?php echo $or->link_th;?>" target="_blank"><?php echo $or->name_th;?></a></li>        
-                        <?php }?>
-                    </ul>
-                </li>
-<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>-->
-            
-            <?php }?>
-
-        </ul>
-
-        
-    </div>
-    </nav>
-    <div class="lang" id="lang" style="z-index: 10000">
-    	   <a title="ภาษาไทย" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('th');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_th.png" alt="Thai" border="0" /></a>
-           <a title="English" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('en');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_en.png" alt="English" border="0" /></a>
-    </div>
-    <div class="clear"></div>
-    </div>
-  </div>
-</header>
-<!--==============================content================================-->
-<?php echo $content;?>
-<!--==============================footer=================================-->
 <?php
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $privacy = "Privacy Policy";
@@ -268,13 +82,203 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $report = "รายงานผลการดำเนินงาน";
 }
 ?>
+
+<body <?php if($curpage=='site/index'||$curpage=='site/home'){?>id="page1"<?php }else{?>id="page2"<?php }?>>
+<!--==============================header=================================-->
+<header>
+  <div class="main">
+    <div class="wrapper" style="background:url('<?php echo Yii::app()->request->baseUrl; ?>/images/front/gspa_logo_en<?php echo rand(1,3) ;?>.png') 0 0 no-repeat;">
+      <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
+       <div id="search">    
+        <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
+            <fieldset>
+            <legend>Site Search</legend>
+            <input type="text" name="q" placeholder="<?php echo $search_text;?>..." />
+            <input type="submit" id="go" value="GO" />
+            </fieldset>
+        </form>
+      </div>
+    <div class="clear"></div>
+    
+    <nav>
+    <div class="menu">    
+        <ul>
+            <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
+                <li><a <?php if($curpage=='site/index'|| $curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="Home">Home</a></li>
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
+                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li> 
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">Cooperation</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="Programs">Programs</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">Doctorate Degree Programs</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">Master's Degree Programs</a></li>           
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="Announcement" >Announcement</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">Admission</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
+                    </ul>
+                </li>-->
+                <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
+                    
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+               <!--<li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="Cooperation" >Cooperation</a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">Inbound</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">Outbound</a></li>
+                    </ul>
+                </li>-->
+                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >Organization</a>
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $org = Organization::model()->findAll($criteria);
+
+                            foreach($org as $or) {
+                        ?>
+                        <li><a href="<?php echo $or->link_en;?>" target="_blank"><?php echo $or->name_en;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
+            <?php }else{?>
+                <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
+                        href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">ความร่วมมือ</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='program/index'||$curpage=='program/admission'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('program'); ?>" title="หลักสูตร">หลักสูตร</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>">หลักสูตรปริญญาเอก</a></li>          
+                            <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>">หลักสูตรปริญญาโท</a></li>           
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='announce/index'||$curpage=='announce/admission'||$curpage=='announce/job'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('announce'); ?>" title="ประกาศ" >ประกาศ</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">สมัครเรียน</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
+                    </ul>
+                </li>-->
+                <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์" >ประชาสัมพันธ์</a>
+                    <ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน/ภายนอก</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
+                    </ul>
+                </li>
+                <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่" >สื่อเผยแพร่</a>                   
+                    
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status AND doc_group =\'download\'';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('document/type', array('id'=>$type->doc_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+               <!--<li><a <?php if($curpage=='cooperation/index'||$curpage=='cooperation/inbound'||$curpage=='cooperation/outbound'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>" title="ความร่วมมือ" >ความร่วมมือ</a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/inbound'); ?>">ภายในประเทศ</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('cooperation/outbound'); ?>">ต่างประเทศ</a></li>
+                    </ul>
+                </li>-->
+                <li><a <?php if($curpage=='organization/index'){?> class="active" <?php }?> href="#" title="Organization" >หน่วยงานภายใน</a>
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status';
+                            $criteria->params=array(':status'=>1);
+                            $criteria->order = 'sort_order';
+                            $org = Organization::model()->findAll($criteria);
+
+                            foreach($org as $or) {
+                        ?>
+                        <li><a href="<?php echo $or->link_th;?>" target="_blank"><?php echo $or->name_th;?></a></li>        
+                        <?php }?>
+                    </ul>
+                </li>
+<!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>-->
+            
+            <?php }?>
+
+        </ul>
+
+        
+    </div>
+    </nav>
+    <div class="lang" id="lang" style="z-index: 10000">
+    	   <a title="ภาษาไทย" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('th');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_th.png" alt="Thai" border="0" /></a>
+           <a title="English" href="<?php echo Yii::app()->UrlManager->createLanguageUrl('en');?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/flag_en.png" alt="English" border="0" /></a>
+    </div>
+    <div class="clear"></div>
+    </div>
+  </div>
+</header>
+<!--==============================content================================-->
+<?php echo $content;?>
+<!--==============================footer=================================-->
 <footer>
     <div class="main">
     <div class="wrapper border-bot2 margin-bot">
         <ul class="footer-list">
             <li><a href="<?php echo Yii::app()->createUrl('information'); ?>"><?php echo $service;?></a></li>
             <li><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>"><?php echo $knowledge;?></a></li>
-            <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+            
             <li><a href="<?php echo Yii::app()->createUrl('report'); ?>"><?php echo $report;?></a></li>
             
         </ul>

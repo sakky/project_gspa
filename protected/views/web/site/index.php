@@ -13,8 +13,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 }else{
     $this->pageTitle=Yii::app()->name;
-    $col1_header = "ประชาสัมพันธ์/กิจกรรม ภายใน"; 
-    $col2_header = "ประชาสัมพันธ์/กิจกรรม จากสื่อ"; 
+    $col1_header = "ประชาสัมพันธ์"; 
+    $col2_header = "ประชาสัมพันธ์ จากสื่อ"; 
     $text_title = "เปิดรับสมัครนักศึกษา หลักสูตร";
     $text_button1 = "ปริญญาโท";
     $text_button2 = "ปริญญาเอก";
