@@ -6,6 +6,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">Cooperation</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board of directors</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></h6></li>
@@ -28,6 +29,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></h6></li>
+        <li><h6><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">ความร่วมมือ</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></h6></li>
         <li><h6><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></h6></li>

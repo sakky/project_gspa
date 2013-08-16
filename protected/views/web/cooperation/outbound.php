@@ -3,6 +3,7 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - International Cooperation';
     $this->breadcrumbs=array(
+            'About GSPA'=>array('about/index', 'id'=>'1'),
             'Cooperation'=>array('index'),
             'International',
     );
@@ -11,6 +12,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }else{
     $this->pageTitle=Yii::app()->name. ' - ความร่วมมือต่างประเทศ';
     $this->breadcrumbs=array(
+            'เกี่ยวกับหน่วย'=>array('about/index', 'id'=>'1'),
             'ความร่วมมือ'=>array('index'),
             'ต่างประเทศ',
     );

@@ -10,12 +10,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Cooperation';
     if($_GET['type_id']){
           $this->breadcrumbs=array(
+            'About GSPA'=>array('about/index', 'id'=>'1'),
             'Cooperation'=>array('index'),
             $group=>array($type->group),
             $type->name_en,
           );  
     }else{
           $this->breadcrumbs=array(
+            'About GSPA'=>array('about/index', 'id'=>'1'),
             'Cooperation',
           );                 
     }
@@ -31,12 +33,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     } 
     if($_GET['type_id']){
         $this->breadcrumbs=array(
+                'เกี่ยวกับหน่วยงาน'=>array('about/index', 'id'=>'1'),
                 'ความร่วมมือ'=>array('index'),
                 $group=>array($type->group),
                 $type->name_th
         );        
     }else{
         $this->breadcrumbs=array(
+                'เกี่ยวกับหน่วยงาน'=>array('about/index', 'id'=>'1'),
                 'ความร่วมมือ',
         );        
     }

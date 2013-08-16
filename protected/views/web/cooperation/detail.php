@@ -8,6 +8,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $group = "International";
     }
     $this->breadcrumbs=array(
+        'About GSPA'=>array('about/index', 'id'=>'1'),
         'Cooperation'=>array('index'),
         $group=>array($model->group),
         $model->coType->name_en=>array('index','type_id'=>$model->co_type_id),
@@ -27,6 +28,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $group = "ต่างประเทศ";
     }
     $this->breadcrumbs=array(
+        'เกี่ยวกับหน่วย'=>array('about/index', 'id'=>'1'),
         'ความร่วมมือ'=>array('index'),
         $group=>array($model->group),
         $model->coType->name_th=>array('index','type_id'=>$model->co_type_id),
