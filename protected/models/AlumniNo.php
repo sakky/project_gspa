@@ -68,7 +68,7 @@ class AlumniNo extends CActiveRecord
 		return array(
 			'alumni_no_id' => 'รหัส',
                         'name_en' => 'ชื่อรุ่น (ภาษาอังกฤษ)',
-			'name_th' => 'ชื่อรุ่น (ภาษาอังกฤษ)',
+			'name_th' => 'ชื่อรุ่น (ภาษาไทย)',
 			'alumni_group' => 'ระดับ',
 			'sort_order' => 'การเรียงลำดับ',
 			'status' => 'สถานะ',
