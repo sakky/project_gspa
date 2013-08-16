@@ -49,7 +49,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           <h3><?php echo $name;?></h3>
           <div><?php echo $desc;?></div>
           <?php if($pdf){?>
-          <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/documents/<?php echo $pdf;?>">ดาวน์โหลดไฟล์ pdf คลิกที่นี่</a></div>
+          <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/reports/<?php echo $pdf;?>">ดาวน์โหลดไฟล์ pdf คลิกที่นี่</a></div>
           <?php }?>
       </article>
       
