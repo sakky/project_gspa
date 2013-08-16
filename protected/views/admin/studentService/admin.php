@@ -50,14 +50,14 @@ $('.search-form form').submit(function(){
 		),
 		array(
 			'name'=>'ser_type_id',
-                        'header'=>'ประเภทบริการ',
+                        'header'=>'ประเภทย่อย',
                         'value'=> '$data->serType->name_th',
 			'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
                         'filter'=>CHtml::listData(StudentServiceType::model()->findAll('status=1'), 'ser_type_id', 'name_th'),
 		),
                 array(
 			'name'=>'ser_group',                        
-                        'header'=>'กลุ่มประเภท',
+                        'header'=>'ประเภทหลัก',
                         'value'=> '$data->serGroup->ser_name',
                         'htmlOptions'=>array('style'=>'text-align: left;width: 100px;'),
                         'filter'=>CHtml::listData(StudentServiceGroup::model()->findAll(), 'ser_group', 'ser_name'),
