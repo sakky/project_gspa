@@ -760,8 +760,18 @@ dl span {
 footer {
 	width:100%;
 	padding:25px 0;
-        height:100px;
+        height:50px;
 }
+footer .main {
+	width:980px;
+/*	padding:10px 0 0 0;*/
+	margin:0 auto;
+	font-size:0.875em;
+	line-height:1.428em;
+	min-height: 100px;
+}
+
+
 .list-services {
         float:right;
 }
