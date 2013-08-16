@@ -19,7 +19,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 'Service for Student',
         );
     }    
-    $header = "Service for Student";
+    $header = "Service for Student".($group->ser_name_en?' :: '.$group->ser_name_en:'').($type->name_en?' :: '.$type->name_en:'');
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - บริการนิสิต';
@@ -40,7 +40,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         );
     }   
            
-    $header = "บริการนิสิต";
+    $header = "บริการนิสิต".($group->ser_name?' :: '.$group->ser_name:'').($type->name_th?' :: '.$type->name_th:'');
 
 }
 
