@@ -137,7 +137,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>
+                            <!--<li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>-->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
@@ -212,7 +212,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน/ภายนอก</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
-                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
+                            <!--<li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>-->
                     </ul>
                 </li>
                 <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่" >สื่อเผยแพร่</a>                   
@@ -274,8 +274,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--==============================footer=================================-->
 <footer>
     <div class="main">
-    <div class="wrapper border-bot2 margin-bot">
-        <ul class="footer-list">
+    <div class="wrapper">
+<!--        <ul class="footer-list">
             <li><a href="<?php echo Yii::app()->createUrl('information'); ?>"><?php echo $service;?></a></li>
             <li><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>"><?php echo $knowledge;?></a></li>
             
@@ -283,7 +283,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             
         </ul>
         <div style="clear:both"></div>
-        <br/>
+        <br/>-->
 <!--      <article class="fcol-1">
          <h3 class="color-1"><?php echo $service;?></h3>
           <ul class="list-3">
@@ -330,10 +330,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         </ul>
       </article>-->
     </div>
-        <div style="clear:both"></div>
         <div style="color:#FFFFFF;float:left;width: 550px;">
-            <div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>
-            <div style="margin-left:70px;"><?php echo nl2br($footer_text);?></div>
+            <!--<div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>-->
+            <div style="margin-left:0px;"><?php echo nl2br($footer_text);?></div>
         </div>
        <div style="margin-bottom: 10px;float: right;">
             
@@ -346,7 +345,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <li><a href="#">Facebook</a></li>
             <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
         </ul>
-        <div style="clear:both"></div>
 
   </div>
 </footer>
