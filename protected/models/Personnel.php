@@ -67,7 +67,7 @@ class Personnel extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-                        'personnelType' => array(self::BELONGS_TO, 'personnelType', 'personnel_type_id'),
+                        'personnelType' => array(self::BELONGS_TO, 'PersonnelType', 'personnel_type_id'),
 		);
 	}
 
