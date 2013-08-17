@@ -87,9 +87,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--==============================header=================================-->
 <header>
   <div class="main">
-    <div class="wrapper" style="background:url('<?php echo Yii::app()->request->baseUrl; ?>/images/front/gspa_logo_en<?php echo rand(1,3) ;?>.png') 0 0 no-repeat;">
+    <div class="wrapper" style="background:url('<?php echo Yii::app()->request->baseUrl; ?>/images/front/banner<?php echo rand(1,3) ;?>.png') 0 0 no-repeat;">
       <a href="<?php echo Yii::app()->request->baseUrl; ?>" title="<?php echo $h1_text;?>"><h1 class="<?php echo $css_class;?>"><?php echo $h1_text;?></h1></a>          
-       <div id="search">    
+      <div id="search">    
         <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
             <fieldset>
             <legend>Site Search</legend>
