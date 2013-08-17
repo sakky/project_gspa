@@ -105,7 +105,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <ul>
             <?php if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
                 <li><a <?php if($curpage=='site/index'|| $curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="Home">Home</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'||$curpage=='cooperation/index'||$curpage=='about/personnel'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="About GSPA">About GSPA</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">History</a></li>
@@ -132,7 +132,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
                     </ul>
                 </li>-->
-                <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+                <li><a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
                 <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
@@ -180,7 +180,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'){?>class="active"<?php }?> 
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'||$curpage=='about/personnel'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
@@ -207,7 +207,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>-->
-                <li><a href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
+                <li><a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
                 <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์" >ประชาสัมพันธ์</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน/ภายนอก</a></li>
