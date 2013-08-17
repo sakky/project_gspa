@@ -30,19 +30,60 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function(){
-		$("span#title").each(function(i){
+		$("span#title1").each(function(i){
 			len2=$(this).text().length;
-			if(len2>50)
+			if(len2>70)
 			{
-				$(this).text($(this).text().substr(0,50)+'...');
+				$(this).text($(this).text().substr(0,70)+'...');
 			}
 		});
-                
-                $("span#desc").each(function(i){
-			len=$(this).text().length;
-			if(len>100)
+		$("span#title2").each(function(i){
+			len2=$(this).text().length;
+			if(len2>70)
 			{
-				$(this).text($(this).text().substr(0,100)+'...');
+				$(this).text($(this).text().substr(0,70)+'...');
+			}
+		});
+		$("span#title3").each(function(i){
+			len2=$(this).text().length;
+			if(len2>70)
+			{
+				$(this).text($(this).text().substr(0,70)+'...');
+			}
+		$("span#title4").each(function(i){
+			len2=$(this).text().length;
+			if(len2>70)
+			{
+				$(this).text($(this).text().substr(0,70)+'...');
+			}
+		});});                
+                
+                $("span#desc1").each(function(i){
+			len=$(this).text().length;
+			if(len>120)
+			{
+				$(this).text($(this).text().substr(0,120)+'...');
+			}
+		});
+                $("span#desc2").each(function(i){
+			len=$(this).text().length;
+			if(len>120)
+			{
+				$(this).text($(this).text().substr(0,120)+'...');
+			}
+		});
+                $("span#desc3").each(function(i){
+			len=$(this).text().length;
+			if(len>120)
+			{
+				$(this).text($(this).text().substr(0,120)+'...');
+			}
+		});
+                $("span#desc4").each(function(i){
+			len=$(this).text().length;
+			if(len>120)
+			{
+				$(this).text($(this).text().substr(0,120)+'...');
 			}
 		});
 	});
@@ -77,7 +118,7 @@ $(window).load(function () {
     <div class="slider-wrapper">
       <div class="slider">
         <ul class="items">
-          <?php foreach ($model as $value){
+          <?php foreach ($model as $k=>$value){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $link = $value->link_en;
                   $title = $value->title_en;
@@ -91,7 +132,7 @@ $(window).load(function () {
               }
               
               ?> 
-                <li> <img  src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span id="title"><?php echo $title;?></span> <b class="margin-bot"><span id="desc"><?php echo $desc;?></span></b> <a class="button2" href="<?php echo $link;?>"><?php echo $readmore;?></a> </strong> </li>
+                <li> <img  src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" alt="" /> <strong class="banner"> <a class="close" href="#">x</a> <span id="title<?php echo $k+1;?>"><?php echo $title;?></span> <b class="margin-bot"><span id="desc<?php echo $k+1;?>"><?php echo $desc;?></span></b> <a class="button2" href="<?php echo $link;?>"><?php echo $readmore;?></a> </strong> </li>
           <?php }?>
         </ul>
       </div>
