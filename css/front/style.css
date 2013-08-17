@@ -213,7 +213,7 @@ header .main .wrapper {
         
 }*/
 #page1 header {
-	min-height:180px
+	min-height:190px
 }
 h1 {
 	position:relative;
@@ -222,25 +222,25 @@ h1 {
 h1.logo_th {
 	display:block;
 	margin-top: 10px;
-	width:480px;
-	height:110px;
+	width:450px;
+	height:105px;
 	font-size:44px;
 	font-weight:bold;
 	line-height:2.2em;
 	text-indent:-9999px;
-	/*background:url(../../images/front/gspa_logo_en.png) 0 0 no-repeat;*/
+	background:url(../../images/front/gspa_logo_th.png) 0 0 no-repeat;
 	
 }
 h1.logo_en {
 	display:block;
 	margin-top: 10px;
-	width:480px;
-	height:110px;
+	width:450px;
+	height:105px;
 	font-size:44px;
 	font-weight:bold;
 	line-height:2.2em;
 	text-indent:-9999px;
-	/*background:url(../../images/front/gspa_logo_en.png) 0 0 no-repeat;*/
+	background:url(../../images/front/gspa_logo_en.png) 0 0 no-repeat;
 	
 }
 .logo2{
@@ -258,13 +258,15 @@ margin-top:50px;
   clear: both;
 }
 .menu ul {
-background: url("../../images/front/menu_bar.png") no-repeat scroll 0% 0% transparent;
-width: 999px;    
+/*background: url("../../images/front/menu_bar.png") no-repeat scroll 0% 0% transparent;*/
+	background: #F6877B;
+	border-radius: 5px;
+        width: 978px;    
 }
 .menu ul {
         position:absolute;
         list-style: none;
-	padding:0px 0 10px 0;
+	padding:0px 0 0px 0;
 	float:left;
         z-index: 99;
 }
@@ -286,9 +288,16 @@ width: 999px;
 	padding:5px 15px 10px 15px;
 	color:#fff;
 }
+.menu ul li:first-child{
+    margin-left: 10px;
+}
+.menu ul li ul li:first-child{
+    margin-left: 0px;
+}
 .menu ul li a.active, .menu > ul > li > a:hover ,
 .menu ul li a:hover, .menu ul li.active a {
 	color:#FFE400;
+        
 }
 .menu >ul >li:hover:after{
   content: '';
@@ -300,7 +309,7 @@ width: 999px;
   bottom: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #DD8277;/*#0fa1e0;*/
+  border-bottom: 10px solid #E78478;/*#0fa1e0;*/
   margin-left: -10px;
 }
 .menu ul li ul a {
@@ -324,9 +333,14 @@ width: 999px;
 .menu ul li ul li {
   *margin-bottom: -1px;
 }
+.menu ul li ul li:first-child a {
+     border-top: 1px dotted #C0362C;
+}
 .menu ul li ul li a {
-  background: #DD8277;/*#0fa1e0;*/
-  border-bottom: 1px dotted #6fc7ec;
+  background: #E78478;/*#0fa1e0;*/
+  border-left: 1px dotted #C0362C;
+  border-right: 1px dotted #C0362C;
+  border-bottom: 1px dotted #C0362C;
   filter: none;
   font-size: 13px;
   display: block;
@@ -334,7 +348,7 @@ width: 999px;
   padding: 10px;
 }
 .menu ul li ul li:hover a {
-  background: #9B003E; /*#0c7fb0;*/
+  background: #C0362C; /*#0c7fb0;*/
 }
 .menu ul li ul li:hover > ul {
   display: block;
@@ -344,7 +358,7 @@ width: 999px;
 	width:850px;
 	height:400px;
 	padding:20px 0 0 130px;
-	margin-top:-60px;
+	margin-top:-70px;
 	position:relative;
 	overflow:hidden;
 	background:url(../../images/front/slider-bg.png) 0 0 no-repeat;
