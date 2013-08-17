@@ -63,6 +63,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
              </div>
           </div>
           <?php }?>
+          <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>  
         </article>
       
     </div>

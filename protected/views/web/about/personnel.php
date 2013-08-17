@@ -2,24 +2,43 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle='Graduate School of Public Administration - Personnel';
-    $this->breadcrumbs=array(
-            'About GSPA'=>array('index', 'id'=>'1'),
-            'Personnel'=>array('personnel'),
-            $type->name_en
-    );
+    if(isset($_GET['type_id'])){
+            $this->breadcrumbs=array(
+                'About GSPA'=>array('index', 'id'=>'1'),
+                'Personnel'=>array('personnel'),
+                $type->name_en
+            );
+            $per_type = $type->name_en;
+    }else{
+            $this->breadcrumbs=array(
+                 'About GSPA'=>array('index', 'id'=>'1'),
+                 'Personnel',
+            );
+             $per_type = "";
+    }
+
     $header = "Personnel";
     $type_text = "Personnel Type";    
     $position_text = "Position";
     $readmore = "Read More";
-    $per_type = $type->name_en;
 
 }else{
     $this->pageTitle=Yii::app()->name . ' - บุคลากร';
-    $this->breadcrumbs=array(
-            'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
-            'บุคลากร'=>array('personnel'),
-            $type->name_th
-    );
+    if(isset($_GET['type_id'])){
+            $this->breadcrumbs=array(
+                    'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
+                    'บุคลากร'=>array('personnel'),
+                    $type->name_th
+            );
+            $per_type = $type->name_th;
+    }else{
+            $this->breadcrumbs=array(
+                    'เกี่ยวกับหน่วยงาน'=>array('index', 'id'=>'1'),
+                    'บุคลากร',
+            );
+             $per_type = "";
+    }    
+
     $header = "บุคลากร";
     $type_text = "ประเภทบุคลากร";
     $position_text = "ตำแหน่ง";
@@ -73,6 +92,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
              </div>
           </div>
           <?php }?>
+          <?php $this->widget('CLinkPager', array(
+                'currentPage'=>$pages->getCurrentPage(),
+                'pages' => $pages,
+                'maxButtonCount'=>5,
+                'htmlOptions'=>array('class'=>'pagenav'),
+                'header'=> '',
+          )) ?>            
         </article>
       
     </div>
