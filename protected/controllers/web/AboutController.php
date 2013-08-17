@@ -15,9 +15,18 @@ class AboutController extends Controller
                     $this->render('board_detail',array(
                             'model'=>$model));
                 }else{
-                    $model = $this->getAllBoard();
-                    $this->render('board',array(
-                            'model'=>$model));
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1';                
+                    $criteria->order = 'sort_order';
+                    $total = Board::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
+                    $model = Board::model()->findAll($criteria);
+                    $this->render('board',array('model'=>$model,'pages'=> $pages,));
+
                 }
 	}
         
@@ -28,17 +37,33 @@ class AboutController extends Controller
                      $this->render('executive_detail',array(
                             'model'=>$model));
                 }else{
-                    $model = $this->getAllExeutive();
-                    $this->render('executive',array(
-                            'model'=>$model));
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1';                
+                    $criteria->order = 'sort_order';
+                    $total = Executive::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
+                    $model = Executive::model()->findAll($criteria);
+                    $this->render('executive',array('model'=>$model,'pages'=> $pages,));                    
                 }
 	}
         public function actionStructure()
 	{
-                
-                $model = $this->getAllStructureType();
-                $this->render('structure',array(
-                        'model'=>$model));
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1';                
+                    $criteria->order = 'sort_order';
+                    $total = StructureType::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
+                    $model = StructureType::model()->findAll($criteria);
+                    $this->render('structure',array('model'=>$model,'pages'=> $pages,));               
+
 
 	}
         public function actionPersonnel()
@@ -48,14 +73,31 @@ class AboutController extends Controller
                     $this->render('personnel_detail',array(
                             'model'=>$model));
                 }else if(isset($_GET['type_id'])){
-                    $model =$this->getPersonnelType($_GET['type_id']);
+                    $type_id = $_GET['type_id'];
                     $type=PersonnelType::model()->findByPk($_GET['type_id']);
+                    $criteria = new CDbCriteria();
+                    $criteria->condition = 'status = 1 AND personnel_type_id ='.$type_id;
+                    $criteria->order = 'sort_order';
+                    $total = Personnel::model()->count($criteria); 
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
+                    $model = Personnel::model()->findAll($criteria);
                     $this->render('personnel',array(
-                            'model'=>$model,'type'=>$type,));
+                            'model'=>$model,'type'=>$type,'pages'=> $pages,));
                 }else{
-                    $model = $this->getAllPersonnel();
-                    $this->render('personnel',array(
-                            'model'=>$model));
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1';                
+                    $criteria->order = 'sort_order';
+                    $total = Personnel::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($criteria);                    
+                    $model = Personnel::model()->findAll($criteria);
+                    $this->render('personnel',array('model'=>$model,'pages'=> $pages,));
+                    
                 }
 	}
         
@@ -89,29 +131,7 @@ class AboutController extends Controller
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
-	}  
-        public function getAllPersonnel()
-	{
-		$Criteria = new CDbCriteria();
-                $Criteria->condition = 'status = 1';
-                $Criteria->order = 'sort_order';
-            
-                $model=Personnel::model()->findAll($Criteria);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');	
-		return $model;
-	}
-        public function getPersonnelType($type_id)
-	{
-		$Criteria = new CDbCriteria();
-                $Criteria->condition = 'status = 1 AND personnel_type_id ='.$type_id;
-                $Criteria->order = 'sort_order';
-            
-                $model=Personnel::model()->findAll($Criteria);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');	
-		return $model;
-	}        
+	}      
         public function getAllStructureType()
 	{
 		$Criteria = new CDbCriteria();
@@ -135,28 +155,7 @@ class AboutController extends Controller
 		return $model;
 	}
         
-        public function getAllExeutive()
-	{
-		$Criteria = new CDbCriteria();
-                $Criteria->condition = 'status = 1';
-                $Criteria->order = 'sort_order';
-            
-                $model=  Executive::model()->findAll($Criteria);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');	
-		return $model;
-	}
-        public function getAllBoard()
-	{
-		$Criteria = new CDbCriteria();
-                $Criteria->condition = 'status = 1';
-                $Criteria->order = 'sort_order';
-            
-                $model=Board::model()->findAll($Criteria);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');	
-		return $model;
-	}
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
