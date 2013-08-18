@@ -14,6 +14,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $event_title ="Activity";
     $event_date ="Date";
     $more="Read More...";
+    $img_dean = "dean_en.png";
 
 }else{
     $col3_header = "วีดีโอแนะนำวิทยาลัย";
@@ -25,6 +26,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $event_title ="กิจกรรม";
     $event_date ="วันที่";
     $more="ดูทั้งหมด...";
+    $img_dean = "dean_th.png";
 }
 ?>
 <div class="indent-top">
@@ -32,7 +34,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <h3><?php echo $dean;?></h3>
 <div align="left">
   <a href="<?php echo Yii::app()->createUrl('site/directline'); ?>" title="<?php echo $dean;?>">
-  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" border="0" alt="<?php echo $dean;?>"/>  
+  <img class="border-dean" src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" border="0" alt="<?php echo $dean;?>"/>  
   </a>
 </div>
     

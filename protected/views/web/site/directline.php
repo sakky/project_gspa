@@ -1,18 +1,5 @@
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.googlemaps1.01.js"></script>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;hl=en&amp;sensor=true&amp;key=" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#map_canvas').googleMaps({
-        latitude: 13.285964,
-        longitude: 100.924763,
-        markers: {
-            latitude: 13.285964,
-            longitude: 100.924763
-        }
-    });
-});
-</script>
+
 <?php
 /* @var $this SiteController */
 $lang = Yii::app()->language; 
@@ -26,6 +13,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $message = "Message";
     $btn_submit = "Send Message";
     $btn_reset = "Reset Message";
+    $img_dean = "dean_en.png";
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - สายตรงคณบดี';
@@ -36,7 +24,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $email = "อีเมล์";
     $message = "ข้อความ";  
     $btn_submit = "ส่งข้อความ";
-    $btn_reset = "ล้างข้อความ";    
+    $btn_reset = "ล้างข้อความ";  
+    $img_dean = "dean_th.png";
 }
 ?>
 <section id="content">
@@ -46,7 +35,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <article class="col-1" style="background:none;">
           <h3><?php echo $col1_header;?></h3>
           <div class="p1">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/dean.jpg" width="97%">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" width="97%">
             <div class="clear"></div>
           </div>
           <dl>
