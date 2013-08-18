@@ -10,21 +10,51 @@ class NewsController extends Controller
                     $model_photo=Photo::model()->getPhotoByAlbum($_GET['id']);
                     //print_r($model_photo);
                     $this->render('detail',array('model'=>$model, 'model_photo'=>$model_photo));
+                }else if($_GET['type_id']){
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND news_type_id='.$_GET['type_id'];                
+                    $criteria->order  = "create_date desc,news_id desc";
+                    
+                    $total = News::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                      
+
+                    $model = News::model()->findAll($criteria); 
+                    $type=NewsType::model()->findByPk($_GET['type_id']);                     
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
+                }else if($_GET['group']){
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND (news_type_id <> 2 AND news_type_id <> 3) AND news_group_id='.$_GET['group'];                
+                    $criteria->order  = "create_date desc,news_id desc";
+                    
+                    $total = News::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                      
+
+                    $model = News::model()->findAll($criteria); 
+                    $group=NewsGroup::model()->findByPk($_GET['group']);                      
+                    $this->render('index',array('model'=>$model,'group'=>$group,'pages'=> $pages,));
                 }else{
-                $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "status = 1 AND (news_type_id = 5 OR news_type_id = 1)";
-                $news_criteria->order = "create_date desc,news_id desc";
-                
-                
-                $news_total = News::model()->count($news_criteria);
-	
-		$pages = new CPagination($news_total);
-                $pages->setPageSize(10);
-                $pages->applyLimit($news_criteria);
-                
-                $news = News::model()->findAll($news_criteria);
-                
-		$this->render('index',array('news'=>$news,'pages'=> $pages,));
+                    $news_criteria = new CDbCriteria();
+                    $news_criteria->condition = "status = 1 AND (news_type_id <> 2 AND news_type_id <> 3)";
+                    $news_criteria->order = "create_date desc,news_id desc";
+
+
+                    $news_total = News::model()->count($news_criteria);
+
+                    $pages = new CPagination($news_total);
+                    $pages->setPageSize(10);
+                    $pages->applyLimit($news_criteria);
+
+                    $model = News::model()->findAll($news_criteria);
+
+                    $this->render('index',array('model'=>$model,'pages'=> $pages,));
                 }
                 
 	}
