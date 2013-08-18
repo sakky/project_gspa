@@ -166,15 +166,27 @@ class NewsController extends AdminController
 	{
             if($this->menu_use[3]){            
 		$model=$this->loadModel($id);
+
                 $news_type_list = array();
                 $criteria = new CDbCriteria();
-                $criteria->condition = 'status=:status AND news_type_id=1';
+                $criteria->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
 		$criteria->params=array(':status'=>1);
                 $criteria->order = 'sort_order';
-                $news_type = NewsGroup::model()->findAll($criteria);
+                $news_type = NewsType::model()->findAll($criteria);
                 
                 foreach($news_type as $type) {
-			$news_type_list[$type->news_group_id] = $type->name_th;
+			$news_type_list[$type->news_type_id] = $type->name_th;
+		}   
+                
+                $news_group_list = array();
+                $criteria2 = new CDbCriteria();
+                $criteria2->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
+		$criteria2->params=array(':status'=>1);
+                $criteria2->order = 'sort_order';
+                $news_group = NewsGroup::model()->findAll($criteria2);
+                
+                foreach($news_group as $group) {
+			$news_group_list[$group->news_group_id] = $group->name_th;
 		}
 
 		// Uncomment the following line if AJAX validation is needed
@@ -285,11 +297,11 @@ class NewsController extends AdminController
                $group =  (!empty($_POST['news_type_id'])) ? $_POST['news_type_id']: '';
                $data=NewsGroup::model()->findAll('t.news_type_id=:news_type_id',
                                 array(':news_type_id'=>$group));
+                //$data=CHtml::listData($data,'news_type_id','name_th');
 
-                $data=CHtml::listData($data,'news_type_id','name_th');
-                foreach($data as $value=>$name_th)
+                foreach($data as $value)
                 {
-                echo CHtml::tag('option',array('value'=>$value),CHtml::encode($name_th),true);
+                echo CHtml::tag('option',array('value'=>$value->news_group_id),CHtml::encode($value->name_th),true);
                 }
 
         }

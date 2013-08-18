@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(	
-	array('label'=>'เพิ่มประเภทหลัก', 'url'=>array('create')),
+	//array('label'=>'เพิ่มประเภทหลัก', 'url'=>array('create')),
         array('label'=>'เรียงลำดับประเภทหลัก', 'url'=>array('order')),    
 );
 
