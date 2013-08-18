@@ -333,7 +333,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <div style="color:#FFFFFF;float:left;width: 550px;">
             <!--<div style="float:left;margin-left:1px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/logo2.png" alt="" border="0" height="65" /></div>-->
             <div style="margin-left:0px;"><?php echo nl2br($footer_text);?></div>
+               <div class="clear"></div>      
+               <ul style="float:left;margin-top: 10px;margin-left: 0px;" class="list-services">
+                   <li><a href="#">Facebook</a></li>
+                   <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
+               </ul>
+           
         </div>
+
        <div style="margin-bottom: 10px;float: right;">
             
             <a class="yellow" href="<?php echo Yii::app()->createUrl('site/contact'); ?>"><?php echo $contact_us;?> |</a>
@@ -341,10 +348,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <a class="yellow" href="<?php echo Yii::app()->createUrl('site/faq'); ?>"><?php echo $faq;?> |</a> 
             <a class="yellow" href="<?php echo Yii::app()->createUrl('site/sitemap'); ?>"><?php echo $site_map;?></a>
         </div>
-        <ul class="list-services">
-            <li><a href="#">Facebook</a></li>
-            <li class="last-item"><a class="it-2" href="#">Twitter</a></li>
-        </ul>
+        
 
   </div>
 </footer>
