@@ -207,11 +207,11 @@ header {
 	min-height:116px;
         
 }
-/*
-header .main .wrapper {
-	background:url(../../images/front/gspa_logo_en2.png) 0 0 no-repeat;
+
+header .main{
+/*	background:url(../../images/front/top_bg.png) 0 0 no-repeat;*/
         
-}*/
+}
 #page1 header {
 	min-height:190px
 }
@@ -773,16 +773,20 @@ dl span {
 /****************************footer************************/
 footer {
 	width:100%;
-	padding:25px 0;
-        height:50px;
+	padding:25px 0 0 0;
+        background:url(../../images/front/bg.png) 0 0 repeat;
 }
+
 footer .main {
 	width:980px;
+        height:150px;
+        background:url(../../images/front/footer.png) 0 0 repeat;
 /*	padding:10px 0 0 0;*/
 	margin:0 auto;
 	font-size:0.875em;
 	line-height:1.428em;
 	min-height: 100px;
+        
 }
 
 
