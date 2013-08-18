@@ -209,7 +209,7 @@ header {
 }
 
 header .main{
-/*	background:url(../../images/front/top_bg.png) 0 0 no-repeat;*/
+	background:url(../../images/front/top.png) 0 0 no-repeat;
         
 }
 #page1 header {
@@ -840,6 +840,7 @@ header{
     overflow: hidden;
     padding-bottom: 10px;
     height: auto;
+    background:url(../../images/front/bg.png) 0 0 repeat;
 }
 header form, header fieldset, header legend{margin:0; padding:0; border:none;}
 header legend{display:none;}
