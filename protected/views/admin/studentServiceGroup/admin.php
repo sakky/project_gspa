@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List StudentServiceGroup', 'url'=>array('index')),
 	array('label'=>'เพิ่มประเภทหลักบริการนิสิต', 'url'=>array('create')),
+        array('label'=>'เรียงลำดับประเภทหลัก', 'url'=>array('order')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

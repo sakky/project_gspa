@@ -136,7 +136,44 @@ class StudentServiceGroupController extends AdminController
                 $this->redirect(array('site/index'));
             }    
 	}
+        public function actionOrder()
+        {
+            if($this->menu_use[10]){              
+                // Handle the POST request data submission
+                if (isset($_POST['Order']))
+                {
+                    // Since we converted the Javascript array to a string,
+                    // convert the string back to a PHP array
+                    $models = explode(',', $_POST['Order']);
 
+                    for ($i = 0; $i < sizeof($models); $i++)
+                    {
+                        if ($model = StudentServiceGroup::model()->findbyPk($models[$i]))
+                        {
+                            $model->sort_order = $i;
+
+                            $model->save();
+                        }
+                    }
+                }
+                // Handle the regular model order view
+                else
+                {
+                    $dataProvider = new CActiveDataProvider('StudentServiceGroup', array(
+                        'pagination' => false,
+                        'criteria' => array(
+                            'order' => 'sort_order ASC, ser_group ASC',
+                        ),
+                    ));
+
+                    $this->render('order',array(
+                        'dataProvider' => $dataProvider,
+                    ));
+                }
+            }else{
+                $this->redirect(array('site/index'));
+            }              
+        }
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
