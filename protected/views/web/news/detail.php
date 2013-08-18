@@ -6,51 +6,35 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
     $name = $model->name_en;
     $type = $model->news_type_id;
-    if($type == 5){
-        $type_name ="GSPA News";
-        $url = 'inside';
-        $url_group = 'group';
-    }
-    if($type == 1){
-        $type_name ="Media";
-        $url = 'media';
-        $url_group = 'groupMedia';
-    }
     $group = $model->newsGroup->name_en;
     $desc = $model->desc_en;
     $this->breadcrumbs=array(
-            'News & Activities'=>array('index'),
-            $type_name=>array($url),
-            $group=>array($url_group,'id'=>$model->news_group_id),
+        'News & Activities'=>array('index'),
+        $model->newsType->name_en=>array('index','type_id'=>$model->news_type_id),
+        $model->newsGroup->name_en=>array('index','group'=>$model->news_group_id),
+        //$model->name_en
     );
     
     $news_date = 'Date :';
     $news_photo = 'Photos Gallery';
+    $pdf = $model->pdf_en;
+
 }else{
-    $this->pageTitle=Yii::app()->name. ' - ข่าวสาร';
+    $this->pageTitle=Yii::app()->name. ' - ประชาสัมพันธ์ & กิจกรรม';
 
     $name = $model->name_th;
     $type = $model->news_type_id;
-    if($type == 5){
-        $type_name ="ภายใน";
-        $url = 'inside';
-        $url_group = 'group';        
-    }
-    if($type == 1){
-        $type_name ="จากสื่อ";
-        $url = 'media';
-        $url_group = 'groupMedia';        
-    }
     $group = $model->newsGroup->name_th;
     $desc = $model->desc_th;
     $this->breadcrumbs=array(
-            'ประชาสัมพันธ์/กิจกรรม'=>array('index'),
-            $type_name=>array($url),
-            $group=>array($url_group,'id'=>$model->news_group_id),
-        
+        'ประชาสัมพันธ์ & กิจกรรม'=>array('index'),
+        $model->newsType->name_th=>array('index','type_id'=>$model->news_type_id),
+        $model->newsGroup->name_th=>array('index','group'=>$model->news_group_id),
+        //$model->name_en
     );
     $news_date = 'วันที่ข่าว :';
     $news_photo = 'ประมวลภาพ';
+    $pdf = $model->pdf_th;
 }
 
 ?>
@@ -88,7 +72,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
               <div class="clear"></div>
               <?php }?>             
               <?php echo $desc; ?>
-          
+
+              
+            <?php if($pdf){?>
+            <br/>
+            <div align="right"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/pdf.png"/> <a href="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/pdf/<?php echo $pdf;?>" target="_blank">Download</a></div>
+            <?php }?>
+              
           </div>
           
           

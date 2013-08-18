@@ -115,6 +115,8 @@
                             'prompt' => '--ไม่แสดงไอคอน--',
                             'value' => '0',)); ?>
 	</div>
+        <div class="row buttons"><br/>         
+	</div>
         
        <div class="row"><br/>
 		<?php echo $form->labelEx($model,'image'); ?><br/>                
@@ -137,6 +139,23 @@
 		<?php echo $form->textField($model,'vdo_link',array('size'=>80,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'vdo_link'); ?>
 	</div>      
+        
+        <div class="row buttons"><br/>         
+	</div>
+
+        <div class="row"><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาอังกฤษ)</label><br/>
+                <?php if(!$model->isNewRecord) {echo $model->pdf_en." "; if($model->pdf_en) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_en);} }?><br />
+		<?php echo $form->fileField($model,'pdf_en',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_en'); ?>
+	</div>
+
+	<div class="row"><br/>
+                <label>อัพโหลดไฟล์ pdf<br/>(ภาษาไทย)</label><br/>
+		<?php if(!$model->isNewRecord) {echo $model->pdf_th." "; if($model->pdf_th) {echo cHtml::link('ดูไฟล์ต้นฉบับ', '../../uploads/news/pdf/'.$model->pdf_th);} }?><br />
+		<?php echo $form->fileField($model,'pdf_th',array('style'=>'border: none;box-shadow:none')); ?>
+		<?php echo $form->error($model,'pdf_th'); ?>
+	</div>
         
 	<div class="row">
 		<?php echo $form->labelEx($model,'create_date'); ?>
