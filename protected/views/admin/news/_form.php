@@ -15,11 +15,27 @@
 	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
+	<div class="row">          
+		<?php echo $form->labelEx($model,'news_type_id'); ?>
+		<?php echo $form->dropDownList($model, 'news_type_id', $news_type_list,array(
+                        'prompt' => '--กรุณาเลือกประเภทหลัก--',
+                        'value' => '0',
+                        'ajax'  => array(
+                        'type'  => 'POST',
+                        'url' => CController::createUrl('news/type'),
+                        'update' => '#News_news_group_id',   //selector to update value
+                        'data' => array('news_type_id'=>'js:this.value'),
+                        )
+                  )); ?>              
+
+		<?php echo $form->error($model,'news_type_id'); ?>
+	</div>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'news_group_id'); ?>
-		<?php echo $form->dropDownList($model,'news_group_id',$news_type_list,array(
-                            'prompt' => '--กรุณาเลือกประเภท--',
-                            'value' => '0',)); ?> กรณีไม่มีข้อมูลคลิกเพิ่ม <a href="<?php echo Yii::app()->createUrl('newsGroup2'); ?>" target="_blank">ที่นี่</a>
+                <?php echo $form->dropDownList($model, 'news_group_id', $news_group_list,array(
+                                    'prompt' => '--กรุณาเลือกประเภทย่อย--',
+                                    'value' => '0',)); ?>            
 		<?php echo $form->error($model,'news_group_id'); ?>
 	</div>
 

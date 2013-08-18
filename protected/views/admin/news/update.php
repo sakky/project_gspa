@@ -17,4 +17,4 @@ $this->menu=array(
 
 <h1>แก้ไขประชาสัมพันธ์/กิจกรรม จากสื่อ #<?php echo $model->news_id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,'news_group_list'=>$news_group_list,)); ?>
