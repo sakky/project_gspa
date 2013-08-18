@@ -3,7 +3,11 @@ $lang = Yii::app()->language;
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?> 
 <ul class="list-1">
         <?php
-            $ServiceGroup = StudentServiceGroup::model()->findAll();
+            //$ServiceGroup = StudentServiceGroup::model()->findAll();
+            $criteria = new CDbCriteria();
+            $criteria->order = 'sort_order';
+            $ServiceGroup = StudentServiceGroup::model()->findAll($criteria);        
+
             foreach($ServiceGroup as $v) {
             $ser_group = $v->ser_group;
         ?>
@@ -24,7 +28,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 <?php }else{?>
         <ul class="list-1">
         <?php
-            $ServiceGroup = StudentServiceGroup::model()->findAll();
+            //$ServiceGroup = StudentServiceGroup::model()->findAll();
+            $criteria = new CDbCriteria();
+            $criteria->order = 'sort_order';
+            $ServiceGroup = StudentServiceGroup::model()->findAll($criteria);        
+        
             foreach($ServiceGroup as $v) {
             $ser_group = $v->ser_group;
         ?>
