@@ -48,7 +48,7 @@ class News extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('news_type_id, news_group_id, name_en, name_th,title_en,title_th,create_date, status,', 'required','message'=>'{attribute} ห้ามว่าง'),
+			array('news_type_id, name_en, name_th,title_en,title_th,create_date, status,', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('news_type_id, news_group_id, show_homepage, show_new, status, user_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, image', 'length', 'max'=>255),
 			array('title_en, title_th, desc_en, desc_th, create_date ,vdo_link ,news_icon', 'safe'),
@@ -80,8 +80,8 @@ class News extends CActiveRecord
 	{
 		return array(
 			'news_id' => 'รหัส',
-			'news_type_id' => 'ประเภทข่าว',
-                        'news_group_id' => 'ประเภท',
+			'news_type_id' => 'ประเภทหลัก',
+                        'news_group_id' => 'ประเภทย่อย',
 			'name_en' => 'หัวข้อข่าว (ภาษาอังกฤษ)',
 			'name_th' => 'หัวข้อข่าว (ภาษาไทย)',
 			'title_en' => 'คำบรรยาย (ภาษาอังกฤษ)',
@@ -173,38 +173,38 @@ class News extends CActiveRecord
 		));
 	}
         
-        public function searchInSide()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('news_id',$this->news_id);
-		$criteria->compare('news_type_id',5);
-		$criteria->compare('name_en',$this->name_en,true);
-		$criteria->compare('name_th',$this->name_th,true);
-		$criteria->compare('title_en',$this->title_en,true);
-		$criteria->compare('title_th',$this->title_th,true);
-		$criteria->compare('desc_en',$this->desc_en,true);
-		$criteria->compare('desc_th',$this->desc_th,true);
-                $criteria->compare('pdf_en',$this->pdf_en,true);
-		$criteria->compare('pdf_th',$this->pdf_th,true);
-		$criteria->compare('image',$this->image,true);
-                $criteria->compare('thumbnail',$this->thumbnail,true);
-                $criteria->compare('vdo_link',$this->vdo_link,true);
-		$criteria->compare('create_date',$this->create_date,true);
-		$criteria->compare('show_homepage',$this->show_homepage);
-		$criteria->compare('show_new',$this->show_new);
-		$criteria->compare('status',$this->status);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('time_stamp',$this->time_stamp,true);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-                        'pagination'=>array('pageSize'=> 20),
-		));
-	}
+//        public function searchInSide()
+//	{
+//		// Warning: Please modify the following code to remove attributes that
+//		// should not be searched.
+//
+//		$criteria=new CDbCriteria;
+//
+//		$criteria->compare('news_id',$this->news_id);
+//		$criteria->compare('news_type_id',5);
+//		$criteria->compare('name_en',$this->name_en,true);
+//		$criteria->compare('name_th',$this->name_th,true);
+//		$criteria->compare('title_en',$this->title_en,true);
+//		$criteria->compare('title_th',$this->title_th,true);
+//		$criteria->compare('desc_en',$this->desc_en,true);
+//		$criteria->compare('desc_th',$this->desc_th,true);
+//                $criteria->compare('pdf_en',$this->pdf_en,true);
+//		$criteria->compare('pdf_th',$this->pdf_th,true);
+//		$criteria->compare('image',$this->image,true);
+//                $criteria->compare('thumbnail',$this->thumbnail,true);
+//                $criteria->compare('vdo_link',$this->vdo_link,true);
+//		$criteria->compare('create_date',$this->create_date,true);
+//		$criteria->compare('show_homepage',$this->show_homepage);
+//		$criteria->compare('show_new',$this->show_new);
+//		$criteria->compare('status',$this->status);
+//		$criteria->compare('user_id',$this->user_id);
+//		$criteria->compare('time_stamp',$this->time_stamp,true);
+//
+//		return new CActiveDataProvider($this, array(
+//			'criteria'=>$criteria,
+//                        'pagination'=>array('pageSize'=> 20),
+//		));
+//	}
         
         public function search()
 	{
@@ -214,7 +214,9 @@ class News extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('news_id',$this->news_id);
-		$criteria->compare('news_type_id',1);
+		$criteria->compare('news_type_id','<>2');
+                $criteria->compare('news_type_id','<>3');                
+		$criteria->compare('news_group_id',$this->news_group_id);
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('title_en',$this->title_en,true);

@@ -38,7 +38,7 @@ class NewsType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sort_order, status', 'required','message'=>'{attribute} ห้ามว่าง'),
+			array('name_en, name_th, status', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -64,11 +64,11 @@ class NewsType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'news_type_id' => 'News Type',
-			'name_en' => 'Name En',
-			'name_th' => 'Name Th',
-			'sort_order' => 'Sort Order',
-			'status' => 'Status',
+			'news_type_id' => 'รหัส',
+			'name_en' => 'ชื่อประเภทหลัก (ภาษาอังกฤษ)',
+			'name_th' => 'ชื่อประเภทหลัก (ภาษาไทย)',
+			'sort_order' => 'การเรียงลำดับ',
+			'status' => 'สถานะ',
 		);
 	}
 
@@ -83,7 +83,8 @@ class NewsType extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('news_type_id',$this->news_type_id);
+		$criteria->compare('news_type_id','<>2');
+                $criteria->compare('news_type_id','<>3');
 		$criteria->compare('name_en',$this->name_en,true);
 		$criteria->compare('name_th',$this->name_th,true);
 		$criteria->compare('sort_order',$this->sort_order);
