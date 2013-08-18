@@ -93,7 +93,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <form action="<?php echo Yii::app()->createUrl('site/search'); ?>" method="GET">
             <fieldset>
             <legend>Site Search</legend>
-            <input type="text" name="q" placeholder="<?php echo $search_text;?>..." />
+            <input type="text" name="q" placeholder="<?php echo $search_text;?>..." style="width: 150px;" />
             <input type="submit" id="go" value="GO" />
             </fieldset>
         </form>
@@ -132,13 +132,37 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">Jobs</a></li>
                     </ul>
                 </li>-->
-                <li><a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
+                <li>
+                    <a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a>
                     <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->order = 'sort_order';
+                            $ServiceGroup = StudentServiceGroup::model()->findAll($criteria);        
+                            foreach($ServiceGroup as $group) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('student', array('group'=>$group->ser_group)); ?>"><?php echo $group->ser_name_en;?></a></li>        
+                        <?php }?>
+                    </ul>    
+                </li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="News & Activities" >News & Activities</a>
+<!--                    <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">GSPA News</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">Media News</a></li>
-                            <!--<li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>-->
-                    </ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">Event Calendar</a></li>
+                    </ul>-->
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->select = '*';
+                            $criteria->condition = '(news_type_id <> 2 AND news_type_id <> 3)';
+                            $criteria->order = 'sort_order';
+                            $NewsType = NewsType::model()->findAll($criteria);        
+                            foreach($NewsType as $group) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('news', array('type_id'=>$group->news_type_id)); ?>"><?php echo $group->name_en;?></a></li>        
+                        <?php }?>
+                    </ul>                    
                 </li>
                 <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="Download" >Download</a>                   
                     
@@ -207,13 +231,37 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>-->
-                <li><a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a></li>
-                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์" >ประชาสัมพันธ์</a>
+                <li>
+                    <a <?php if($curpage=='student/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('student'); ?>"><?php echo $service_student;?></a>
                     <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->order = 'sort_order';
+                            $ServiceGroup = StudentServiceGroup::model()->findAll($criteria);        
+                            foreach($ServiceGroup as $group) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('student', array('group'=>$group->ser_group)); ?>"><?php echo $group->ser_name;?></a></li>        
+                        <?php }?>
+                    </ul>                    
+                </li>
+                <li><a <?php if($curpage=='news/index'||$curpage=='news/media'||$curpage=='news/inside'||$curpage=='news/group'||$curpage=='news/groupMedia'||$curpage=='event/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('news'); ?>" title="ประชาสัมพันธ์" >ประชาสัมพันธ์</a>
+<!--                    <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('news/inside'); ?>">ภายใน/ภายนอก</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('news/media'); ?>">จากสื่อ</a></li>
-                            <!--<li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>-->
-                    </ul>
+                            <li><a href="<?php echo Yii::app()->createUrl('event'); ?>">ปฏิทินกิจกรรม</a></li>
+                    </ul>-->
+                    <ul>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->select = '*';
+                            $criteria->condition = '(news_type_id <> 2 AND news_type_id <> 3)';
+                            $criteria->order = 'sort_order';
+                            $NewsType = NewsType::model()->findAll($criteria);        
+                            foreach($NewsType as $group) {
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('news', array('type_id'=>$group->news_type_id)); ?>"><?php echo $group->name_th;?></a></li>        
+                        <?php }?>
+                    </ul>                    
                 </li>
                 <li><a <?php if($curpage=='document/index'||$curpage=='document/type'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('document'); ?>" title="สื่อเผยแพร่" >สื่อเผยแพร่</a>                   
                     

@@ -4,8 +4,7 @@
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->pageTitle="Graduate School of Public Administration";
-    $col1_header = "GSPA News & Activities";
-    $col2_header = "News & Activities"; 
+    $col1_header = "News & Activities";
     $text_title = "Open Admissions Program";
     $text_button1 = "Master's degree";
     $text_button2 = "Doctorate Degree";
@@ -13,8 +12,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 }else{
     $this->pageTitle=Yii::app()->name;
-    $col1_header = "ประชาสัมพันธ์"; 
-    $col2_header = "ประชาสัมพันธ์ จากสื่อ"; 
+    $col1_header = "ประชาสัมพันธ์ & กิจกรรม"; 
     $text_title = "เปิดรับสมัครนักศึกษา หลักสูตร";
     $text_button1 = "ปริญญาโท";
     $text_button2 = "ปริญญาเอก";
@@ -175,9 +173,9 @@ $(window).load(function () {
     </div>
     <div class="wrapper">
       <article class="col-2">
-         <!-- ข่าวภายใน -------------------------------------------------------------------------------------------->
+         <!-- ข่าวประชาสัมพันธ์/กิจกรรม-------------------------------------------------------------------------------------------->
          <h3><?php echo $col1_header;?></h3>
-         <?php foreach ($newsInSide as $new){
+         <?php foreach ($news as $new){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $news_name = $new->name_en;
                   $news_title = $new->title_en;
@@ -203,11 +201,11 @@ $(window).load(function () {
         </div>       
         <div class="clear"></div>
         <?php }?>
-        <div class="alignright" style="border-bottom:1px solid #aaa;padding-bottom: 10px;margin-bottom: 10px;">
+        <div class="alignright">
         <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>"><?php echo $news_readmore;?></a>
         </div>
         <!-- ข่าวจากสื่อ -------------------------------------------------------------------------------------------->
-         <h3><?php echo $col2_header;?></h3>  
+        <!--<h3><?php echo $col2_header;?></h3>  
         <?php foreach ($news as $new){
               if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $news_name = $new->name_en;
@@ -237,7 +235,7 @@ $(window).load(function () {
         <?php }?>
         <div class="alignright">
         <a class="button" href="<?php echo Yii::app()->createUrl('news/media'); ?>"><?php echo $news_readmore;?></a>
-        </div>      
+        </div>-->      
       </article>
       <article class="col-3">
             <?php $this->renderPartial('rightmenu',array(

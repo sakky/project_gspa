@@ -48,6 +48,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 <br/>
 <!-- ปฏิทินกิจกรรม -->
+<!--
 <h3><?php echo $event_text;?></h3>
 <ul>
 <?php 
@@ -73,6 +74,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <?php }?>
 </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('event'); ?>"><?php echo $more;?></a></p>
+-->
 <!-- ข่าวรับสมัครเรียน -->
 <h3><?php echo $col3_2_header;?></h3>
   <ul class="list-2">
@@ -84,7 +86,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 $news_name = $new_pr->name_th;
             }    
         ?>
-        <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a> </li>
+        <li><a href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a> </li>
     <?php }?>
   </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>"><?php echo $more;?></a></p>
@@ -99,7 +101,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 $news_name = $new->name_th;
             }
             ?>
-        <li><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a> </li>
+        <li><a href="<?php echo Yii::app()->createUrl('announce/job', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a> </li>
     <?php }?>
   </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>"><?php echo $more;?></a></p>

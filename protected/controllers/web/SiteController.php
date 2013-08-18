@@ -59,10 +59,10 @@ class SiteController extends Controller
                 $student_news = News::model()->findAll($condition);
                 
                 $news_criteria = new CDbCriteria();
-                $news_criteria->condition = "news_type_id =1 AND status = 1";
+                $news_criteria->condition = "news_type_id <>2 AND news_type_id <>3 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 2; 
+                $news_criteria->limit = 6; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $job_criteria = new CDbCriteria();
@@ -79,12 +79,12 @@ class SiteController extends Controller
                 $event_criteria->limit = 5; 
                 $events = Event::model()->findAll($event_criteria);
                 
-                $pr_criteria = new CDbCriteria();
-                $pr_criteria->condition = "news_type_id =5 AND status = 1";
-                $pr_criteria->order = "create_date desc,news_id desc";
-                $pr_criteria->offset = 0;
-                $pr_criteria->limit = 4; 
-                $newsInSide = News::model()->findAll($pr_criteria);
+//                $pr_criteria = new CDbCriteria();
+//                $pr_criteria->condition = "news_type_id =5 AND status = 1";
+//                $pr_criteria->order = "create_date desc,news_id desc";
+//                $pr_criteria->offset = 0;
+//                $pr_criteria->limit = 4; 
+//                $newsInSide = News::model()->findAll($pr_criteria);
                 
                 $link_criteria = new CDbCriteria();
                 $link_criteria->condition = "status = 1";
@@ -106,7 +106,7 @@ class SiteController extends Controller
                 $this->render('index',array(
                                 'model'=>$model,
                                 'news'=>$news,
-                                'newsInSide'=>$newsInSide,
+                               // 'newsInSide'=>$newsInSide,
                                 'job'=>$job,
                                 'student_news'=>$student_news,
                                 'links'=>$links,
