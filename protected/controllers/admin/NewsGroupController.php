@@ -40,10 +40,18 @@ class NewsGroupController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsType::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_type_id] = $type->name_th;
+		}
 		if(isset($_POST['NewsGroup']))
 		{
-                        $_POST['NewsGroup']['news_type_id'] = 5;
 			$model->attributes=$_POST['NewsGroup'];
 			if($model->save())
 				$this->redirect(array('index'));
@@ -51,6 +59,7 @@ class NewsGroupController extends AdminController
 
 		$this->render('create',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list,
 		));
             }else{
                 $this->redirect(array('site/index'));
@@ -69,10 +78,18 @@ class NewsGroupController extends AdminController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsType::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_type_id] = $type->name_th;
+		}
 		if(isset($_POST['NewsGroup']))
 		{
-                        $_POST['NewsGroup']['news_type_id'] = 5;
 			$model->attributes=$_POST['NewsGroup'];
 			if($model->save())
 				$this->redirect(array('index'));
@@ -80,6 +97,7 @@ class NewsGroupController extends AdminController
 
 		$this->render('update',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list,                    
 		));
             }else{
                 $this->redirect(array('site/index'));
@@ -107,12 +125,23 @@ class NewsGroupController extends AdminController
 	{
             if($this->menu_use[3]){                
 		$model=new NewsGroup('search');
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsType::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_type_id] = $type->name_th;
+		}                
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NewsGroup']))
 			$model->attributes=$_GET['NewsGroup'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list, 
 		));
             }else{
                 $this->redirect(array('site/index'));
@@ -126,12 +155,23 @@ class NewsGroupController extends AdminController
 	{
             if($this->menu_use[3]){                
 		$model=new NewsGroup('search');
+                $news_type_list = array();
+                $criteria = new CDbCriteria();
+                $criteria->condition = 'status=:status AND news_type_id<>2 AND news_type_id<>3';
+		$criteria->params=array(':status'=>1);
+                $criteria->order = 'sort_order';
+                $news_type = NewsType::model()->findAll($criteria);
+                
+                foreach($news_type as $type) {
+			$news_type_list[$type->news_type_id] = $type->name_th;
+		}
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NewsGroup']))
 			$model->attributes=$_GET['NewsGroup'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+                        'news_type_list'=>$news_type_list,                     
 		));
             }else{
                 $this->redirect(array('site/index'));
@@ -162,8 +202,7 @@ class NewsGroupController extends AdminController
             {
                 $dataProvider = new CActiveDataProvider('NewsGroup', array(
                     'pagination' => false,
-                    'criteria' => array(
-                        'condition'=>'news_type_id=5',
+                    'criteria' => array(                       
                         'order' => 'sort_order ASC, news_group_id ASC',
                     ),
                 ));

@@ -7,7 +7,16 @@ class NewsTypeController extends AdminController
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-	
+        public $user_group_menu;
+        public $menu_use = array();
+	public function init() {
+                $this->user_group_menu = $this->getUserGroupMenu(Yii::app()->user->id);                                
+                $user_menu = explode(',', $this->user_group_menu);
+                foreach ($user_menu as $key => $value) {
+
+                    $this->menu_use[$value] = $value;
+                }                
+	}        	
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -25,6 +34,7 @@ class NewsTypeController extends AdminController
 	 */
 	public function actionCreate()
 	{
+            if($this->menu_use[3]){                   
 		$model=new NewsType;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -34,12 +44,15 @@ class NewsTypeController extends AdminController
 		{
 			$model->attributes=$_POST['NewsType'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_type_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -49,6 +62,7 @@ class NewsTypeController extends AdminController
 	 */
 	public function actionUpdate($id)
 	{
+            if($this->menu_use[3]){             
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -58,13 +72,55 @@ class NewsTypeController extends AdminController
 		{
 			$model->attributes=$_POST['NewsType'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_type_id));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                   
 	}
+        public function actionOrder()
+        {
+            if($this->menu_use[3]){            
+            // Handle the POST request data submission
+            if (isset($_POST['Order']))
+            {
+                // Since we converted the Javascript array to a string,
+                // convert the string back to a PHP array
+                $models = explode(',', $_POST['Order']);
+
+                for ($i = 0; $i < sizeof($models); $i++)
+                {
+                    if ($model = NewsType::model()->findbyPk($models[$i]))
+                    {
+                        $model->sort_order = $i;
+
+                        $model->save();
+                    }
+                }
+            }
+            // Handle the regular model order view
+            else
+            {
+                $dataProvider = new CActiveDataProvider('NewsType', array(
+                    'pagination' => false,
+                    'criteria' => array(          
+                        'condition'=>'news_type_id<>2 AND news_type_id<>3',
+                        'order' => 'sort_order ASC, news_type_id ASC',
+                    ),
+                ));
+
+                $this->render('order',array(
+                    'dataProvider' => $dataProvider,
+                ));
+            }
+            }else{
+                $this->redirect(array('site/index'));
+            }              
+        }        
 
 	/**
 	 * Deletes a particular model.
@@ -85,10 +141,7 @@ class NewsTypeController extends AdminController
 	 */
 	public function actionIndex()
 	{
-//		$dataProvider=new CActiveDataProvider('NewsType');
-//		$this->render('index',array(
-//			'dataProvider'=>$dataProvider,
-//		));
+            if($this->menu_use[3]){ 
                 $model=new NewsType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NewsType']))
@@ -97,6 +150,9 @@ class NewsTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }                  
 	}
 
 	/**
@@ -104,7 +160,8 @@ class NewsTypeController extends AdminController
 	 */
 	public function actionAdmin()
 	{
-		$model=new NewsType('search');
+            if($this->menu_use[3]){ 
+                $model=new NewsType('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['NewsType']))
 			$model->attributes=$_GET['NewsType'];
@@ -112,6 +169,9 @@ class NewsTypeController extends AdminController
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+            }else{
+                $this->redirect(array('site/index'));
+            }   
 	}
 
 	/**
