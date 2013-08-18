@@ -3,19 +3,18 @@
 /* @var $model NewsType */
 
 $this->breadcrumbs=array(
-	'News Types'=>array('index'),
-	$model->news_type_id=>array('view','id'=>$model->news_type_id),
-	'Update',
+	'ประเภทหลัก ประชาสัมพันธ์/กิจกรรม'=>array('index'),
+	'แก้ไขข้อมูล',
 );
 
 $this->menu=array(
-	array('label'=>'List NewsType', 'url'=>array('index')),
-	array('label'=>'Create NewsType', 'url'=>array('create')),
-	array('label'=>'View NewsType', 'url'=>array('view', 'id'=>$model->news_type_id)),
-	array('label'=>'Manage NewsType', 'url'=>array('admin')),
+	//array('label'=>'List NewsType', 'url'=>array('index')),
+	array('label'=>'เพิ่มประเภทหลัก', 'url'=>array('create')),
+	//array('label'=>'View NewsType', 'url'=>array('view', 'id'=>$model->news_type_id)),
+	array('label'=>'จัดการประเภทหลัก', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update NewsType <?php echo $model->news_type_id; ?></h1>
+<h1>แก้ไขประเภทหลัก #<?php echo $model->news_type_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -10,6 +10,10 @@
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
+	<div class="row">
+		<?php echo $form->label($model,'news_type_id'); ?>
+		<?php echo $form->textField($model,'news_type_id'); ?>
+	</div>    
 
 	<div class="row">
 		<?php echo $form->label($model,'name_en'); ?>
@@ -22,8 +26,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'status'); ?>
-                <?php echo $form->dropDownList($model, 'status', array('1'=>'Enabled','0'=>'Disabled')); ?>
+		<?php echo $form->labelEx($model,'status'); ?>
+		<?php echo $form->dropDownList($model, 'status', array('1'=>'แสดง','0'=>'ไม่แสดง')); ?>
+		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 	<div class="row buttons">

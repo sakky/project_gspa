@@ -26,6 +26,12 @@
 		<?php echo $form->textField($model,'name_th',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'name_th'); ?>
 	</div>
+        
+	<div class="row">
+		<?php echo $form->labelEx($model,'sort_order'); ?>
+		<?php echo $form->textField($model,'sort_order'); ?>
+		<?php echo $form->error($model,'sort_order'); ?>
+	</div>        
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
