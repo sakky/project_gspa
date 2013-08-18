@@ -64,7 +64,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
             <?php endif?>
           </div>
 
-          <div><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/student.png"/></div>
+          <div><img class="border-banner" src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/student-banner.jpg"/></div>
           
           <h3><?php echo $header;?></h3>
           <ul class="list-4">

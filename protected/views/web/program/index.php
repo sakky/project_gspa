@@ -39,7 +39,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
-          <div><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/programs-banner.jpg"/></div>
+          <div><img class="border-banner" src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/programs-banner.jpg"/></div>
           <h3>หลักสูตรปริญญาโท</h3>
             <ul class="list-4">
                 <?php foreach ($master as $value){?>
