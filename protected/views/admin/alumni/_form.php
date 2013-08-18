@@ -40,7 +40,7 @@
                                     'data' => array('alumni_group'=>'js:this.value'),
                                     )
                               )); ?>
-		<?php echo $form->error($model,'group'); ?>
+		<?php echo $form->error($model,'alumni_group'); ?>
 	</div>
         
         <div class="row">
