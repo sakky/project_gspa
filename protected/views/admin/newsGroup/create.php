@@ -3,16 +3,16 @@
 /* @var $model NewsGroup */
 
 $this->breadcrumbs=array(
-	'ประเภทประชาสัมพันธ์/กิจกรรม ภายใน'=>array('index'),
+	'ประเภทย่อย ประชาสัมพันธ์/กิจกรรม'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List NewsGroup', 'url'=>array('index')),
-	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
+	array('label'=>'จัดการประเภทย่อย', 'url'=>array('admin')),
 );
 ?>
 
-<h1>เพิ่มประเภท</h1>
+<h1>เพิ่มประเภทย่อย</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list, )); ?>

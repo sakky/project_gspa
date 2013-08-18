@@ -17,4 +17,4 @@ $this->menu=array(
 
 <h1>แก้ไขประเภท #<?php echo $model->news_group_id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'news_type_list'=>$news_type_list,)); ?>

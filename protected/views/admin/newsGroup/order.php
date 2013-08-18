@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'ประเภทประชาสัมพันธ์/กิจกรรม ภายใน'=>array('index'),
+	'ประเภทย่อย ประชาสัมพันธ์/กิจกรรม'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
 $this->menu=array(
 	//array('label'=>'List Executive', 'url'=>array('index')),
-	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
+	array('label'=>'จัดการประเภทย่อย', 'url'=>array('admin')),
 );
 ?>
-<h1>เรียงลำดับประเภท ประชาสัมพันธ์/กิจกรรม ภายใน</h1>
+<h1>เรียงลำดับประเภทย่อย ประชาสัมพันธ์/กิจกรรม</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 
@@ -21,6 +21,8 @@ $this->menu=array(
 
 /*]]>*/
 </style>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
         var baseUrl = "<?php echo Yii::app()->createUrl('newsGroup'); ?>"
 </script>

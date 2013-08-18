@@ -14,7 +14,14 @@
 	<p class="note"><span class="required">*</span> ข้อมูลที่จำเป็นต้องกรอก</p>
 
 	<?php echo $form->errorSummary($model,'กรุณากรอกข้อมูลให้ถูกต้อง');?>
-
+	<div class="row">
+		<?php echo $form->labelEx($model,'news_type_id'); ?>
+		<?php echo $form->dropDownList($model,'news_type_id',$news_type_list,array(
+                            'prompt' => '--กรุณาเลือกประเภท--',
+                            'value' => '0',)); ?>
+		<?php echo $form->error($model,'news_type_id'); ?>
+	</div>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'name_en'); ?>
 		<?php echo $form->textField($model,'name_en',array('size'=>60,'maxlength'=>255)); ?>
