@@ -1048,3 +1048,9 @@ ul .footer-list li{
         background:#E6EFC2;
 	color:#264409;
 }
+
+img.border-banner{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
