@@ -132,7 +132,7 @@
 				array(	
                                         
                                         array('label'=>'หน่วยงานภายใต้กำกับ', 'url'=>array('/organization')),
-                                        array('label'=>'รายงานผลการดำเนินงาน', 'url'=>array('/organization')),
+                                        array('label'=>'การประกันคุณภาพการศึกษา', 'url'=>array('/organization')),
                                         array('label'=>'บริการ', 'url'=>array('/organization')),
                                         array('label'=>'Link ที่เกี่ยวข้อง', 'url'=>array('/link')),
                                         array('label'=>'ข้อมูลการติดต่อ', 'url'=>array('/page/edit?id=7')),

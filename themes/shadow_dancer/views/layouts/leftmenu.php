@@ -116,7 +116,7 @@
             </li>
             <?php }?>
             <?php if($menu_use[7]){?>
-            <li <?php if($controller=='report'||$controller=='reportType'){?>class="current" <?php }?>><a href="#">รายงานผลการดำเนินงาน</a>
+            <li <?php if($controller=='report'||$controller=='reportType'){?>class="current" <?php }?>><a href="#">การประกันคุณภาพการศึกษา</a>
                 <ul <?php if($controller=='report'||$controller=='reportType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
                         <li <?php if($controller=='report'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('report'); ?>">รายงานทั้งหมด</a></li>
                         <li <?php if($controller=='reportType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('reportType'); ?>">ประเภทรายงาน</a></li>
