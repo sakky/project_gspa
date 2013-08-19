@@ -62,6 +62,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $knowledge2 = "Categories of Knowledge";
     $knowledge3 = "Documentary";
     $report = "Reports";
+    $admission = "Admission";
 
     
 }else{ 
@@ -80,6 +81,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $knowledge2 = "หมวดความรู้";
     $knowledge3 = "สารคดี";
     $report = "รายงานผลการดำเนินงาน";
+    $admission = "สมัครเรียน";
 }
 ?>
 
@@ -112,11 +114,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">Sign of GSPA</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">Vision</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">Mission</a></li> 
-                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">Cooperation</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">Board</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">Executive of GSPA</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">Organization Structure</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">Cooperation</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('report'); ?>">Report</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
@@ -201,6 +204,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
+                <li><a href="<?php echo Yii::app()->createUrl('adminssion'); ?>"><?php echo $admission;?></a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>"><?php echo $service_student1;?></a>
+                        <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>"><?php echo $service_student2;?></a>
+                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>"><?php echo $admission;?></a>
+                    </ul>
+                
+                </li>
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
@@ -211,11 +222,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>2)); ?>">ตราสัญลักษณ์</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>4)); ?>">วิสัยทัศน์</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>5)); ?>">พันธกิจ</a></li>                            
-                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">ความร่วมมือ</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about/board'); ?>">คณะกรรมการ</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/executive'); ?>">ทำเนียบผู้บริหาร</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about/structure'); ?>">โครงสร้างหน่วยงาน</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">ความร่วมมือ</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('report'); ?>">การประกันคุณภาพการศึกษา</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
@@ -299,6 +311,14 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <li><a href="<?php echo $or->link_th;?>" target="_blank"><?php echo $or->name_th;?></a></li>        
                         <?php }?>
                     </ul>
+                </li>
+                <li><a href="<?php echo Yii::app()->createUrl('adminssion'); ?>"><?php echo $admission;?></a>
+                    <ul>
+                        <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>"><?php echo $service_student1;?></a>
+                        <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>"><?php echo $service_student2;?></a>
+                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>"><?php echo $admission;?></a>
+                    </ul>
+                
                 </li>
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="ติดต่อเรา" >ติดต่อเรา</a></li>-->
             

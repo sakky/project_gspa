@@ -3,7 +3,7 @@
 /* @var $model Report */
 
 $this->breadcrumbs=array(
-	'รายงานผลการดำเนินงาน'=>array('index'),
+	'การประกันคุณภาพการศึกษา'=>array('index'),
 	'จัดการข้อมูล',
 );
 

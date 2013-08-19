@@ -10,13 +10,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "Report";
 
 }else{
-    $this->pageTitle=Yii::app()->name. ' - รายงานผลการดำเนินงาน';
+    $this->pageTitle=Yii::app()->name. ' - การประกันคุณภาพการศึกษา';
     $this->breadcrumbs=array(
-            'รายงานผลการดำเนินงาน'=>array('index'),
+            'การประกันคุณภาพการศึกษา'=>array('index'),
             $model->reportType->name_th=>array('index','type_id'=>$model->report_type_id),        
             $model->name_th
     );
-    $header = "รายงานผลการดำเนินงาน";
+    $header = "การประกันคุณภาพการศึกษา";
 
 }
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){

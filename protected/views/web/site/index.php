@@ -166,11 +166,11 @@ $(window).load(function () {
         <?php $loop++; }?>
       </ul>
     </div>
-    <div class="border-bot1 img-indent-bot" >
+    <!--div class="border-bot1 img-indent-bot" >
         <article class="fcol-1" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('program/master'); ?>" class="button3"><?php echo $text_button1;?></a></article>
         <article class="fcol-2" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>" class="button3 color2"><?php echo $text_button2;?></a></article>
         <article class="fcol-3" style="text-align: center"><a href="<?php echo Yii::app()->createUrl('admission'); ?>" class="button3 color3"><?php echo $text_button3;?></a></article>
-    </div>
+    </div-->
     <div class="wrapper">
       <article class="col-2">
          <!-- ข่าวประชาสัมพันธ์/กิจกรรม-------------------------------------------------------------------------------------------->

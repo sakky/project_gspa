@@ -16,18 +16,18 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "Report";
 
 }else{
-    $this->pageTitle=Yii::app()->name. ' - รายงานผลการดำเนินงาน';
+    $this->pageTitle=Yii::app()->name. ' - การประกันคุณภาพการศึกษา';
     if($_GET['type_id']){
         $this->breadcrumbs=array(
-                'รายงานผลการดำเนินงาน'=>array('index'),
+                'การประกันคุณภาพการศึกษา'=>array('index'),
                 $type->name_th
         );        
     }else{
         $this->breadcrumbs=array(
-                'รายงานผลการดำเนินงาน',
+                'การประกันคุณภาพการศึกษา',
         );        
     }       
-    $header = "รายงานผลการดำเนินงาน";
+    $header = "การประกันคุณภาพการศึกษา";
 
 }
 

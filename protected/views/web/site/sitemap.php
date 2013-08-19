@@ -527,7 +527,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         </li>
                     </ul>
                 </li>
-                <li class="submenu"><a href="<?php echo Yii::app()->createUrl('report'); ?>">รายงานผลการดำเนินงาน</a>
+                <li class="submenu"><a href="<?php echo Yii::app()->createUrl('report'); ?>">การประกันคุณภาพการศึกษา</a>
                     <ul>
                         <?php
                          foreach($report as $key=>$type) {
