@@ -3,7 +3,7 @@
 /* @var $model Document */
 
 $this->breadcrumbs=array(
-	'บริการ'=>array('index'),
+	'สมัครเรียน'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>เพิ่มข้อมูลบริการ</h1>
+<h1>เพิ่มข้อมูลสมัครเรียน</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model,'doc_type_list'=>$doc_type_list)); ?>

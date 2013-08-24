@@ -3,7 +3,7 @@
 /* @var $model DocumentType */
 
 $this->breadcrumbs=array(
-	'ประเภทบริการ'=>array('index'),
+	'ประเภทสมัครเรียน'=>array('index'),
 	'จัดการข้อมูล',
 );
 
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการประเภทบริการ</h1>
+<h1>จัดการประเภทสมัครเรียน</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

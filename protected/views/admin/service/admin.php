@@ -3,7 +3,7 @@
 /* @var $model Document */
 
 $this->breadcrumbs=array(
-	'บริการ'=>array('index'),
+	'สมัครเรียน'=>array('index'),
 	'จัดการข้อมูล',
 );
 
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการข้อมูลบริการ</h1>
+<h1>จัดการข้อมูลสมัครเรียน</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -48,7 +48,7 @@ $('.search-form form').submit(function(){
                 ),
                 array(
 			'name'=>'name_th',                        
-                        'header'=>'บริการ',
+                        'header'=>'รายการสมัครเรียน',
 		),
 		array(
 			'name'=>'doc_type_id',

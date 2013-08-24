@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'ประเภทบริการ'=>array('index'),
+	'ประเภทสมัครเรียน'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'จัดการประเภท', 'url'=>array('admin')),
 );
 ?>
-<h1>เรียงลำดับการแสดงผลประเภทบริการ</h1>
+<h1>เรียงลำดับการแสดงผลประเภทสมัครเรียน</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 
