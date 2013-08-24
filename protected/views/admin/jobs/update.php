@@ -3,8 +3,7 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ประกาศ',
-	'รับสมัครงาน'=>array('index'),
+	'ประกาศรับสมัครงาน'=>array('index'),
 	'แก้ไขข้อมูล',
 );
 
