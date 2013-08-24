@@ -1,24 +1,20 @@
 <?php
 $lang = Yii::app()->language; 
-    if($model->doc_type_id==5){
-        $url_type ='download';
-    }else{
-        $url_type ='library';
-    }
+
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Service';
+    $this->pageTitle='Graduate School of Public Administration - Admission';
     $this->breadcrumbs=array(
-            'Service'=>array('index'),
-            $model->documentType->name_en=>array($url_type),
+            'Admission'=>array('index'),
+            $model->documentType->name_en=>array('index','type_id'=>$model->doc_type_id),
             $model->name_en
     );
     $header = "Service";
 
 }else{
-    $this->pageTitle=Yii::app()->name. ' - บริการ';
+    $this->pageTitle=Yii::app()->name. ' - สมัครเรียน';
     $this->breadcrumbs=array(
-            'บริการ'=>array('index'),
-            $model->documentType->name_th=>array($url_type),
+            'สมัครเรียน'=>array('index'),
+            $model->documentType->name_th=>array('index','type_id'=>$model->doc_type_id),
             $model->name_th
     );
     $header = "บริการ";

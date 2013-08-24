@@ -1,18 +1,35 @@
 <?php
 $lang = Yii::app()->language; 
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-    $this->pageTitle='Graduate School of Public Administration - Service';
-    $this->breadcrumbs=array(
-            'Service',
-    );
-    $header = "Service";
+    $this->pageTitle='Graduate School of Public Administration - Admission';
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+                'Admission'=>array('index'),
+                $type->name_en            
+        );  
+        $header = "Admission :: ". $type->name_th ;
+    }else{
+        $this->breadcrumbs=array(
+                'Admission',
+        );
+         $header = "Admission";
+    }           
 
 }else{
-    $this->pageTitle=Yii::app()->name. ' - บริการ';
-    $this->breadcrumbs=array(
-            'บริการ',
-    );
-    $header = "บริการ";
+    $this->pageTitle=Yii::app()->name. ' - สมัครเรียน';
+    if($_GET['type_id']){
+        $this->breadcrumbs=array(
+                'สมัครเรียน'=>array('index'),
+                $type->name_th            
+        );
+        $header = "สมัครเรียน :: ". $type->name_th ;
+    }else{
+        $this->breadcrumbs=array(
+                'สมัครเรียน',
+        );
+        $header = "สมัครเรียน";
+    }
+    
 
 }
 
