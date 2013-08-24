@@ -3,7 +3,7 @@
 /* @var $model KnowledgeType */
 
 $this->breadcrumbs=array(
-	'ประเภทคลังข้อมูลความรู้'=>array('index'),
+	'ประเภทการจัดการความรู้'=>array('index'),
 	'จัดการประเภท',
 );
 
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการประเภทคลังข้อมูลความรู้</h1>
+<h1>จัดการประเภทการจัดการความรู้</h1>
 
 <?php echo CHtml::link('ค้นหาแบบละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

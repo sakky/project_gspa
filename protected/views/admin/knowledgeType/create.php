@@ -3,7 +3,7 @@
 /* @var $model KnowledgeType */
 
 $this->breadcrumbs=array(
-	'ประเภทคลังข้อมูลความรู้'=>array('index'),
+	'ประเภทการจัดการความรู้'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>เพิ่มประเภทคลังข้อมูลความรู้</h1>
+<h1>เพิ่มประเภทการจัดการความรู้</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
