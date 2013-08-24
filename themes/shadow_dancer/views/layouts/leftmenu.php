@@ -77,8 +77,8 @@
             <?php if($menu_use[2]){?>
             <li <?php if($controller=='student' || $controller=='jobs'){?>class="current" <?php }?>><a href="#">ประกาศ</a>
                 <ul <?php if($controller=='student' || $controller=='jobs'){?>style="display:  "<?php }else{?>style="display: none"<?php }?>>
-                    <li <?php if($controller=='student'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('student'); ?>">สมัครเรียน</a></li>
-                    <li <?php if($controller=='jobs'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('jobs'); ?>">รับสมัครงาน</a></li>
+                    <li <?php if($controller=='student'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('student'); ?>">ประกาศวิชาการ</a></li>
+                    <li <?php if($controller=='jobs'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('jobs'); ?>">ประกาศรับสมัครงาน</a></li>
                 </ul>
             </li>
             <?php }?>
@@ -125,18 +125,18 @@
             </li>
             <?php }?>
             <?php if($menu_use[8]){?>
-            <li <?php if($controller=='service'||$controller=='serviceType'){?>class="current" <?php }?>><a href="#">บริการ</a>
+            <li <?php if($controller=='service'||$controller=='serviceType'){?>class="current" <?php }?>><a href="#">สมัครเรียน</a>
                 <ul <?php if($controller=='service'||$controller=='serviceType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
-                        <li <?php if($controller=='service'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('service'); ?>">บริการทั้งหมด</a></li>
-                        <li <?php if($controller=='serviceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('serviceType'); ?>">ประเภทบริการ</a></li>
+                        <li <?php if($controller=='service'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('service'); ?>">รายการสมัครเรียน</a></li>
+                        <li <?php if($controller=='serviceType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('serviceType'); ?>">ประเภทสมัครเรียน</a></li>
                 </ul>
             </li>
             <?php }?>
             <?php if($menu_use[9]){?>
-            <li <?php if($controller=='knowledge'||$controller=='knowledgeType'){?>class="current" <?php }?>><a href="#">คลังข้อมูลความรู้</a>
+            <li <?php if($controller=='knowledge'||$controller=='knowledgeType'){?>class="current" <?php }?>><a href="#">การจัดการความรู้</a>
                 <ul <?php if($controller=='knowledge'||$controller=='knowledgeType'){?>style="display: "<?php }else{?>style="display: none"<?php }?>>
-                        <li <?php if($controller=='knowledge'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">จัดการคลังข้อมูลความรู้</a></li>
-                        <li <?php if($controller=='knowledgeType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledgeType'); ?>">ประเภทคลังข้อมูลความรู้</a></li>
+                        <li <?php if($controller=='knowledge'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">การจัดการความรู้ทั้งหมด</a></li>
+                        <li <?php if($controller=='knowledgeType'){?> class="current" <?php }?>><a href="<?php echo Yii::app()->createUrl('knowledgeType'); ?>">ประเภทการจัดการความรู้</a></li>
                 </ul>
             </li>
             <?php }?>
