@@ -23,6 +23,21 @@ class InformationController extends Controller
                  if(isset($_GET['id'])){
                     $model=Document::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
+                }else if($_GET['type_id']){
+                    $criteria = new CDbCriteria();
+                    $criteria->select = '*';
+                    $criteria->condition = 'status = 1 AND doc_group=\'service\' AND doc_type_id='.$_GET['type_id'];                
+                    $criteria->order = 'sort_order';
+                    
+                    $total = Document::model()->count($criteria);                    
+                    
+                    $pages = new CPagination($total);
+                    $pages->setPageSize(20);
+                    $pages->applyLimit($criteria);                      
+
+                    $model = Document::model()->findAll($criteria); 
+                    $type=DocumentType::model()->findByPk($_GET['type_id']);                     
+                    $this->render('index',array('model'=>$model,'type'=>$type,'pages'=> $pages,));
                 }else{
                     $criteria = new CDbCriteria();
                     $criteria->select = '*';
