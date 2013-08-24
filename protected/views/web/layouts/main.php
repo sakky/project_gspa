@@ -76,7 +76,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $service_student1 = "ปริญญาโท";
     $service_student2 = "ปริญญาเอก";
     $service_student3 = "ประเมินการเรียนการสอน";
-    $knowledge = "คลังข้อมูลความรู้";
+    $knowledge = "การจัดการความรู้";
     $knowledge1 = "การจัดการความรู้";
     $knowledge2 = "หมวดความรู้";
     $knowledge3 = "สารคดี";
@@ -120,6 +120,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">Personnel</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">Cooperation</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('report'); ?>">Report</a></li>
+                            <li><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">Knowledge</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></li>
                     </ul>
                 </li>
@@ -215,7 +216,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <!--                <li><a <?php if($curpage=='site/contact'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/contact'); ?>"title="Contact Us" >Contact Us</a></li>-->
             <?php }else{?>
                 <li><a <?php if($curpage=='site/index'||$curpage=='site/home'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('site/home'); ?>" title="หน้าแรก">หน้าแรก</a></li>
-                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'||$curpage=='about/personnel'){?>class="active"<?php }?> 
+                <li><a <?php if($curpage=='about/index'||$curpage=='about/board'||$curpage=='about/executive'||$curpage=='about/structure'||$curpage=='about/personnel'||$curpage=='report/index'||$curpage=='knowledge/index'){?>class="active"<?php }?> 
                         href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>" title="เกี่ยวกับวิทยาลัย">เกี่ยวกับหน่วยงาน</a>
                     <ul>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>1)); ?>">ความเป็นมา</a></li>
@@ -228,6 +229,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                             <li><a href="<?php echo Yii::app()->createUrl('about/personnel'); ?>">บุคลากร</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('cooperation/index'); ?>">ความร่วมมือ</a></li>                            
                             <li><a href="<?php echo Yii::app()->createUrl('report'); ?>">การประกันคุณภาพการศึกษา</a></li>                            
+                            <li><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">การจัดการความรู้</a></li>
                             <li><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></li> 
                     </ul>
                 </li>
