@@ -38,8 +38,9 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     )); ?><!-- breadcrumbs -->
             <?php endif?>
           </div>
+                     <div><img class="border-banner"  src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/structure-banner.jpg"/></div>
           <h3><?php echo $header;?></h3>
-          <p></p>
+
           <?php foreach ($model as $type){
               
               $str_type_id = $type->str_type_id;
