@@ -3,8 +3,7 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ประกาศ',
-	'สมัครเรียน'=>array('index'),
+	'ประกาศวิชาการ'=>array('index'),
 	'แก้ไขข้อมูล',
 );
 
@@ -16,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>แก้ไขข้อมูล #<?php echo $model->news_id; ?></h1>
+<h1>แก้ไขข้อมูลประกาศวิชาการ #<?php echo $model->news_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

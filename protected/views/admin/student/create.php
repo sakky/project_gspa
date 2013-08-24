@@ -3,8 +3,7 @@
 /* @var $model News */
 
 $this->breadcrumbs=array(
-	'ประกาศ',
-	'สมัครเรียน'=>array('index'),
+	'ประกาศวิชาการ'=>array('index'),
 	'เพิ่มข้อมูล',
 );
 
@@ -14,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>เพิ่มข้อมูล</h1>
+<h1>เพิ่มข้อมูลประกาศวิชาการ</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
