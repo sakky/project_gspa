@@ -3,7 +3,7 @@
 /* @var $model Knowledge */
 
 $this->breadcrumbs=array(
-	'คลังข้อมูลความรู้'=>array('index'),
+	'การจัดการความรู้'=>array('index'),
 	'จัดการข้อมูล',
 );
 
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>จัดการคลังข้อมูลความรู้</h1>
+<h1>จัดการข้อมูล การจัดการความรู้</h1>
 
 <?php echo CHtml::link('ค้นหารายละเอียด','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">

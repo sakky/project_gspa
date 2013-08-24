@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'คลังข้อมูลความรู้'=>array('index'),
+	'การจัดการความรู้'=>array('index'),
 	'เรียงลำดับข้อมูล',
 );
 
@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'จัดการข้อมูล', 'url'=>array('admin')),
 );
 ?>
-<h1>เรียงลำดับการแสดงผลคลังข้อมูลความรู้</h1>
+<h1>เรียงลำดับการแสดงผลการจัดการความรู้</h1>
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 
