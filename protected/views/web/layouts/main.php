@@ -205,11 +205,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
-                <li><a href="<?php echo Yii::app()->createUrl('adminssion'); ?>"><?php echo $admission;?></a>
+                <li><a <?php if($curpage=='information/index' || $curpage=='admission/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('information'); ?>"><?php echo $admission;?></a>
                     <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>"><?php echo $service_student1;?></a>
-                        <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>"><?php echo $service_student2;?></a>
-                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>"><?php echo $admission;?></a>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status AND doc_group=\'service\'';
+                            $criteria->params=array(':status'=>1,);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('information',array('type_id'=>$type->doc_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+                        <?php }?>
+                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">Online Admission</a>
                     </ul>
                 
                 </li>
@@ -314,11 +324,21 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         <?php }?>
                     </ul>
                 </li>
-                <li><a href="<?php echo Yii::app()->createUrl('adminssion'); ?>"><?php echo $admission;?></a>
+                <li><a <?php if($curpage=='information/index' || $curpage=='admission/index'){?> class="active" <?php }?> href="<?php echo Yii::app()->createUrl('information'); ?>"><?php echo $admission;?></a>
                     <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('program/master'); ?>"><?php echo $service_student1;?></a>
-                        <li><a href="<?php echo Yii::app()->createUrl('program/doctor'); ?>"><?php echo $service_student2;?></a>
-                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>"><?php echo $admission;?></a>
+                        <?php
+                            $criteria = new CDbCriteria();
+                            $criteria->condition = 'status=:status AND doc_group=\'service\'';
+                            $criteria->params=array(':status'=>1,);
+                            $criteria->order = 'sort_order';
+                            $doc_type = DocumentType::model()->findAll($criteria);
+
+                            foreach($doc_type as $type) {
+
+                        ?>
+                        <li><a href="<?php echo Yii::app()->createUrl('information',array('type_id'=>$type->doc_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
+                        <?php }?>
+                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">สมัครเรียนออนไลน์</a>
                     </ul>
                 
                 </li>
