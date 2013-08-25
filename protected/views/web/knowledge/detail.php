@@ -9,7 +9,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "Knowledge";
 
 }else{
-    $this->pageTitle=Yii::app()->name. ' - คลังข้อมูลความรู้';
+    $this->pageTitle=Yii::app()->name. ' - การจัดการความรู้';
     if($model->know_group == 1){
         $group = "การจัดการความรู้";
         $url = "group1";
@@ -21,12 +21,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         $url = "group3";
     }       
     $this->breadcrumbs=array(
-            'คลังข้อมูลความรู้'=>array('index'),
+            'การจัดการความรู้'=>array('index'),
             $group=>array($url),
             $model->knowType->name_th=>array('index','type_id'=>$model->know_type_id),          
             $model->name_th
     );
-    $header = "คลังข้อมูลความรู้";
+    $header = "การจัดการความรู้";
 
 }
 if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){

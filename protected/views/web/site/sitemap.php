@@ -478,7 +478,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         </li>
                     </ul>
                 </li>
-                <li class="submenu"><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">คลังข้อมูลความรู้</a>
+                <li class="submenu"><a href="<?php echo Yii::app()->createUrl('knowledge'); ?>">การจัดการความรู้</a>
                     <ul>
                         <li class="submenu"><a href="<?php echo Yii::app()->createUrl('knowledge/group1'); ?>">การจัดการความรู้</a>
                             <ul>

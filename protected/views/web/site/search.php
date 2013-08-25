@@ -83,7 +83,7 @@ background:#FF6F17;
               <?php }?>
 
               <?php if (count($model_knowledge)>0) { ?>
-          <h3>คลังข้อมูลความรู้</h3>
+          <h3>การจัดการความรู้</h3>
           <ul class="list-4">
               <?php foreach ($model_knowledge as $value){
                    if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
