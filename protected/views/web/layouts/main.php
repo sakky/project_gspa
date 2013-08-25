@@ -219,7 +219,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         ?>
                         <li><a href="<?php echo Yii::app()->createUrl('information',array('type_id'=>$type->doc_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
                         <?php }?>
-                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">Online Admission</a>
+                        <!--li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">Online Admission</a-->
                     </ul>
                 
                 </li>
@@ -338,7 +338,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                         ?>
                         <li><a href="<?php echo Yii::app()->createUrl('information',array('type_id'=>$type->doc_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
                         <?php }?>
-                        <li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">สมัครเรียนออนไลน์</a>
+                        <!--li><a href="<?php echo Yii::app()->createUrl('admission'); ?>">สมัครเรียนออนไลน์</a-->
                     </ul>
                 
                 </li>
