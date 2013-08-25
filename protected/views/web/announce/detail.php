@@ -21,11 +21,11 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $this->breadcrumbs=array(
             'ประกาศ'=>array('index'),
             $model->newsType->name_th=>array($action),
-            $model->name_en
+            $model->name_th
     );
     $info_text = "ดาวน์โหลดรายละเอียด";
-    $name = $model->name_en;
-    $pdf = $model->pdf_en;
+    $name = $model->name_th;
+    $pdf = $model->pdf_th;
     $desc = $model->desc_th;
 
     $annouce_date = 'วันที่ประกาศ :';        

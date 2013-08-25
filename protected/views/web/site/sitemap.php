@@ -306,7 +306,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 </li>
 		<li class="submenu"><a href="<?php echo Yii::app()->createUrl('announce'); ?>">ประกาศ</a>
                     <ul>
-                        <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">สมัครเรียน</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>">ประกาศวิชาการ</a></li>
                         <li><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>">รับสมัครงาน</a></li>
                     </ul>
                 </li>

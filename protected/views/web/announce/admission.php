@@ -10,12 +10,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $header = "Admission Announcement";
     $readmore = "Read More";
 }else{
-    $this->pageTitle=Yii::app()->name. ' - ประกาศสมัครเรียน';
+    $this->pageTitle=Yii::app()->name. ' - ประกาศวิชาการ';
     $this->breadcrumbs=array(
             'ประกาศ'=>array('index'),
-            'สมัครเรียน',
+            'ประกาศวิชาการ',
     );
-    $header = "ประกาศสมัครเรียน";
+    $header = "ประกาศวิชาการ";
     $readmore = "อ่านต่อ...";
 }
 ?>
