@@ -86,7 +86,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 $news_name = $new_pr->name_th;
             }    
         ?>
-        <li><a href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a> </li>
+        <li><a href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a><?php echo $this->showIcon($new_pr->news_icon);?></li>
     <?php }?>
   </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>"><?php echo $more;?></a></p>
@@ -101,7 +101,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 $news_name = $new->name_th;
             }
             ?>
-        <li><a href="<?php echo Yii::app()->createUrl('announce/job', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a> </li>
+        <li><a href="<?php echo Yii::app()->createUrl('announce/job', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a><?php echo $this->showIcon($new->news_icon);?></li>
     <?php }?>
   </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>"><?php echo $more;?></a></p>

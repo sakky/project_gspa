@@ -47,7 +47,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                   $title = $new->title_th;
               }
           ?>
-               <li><a href="<?php echo Yii::app()->createUrl('announce', array('id'=>$new->news_id)); ?>">[<?php echo $this->getThaiDate($new->create_date,'dmY');?>] <?php echo $name;?></a></li>         
+               <li><a href="<?php echo Yii::app()->createUrl('announce', array('id'=>$new->news_id)); ?>">[<?php echo $this->getThaiDate($new->create_date,'dmY');?>] <?php echo $name;?></a><?php echo $this->showIcon($new->news_icon);?></li>         
           <?php }?>
           </ul>
           <?php $this->widget('CLinkPager', array(
