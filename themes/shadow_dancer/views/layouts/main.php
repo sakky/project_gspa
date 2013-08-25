@@ -98,7 +98,7 @@
 				),
                            
 			),
-			array('label'=>'คลังข้อมูลความรู้', 'items'=>array(
+			array('label'=>'การจัดการความรู้', 'items'=>array(
                                 array('label'=>'การจัดการความรู้', 'url'=>array('/program')),
                                 array('label'=>'หมวดความรู้', 'url'=>array('/program')),
                                 array('label'=>'สารคดี', 'url'=>array('/program')),                            
