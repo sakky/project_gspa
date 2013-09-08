@@ -14,7 +14,7 @@ class AdminController extends CController
 	{
 		return array(
 			array('allow',
-				'actions'=>array('index','create','update','admin','delete'),
+				'actions'=>array('index','create','update','admin','delete','captcha'),
 				'roles'=>array('top_admin', 'admin'),
 			),
 			array('deny',  // deny all users

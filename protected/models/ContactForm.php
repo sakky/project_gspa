@@ -11,7 +11,7 @@ class ContactForm extends CFormModel
 	public $email;
 	public $subject;
 	public $body;
-
+        public $verifyCode; 
 
 	/**
 	 * Declares the validation rules.
@@ -24,6 +24,7 @@ class ContactForm extends CFormModel
 			// email has to be a valid email address
 			array('email', 'email','message'=>'{attribute} รูปแบบอีเมล์ไม่ถูกต้อง'),
 
+                        array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);
 	}
 
@@ -39,6 +40,7 @@ class ContactForm extends CFormModel
                         'email'=>'อีเมล์',
                         'subject'=>'ชื่อเรื่องที่ติดต่อ',
                         'body'=>'ข้อความ',
+                        'verifyCode'=>'กรุณาใส่รหัสป้องกัน',
 		);
 	}
 }

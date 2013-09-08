@@ -12,6 +12,7 @@
  */
 class Directline extends CActiveRecord
 {
+        public $verifyCode; 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -45,6 +46,7 @@ class Directline extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('direct_id, name, email, subject, message', 'safe', 'on'=>'search'),
+                        array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);
 	}
 
@@ -70,6 +72,7 @@ class Directline extends CActiveRecord
 			'email' => 'อีเมล์ผู้ติดต่อ',
 			'subject' => 'ชื่อเรื่องที่ติดต่อ',
 			'message' => 'ข้อความ',
+                        'verifyCode'=>'กรุณาใส่รหัสป้องกัน',
 		);
 	}
 

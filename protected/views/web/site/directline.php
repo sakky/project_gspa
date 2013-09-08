@@ -14,6 +14,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $btn_submit = "Send Message";
     $btn_reset = "Reset Message";
     $img_dean = "dean_en.png";
+    $captcha_text = 'Enter the letters as they are shown in the image.';
 
 }else{
     $this->pageTitle=Yii::app()->name. ' - สายตรงคณบดี';
@@ -26,6 +27,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $btn_submit = "ส่งข้อความ";
     $btn_reset = "ล้างข้อความ";  
     $img_dean = "dean_th.png";
+    $captcha_text = 'กรุณาใส่รหัสป้องกันตามภาพ';
 }
 ?>
 <section id="content">
@@ -77,6 +79,35 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                 <?php echo $form->error($model,'message'); ?>
                 <textarea name="Directline[message]" onBlur="if(this.value=='') this.value='<?php echo $message;?>'" onFocus="if(this.value =='<?php echo $message;?>' ) this.value=''"><?php echo $message;?></textarea>
 
+                
+<?php if(CCaptcha::checkRequirements()): ?>
+    <br/><br/>
+<div class="row">
+    <span style="width:400px;">
+
+    <?php //echo $form->labelEx($model,'verifyCode'); ?>
+
+           <?php
+            $this->widget('CCaptcha',
+                          array('showRefreshButton'=>true,
+                                'buttonType'=>'button',
+                                'buttonOptions'=>
+                                                    array('type'=>'image',
+                                                          'src'=> Yii::app()->request->baseUrl."/images/front/refresh.png",
+                                                          'width'=>20,
+                                                    ),                                                            
+                                'buttonLabel'=>'Refresh'),
+                          false); 
+            ?>
+
+       
+    <?php echo $form->textField($model,'verifyCode',array('size'=>70,'maxlength'=>100,'encode'=>false,'value'=>'','placeholder'=>$captcha_text)); ?>
+    </span>
+    <!--div class="hint"><?php echo $captcha_text;?></div-->
+    <?php echo $form->error($model,'verifyCode'); ?>
+</div>
+<?php endif; ?>              
+                
               	<div class="buttons-wrapper">
                     <input name="submit" type="submit" value="<?php echo $btn_submit;?>" />&nbsp;&nbsp;<input name="reset" type="reset" value="<?php echo $btn_reset;?>"/>
                 </div>
