@@ -22,6 +22,36 @@ class DocumentController extends Controller
 		if(isset($_GET['id'])){
                     $model=Document::model()->findByPk($_GET['id']);
                     $this->render('detail',array('model'=>$model));
+
+$cfg = require  dirname(__FILE__).'/../../config/main.php';
+//print '<pre>';
+//print_r($cfg['components']['db']);
+
+if (preg_match("/^mysql:host=(\w.*);dbname=(\w.*)/i", $cfg['components']['db']['connectionString'],$match))
+{
+    //print_r($match);    
+}
+//$db_name = "myphotos";
+//$db_server = "localhost";
+//$db_user = "root";
+//$db_pass = "";
+
+$db_name = $match[2];
+$db_server = $match[1];
+
+$db_user = $cfg['components']['db']["username"];
+$db_pass = $cfg['components']['db']["password"];
+                    
+                    $sql = "UPDATE gs_document SET counter=counter+1 WHERE doc_id='".$_GET['id']."'";
+                    //print $sql;
+                    //$command = Yii::app()->db->createCommand($sql);
+                    //$command->execute();
+                    $dbh = new PDO('mysql:host='.$db_server.';port=3306;dbname='.$db_name, $db_user, $db_pass, array( PDO::ATTR_PERSISTENT => false));
+                    $stmt = $dbh->prepare($sql);
+                    $stmt->execute();
+
+                    
+                    
                 }else{
                 $criteria = new CDbCriteria();
 		$criteria->select = '*';
@@ -36,7 +66,6 @@ class DocumentController extends Controller
         
         public function actionType($id)
 	{
-
                 $criteria = new CDbCriteria();
 		$criteria->select = '*';
 		$criteria->condition = 'status = 1 AND doc_type_id ='.$id;                
