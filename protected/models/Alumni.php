@@ -56,11 +56,12 @@ class Alumni extends CActiveRecord
 			array('name_en, name_th, sex, alumni_group, alumni_no_id', 'required','message'=>'{attribute} ห้ามว่าง'),
 			array('sort_order, status, user_id, alumni_no_id', 'numerical', 'integerOnly'=>true),
 			array('name_en, name_th, major_en, major_th, campus_en, campus_th, position_en, position_th', 'length', 'max'=>255),
-			array('desc_en, desc_th, alumni_group', 'safe'),
+			array('desc_en, desc_th, alumni_group, address', 'safe'),
+			array('email', 'email'),
                         array('image', 'file', 'types'=>'jpg, jpeg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('alumni_id, name_en, name_th, sex, image, major_en, major_th, campus_en, campus_th, position_en, position_th, desc_en, desc_th, sort_order, status, user_id, time_stamp', 'safe', 'on'=>'search'),
+			array('alumni_id, name_en, name_th, sex, image, major_en, major_th, campus_en, campus_th, position_en, position_th, desc_en, desc_th, sort_order, status, email, address, user_id, time_stamp', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -100,6 +101,8 @@ class Alumni extends CActiveRecord
 			'desc_th' => 'ประวัติโดยย่อ (ภาษาไทย)',
 			'sort_order' => 'การเรียงลำดับ',
 			'status' => 'สถานะ',
+			'email' => 'อีเมล์',
+			'address' => 'ที่อยู่',
 			'user_id' => 'User',
 			'time_stamp' => 'Time Stamp',
 		);
