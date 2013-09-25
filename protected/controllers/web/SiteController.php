@@ -4,7 +4,7 @@ class SiteController extends Controller
 {
 	public $label = array();
 	
-	public $layout;
+	public $layout = '//layouts/column1';
 
 	/**
 	 * Declares class-based actions.
