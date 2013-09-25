@@ -1,0 +1,80 @@
+body {line-height:1.5;font-family: Georgia, "Times New Roman", Times, serif;color:#000;background:none;font-size:10pt;}
+.container {background:none;}
+hr {background:#ccc;color:#ccc;width:100%;height:2px;margin:2em 0;padding:0;border:none;}
+hr.space {background:#fff;color:#fff;visibility:hidden;}
+h1, h2, h3, h4, h5, h6 {font-family:Georgia, "Times New Roman", Times, serif; font-weight: normal;}
+
+h1 {font-size:2.25em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:2em;margin-bottom:0.75em;}
+h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:.6em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h6 {font-size:1em;font-weight:bold;}
+
+code {font:.9em "Courier New", Monaco, Courier, monospace;}
+a img {border:none;}
+p img.top {margin-top:0;}
+blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
+.small {font-size:.9em;}
+.large {font-size:1.1em;}
+.quiet {color:#999;}
+.hide {display:none;}
+
+a:link, a:visited {background:transparent; text-decoration:none; color: #369;  }
+a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:75%; font-weight: bold; border-bottom: 1px dotted #369;}
+
+ .vulogo h1 a { display: block; color: #333; text-decoration: none; }
+ .vulogo h1 a:link:after, .vulogo h1 a:visited:after {content:" (" attr(href) ")";font-size:40%; font-weight: bold; color: #369; border-bottom: 1px dotted #369;}
+
+  .vulogomini h1 a { display: block; color: #333; text-decoration: none;}
+  .vulogomini h1 a:link:after, .vulogomini h1 a:visited:after {content:" (" attr(href) ")";font-size:30%; font-weight: bold; color: #369; border-bottom: 1px dotted #369;}
+
+.page-break  { display:block; page-break-before:always; }
+.divide { text-decoration: overline; padding-top: 8px; display: block;  }
+
+#vunews h2, #disqus_thread ,
+#vunav, 
+#tools, 
+#navsec, 
+#social, 
+#flickr,
+.skipNav, 
+.sharethis, 
+.vslides .thumbs, 
+.vslides .vup, 
+.vslides .vdown, 
+#highlights h2 img, 
+#featurevid .back, 
+#featurevid .next, 
+.vucastright, 
+#footer #yourvu,
+#footer #social,
+#footer #popular,
+#homeflickr, 
+.vunewstools, 
+#socialvu, 
+#vunavigate, 
+#vutools,
+#toolsvu, 
+#vusearch,
+.addthis,
+.post-edit-link,
+#sitenavigation,
+.graphicheader form,
+.weather,
+.myvuright,
+.addthis_toolbox,
+.quicklinks,
+#minical,
+#secnav form,
+.big_ul,
+#noprint, 
+.noprint, 
+.sm_tags { display: none; }
+
+.spotlight img, .news li img { clear: both; }
+
+.news, 
+#footer, 
+.events, 
+.featurevids { width: 100%; margin: 0 auto; }
