@@ -21,7 +21,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 
                 foreach($co_type as $type) {
             ?>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+            <li><a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<?php echo $type->name_en;?></a></li>        
             <?php }?>            
         <?php }?>        
 </ul>
@@ -46,7 +46,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 
                 foreach($co_type as $type) {
             ?>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
+            <li><a href="<?php echo Yii::app()->createUrl('student', array('type_id'=>$type->ser_type_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<?php echo $type->name_th;?></a></li>        
             <?php }?>            
         <?php }?>    
 </ul>
