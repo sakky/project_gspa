@@ -19,7 +19,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 
             foreach($co_type as $type) {
         ?>
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><?php echo $type->name_en;?></a></li>        
+        <li><a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<?php echo $type->name_en;?></a></li>        
         <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">Map</a></h6></li>
 </ul>
@@ -42,7 +42,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){?>
 
             foreach($co_type as $type) {
         ?>
-        <li>&nbsp;&nbsp;&nbsp;&nbsp;<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><?php echo $type->name_th;?></a></li>        
+        <li><a href="<?php echo Yii::app()->createUrl('about/personnel', array('type_id'=>$type->personnel_type_id)); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" style="padding-top: 7px"/>&nbsp;<?php echo $type->name_th;?></a></li>        
         <?php }?>
         <li class="last-item"><h6><a href="<?php echo Yii::app()->createUrl('about', array('id'=>6)); ?>">แผนที่วิทยาลัย</a></h6></li> 
 </ul>
