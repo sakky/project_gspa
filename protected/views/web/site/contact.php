@@ -41,27 +41,29 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $captcha_text = 'กรุณาใส่รหัสป้องกันตามภาพ';
 }
 ?>
+<div id="page2">
 <section id="content">
   <div class="main">
-    <div class="indent-left">
       <div class="wrapper">
-        <article class="col-1" style="background:none;">
-          <h3><?php echo $col1_header;?></h3>
-          <div class="p1">
-            <figure class="img-border">
-              <div id="map_canvas"></div>
-            </figure>
-            <div class="clear"></div>
-          </div>
-          <dl>
-            <?php 
-            $lang = Yii::app()->language;
-            if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-                echo nl2br($page->desc_en);
-            }else{
-                echo nl2br($page->desc_th);
-            }?>  
-          </dl>
+        <article class="col-1" style="">
+            <div class="indent-left">
+                <h3><?php echo $col1_header;?></h3>
+                <div class="p1">
+                  <figure class="img-border">
+                    <div id="map_canvas"></div>
+                  </figure>
+                  <div class="clear"></div>
+                </div>
+                <dl>
+                  <?php 
+                  $lang = Yii::app()->language;
+                  if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                      echo nl2br($page->desc_en);
+                  }else{
+                      echo nl2br($page->desc_th);
+                  }?>  
+                </dl>
+            </div>
         </article>
         <article class="col-left">
             <h3><?php echo $col2_header;?></h3>
@@ -130,8 +132,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
           <?php $this->endWidget(); ?>                   
         </article>
       </div>
-    </div>
   </div>
 </section>
-
+</div>
 

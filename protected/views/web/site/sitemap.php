@@ -17,7 +17,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 }
 ?>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.4.4.min.js"></script>
-
+<div id="page3">
 <section id="content">
   <div class="main">
     <div class="wrapper">
@@ -554,3 +554,4 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     </div>
   </div>
 </section>
+</div>

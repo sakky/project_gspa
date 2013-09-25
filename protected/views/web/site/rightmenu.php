@@ -123,7 +123,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 
 
 <!-- User Online -->
-  <div style="padding: 10px; background: #F1F1F1;width: 250px;">
+  <div style="padding: 7px 15px 10px; background: #F1F1F1;width: 250px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;" >
 <h3>User Online</h3>
     online: <?php echo Yii::app()->counter->getOnline(); ?><br />
     today: <?php echo Yii::app()->counter->getToday(); ?><br />

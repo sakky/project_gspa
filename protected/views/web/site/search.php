@@ -28,7 +28,6 @@ background:#FF6F17;
 </style>
 <section id="content">
   <div class="main">
-    <div class="indent-left">
       <div class="wrapper">
         <article class="">
           <h3><?php echo $header;?></h3>
@@ -108,6 +107,5 @@ background:#FF6F17;
           <?php }?>
         </article>          
       </div>
-    </div>
   </div>
 </section>

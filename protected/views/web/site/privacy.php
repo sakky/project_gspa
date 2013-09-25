@@ -13,6 +13,7 @@ $this->breadcrumbs=array(
 );
 
 ?><!--==============================content================================-->
+<div id="page3">
 <section id="content">
   <div class="main">
     
@@ -35,3 +36,4 @@ $this->breadcrumbs=array(
     </div>
   </div>
 </section>
+</div>

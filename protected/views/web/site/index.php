@@ -111,6 +111,7 @@ $(window).load(function () {
 </script>
 
 <!-- Top Banner -->
+<div id="page1">
 <section id="content">
   <div class="main">
     <div class="slider-wrapper">
@@ -250,3 +251,4 @@ $(window).load(function () {
     </div>
   </div>
 </section>
+</div>

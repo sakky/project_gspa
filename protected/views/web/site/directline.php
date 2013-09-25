@@ -30,25 +30,28 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $captcha_text = 'กรุณาใส่รหัสป้องกันตามภาพ';
 }
 ?>
+<div id="page2">
 <section id="content">
   <div class="main">
-    <div class="indent-left">
+
       <div class="wrapper">
-        <article class="col-1" style="background:none;">
-          <h3><?php echo $col1_header;?></h3>
-          <div class="p1">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" width="97%">
-            <div class="clear"></div>
-          </div>
-          <dl>
-            <?php 
-            $lang = Yii::app()->language;
-            if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
-                echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
-            }else{
-                echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
-            }?>  
-          </dl>
+        <article class="col-1">
+            <div class="indent-left">
+                <h3><?php echo $col1_header;?></h3>
+                <div class="p1">
+                  <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" width="100%">
+                  <div class="clear"></div>
+                </div>
+                <dl>
+                  <?php 
+                  $lang = Yii::app()->language;
+                  if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                      echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
+                  }else{
+                      echo 'ท่านสามารถส่งข้อเสนอแนะ ติชม ถึงคณบดี เพื่อเป็นประโยชน์ในการพัฒนาวิทยาลัยการบริหารรัฐกิจ';
+                  }?>  
+                </dl>
+            </div>
         </article>
         <article class="col-left">
             <h3>&nbsp;</h3>
@@ -116,8 +119,8 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                           
         </article>
       </div>
-    </div>
+
   </div>
 </section>
-
+</div>
 
