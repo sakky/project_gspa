@@ -36,7 +36,7 @@ a:hover {
 	background:url(../../images/front/content-bg.jpg) center -196px repeat-y #f4f5f7;
         min-height: 300px;
 }
-h2 {
+/*h2 {
         font-family:Tahoma, Arial, Helvetica, sans-serif;
 	font-size:28px;
 	line-height:2em;
@@ -49,7 +49,7 @@ h2 {
 h2 strong {
 	display:block;
 	margin-top:-43px
-}
+}*/
 .img-indent-bot h2{
         font-family:Tahoma, Arial, Helvetica, sans-serif;
 	font-size:24px;
@@ -73,7 +73,7 @@ h4{
         color:#2F7FAA;
         font-family:Tahoma, Arial, Helvetica, sans-serif;
         font-size:16px;
-        font-weight:normal;
+        font-weight:bold;
         line-height:1.5em;
         margin-bottom:2px;
 }
@@ -86,11 +86,21 @@ h6 {
 }
 div.breadcrumbs
 {
+/*        float: left;*/
         margin-top: 10px;
+        background-color: #f1f1f1;
+        border: 1px solid rgb(221, 221, 221);
+        padding: 5px 10px;
+        border-radius: 8px 8px 8px 8px;
 }
 div.breadcrumbs a
 {
-        text-decoration: none;
+        text-decoration: none;        
+}
+div.breadcrumbs a:hover
+{
+        color: #FC6;
+        text-decoration: none;        
 }
 /* Second Level Right Nav */
 #page6 .col-1{
@@ -375,7 +385,9 @@ footer .button2:hover {
 	font-size:16px;
         font-weight: normal;
 	color:#159FC1;
-	margin-bottom:4px;
+/*	margin-bottom:4px;*/
+        background:url(../../images/front/pic-1.gif) 0 bottom repeat-x;
+        padding-bottom:16px;
 }
 .list-2 li a.item:hover {
 	/*color:#60b001;*/
@@ -614,3 +626,28 @@ dl span {
 	float:left;
 	width:80px
 }
+p {
+	margin-bottom:18px
+}
+.p1 {
+	margin-bottom:12px;
+        overflow: hidden;
+        padding-bottom: 16px;
+        background:url(../../images/front/pic-1.gif) 0 bottom repeat-x;
+}
+.p2 {
+	margin-bottom:15px
+}
+.p3 {
+	margin-bottom:30px
+}
+.p4 {
+	margin-bottom:40px
+}
+.p5 {
+	margin-bottom:50px
+}
+.alignright {
+	text-align:right
+}
+

@@ -38,7 +38,8 @@ a {
 }
 a:hover {
 	text-decoration:none;
-        color: #F9DF1B;
+/*        color: #F9DF1B;*/
+        color: #FC6;
 }
 strong {font-weight:bold;}
 em, i, dfn {font-style:italic;}
@@ -72,12 +73,14 @@ body { background: #333; }
     clear: both;
 }
 #header #lang{
-        margin-top:70px;
+        margin-top:65px;
         margin-right:15px;
 	display:block;
 	float:right;
 	}
-   .vulogo { width: 530px; float: left; margin: 0; }
+   .vulogo { 
+       width: 530px; float: left; margin: -5px 0 0 0; 
+   }
    .vulogo h1 a { 
        display: block; 
        text-decoration: none; 
@@ -196,24 +199,37 @@ color:#EEC068;
 #highlights { margin: 10px 0px 20px 0px; color: #666;}
 #highlights a:link, #highlights a:visited { text-decoration: none; border: 0; color: #666; }
 #highlights a:hover { color: #d8ab4c; }
-#highlights h2, h3, h4 { color: #666; }
-#highlights h2 { padding: 8px 5px 0px 15px; margin: 0; font-size: 1.8em; font-weight: 550; }
+#highlights a.button:hover { color: #fff; }
+#highlights h2{ font-family: Georgia,"Times New Roman",Times,serif; color: #666; }
+#highlights h2 { padding: 10px 0; margin: 0; font-size: 1.8em; font-weight: normal; }
 #highlights h3 { line-height: 1.4em; }
 #highlights p.more {width: 100%; float: none; clear: both; text-align: right; position: relative; bottom: -40px; right: -1px; z-index: 400;  }
 	#highlights p.more a:link, #highlights p.more a:visited {color: #666; background: #ddd url('http://www.vanderbilt.edu/asset/i/getmore.jpg') right -0 no-repeat; padding: 5px 32px 5px 8px;  }
 	#highlights p.more a:hover { color: #CCC; background: #666 url('http://www.vanderbilt.edu/asset/i/getmore.jpg') right -28px no-repeat; }
 .spotlight { float:left; width:225px; margin: 0px; }
 .spotlight img { background: url('http://www.vanderbilt.edu/asset/i/spotbg.jpg') bottom left no-repeat; padding: 0 0 18px 0; }
-.news { width: 700px; float:left; margin: 0px 23px 0px 0px; padding: 0; background: #FFF url('http://www.vanderbilt.edu/asset/i/greywhite.jpg') repeat-x top left; border: 1px solid #DDD; border-top: 5px solid #CCC; -moz-border-radius: 0px 0px 0px 12px; -webkit-border-bottom-left-radius:12px; border-radius: 0px 0px 0px 12px;}
+.news { 
+    width: 580px; 
+    float:left; 
+    margin: 0px; 
+    padding: 10px 20px ; 
+    background: #FFF url('../../images/front/style_new/greywhite.jpg') repeat-x top left; 
+    border: 1px solid #DDD; 
+    border-top: 5px solid #CCC; 
+    -moz-border-radius: 0px 0px 12px 12px; 
+    -webkit-border-bottom-left-radius:12px; 
+    -webkit-border-bottom-right-radius:12px;
+    border-radius: 0px 0px 12px 12px;
+}
 .news ul { width: 320px; float: left; list-style: none; margin: 0 0 -25px 0; padding: 0px 10px 0px 15px; }
 .news li { padding: 10px 0px; }
-    .news li a { display:block; overflow:hidden; }
+    .news li sa { display:block; overflow:hidden; }
     .news li span.cal { height: 15px; width: 20px; background: url(http://www.vanderbilt.edu/asset/i/news-event.gif) no-repeat top left; float: left; }
     .news li span.vid { height: 15px; width: 20px; background: url(http://www.vanderbilt.edu/asset/i/news-play.gif) no-repeat top left; float: left; }
     .news li img { float: left; padding: 2px; background: #FFF; border: 1px solid #CCC; margin: 0 10px 0 0;  }
     .news li a:hover {  }
     .news li a:hover img { border: 1px solid #d8ab4c; }
-	.news li:after { content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+    .news li:after { content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 
 #highlights h2 span a { margin: 7px 8px 0px 0px;}
 #highlights h2 span a:link, #highlights h2 span a:visited {float: left; padding: 0; background: url(http://www.vanderbilt.edu/asset/i/rssfeed.gif) -0 -17px no-repeat; text-indent: -9999px; display: block; height: 16px; width: 16px; }
@@ -259,7 +275,7 @@ color:#EEC068;
 
 #yourvu, #popular { float: left; padding: 0; background: #222; padding: 15px; line-height: 1;}
 #yourvu ul, #popular ul { list-style :none; margin: 0; padding: 0; }
-#yourvu { width: 290px; margin: 0 30px 0 0; }
+#yourvu { width: 340px; margin: 0 30px 0 0; }
 #yourvu ul { width: 145px; float: left; }
 #popular { width: 125px; margin: 0; }
 #popular ul { width: 115px; }
@@ -354,7 +370,7 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 .callout a:hover, .calloutred a:hover { color: #000 !important; border-bottom: 1px solid #000 !important; }
 
 /* Second Level Right Nav */
-#secnav { float: left; width: 250px; margin: 20px 0 0 0; padding: 0; background: #DDD; border-bottom: 15px solid #993D1B; }
+#secnav { float: left; margin: 20px 0 0 0; padding: 0; background: #DDD; border-bottom: 15px solid #993D1B; overflow: hidden}
 #secnav h3 { margin: 10px 15px; }
 #secnav h3 a:link, #secnav h3 a:visited { color: #666; text-decoration:  none; }
 #secnav h3 a:hover { color: #000; }
@@ -362,7 +378,8 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 #secnav h4 a:link, #secnav h4 a:visited { text-decoration:  none; border-bottom: 0; color: #006682; }
 #secnav h4 a:hover { color: #006682; }
 #secnav p { padding: 5px 15px;}
-#secnav p a { color: #333; text-decoration: none; border-bottom: 1px dotted #333; font-weight: 600;  }
+#secnav p a { color: #333; text-decoration: none; font-weight: 600;  }
+#secnav p a:hover { color: #FC6; }
 #secnav ul { padding: 5px 15px;	margin: 0 0 5px 0;	list-style: none;	line-height: 1.2; font-size: 1.1em; }
 #secnav li {display:inline;}
 #secnav li a {	display: block;	text-decoration: none; 	border-bottom: 1px solid #EEE; }
@@ -373,7 +390,7 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 /* VU HOME button */
 #secnav .home { background: #FFF url('http://www.vanderbilt.edu/asset/i/vuhome.jpg') 220px 4px no-repeat; display: block; text-decoration: none; margin: 0; padding: 0; text-align: right; text-transform: uppercase; border-bottom: 15px solid #006682; }
 #secnav .home a:link, #secnav .home a:visited { color: #d8httpab4c; display: block; padding: 8px 45px 8px 8px; text-decoration: none; border: none;  }
-#secnav .home a:hover { color: #333; }
+#secnav .home a:hover { color: #FC6; }
 /* News Feed Styles */
 #secnav .rssnews { background: #006682; padding: 20px 0px; margin: 10px 0px 0px 0px; }
 #secnav .rssnews h3 { font-weight: 600; color: #FFF; }
@@ -401,20 +418,22 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 /****************index.html***************************/
 #page1 #content {
 
-	padding:30px 0 26px;
+	padding:10px 0 26px;
 }
 #page1 .col-1 {
 	width:240px;
 	margin-right:40px;
 }
 #page1 .col-2 {
-	width:589px;
+	width:620px;
 	margin-right:40px;
+        
 }
 #page1 .col-3 {
 	width:320px;
         font-size: 1.3em;
         line-height: 1.5em;
+        float: right;
 }
 
 /****************services.html/about***************************/
@@ -501,6 +520,12 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 #page6 .col-2 {
         margin-top: 10px;
 	width:700px;
+/*        color: rgb(85, 85, 85);
+font-family: Georgia,Times,"Times New Roman",serif;
+background: none repeat scroll 0% 0% rgb(236, 236, 236);
+border: 1px solid rgb(221, 221, 221);
+padding: 5px 10px;
+border-radius: 8px 8px 8px 8px;*/
 }
 .TableBlue {
 	margin:10px 0;padding:0px;
@@ -578,4 +603,11 @@ body a.noicon { background:transparent none !important; padding:0 !important; ma
 }
 .TableBlue tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
+}
+
+.user-online,.dean{
+        background-color: #f1f1f1;
+        border: 1px solid rgb(221, 221, 221);
+        padding: 10px 15px;
+        border-radius: 8px 8px 8px 8px;
 }
