@@ -630,10 +630,13 @@ p {
 	margin-bottom:18px
 }
 .p1 {
+        float:left;
+        width: 300px;
+        margin-right: 20px;
 	margin-bottom:12px;
         overflow: hidden;
-        padding-bottom: 16px;
-        background:url(../../images/front/pic-1.gif) 0 bottom repeat-x;
+/*        padding-bottom: 16px;
+        background:url(../../images/front/pic-1.gif) 0 bottom repeat-x;*/
 }
 .p2 {
 	margin-bottom:15px
@@ -651,3 +654,15 @@ p {
 	text-align:right
 }
 
+.box_announce{
+    float: left;
+    width: 330px;
+    font-size: 12px;
+}
+
+.box_announce2{
+    float: right;
+    width: 330px;
+    margin-right: 5px;
+    font-size: 12px;
+}
