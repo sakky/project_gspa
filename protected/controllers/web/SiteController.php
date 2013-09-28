@@ -64,7 +64,7 @@ class SiteController extends Controller
                 $news_criteria->condition = "news_type_id <>2 AND news_type_id <>3 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 6; 
+                $news_criteria->limit = 8; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $job_criteria = new CDbCriteria();
@@ -154,7 +154,7 @@ class SiteController extends Controller
                 $news_criteria->condition = "news_type_id <>2 AND news_type_id <>3 AND status = 1";
                 $news_criteria->order = "create_date desc,news_id desc";
                 $news_criteria->offset = 0;
-                $news_criteria->limit = 6; 
+                $news_criteria->limit = 8; 
                 $news = News::model()->findAll($news_criteria);
                 
                 $job_criteria = new CDbCriteria();
