@@ -9,14 +9,23 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     $text_button1 = "Master's degree";
     $text_button2 = "Doctorate Degree";
     $text_button3 = "Online Admission";
-
+    $col3_2_header = "Admission";
+    $col3_3_header = "Job News";
+    $more="Read More";
+    $announce = "Announce";
+    $txt_news = "News";
 }else{
     $this->pageTitle=Yii::app()->name;
     $col1_header = "ประชาสัมพันธ์ & กิจกรรม"; 
     $text_title = "เปิดรับสมัครนักศึกษา หลักสูตร";
     $text_button1 = "ปริญญาโท";
     $text_button2 = "ปริญญาเอก";
-    $text_button3 = "สมัครเรียนออนไลน์";    
+    $text_button3 = "สมัครเรียนออนไลน์";  
+    $col3_2_header = "ประกาศวิชาการ";
+    $col3_3_header = "ประกาศรับสมัครงาน";
+    $more="ดูทั้งหมด";
+    $announce = "ประกาศ";
+    $txt_news = "ประชาสัมพันธ์";
 }
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/style2.css" />
@@ -207,26 +216,81 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                          $news_readmore = "ดูข่าวทั้งหมด";
                      }
                ?>
-                <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h4>
                <div class="p1">
+<!--                <h4><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?> [<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></h4>-->
+               
                  <figure class="img-border" style="margin-right:10px;">
                      <a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>">
                          <?php if ($new->vdo_link) { ?>
-                         <iframe width="209" height="215" src="<?php echo $new->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+                         <iframe width="100" height="63" src="<?php echo $new->vdo_link;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
                          <?php } else { ?>
-                         <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="209" />
+                         <img <?php if($new->thumbnail){?> src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/news/<?php echo $new->thumbnail;?>" <?php }else{ ?> src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/no_picture.png"<?php }?> title="<?php echo $news_name;?>" alt="" border="0" width="100" height="63" />
                          <?php } ?>
                      </a>
                  </figure>
-                 <p class="img-indent-bot"><?php echo $news_title;?></p>
+                 <p><a href="<?php echo Yii::app()->createUrl('news', array('id'=>$new->news_id)); ?>"><?php echo $new->name_th;?><br/>[<?php echo $this->getThaiDate($new->create_date,'dmY');?>]</a><?php echo $this->showIcon($new->news_icon);?></p>
+<!--                 <p class="img-indent-bot"><?php echo $news_title;?></p>-->
                </div>       
-               <div class="clear"></div>
+               
                <?php }?>
-                <div class="alignright">
+                <div class="clear"></div>
+<!--                <div class="alignright" style="margin:0 20px 5px 0;">
                 <a class="button" href="<?php echo Yii::app()->createUrl('news'); ?>"><?php echo $news_readmore;?></a>
-                </div>
+                </div>-->
             </div>
-        </div>   
+            <p class="more">
+            <a href="<?php echo Yii::app()->createUrl('announce'); ?>">
+                <?php echo $announce;?>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl('news'); ?>">
+                 <?php echo $txt_news;?>
+            </a>
+            </p>
+        </div>
+
+        <div class="clear"></div>
+        <div class="box_announce">
+            <div id="secnav">
+                <!-- ข่าวรับสมัครเรียน -->
+                <h3><?php echo $col3_2_header;?></h3>
+                  <ul>
+                    <?php 
+                        foreach ($student_news as $key_new => $new_pr){
+                            if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                                $news_name = $new_pr->name_en;
+                            }else{
+                                $news_name = $new_pr->name_th;
+                            }    
+                        ?>
+                        <li><a class="item" href="<?php echo Yii::app()->createUrl('announce/admission', array('id'=>$new_pr->news_id)); ?>"><?php echo $news_name;?></a><?php echo $this->showIcon($new_pr->news_icon);?></li>
+                    <?php }?>
+                  </ul>
+                <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>"><?php echo $more;?></a> 
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" />
+                </p>
+            </div>
+        </div>
+        <div class="box_announce2">
+            <div id="secnav">
+                <!-- ข่าวรับสมัครงาน -->
+                <h3><?php echo $col3_3_header;?></h3>
+                <ul>
+                  <?php 
+                      foreach ($job as $key_new => $new){
+                          if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
+                              $news_name = $new->name_en;
+                          }else{
+                              $news_name = $new->name_th;
+                          }
+                          ?>
+                      <li><a class="item" href="<?php echo Yii::app()->createUrl('announce/job', array('id'=>$new->news_id)); ?>"><?php echo $news_name;?></a><?php echo $this->showIcon($new->news_icon);?></li>
+                  <?php }?>
+                </ul>
+                <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>"><?php echo $more;?></a> 
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" />
+                </p>
+            </div>
+        </div>
       </article>
       <article class="col-3">
             <?php $this->renderPartial('rightmenu',array(

@@ -34,13 +34,13 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
         <h3><?php echo $dean;?></h3>
         <div align="left">
           <a href="<?php echo Yii::app()->createUrl('site/directline'); ?>" title="<?php echo $dean;?>">
-          <img class="border-dean" src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" border="0" alt="<?php echo $dean;?>" width="285px"/>  
+          <img class="border-dean" src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/<?php echo $img_dean;?>" border="0" alt="<?php echo $dean;?>" width="250px"/>  
           </a>
         </div>
     </div> 
 <br/>       
 <h3><?php echo $col3_header;?></h3>
-<iframe width="320" height="215" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
+<iframe width="270" src="<?php echo $vdo->title_th;?>?version=3&hl=th_TH" frameborder="0" allowfullscreen></iframe>
 
 <div class="clear"></div>
 <!-- ปฏิทินกิจกรรม -->
@@ -73,7 +73,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 -->
 <div id="secnav">
 <!-- ข่าวรับสมัครเรียน -->
-<h3><?php echo $col3_2_header;?></h3>
+<!--<h3><?php echo $col3_2_header;?></h3>
   <ul>
     <?php 
         foreach ($student_news as $key_new => $new_pr){
@@ -88,12 +88,12 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
   </ul>
 <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/admission'); ?>"><?php echo $more;?></a> 
     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" />
-</p>
+</p>-->
 
 
 
     <!-- ข่าวรับสมัครงาน -->
-    <h3><?php echo $col3_3_header;?></h3>
+<!--    <h3><?php echo $col3_3_header;?></h3>
     <ul>
       <?php 
           foreach ($job as $key_new => $new){
@@ -108,7 +108,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     </ul>
     <p class="alignright small"><a href="<?php echo Yii::app()->createUrl('announce/job'); ?>"><?php echo $more;?></a> 
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/front/marker_2.gif" border="0" />
-    </p>
+    </p>-->
     <div class="rssnews">
         <!-- ลิงค์ที่เกี่ยวข้อง -->
         <h3><?php echo $col3_4_header;?></h3>
@@ -130,7 +130,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 <div class="clear"></div><br/>
 
 <!-- User Online -->
-  <div class="user-online" >
+<!--  <div class="user-online" >
     <h3>User Online</h3>
     online: <?php echo Yii::app()->counter->getOnline(); ?><br />
     today: <?php echo Yii::app()->counter->getToday(); ?><br />
@@ -138,6 +138,6 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
     total: <?php echo Yii::app()->counter->getTotal(); ?><br />
     maximum: <?php echo Yii::app()->counter->getMaximal(); ?><br />
     date for maximum: <?php echo $this->getThaiDate(date('Y-m-d', Yii::app()->counter->getMaximalTime()),'dmY'); ?>
-  </div>
+  </div>-->
 
 </div>
