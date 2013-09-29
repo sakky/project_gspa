@@ -56,61 +56,34 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
 	}
 </style>
 <script type="text/javascript">
-	$(function(){
-		$("span#title1").each(function(i){
-			len2=$(this).text().length;
-			if(len2>70)
-			{
-				$(this).text($(this).text().substr(0,60)+'...');
-			}
-		});
-		$("span#title2").each(function(i){
-			len2=$(this).text().length;
-			if(len2>70)
-			{
-				$(this).text($(this).text().substr(0,60)+'...');
-			}
-		});
-		$("span#title3").each(function(i){
-			len2=$(this).text().length;
-			if(len2>70)
-			{
-				$(this).text($(this).text().substr(0,60)+'...');
-			}
-		$("span#title4").each(function(i){
-			len2=$(this).text().length;
-			if(len2>70)
-			{
-				$(this).text($(this).text().substr(0,60)+'...');
-			}
-		});});                
+	$(function(){               
                 
                 $("span#desc1").each(function(i){
 			len=$(this).text().length;
 			if(len>120)
 			{
-				$(this).text($(this).text().substr(0,120)+'...');
+				$(this).text($(this).text().substr(0,200)+'...');
 			}
 		});
                 $("span#desc2").each(function(i){
 			len=$(this).text().length;
 			if(len>120)
 			{
-				$(this).text($(this).text().substr(0,100)+'...');
+				$(this).text($(this).text().substr(0,200)+'...');
 			}
 		});
                 $("span#desc3").each(function(i){
 			len=$(this).text().length;
 			if(len>120)
 			{
-				$(this).text($(this).text().substr(0,120)+'...');
+				$(this).text($(this).text().substr(0,200)+'...');
 			}
 		});
                 $("span#desc4").each(function(i){
 			len=$(this).text().length;
 			if(len>120)
 			{
-				$(this).text($(this).text().substr(0,120)+'...');
+				$(this).text($(this).text().substr(0,200)+'...');
 			}
 		});
 	});
@@ -149,7 +122,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                     <li>
                           <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>"  title="<?php echo $title;?>" />           
                           <div class="slider-description">
-                            <h4><span id="title<?php echo $k+1;?>"><?php echo $title;?></span></h4>
+                            <h4><?php echo $title;?></h4>
                             <p><span id="desc<?php echo $k+1;?>"><?php echo $desc;?></span>
                             <div class="slider-meta"><a class="readmore" href="<?php echo $link;?>"><?php echo $readmore;?></a></div>
                             </p>
