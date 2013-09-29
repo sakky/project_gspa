@@ -585,12 +585,18 @@ dl span {
 }
 .img-border {
 	float:left;
-	padding:5px;
+	padding:5px 5px 4px 5px;
 	background:#fff;
 	box-shadow: 0px 0px 2px #ebecee;
-	border-radius:8px;
+	border-radius:3px;
 	margin-top:2px;
 	margin-bottom:2px;
+        border: 1px solid #ccc;
+}
+.img-border:hover {
+       background:#d8ab4c;
+       border: 1px solid #d8ab4c;
+
 }
 .buttons a:hover {
 	cursor:pointer
