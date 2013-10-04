@@ -9,7 +9,7 @@
    <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/style_old.css" type="text/css" media="screen">
 
    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/front/vslides.css" media="screen"/>
-   <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script>
+   <!--script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js" type="text/javascript"></script-->
 
 
 </head>
