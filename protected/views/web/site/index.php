@@ -156,7 +156,7 @@ if($lang == 'en' || $lang == 'EN'|| $lang == 'En'){
                                 <div>
                                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/uploads/slide/<?php echo $value->image;?>" />
                                     <div style="padding:12px 10px 10px 0;font-size: 13px"><?php echo $title;?></div>
-                                    <div class="slider-meta"><a class="readmore" href="<?php echo $link;?>"><?php echo $readmore;?></a></div>
+                                    <div><a style="color:#fff" href="<?php echo $link;?>"><?php echo $readmore;?></a></div>
                                 </div>    
                             </li>
                     <?php        $k2++;}?>                                                                                                    		
